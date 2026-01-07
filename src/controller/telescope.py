@@ -45,15 +45,16 @@ class Telescope:
 
         distance = math.sqrt(d_alt**2 + d_az**2)
 
-        if distance < 0.01:
+        if distance < EPSILON: #01.07 멈추는 조건을 EPSILON과 맞추기
             self.alt = self.target_alt
             self.az = self.target_az
             self.state = "IDLE"
             print("[STATE] Target reached")
             return
         
-        step = self.slew_rate * dt
+        step = self.slew_rate * dt * (distance/10)#01.07 목표까지 남은 거리만큼 속도 줄이기 (100은 너무 큼)
         ratio = min(step / distance, 1.0)
+        print(f"dist={distance:.2f}")#01.07 거리가 줄어드는 것 확인 (코드 삭제해도 상관없음)
             
         self.alt += d_alt * ratio
         self.az += d_az * ratio
@@ -63,7 +64,16 @@ class Telescope:
         #01.06 지금 위치가 목표에서 얼마나 벗어나 있는지
         self.alt_error = self.target_alt - self.alt #목표 고도 - 현재 고도
         self.az_error = self.target_az - self.az #목표 방위각 - 현재 방위각
+
+        #01.07 오차로도 도달 판단 + 보정 + 정지
+        if abs(self.alt_error) < EPSILON and abs(self.az_error) < EPSILON:
+            self.alt = self.target_alt
+            self.az = self.target_az
+            self.state = "IDLE"
+            print("[STATE] Target reached (epsilon)")
+            return
         
+        print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
 
 
     #01.06
