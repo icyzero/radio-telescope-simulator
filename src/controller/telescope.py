@@ -22,23 +22,32 @@ class Telescope:
         self.slew_rate = slew_rate
         self.state = "IDLE"
 
+        self.command_queue = [] #01.08 명령을 여러 개 받아 수행하기 위한 배열
+
     def move_to(self, alt, az):
-        self.target_alt = alt
+        '''self.target_alt = alt
         self.target_az = az
-        self.state = "MOVING"
-        print(f"[COMMAN] Move to Alt={alt}, Az={az}")
+        self.state = "MOVING"'''#01.08 주석 처리 바로 이동이 아닌 큐에 저장하기 위해서
+        self.command_queue.append((alt, az)) #01.08 바로 이동이 아닌 큐에 저장
+        print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
     def stop(self):
         self.state = "STOPPED"
         self.target_alt = None
         self.target_az = None
+        self.command_queue.clear()  # 01.08 큐 비우기
         print("[COMMAND] Stop")
 
     def update(self, dt):
         """dt : time step in seconds"""
 
-        if self.state != "MOVING":
-            return
+        if self.state != "MOVING": # 01.08 현재 디옫중이면 update, 아니라면 큐에서 다음 명령 꺼내기
+            if self.command_queue:
+                self.target_alt, self.target_az = self.command_queue.pop(0)
+                self.state = "MOVING"
+                print(f"[START] Move to Alt={self.target_alt}, Az={self.target_az}")
+            else:
+                return
         
         d_alt = self.target_alt - self.alt
         d_az = self.target_az - self.az
