@@ -2,6 +2,9 @@
 import math
 
 EPSILON = 0.1 #Degrees
+STATE_IDLE = "IDLE"
+STATE_MOVING = "MOVING"
+STATE_STOPPED = "STOPPED"
 
 class Telescope:
     def __init__(self, slew_rate=2.0):
@@ -10,17 +13,17 @@ class Telescope:
         self.alt = 0.0
         self.az = 0.0
 
-        self.alt_step = 0.6 #01.06
-        self.az_step  = 2.4 #01.06
+        self.alt_step = 0.6 #01.06 한번에 고도로 움직일 양
+        self.az_step  = 2.4 #01.06 한번에 방위각으로 움직일 양
 
-        self.target_alt = None
-        self.target_az = None
+        self.target_alt = None#목표 고도
+        self.target_az = None#목표 방위각
 
         self.alt_error = 0.0 #01.06 고도 오류 제어
         self.az_error = 0.0 #01.06 방위각 오류 제어
 
-        self.slew_rate = slew_rate
-        self.state = "IDLE"
+        self.slew_rate = slew_rate#움직임 속도
+        self.state = STATE_IDLE # 사용 중 상태: IDLE, MOVING, STOPPED
 
         self.command_queue = [] #01.08 명령을 여러 개 받아 수행하기 위한 배열
 
@@ -32,20 +35,24 @@ class Telescope:
         print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
     def stop(self):
-        self.state = "STOPPED"
+        self.state = STATE_STOPPED
         self.target_alt = None
         self.target_az = None
         self.command_queue.clear()  # 01.08 큐 비우기
-        print("[COMMAND] Stop")
+        print(f"[STATE] → {STATE_STOPPED} (force stop)")#01.10 로그 정리
 
     def update(self, dt):
         """dt : time step in seconds"""
 
-        if self.state != "MOVING": # 01.08 현재 디옫중이면 update, 아니라면 큐에서 다음 명령 꺼내기
+        if self.state == "STOPPED": # 01.10 STOPPED상태를 적용함
+            return
+
+        if self.state != STATE_MOVING: # 01.08 현재 이동 중이면 update, 아니라면 큐에서 다음 명령 꺼내기 #01.10 로그 정리
             if self.command_queue:
                 self.target_alt, self.target_az = self.command_queue.pop(0)
-                self.state = "MOVING"
-                print(f"[START] Move to Alt={self.target_alt}, Az={self.target_az}")
+                self.state = STATE_MOVING
+                print(f"[STATE] {STATE_IDLE} → {STATE_MOVING} "
+                  f"(Alt={self.target_alt}, Az={self.target_az})")#01.10 로그 정리
             else:
                 return
         
@@ -57,32 +64,33 @@ class Telescope:
         if distance < EPSILON: #01.07 멈추는 조건을 EPSILON과 맞추기
             self.alt = self.target_alt
             self.az = self.target_az
-            self.state = "IDLE"
-            print("[STATE] Target reached")
+            self.state = STATE_IDLE
+            print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (target reached)")#01.10 로그 정리
             return
         
         step = self.slew_rate * dt * (distance/10)#01.07 목표까지 남은 거리만큼 속도 줄이기 (100은 너무 큼)
         ratio = min(step / distance, 1.0)
-        print(f"dist={distance:.2f}")#01.07 거리가 줄어드는 것 확인 (코드 삭제해도 상관없음)
+        #print(f"dist={distance:.2f}")#01.07 거리가 줄어드는 것 확인 (코드 삭제해도 상관없음)
             
         self.alt += d_alt * ratio
         self.az += d_az * ratio
 
-        print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
+        print(f"[UPDATE] state={self.state} "
+                f"Alt={self.alt:.2f}, Az={self.az:.2f}")#01.10 로그 정리
 
         #01.06 지금 위치가 목표에서 얼마나 벗어나 있는지
         self.alt_error = self.target_alt - self.alt #목표 고도 - 현재 고도
         self.az_error = self.target_az - self.az #목표 방위각 - 현재 방위각
 
         #01.07 오차로도 도달 판단 + 보정 + 정지
-        if abs(self.alt_error) < EPSILON and abs(self.az_error) < EPSILON:
+        '''if abs(self.alt_error) < EPSILON and abs(self.az_error) < EPSILON:
             self.alt = self.target_alt
             self.az = self.target_az
             self.state = "IDLE"
             print("[STATE] Target reached (epsilon)")
-            return
+            return'''
         
-        print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
+        #print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
 
 
     #01.06
