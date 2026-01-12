@@ -22,6 +22,9 @@ class Telescope:
         self.slew_rate = slew_rate#움직임 속도
         self.state = STATE_IDLE # 사용 중 상태: IDLE, MOVING, STOPPED
 
+        self.v_alt = 0.0#01.12 고도 움직이는 속도[altitude velocity](deg/s)
+        self.v_az = 0.0#01.12 방위각 움직이는 속도[azimuth velocity](deg/s)
+
         self.command_queue = [] #01.08 명령을 여러 개 받아 수행하기 위한 배열
 
     def move_to(self, alt, az):
@@ -53,6 +56,10 @@ class Telescope:
             else:
                 return
         
+        if self.state in(STATE_IDLE,STATE_STOPPED): #01.12 멈춰있으면 속도는 0 / Day 8: position is updated via velocity, not directly controlled
+            self.v_alt = 0.0
+            self.v_az = 0.0
+        
         d_alt = self.target_alt - self.alt #목표 고도까지 남은 거리
         d_az = self.target_az - self.az    #목표 방위각까지 남은 거리
         distance = math.sqrt(d_alt**2 + d_az**2)#목표까지 남은 거리 계산 피타고라스정리 활용
@@ -60,16 +67,33 @@ class Telescope:
         if distance < EPSILON: #01.07 멈추는 조건을 EPSILON과 맞추기 / 거리가 EPSILON보다 작으면 상태 IDLE로 변환
             self.alt = self.target_alt
             self.az = self.target_az
+            self.v_alt = 0.0 #도착시 속도 0으로
+            self.v_az = 0.0 #도착시 속도 0으로
             self.state = STATE_IDLE
             print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (target reached)")#01.10 로그 정리
             return
         
-        step = self.slew_rate * dt * (distance/10)#01.07 목표까지 남은 거리만큼 속도 줄이기 (100은 너무 큼) / 이번 dt동안 움직일 최대 거리 / 기본 이동량 = slew_rate * dt & 남은 거리에 비례해서 가감속 = (distance / 10)
+        #방향 백처 계산
+        dir_alt = d_alt / distance #이동방향 정규화 / 01.12 위치 수정 방향 백터 계산 전에 도착 여부 먼저 판단(이유 distance==0이면 오류 발생방지)
+        dir_az = d_az / distance #이동방향 정규화 / 01.12 위치 수정 방향 백터 계산 전에 도착 여부 먼저 판단
+
+        #속도 크기 계산
+        speed = self.slew_rate * (distance/10)
+
+        #velocity 계산
+        self.v_alt = dir_alt * speed #고도 속도 설정
+        self.v_az = dir_az * speed #방위각 속도 설정
+
+        #위치 갱신
+        self.alt += self.v_alt * dt #속도로 고도 위치 갱신
+        self.az += self.v_az * dt #속도로 방위각 위치 갱신
+        
+        '''step = self.slew_rate * dt * (distance/10)#01.07 목표까지 남은 거리만큼 속도 줄이기 (100은 너무 큼) / 이번 dt동안 움직일 최대 거리 / 기본 이동량 = slew_rate * dt & 남은 거리에 비례해서 가감속 = (distance / 10)
         ratio = min(step / distance, 1.0)#남은 거리 중 얼만큼 이동할지 비율 / 전체 거리 대비 이동량 비율 = step / distance & 과하게 튀어나가지 않도록 제한 = min(..., 1.0)
         #print(f"dist={distance:.2f}")#01.07 거리가 줄어드는 것 확인 (코드 삭제해도 상관없음)
             
         self.alt += d_alt * ratio #목표 고도로 ratio만큼 이동
-        self.az += d_az * ratio   #목표 방위각으로 ratio만큼 이동
+        self.az += d_az * ratio   #목표 방위각으로 ratio만큼 이동'''
 
         print(f"[UPDATE] state={self.state} "
                 f"Alt={self.alt:.2f}, Az={self.az:.2f}")#01.10 로그 정리
@@ -84,8 +108,7 @@ class Telescope:
             self.az = self.target_az
             self.state = "IDLE"
             print("[STATE] Target reached (epsilon)")
-            return'''
-        
+            return'''     
         #print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
 
 
