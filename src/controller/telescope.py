@@ -25,6 +25,9 @@ class Telescope:
         self.v_alt = 0.0#01.12 고도 움직이는 속도[altitude velocity](deg/s)
         self.v_az = 0.0#01.12 방위각 움직이는 속도[azimuth velocity](deg/s)
 
+        self.MAX_SPEED = 2.0 #01.14 실제 모터에는 최대 속도가 있음
+        self.MIN_SPEED = 0.1 #01.14 목표 근처에서는 아주 느리게라도 끝까지 이동
+
         self.command_queue = [] #01.08 명령을 여러 개 받아 수행하기 위한 배열
 
     def move_to(self, alt, az):
@@ -78,7 +81,8 @@ class Telescope:
         dir_az = d_az / distance #이동방향 정규화 / 01.12 위치 수정 방향 백터 계산 전에 도착 여부 먼저 판단
 
         #속도 크기 계산
-        speed = self.slew_rate * (distance/10)
+        raw_speed = self.slew_rate * (distance/10)
+        speed = min(max(raw_speed,self.MIN_SPEED),self.MAX_SPEED) #01.14 모터가 움직일 수 있는 최대 속도보다 빠르지 않게, 목표에 가까워질 때 0이아닌 최소 속도로 목표에 도달하게끔
 
         #velocity 계산
         self.v_alt = dir_alt * speed #고도 속도 설정

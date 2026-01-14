@@ -16,3 +16,5 @@ day 6: telescope의 동작 : “외부에서 move_to(x)를 호출하면 Telescop
 day 8: 위치 제어 → 속도 기반 제어로 개념 분리 시작
 
 Day 9: Implemented time-based simulation loop and visualized telescope motion (Alt/Az vs time, trajectory).
+
+Day 10: Validated velocity-constrained motion model with stable convergence under time-based simulation.
