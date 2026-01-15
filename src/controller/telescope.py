@@ -6,6 +6,11 @@ STATE_IDLE = "IDLE"
 STATE_MOVING = "MOVING"
 STATE_STOPPED = "STOPPED"
 
+STOP_NONE = None #01.15
+STOP_OVERSHOOT = "OVERSHOOT" #목표보다 많이 넘어감
+STOP_STALL = "STALL" #속도가 0에 가까운데 거리가 큼
+STOP_MANUAL = "MANUAL" #외무에서 stop()호출
+
 class Telescope:
     def __init__(self, slew_rate=2.0):
         """slew_rate : degrees per second"""
@@ -37,10 +42,11 @@ class Telescope:
         self.command_queue.append((alt, az)) #01.08 바로 이동이 아닌 큐에 저장
         print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
-    def stop(self):
+    def stop(self, reason=STOP_MANUAL):
         self.state = STATE_STOPPED
-        self.target_alt = None
-        self.target_az = None
+        self.stop_reason = reason #01.15
+        '''self.target_alt = None
+        self.target_az = None'''
         self.command_queue.clear()  # 01.08 큐 비우기
         print(f"[STATE] → {STATE_STOPPED} (force stop)")#01.10 로그 정리
 
@@ -114,6 +120,10 @@ class Telescope:
             print("[STATE] Target reached (epsilon)")
             return'''     
         #print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
+
+    def can_resume(self): #01.15일단 설계만
+        return self.state == STATE_STOPPED and self.stop_reason != STOP_OVERSHOOT
+
 
 
     #01.06 상태 체크용
