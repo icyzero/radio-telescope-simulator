@@ -24,3 +24,5 @@ Day 11: Introduced explicit STOP reasons and structured error-state handling for
 Day 12: Extended command queue with runtime control (cancel, skip, status) for operational use.
 
 Day 15: Project re-entry after illness; reviewed control flow and verified existing simulations without modification.
+
+Day 16: Introduced time-aware command structure as a foundation for scheduling.
