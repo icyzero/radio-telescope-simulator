@@ -1,6 +1,5 @@
 # src/controller/telescope.py
 import math
-from controller.command import Command
 
 EPSILON = 0.1 #목표 도달로 판단하는 최소 각도 오차(도)
 STATE_IDLE = "IDLE"
@@ -39,11 +38,11 @@ class Telescope:
 
         self.stop_reason = STOP_NONE
 
-    def move_to(self, alt, az, execute_at=None):
+    def move_to(self, alt, az):
         '''self.target_alt = alt
         self.target_az = az
         self.state = "MOVING"'''#01.08 주석 처리 / 바로 이동이 아닌 큐에 저장하기 위해서
-        self.command_queue.append(Command(alt, az, execute_at)) #01.08 바로 이동이 아닌 큐에 저장
+        self.command_queue.append((alt, az)) #01.08 바로 이동이 아닌 큐에 저장
         print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
     def stop(self, reason=STOP_MANUAL):
@@ -68,7 +67,9 @@ class Telescope:
             "queue_length": len(self.command_queue),
             "stop_reason": self.stop_reason
         }
-
+    
+    def enqueue_move(self, alt, az): #command.py 창구 메서드 이동 좌표만 저장
+        self.command_queue.append((alt, az))
 
     def update(self, dt):
         """dt : 초마다 시간 경과"""
@@ -80,8 +81,7 @@ class Telescope:
             if self.current_command is None and self.command_queue:
                 self.current_command = self.command_queue.pop(0)
                 self.state = STATE_MOVING
-                target_alt = self.current_command.alt
-                target_az = self.current_command.az #어디로 가기 시작했는지
+                target_alt, target_az = self.current_command#어디로 가기 시작했는지
                 print(f"[STATE] {STATE_IDLE} → {STATE_MOVING} "
                   f"(Alt={target_alt}, Az={target_az})")#01.10 로그 정리
             else:
@@ -91,8 +91,7 @@ class Telescope:
             self.v_alt = 0.0
             self.v_az = 0.0
         
-        target_alt = self.current_command.alt
-        target_az = self.current_command.az #지금 어디를 향해 움직이는지
+        target_alt, target_az = self.current_command #지금 어디를 향해 움직이는지
         
         d_alt = target_alt - self.alt #목표 고도까지 남은 거리
         d_az = target_az - self.az    #목표 방위각까지 남은 거리
