@@ -30,3 +30,5 @@ Day 16: Introduced time-aware command structure as a foundation for scheduling.
 Day 17: command.py의 역할을 더 명확히 [Command는 사용자의 의도를 객체로 캡슐화해서 Telescope에 요청하는 역할]/ telescope.py원복(이유: telescope는 순수하게 움직이는 역할만 하기 위해) 
 
 Day 18: Separate command lifecycle from telescope control and validate via tests
+
+Day 19: Introduced timeout-based failure handling for commands, enabling explicit detection and logging of unsuccessful executions.

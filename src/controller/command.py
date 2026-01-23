@@ -21,8 +21,12 @@ class MoveCommand(Command):
         super().__init__()
         self.alt = alt
         self.az = az
+        self.elapsed_time = 0.0
+        self.timeout = 30.0 #seconds
+        self.fail_reason = None
 
     def execute(self, telescope):
+        print("[CMD] MoveCommand START")
         self.state = CMD_RUNNING
         print("[CMD] MoveCommand RUNNING")
         telescope.enqueue_move(self.alt, self.az)
@@ -30,10 +34,19 @@ class MoveCommand(Command):
     def update(self, telescope, dt):
         if self.state != CMD_RUNNING:
             return
+        
+        self.elapsed_time += dt #시간 누적
 
-        if telescope.is_target_reached():
+        if telescope.is_target_reached(): #설공 조건
             self.state = CMD_SUCCESS 
             print("[CMD] MoveCommand SUCCESS")
+            return
+        
+        if self.elapsed_time > self.timeout: #실패 조건
+            self.state = CMD_FAILED
+            self.fail_reason = "TIMEOUT"
+            print("[CMD] MoveCommand FAILED (TIMEOUT)")
+            return
 
 class StopCommand(Command):
     def execute(self, telescope):
