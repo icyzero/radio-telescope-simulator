@@ -37,7 +37,7 @@ class MoveCommand(Command):
         
         self.elapsed_time += dt #시간 누적
 
-        if telescope.is_target_reached(): #설공 조건
+        if telescope.state == "IDLE" and telescope.is_target_reached(): #성공 조건
             self.state = CMD_SUCCESS 
             print("[CMD] MoveCommand SUCCESS")
             return
