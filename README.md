@@ -34,3 +34,5 @@ Day 18: Separate command lifecycle from telescope control and validate via tests
 Day 19: Introduced timeout-based failure handling for commands, enabling explicit detection and logging of unsuccessful executions.
 
 Day 20: Implemented a CommandManager to execute commands sequentially and manage command lifecycle transitions.
+
+Day 22: Introduced CommandManager to manage command lifecycle, sequencing, and execution flow, separating high-level control logic from Telescope and Command
