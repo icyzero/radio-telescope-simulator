@@ -36,3 +36,6 @@ Day 19: Introduced timeout-based failure handling for commands, enabling explici
 Day 20: Implemented a CommandManager to execute commands sequentially and manage command lifecycle transitions.
 
 Day 22: Introduced CommandManager to manage command lifecycle, sequencing, and execution flow, separating high-level control logic from Telescope and Command
+
+Day 23: mplemented a main control loop driven by CommandManager, coordinating Telescope updates and sequential command execution.
+(아직은 test파일에서 실행하지만 추후에 main.py를 만들예정) 

@@ -1,0 +1,51 @@
+D:\radio-telescope-simulator>python -m tests.01_27_test.py
+[CMD] MoveCommand START
+[CMD] MoveCommand RUNNING
+[CMD] MoveCommand SUCCESS
+[STATE] IDLE → MOVING (Alt=10, Az=10)
+[UPDATE] state=MOVING Alt=0.14, Az=0.14
+[CMD] MoveCommand START
+[CMD] MoveCommand RUNNING
+[UPDATE] state=MOVING Alt=0.28, Az=0.28
+[UPDATE] state=MOVING Alt=0.42, Az=0.42
+[UPDATE] state=MOVING Alt=0.57, Az=0.57
+...
+[UPDATE] state=MOVING Alt=9.92, Az=9.92
+[UPDATE] state=MOVING Alt=9.93, Az=9.93
+[STATE] MOVING → IDLE (target reached)
+[CMD] MoveCommand SUCCESS
+[STATE] IDLE → MOVING (Alt=20, Az=20)
+[UPDATE] state=MOVING Alt=10.14, Az=10.14
+[STATE] → STOPPED (force stop)
+[SYSTEM] All commands finished.
+
+Q: 20,20으로 이동 중에 시스템이 stopped된 이유
+A: 이동 중이지만 긴급 정지 명령이 들어오면 즉시 멈춘다
+
+왜 StopCommand가 중간에 실행됐을까?
+
+이건 CommandManager의 설계 때문입니다.
+
+지금 구조는:
+
+if self.current is None and self.queue:
+    self.current = self.queue.pop(0)
+
+
+그런데 StopCommand는:
+
+class StopCommand(Command):
+    def execute(self, telescope):
+        self.state = CMD_ABORTED
+        telescope.stop()
+
+
+즉,
+
+StopCommand는 실행 즉시 종료
+
+telescope는 강제 STOPPED 상태
+
+다음 tick에 queue도 비어 있음
+
+👉 그래서 20,20 이동은 중단된 채 시스템 종료
