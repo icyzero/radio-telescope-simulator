@@ -37,5 +37,43 @@ Day 20: Implemented a CommandManager to execute commands sequentially and manage
 
 Day 22: Introduced CommandManager to manage command lifecycle, sequencing, and execution flow, separating high-level control logic from Telescope and Command
 
-Day 23: mplemented a main control loop driven by CommandManager, coordinating Telescope updates and sequential command execution.
+Day 23: Implemented a main control loop driven by CommandManager, coordinating Telescope updates and sequential command execution.
 (아직은 test파일에서 실행하지만 추후에 main.py를 만들예정) 
+
+Day 24: Make main.py
+
+
+
+
+---------------------------------------------------------
+## How to Run
+
+This project is executed through a main control loop.
+
+```bash
+python -m src.main
+
+
+## Execution Flow
+
+- Initialize Telescope and CommandManager
+- Queue commands in CommandManager
+- Main loop continuously updates:
+  - CommandManager (command lifecycle)
+  - Telescope (physical movement simulation)
+- System remains running, awaiting further commands
+
+## Log Format
+
+The system uses simple console logs to represent execution state.
+
+- [CMD]   : Command lifecycle (START / RUNNING / SUCCESS / FAILED)
+- [STATE] : Telescope state transitions
+- [SYSTEM]: System-level startup or shutdown messages
+- [INFO]  : General execution flow
+
+Example:
+
+[SYSTEM] Telescope control system started
+[CMD] MoveCommand START
+[STATE] IDLE → MOVING
