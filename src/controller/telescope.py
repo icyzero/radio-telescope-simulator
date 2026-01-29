@@ -149,7 +149,8 @@ class Telescope:
     def can_resume(self): #01.15일단 설계만
         return self.state == STATE_STOPPED and self.stop_reason != STOP_OVERSHOOT
 
-
+    def is_stopped(self): #01.29 Command에서 ABORTED를 활용하기 위해
+        return self.state == STATE_STOPPED
 
     #01.06 상태 체크용
     def is_target_reached(self):

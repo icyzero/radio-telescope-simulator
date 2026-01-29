@@ -42,6 +42,7 @@ Day 23: Implemented a main control loop driven by CommandManager, coordinating T
 
 Day 24: Make main.py
 
+Day 25: Clarified system-level STOPPED state vs command-level ABORTED/FAILED handling, validating robust failure isolation in the control loop.
 
 
 

@@ -37,6 +37,12 @@ class MoveCommand(Command):
         
         self.elapsed_time += dt #시간 누적
 
+        if telescope.is_stopped():
+            self.state = CMD_ABORTED
+            self.abort_reason = "TELESCOPE_STOPPED"
+            print("[CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)")
+            return
+
         if telescope.state == "IDLE" and telescope.is_target_reached(): #성공 조건
             self.state = CMD_SUCCESS 
             print("[CMD] MoveCommand SUCCESS")
@@ -50,5 +56,7 @@ class MoveCommand(Command):
 
 class StopCommand(Command):
     def execute(self, telescope):
-        self.state = CMD_ABORTED
+        print("[CMD] StopCommand START")
         telescope.stop()
+        self.state = CMD_SUCCESS
+        print("[CMD] StopCommand SUCCESS")
