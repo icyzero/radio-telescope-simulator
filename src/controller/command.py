@@ -1,3 +1,5 @@
+from src.utils.logger import log
+
 CMD_PENDING = "PENDING"
 CMD_RUNNING = "RUNNING"
 CMD_SUCCESS = "SUCCESS"
@@ -6,8 +8,9 @@ CMD_ABORTED = "ABORTED" #외부 요인 시 중단
 
 
 class Command: #명령에 '시간'을 붙일 수 있는 구조 
-    def __init__(self):
+    def __init__(self, scheduled_at=0.0):
         self.state = CMD_PENDING
+        self.scheduled_at = scheduled_at
 
     def execute(self, telescope): #명령 발동 트리거 (target 설정, 상태 running)
         self.state = CMD_RUNNING
@@ -17,8 +20,8 @@ class Command: #명령에 '시간'을 붙일 수 있는 구조
         pass
     
 class MoveCommand(Command):
-    def __init__(self, alt, az):
-        super().__init__()
+    def __init__(self, alt, az, scheduled_at=0.0):
+        super().__init__(scheduled_at)
         self.alt = alt
         self.az = az
         self.elapsed_time = 0.0
@@ -26,9 +29,9 @@ class MoveCommand(Command):
         self.fail_reason = None
 
     def execute(self, telescope):
-        print("[CMD] MoveCommand START")
+        log("[CMD] MoveCommand START")
         self.state = CMD_RUNNING
-        print("[CMD] MoveCommand RUNNING")
+        log("[CMD] MoveCommand RUNNING")
         telescope.enqueue_move(self.alt, self.az)
 
     def update(self, telescope, dt):
@@ -40,21 +43,24 @@ class MoveCommand(Command):
         if telescope.is_stopped():
             self.state = CMD_ABORTED
             self.abort_reason = "TELESCOPE_STOPPED"
-            print("[CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)")
+            log("[CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)")
             return
 
         if telescope.state == "IDLE" and telescope.is_target_reached(): #성공 조건
             self.state = CMD_SUCCESS 
-            print("[CMD] MoveCommand SUCCESS")
+            log("[CMD] MoveCommand SUCCESS")
             return
         
         if self.elapsed_time > self.timeout: #실패 조건
             self.state = CMD_FAILED
             self.fail_reason = "TIMEOUT"
-            print("[CMD] MoveCommand FAILED (TIMEOUT)")
+            log("[CMD] MoveCommand FAILED (TIMEOUT)")
             return
 
 class StopCommand(Command):
+    def __init__(self, scheduled_at=0):
+        super().__init__(scheduled_at)
+
     def execute(self, telescope):
         print("[CMD] StopCommand START")
         telescope.stop()

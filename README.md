@@ -44,7 +44,7 @@ Day 24: Make main.py
 
 Day 25: Clarified system-level STOPPED state vs command-level ABORTED/FAILED handling, validating robust failure isolation in the control loop.
 
-
+Day 26: Introduced time-aware command scheduling concept and persistent structured logging to prepare for operational execution.
 
 ---------------------------------------------------------
 ## How to Run

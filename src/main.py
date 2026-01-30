@@ -19,6 +19,7 @@ import time
 from src.controller.telescope import Telescope
 from src.controller.command_manager import CommandManager
 from src.controller.command import MoveCommand, StopCommand
+from src.utils.logger import log
 
 def main():
     dt = 0.1
@@ -31,7 +32,7 @@ def main():
     manager.add_command(MoveCommand(20, 20))
     manager.add_command(StopCommand())
 
-    print("[SYSTEM] Telescope control system started.")
+    log("[SYSTEM] Telescope control system started.")
     
     # Main control loop (system stays alive and waits for commands)
     while True:
