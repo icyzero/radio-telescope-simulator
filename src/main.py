@@ -13,6 +13,35 @@ Note:
 - Telescope handles physical movement only
 - CommandManager controls command sequencing and lifecycle
 """
+"""
+Main control loop for the radio telescope simulator.
+
+This loop is intentionally designed as an infinite loop (`while True`)
+to emulate real-world telescope control systems, which operate in an
+always-on, event-driven manner rather than executing a finite task.
+
+Design principles:
+
+- Time-driven simulation:
+  The system advances in fixed time steps (`dt`), allowing deterministic
+  and testable physical motion.
+
+- Separation of responsibilities:
+  - Telescope updates only its physical state.
+  - CommandManager manages command execution order and lifecycle.
+  - Commands encapsulate user intent without controlling time.
+
+- State-driven termination:
+  The system does not exit based on loop conditions.
+  Instead, termination or halting behavior is controlled through explicit
+  system states such as STOPPED.
+
+This structure allows the same control loop to be reused for:
+- Automated tests
+- Simulations
+- Future real-time or event-based integrations
+"""
+
 #메인으로 실행할 프로그램
 
 import time

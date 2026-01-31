@@ -78,3 +78,30 @@ Example:
 [SYSTEM] Telescope control system started
 [CMD] MoveCommand START
 [STATE] IDLE → MOVING
+
+---------------------------------------------------------
+## System Design Philosophy
+
+This simulator is structured to resemble a real-world telescope control system,
+where time continuously flows and the system reacts to commands and events.
+
+- **Telescope**
+  - A passive physical model.
+  - Responsible only for updating its internal state (position, motion, STOPPED).
+  - Has no knowledge of commands or execution order.
+
+- **Command**
+  - Encapsulates user intent (e.g., move, stop).
+  - Defines execution logic and success/failure conditions.
+  - Does not control time or scheduling.
+
+- **CommandManager**
+  - Owns command sequencing and lifecycle management.
+  - Decides *what* command runs and *when*.
+  - Acts as the central controller between user intent and physical motion.
+
+- **Main Control Loop**
+  - Simulates real-time flow using a fixed `dt`.
+  - Continuously updates both the Telescope and CommandManager.
+  - Designed as an infinite loop to reflect always-on control systems.
+  - System termination is driven by state (e.g., STOPPED), not by loop structure.
