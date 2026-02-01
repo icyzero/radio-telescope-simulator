@@ -1,0 +1,105 @@
+## 📘 Day 28 복습용 질문 리스트
+
+### 1️⃣ 전체 구조 이해 (가장 중요)
+
+1. 이 프로젝트의 **메인 루프**는 왜 `while + dt` 구조인가?
+A: 유한한 작업을 수행하기 보단 항상 켜진 상태로 동작하는 것을 모방하기 위해
+2. `telescope.update()`와 `command_manager.update()`의 **호출 순서가 중요한 이유**는?
+A: telescope는 물리 상태, command_manager는 의도를 나타내기 때문에 telescope를 먼저 업데이트 하면 이전 명령상태를 반영하지 못하기 때문
+GPT A: telescope.update()는 이미 설정된 목표를 기준으로 물리 상태를 적분하고,
+        command_manager.update()는 그 결과를 관찰해 Command의 성공/실패를 판단한다.
+        따라서 물리 → 의도 판단 순서가 유지되어야 시간 일관성이 보장된다. 
+3. 이 시스템은 **event-driven**인가, **time-driven**인가? 왜 그렇게 설계했는가?
+A: time-driven 실제 상태 변화는 시간에 의해 변화되기 때문
+---
+
+### 2️⃣ Telescope 책임 범위
+
+4. Telescope는 **알아도 되는 것**과 **몰라도 되는 것**을 구분해 설명해보라.
+A: 알아도 되는 것: 현제 위치, 목표 고도, 목표 방위각, 속도, 물리적 상태 / 몰라도 되는 것: 왜 움직이는지
+5. Telescope가 **Command를 직접 알면 안 되는 이유**는?
+A: 안정성이 무너지기 때문 telescope는 그냥 모터를 움직이기 위한 용도일 뿐
+6. Telescope 내부 상태(state)는 왜 외부에서 직접 바꾸지 않는가?
+A: 외부에서 강제 변경하면 시스템의 불일치 가능성이 있기 때문
+---
+
+### 3️⃣ Command 개념 복습
+
+7. Command가 단순 함수가 아니라 **객체여야 하는 이유**는?
+A: 시간, 상태, 실패 이유를 보존해야 하기 때문
+8. `execute()`와 `update()`를 분리한 설계 의도는?
+A: execute는 트리거, update는 시간에 따른 관찰이 필요하기 때문
+9. Command에 `dt`가 필요한 이유는 무엇인가?
+A: 시간적 로직을 가능하게 하기 위해
+---
+
+### 4️⃣ Command 상태 전이
+
+10. Command의 상태 흐름(PENDING → RUNNING → SUCCESS/FAILED/ABORTED)을 설명하라.
+A: PENDING: 대기 / RUNNING: 움직임 / SUCCESS: 성공 / FAILED: 조건불충족 / ABORTED: 외부요인으로 인한 중단
+11. **FAILED**와 **ABORTED**를 분리한 이유는?
+A: 시스템 오류와 외부 게입으로인한 오류는 다르기 때문
+12. STOPPED와 ABORTED의 차이를 “운영 관점”에서 설명해보라.
+A: STOPPED는 Telescope의 물리 상태, ABORTED는 Command의 실행 결과 상태
+---
+
+### 5️⃣ CommandManager 역할
+
+13. CommandManager가 없으면 어떤 문제가 생기는가?
+A: 명령 중첩, 충돌, 실행 순서 불명확
+14. CommandManager는 **무엇을 결정하고, 무엇을 결정하지 않는가?**
+A: 하는 것: 실행순서 관리 / 않는 것: 물리상태 제어, 성공실패 판단
+15. “한 번에 하나의 Command만 실행”하는 설계의 장점은?
+A: 단일 장비 사용시 안정성 확보
+---
+
+### 6️⃣ 실패와 예외 처리
+
+16. timeout 기반 실패 판단은 왜 Telescope가 아니라 Command에서 하는가?
+A: telescope는 실패 개념이 없다
+17. 실패가 발생했을 때 **시스템 전체를 멈출지 / 다음 명령으로 갈지**는 누가 결정해야 하는가?
+A: CommandManager
+18. 실제 장비였다면 어떤 실패 로그가 추가로 필요할까?
+A: 모름
+GPT A: 엔코더 불일치 (encoder mismatch)
+        모터 응답 없음 / 과전류
+        제한각 초과 (limit violation)
+        Slew rate 초과
+        네트워크 명령 지연
+        안전 인터락 트리거
+---
+
+### 7️⃣ 로그 설계
+
+19. `[CMD]`, `[STATE]`, `[SYSTEM]` 로그를 분리한 이유는?
+A: CMD: 제어 의도 / STATE: 물리 변화 / SYSTEM: 운영 흐름
+20. 같은 이벤트를 로그로 남길 때 **Command 로그 vs State 로그의 차이**는?
+A: 관점이 다름
+21. 연구/운영 환경에서 로그가 중요한 이유는?
+A: 재현이 어렵기 때문에 유일한 증거는 로그 뿐
+---
+
+### 8️⃣ 확장 질문 (Day 29 대비)
+
+22. MOVING 중에 새 MoveCommand가 들어오면 어떤 선택지가 있는가?
+A: 거부하거나 큐에 추가
+23. “명령 우선순위”를 넣으려면 구조상 어디를 고쳐야 하는가?
+A: CommandManager
+24. Command 스케줄링을 넣을 때 **Telescope는 바뀌어야 하는가?**
+A: 필요없음
+---
+
+### 9️⃣ 메타 질문 (아주 중요)
+
+25. 이 구조는 **실제 전파망원경 제어 시스템과 어떤 점이 닮았는가?**
+A: 모름
+GPT A: 물리 제어 계층 (모터, 안테나)
+        명령 계층 (slew, track, stop)
+        스케줄/운영 계층이 명확히 분리되어 있다.
+        이 프로젝트는 Telescope / Command / CommandManager 구조로 계층 분리를 그대로 모방하고 있다.
+26. 이 프로젝트를 한 줄로 설명하면 뭐라고 말할 수 있는가?
+A: 시간 기반 Command 실행을 지원하는 전파망원경 제어 시뮬레이터
+27. 지금 구조의 **가장 잘한 설계 1가지**는 무엇이라고 생각하는가?
+A: 모름
+GPT A: 물리 제어(Telescope)와 의도(Command)를 완전히 분리한 점. 덕분에 스케줄링, 실패 처리, 정책 변경이 Telescope 수정 없이 가능하다.
+---
