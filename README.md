@@ -46,6 +46,9 @@ Day 25: Clarified system-level STOPPED state vs command-level ABORTED/FAILED han
 
 Day 26: Introduced time-aware command scheduling concept and persistent structured logging to prepare for operational execution.
 
+Day 29: Defined operational command policies, including handling of new commands during motion, pending command cancellation, and explicit separation between command intent and physical state logs.
+
+
 ---------------------------------------------------------
 ## How to Run
 
@@ -105,3 +108,11 @@ where time continuously flows and the system reacts to commands and events.
   - Continuously updates both the Telescope and CommandManager.
   - Designed as an infinite loop to reflect always-on control systems.
   - System termination is driven by state (e.g., STOPPED), not by loop structure.
+
+-----------------------------------------------------------------------
+### Logging Policy
+
+- [CMD]    : Operator / Scheduler intent (Command lifecycle)
+- [STATE]  : Physical or simulated telescope state change
+- [SYSTEM] : Control flow, safety, scheduling decisions
+- [INFO]   : Non-critical reference information

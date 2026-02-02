@@ -13,8 +13,16 @@ class CommandManager:
         self.current = None
         self.time = 0.0
 
-    def add_command(self, cmd):
+    def add_command(self, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
         self.queue.append(cmd)
+
+    def cancel_pending(self):
+        """
+        cancel all peding (not yet started) commands.
+        Running command is never interrupted.   
+        """
+        self.queue.clear()
+        print("[SYSTEM] Pending commmands cancelled.")
 
     def update(self, telescope, dt):
         self.time += dt
