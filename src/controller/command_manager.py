@@ -1,5 +1,7 @@
 #여러 command의 실행 순서와 상태를 관리하는 중앙 제어자
 
+from controller.state_rules import STATE_COMMAND_RULES, CommandDecision
+
 from src.controller.command import (
     CMD_SUCCESS,
     CMD_FAILED,
@@ -13,8 +15,20 @@ class CommandManager:
         self.current = None
         self.time = 0.0
 
-    def add_command(self, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
-        self.queue.append(cmd)
+    def add_command(self, telescope, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
+        state = telescope.state
+        decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
+
+        if decision == CommandDecision.EXECUTE:        
+            self.queue.append(cmd)
+            log(f"[CMD] {cmd.type.name} accepted (EXECUTE)")
+
+        elif decision == CommandDecision.PENDING:
+            self.queue.append(cmd)
+            log(f"[CMD] {cmd.type.name} queued (PENDING)")
+
+        elif decision == CommandDecision.REJECT:
+            log(f"[CMD] {cmd.type.name} rejected (state={state.name})")
 
     def cancel_pending(self):
         """

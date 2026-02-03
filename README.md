@@ -48,6 +48,8 @@ Day 26: Introduced time-aware command scheduling concept and persistent structur
 
 Day 29: Defined operational command policies, including handling of new commands during motion, pending command cancellation, and explicit separation between command intent and physical state logs.
 
+Day 30: Refined command acceptance rules by introducing explicit EXECUTE, PENDING, and REJECT decisions based on telescope state.
+This clarified the distinction between rejected commands and aborted executions, and laid the groundwork for future priority-based scheduling.
 
 ---------------------------------------------------------
 ## How to Run

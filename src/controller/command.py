@@ -8,9 +8,10 @@ CMD_ABORTED = "ABORTED" #외부 요인 시 중단
 
 
 class Command: #명령에 '시간'을 붙일 수 있는 구조 
-    def __init__(self, scheduled_at=0.0):
+    def __init__(self, scheduled_at=0.0, priority=1): #priority 상태 stop = 0 / move = 1 / park = 2 
         self.state = CMD_PENDING
         self.scheduled_at = scheduled_at
+        self.priority = priority 
 
     def execute(self, telescope): #명령 발동 트리거 (target 설정, 상태 running)
         self.state = CMD_RUNNING
