@@ -118,3 +118,15 @@ where time continuously flows and the system reacts to commands and events.
 - [STATE]  : Physical or simulated telescope state change
 - [SYSTEM] : Control flow, safety, scheduling decisions
 - [INFO]   : Non-critical reference information
+
+-------------------------------------------------------------------
+## Scheduling Policy
+
+Commands are scheduled based on explicit priority levels.
+Lower numeric values indicate higher priority.
+
+- STOP commands have the highest priority and are executed as soon as possible.
+- MOVE commands are executed sequentially when the telescope is available.
+- PARK commands are deferred until motion completes.
+
+This policy reflects real-world telescope safety and operational constraints.

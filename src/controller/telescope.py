@@ -1,5 +1,6 @@
 # src/controller/telescope.py
 import math
+from src.controller.enums import TelescopeState
 
 EPSILON = 0.1 #목표 도달로 판단하는 최소 각도 오차(도)
 STATE_IDLE = "IDLE"
@@ -25,7 +26,7 @@ class Telescope:
         self.az_error = 0.0 #01.06 방위각 오류 제어
 
         self.slew_rate = slew_rate#움직임 속도
-        self.state = STATE_IDLE # 사용 중 상태: IDLE, MOVING, STOPPED
+        self.state = TelescopeState.IDLE # 사용 중 상태: IDLE, MOVING, STOPPED
 
         self.v_alt = 0.0#01.12 고도 움직이는 속도[altitude velocity](deg/s)
         self.v_az = 0.0#01.12 방위각 움직이는 속도[azimuth velocity](deg/s)
@@ -46,7 +47,7 @@ class Telescope:
         print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
     def stop(self, reason=STOP_MANUAL):
-        self.state = STATE_STOPPED
+        self.state = TelescopeState.STOPPED
         self.stop_reason = reason #01.15
         '''self.target_alt = None
         self.target_az = None'''
@@ -58,7 +59,7 @@ class Telescope:
 
     def skip_current(self): #01.16 현재 명령만을 포기하고 다음 update()에서 자동으로 다음 큐 명영으로 진입
         self.current_command = None
-        self.state = STATE_IDLE
+        self.state = TelescopeState.IDLE
 
     def get_status(self):
         return {
@@ -74,20 +75,20 @@ class Telescope:
     def update(self, dt):
         """dt : 초마다 시간 경과"""
 
-        if self.state == STATE_STOPPED: # 01.10 STOPPED상태를 적용함 / 정지 상태면 아무 것도 안함
+        if self.state == TelescopeState.STOPPED: # 01.10 STOPPED상태를 적용함 / 정지 상태면 아무 것도 안함
             return
 
-        if self.state != STATE_MOVING: # 01.08 현재 이동 중이면 update, 아니라면 큐에서 다음 명령 꺼내기 #01.10 로그 정리
+        if self.state != TelescopeState.MOVING: # 01.08 현재 이동 중이면 update, 아니라면 큐에서 다음 명령 꺼내기 #01.10 로그 정리
             if self.current_command is None and self.command_queue:
                 self.current_command = self.command_queue.pop(0)
-                self.state = STATE_MOVING
+                self.state = TelescopeState.MOVING
                 target_alt, target_az = self.current_command#어디로 가기 시작했는지
                 print(f"[STATE] {STATE_IDLE} → {STATE_MOVING} "
                   f"(Alt={target_alt}, Az={target_az})")#01.10 로그 정리
             else:
                 return
 
-        if self.state in(STATE_IDLE,STATE_STOPPED): #01.12 멈춰있으면 속도는 0 / Day 8: position is updated via velocity, not directly controlled
+        if self.state in(TelescopeState.IDLE,TelescopeState.STOPPED): #01.12 멈춰있으면 속도는 0 / Day 8: position is updated via velocity, not directly controlled
             self.v_alt = 0.0
             self.v_az = 0.0
         
@@ -103,7 +104,7 @@ class Telescope:
             self.v_alt = 0.0 #도착시 속도 0으로
             self.v_az = 0.0 #도착시 속도 0으로
             self.current_command = None
-            self.state = STATE_IDLE
+            self.state = TelescopeState.IDLE
             print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (target reached)")#01.10 로그 정리
             return
         
@@ -147,10 +148,10 @@ class Telescope:
         #print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
 
     def can_resume(self): #01.15일단 설계만
-        return self.state == STATE_STOPPED and self.stop_reason != STOP_OVERSHOOT
+        return self.state == TelescopeState.STOPPED and self.stop_reason != STOP_OVERSHOOT
 
     def is_stopped(self): #01.29 Command에서 ABORTED를 활용하기 위해
-        return self.state == STATE_STOPPED
+        return self.state == TelescopeState.STOPPED
 
     #01.06 상태 체크용
     def is_target_reached(self):

@@ -6,7 +6,7 @@ import time
 dt = 0.1
 
 telescope = Telescope()
-mgr = CommandManager()
+mgr = CommandManager(telescope)
 
 mgr.add_command(MoveCommand(10, 10))
 mgr.add_command(MoveCommand(15, 15))

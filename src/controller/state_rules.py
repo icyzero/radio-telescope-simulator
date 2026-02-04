@@ -1,4 +1,4 @@
-from controller.enums import TelescopeState, CommandType
+from src.controller.enums import TelescopeState, CommandType
 from enum import Enum
 
 class CommandDecision(Enum):

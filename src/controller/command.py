@@ -1,4 +1,5 @@
 from src.utils.logger import log
+from src.controller.enums import CommandType
 
 CMD_PENDING = "PENDING"
 CMD_RUNNING = "RUNNING"
@@ -12,6 +13,7 @@ class Command: #명령에 '시간'을 붙일 수 있는 구조
         self.state = CMD_PENDING
         self.scheduled_at = scheduled_at
         self.priority = priority 
+        self.type = None
 
     def execute(self, telescope): #명령 발동 트리거 (target 설정, 상태 running)
         self.state = CMD_RUNNING
@@ -28,6 +30,7 @@ class MoveCommand(Command):
         self.elapsed_time = 0.0
         self.timeout = 30.0 #seconds
         self.fail_reason = None
+        self.type = CommandType.MOVE
 
     def execute(self, telescope):
         log("[CMD] MoveCommand START")
@@ -61,6 +64,7 @@ class MoveCommand(Command):
 class StopCommand(Command):
     def __init__(self, scheduled_at=0):
         super().__init__(scheduled_at)
+        self.type = CommandType.STOP
 
     def execute(self, telescope):
         print("[CMD] StopCommand START")
