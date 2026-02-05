@@ -130,3 +130,28 @@ Lower numeric values indicate higher priority.
 - PARK commands are deferred until motion completes.
 
 This policy reflects real-world telescope safety and operational constraints.
+
+-----------------------------------------------------------------
+## STOP Command Policy
+
+STOP is treated as an interrupt-type command rather than a scheduled task.
+It can be issued at any time to immediately halt telescope motion,
+regardless of the current command execution state.
+
+STOP does not represent a normal success or failure outcome.
+Instead, it forces a state transition to a safe STOPPED condition,
+reflecting an operator-level safety intervention.
+
+------------------------------------------------------------
+## Logging Responsibility
+
+Logs are categorized by responsibility to clarify system behavior.
+
+| Tag      | Responsibility |
+|----------|----------------|
+| [CMD]    | Command intent, execution, and termination |
+| [STATE]  | Physical state transitions of the telescope |
+| [SYSTEM] | System-level control flow and safety handling |
+
+This separation helps distinguish operator intent,
+mechanical state changes, and controller-level decisions.
