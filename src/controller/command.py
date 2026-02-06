@@ -1,5 +1,5 @@
 from src.utils.logger import log
-from src.controller.enums import CommandType
+from src.controller.enums import CommandType, TelescopeState
 
 CMD_PENDING = "PENDING"
 CMD_RUNNING = "RUNNING"
@@ -21,22 +21,30 @@ class Command: #명령에 '시간'을 붙일 수 있는 구조
     
     def update(self, telescope, dt): #명령 결과 관찰기 telescope의 상태를 보고 성공/실패 판단 | dt = 시간 기반 실패 판단
         pass
+
+    def abort(self):
+        self.state = CMD_ABORTED
     
 class MoveCommand(Command):
-    def __init__(self, alt, az, scheduled_at=0.0):
+    def __init__(self, alt, az, scheduled_at=0.0, timeout=30.0):
         super().__init__(scheduled_at)
         self.alt = alt
         self.az = az
         self.elapsed_time = 0.0
-        self.timeout = 30.0 #seconds
+        self.timeout = timeout
         self.fail_reason = None
         self.type = CommandType.MOVE
+        self.has_moved = False
 
     def execute(self, telescope):
         log("[CMD] MoveCommand START")
         self.state = CMD_RUNNING
         log("[CMD] MoveCommand RUNNING")
         telescope.enqueue_move(self.alt, self.az)
+
+    def abort(self):
+        log("[CMD] MoveCommand ABORTED (by interrupt)")
+        self.state = CMD_ABORTED
 
     def update(self, telescope, dt):
         if self.state != CMD_RUNNING:
@@ -50,7 +58,7 @@ class MoveCommand(Command):
             log("[CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)")
             return
 
-        if telescope.state == "IDLE" and telescope.is_target_reached(): #성공 조건
+        if self.has_moved and telescope.is_target_reached(): #성공 조건
             self.state = CMD_SUCCESS 
             log("[CMD] MoveCommand SUCCESS")
             return
@@ -60,6 +68,9 @@ class MoveCommand(Command):
             self.fail_reason = "TIMEOUT"
             log("[CMD] MoveCommand FAILED (TIMEOUT)")
             return
+        
+        if telescope.state == TelescopeState.MOVING:
+            self.has_moved = True
 
 class StopCommand(Command):
     def __init__(self, scheduled_at=0):

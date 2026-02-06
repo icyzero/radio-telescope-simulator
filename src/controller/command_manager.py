@@ -19,8 +19,21 @@ class CommandManager:
     def add_command(self, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
         state = self.telescope.state
         decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
+        log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}")
 
-        if decision in (CommandDecision.EXECUTE, CommandDecision.PENDING):        
+
+        if decision == CommandDecision.EXECUTE:        
+            log(f"[CMD] {cmd.type.name} accepted ({decision.name})")
+            
+            if self.current:
+                self.current.abort() #기존 Command 중단
+                self.current = None
+            
+            self.queue.clear() #queue 무효화
+            self.current = cmd
+            cmd.execute(self.telescope)
+            
+        elif decision == CommandDecision.PENDING:
             self.queue.append(cmd)
             self.queue.sort(key=lambda c: c.priority)
             log(f"[CMD] {cmd.type.name} accepted ({decision.name})")

@@ -14,8 +14,8 @@ STATE_COMMAND_RULES = {
         CommandType.STOP: CommandDecision.REJECT,
     },
     TelescopeState.MOVING: {
-        CommandType.MOVE: CommandDecision.REJECT,
-        CommandType.PARK: CommandDecision.PENDING,
+        CommandType.MOVE: CommandDecision.PENDING,
+        #CommandType.PARK: CommandDecision.PENDING,
         CommandType.STOP: CommandDecision.EXECUTE,
     },
 }

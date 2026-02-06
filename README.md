@@ -155,3 +155,14 @@ Logs are categorized by responsibility to clarify system behavior.
 
 This separation helps distinguish operator intent,
 mechanical state changes, and controller-level decisions.
+-------------------------------------------------------------
+## Operational Scenarios
+
+This system is designed from an operational control perspective,
+focusing on safety and fault isolation.
+
+Key guarantees:
+- STOP commands immediately interrupt ongoing operations.
+- Command failures are contained within command execution.
+- Telescope physical state remains consistent after failures.
+- The system prioritizes safety over command completion.
