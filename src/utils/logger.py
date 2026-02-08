@@ -1,8 +1,13 @@
 from datetime import datetime
+import os
 
-LOG_FILE = "telescope.log"
+LOG_DIR = "log"
+LOG_FILE = os.path.join(LOG_DIR, "telescope.log")
 
 def log(message: str):
+    # log 디렉토리 없으면 생성
+    os.makedirs(LOG_DIR, exist_ok=True)
+
     timestamp = datetime.now().isoformat(timespec="seconds")
     line = f"{timestamp} {message}"
 

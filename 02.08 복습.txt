@@ -1,0 +1,23 @@
+1. 핵심 4개 한 문장 정리
+● Command: 명령은 행동을 요청할 뿐, 시스템 정책을 결정하진 않음
+● CommandManager: 명령 실행의 순서,중단,위험을 최종 책임지는 조정자
+● Telescope: 물리 상태만 바뀌고, 의사결정 X
+● STOP: 명령이 아닌 실행 흐름을 강제로 끊게 하는 개입
+
+2. STOP복습
+2-1 STOP은 왜 Command처럼 다루면 위험한가
+A: STOPd은 행동 요청이 아닌 시스템 개입으로 인한 흐름 차단이기 때문
+
+2-2 STOP에는 왜 성공/실패 개념이 없는가
+A: STOP은 목표 달성이 아닌 의도 즉시 반영이기 때문
+
+2-3 STOP의 책임이 왜 Manager에 있어야 하는가
+A: STOPd은 개별 명령이 아닌 시스템 전체 흐름을 다루기 때문
+
+3. 시나리오 시뮬레이션
+IDLE → MOVE 실행 중 → PARK 요청 (대기) → STOP 발생
+
+PARK는 queue에 있음 → STOP이 Manager 레벨에서 즉시 개입 → current(MOVE)는 중단 판단 → queue는 폐기 → Telescope는 STOPPED 상태로 전이
+
+4. 위험 결합 포인트 확인
+이 구조에서 가장 조심해야 할 결합은 Command와 시스템 정책의 결합이고, 이유는 확장 시 예외가 많이 생기기 때문

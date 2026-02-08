@@ -51,6 +51,21 @@ Day 29: Defined operational command policies, including handling of new commands
 Day 30: Refined command acceptance rules by introducing explicit EXECUTE, PENDING, and REJECT decisions based on telescope state.
 This clarified the distinction between rejected commands and aborted executions, and laid the groundwork for future priority-based scheduling.
 
+Day 31: Introduced command-level scheduling metadata by adding scheduled_at and priority attributes to commands, and updated the CommandManager to sort pending commands accordingly.
+This established the foundation for deterministic command ordering and future scheduling policy extensions.
+
+Day 32: Formalized the conceptual distinction between STOP and regular operational commands.
+STOP was redefined as a system-level interrupt rather than a queued command, ensuring immediate flow interruption and preventing unsafe coupling with normal command lifecycle rules.
+
+Day 33: Expanded and validated execution scenarios (including interrupt and cancellation paths) to verify correct command flow under dynamic conditions.
+This confirmed that command execution, interruption, and cleanup behavior remained consistent across multiple edge cases.
+
+Day 34: Clarified architectural responsibilities across Command, CommandManager, and Telescope components.
+Explicitly defined what each layer is allowed to know and control, and identified STOP handling as the most critical coupling point requiring centralized management.
+
+Day 35: Consolidated design principles through structured review and mental simulation of command flows.
+This day focused on stabilizing architectural boundaries, reinforcing safety-critical assumptions, and ensuring the system can be extended without violating core responsibility separations.
+
 ---------------------------------------------------------
 ## How to Run
 
@@ -58,6 +73,7 @@ This project is executed through a main control loop.
 
 ```bash
 python -m src.main
+```
 
 
 ## Execution Flow
@@ -166,3 +182,14 @@ Key guarantees:
 - Command failures are contained within command execution.
 - Telescope physical state remains consistent after failures.
 - The system prioritizes safety over command completion.
+
+--------------------------------------------------------------
+## Responsibility Boundary (Why this is a Control System)
+
+이 시스템은 명령 실행기가 아니라 관제 시스템이다.
+Command는 의도를 표현하고, Telescope는 상태를 책임지며,
+CommandManager는 전체 실행 흐름과 안전을 통제한다.
+
+-----------------------------------------------------------
+Logs are treated as runtime artifacts and stored separately
+from source code to reflect operational usage.
