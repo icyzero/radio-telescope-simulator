@@ -66,6 +66,8 @@ Explicitly defined what each layer is allowed to know and control, and identifie
 Day 35: Consolidated design principles through structured review and mental simulation of command flows.
 This day focused on stabilizing architectural boundaries, reinforcing safety-critical assumptions, and ensuring the system can be extended without violating core responsibility separations.
 
+Day 36: locks down architectural boundaries before adding further system complexity.
+
 ---------------------------------------------------------
 ## How to Run
 
