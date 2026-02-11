@@ -148,3 +148,36 @@ A: STOP은 ‘무엇을 멈출 것인가’를 반드시 동반하는 개입인�
 
 3. “흐름”은 어디에 속한 개념인가?
 A: CommandManager에 속한 개념
+
+-------------------------------------------------
+Day 38 다중 흐름시의 로그 설계
+
+Q1. SystemController는 무엇을 가져야 하는가?
+A: CommandManager목록, 전역 정책 권한, 전체 STOP 권한, 장비간 정책 판단 [흐름들 사이의 정책만 다룸]
+
+Q2. 전역 STOP이 들어오면:
+A: SystemController → 각 CommandManager에게 STOP 신호 전달 → 각 Manager가 자기 Telescope를 정지
+
+Q3. 다중 장비에서 가장 위험한 결합은 어디인가?
+A:  1. 전역 시간축 공유 : 모든 장비가 하나의 update 루프에 종속되면 한 장비 지연이 전체 지연 됨
+    2. 공용 queue : 장비 A의 Command가 장비 B 흐름에 개입 되면 흐름 단위가 붕괴
+    3. 공용 stop 객체 : stop 범위가 모호
+
+[day 38이어서-------------------------------]
+로그 시뮬레이션
+[A][CMD] MoveCommand START
+[A][STATE] IDLE → MOVING
+
+[B][CMD] MoveCommand START
+[B][STATE] IDLE → MOVING
+
+[A][SYSTEM] STOP triggered (local)
+[A][STATE] MOVING → STOPPED
+
+[B][UPDATE] MOVING Alt=12.3 Az=12.3
+
+[A]라는 식별자는 telescope또는 대응하는 CommandManager가 붙인다
+
+STOP이 A에만 적용되도록 A의 CommandManager가 보장
+
+로그가 섞이지 않으려면 실행흐름, 상태 전이 책임, stop 범위가 분리되어야 한다.
