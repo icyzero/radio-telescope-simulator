@@ -181,3 +181,29 @@ A:  1. 전역 시간축 공유 : 모든 장비가 하나의 update 루프에 종
 STOP이 A에만 적용되도록 A의 CommandManager가 보장
 
 로그가 섞이지 않으려면 실행흐름, 상태 전이 책임, stop 범위가 분리되어야 한다.
+---------------------------------------------------
+Day 39 SystemController구조 정의
+SystemController는 telescope를 모른다 
+manager만 안다 
+STOP을 직접 수행하지 않는다 
+“전달”만 한다
+-----------------------------------
+STOP 계층 구조 정리 정리: 
+Local STOP → Manager 책임 
+Global STOP → SystemController 책임 
+실제 물리 정지 → Telescope 책임 
+이 3단 분리는 절대 깨지면 안됨
+---------------------------
+1. SystemController는 왜 Telescope를 직접 알면 안 되는가? 
+A: SystemController는 정책계층이고, telescope는 물리계층이기 때문
+    흐름은 Manager의 소유이기 때문에 건너뛰면 구조 붕괴
+2. 왜 Command를 직접 실행하면 안 되는가? 
+A: Command 실행은 흐름의 일부, 흐름은 Manager의 책임
+    SystemController
+    ↓ (정책 전달)
+    CommandManager
+    ↓ (흐름 제어)
+    Command
+3. global_stop()은 왜 직접 멈추지 않고 “전달”만 하는가?
+A: STOP의 실제 실행은 흐름을 소유한 계층만 할 수 있기 때문
+    SystemController는 권한을 행사하지만, 행동은 하지 않는다
