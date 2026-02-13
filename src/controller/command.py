@@ -36,10 +36,10 @@ class MoveCommand(Command):
         self.type = CommandType.MOVE
         self.has_moved = False
 
-    def execute(self, telescope):
-        log("[CMD] MoveCommand START")
+    def execute(self, telescope, prefix=None):
+        log("[CMD] MoveCommand START", prefix=prefix)
         self.state = CMD_RUNNING
-        log("[CMD] MoveCommand RUNNING")
+        log("[CMD] MoveCommand RUNNING", prefix=prefix)
         telescope.enqueue_move(self.alt, self.az)
 
     def abort(self):

@@ -10,7 +10,8 @@ from src.controller.command import (
 from src.utils.logger import log
 
 class CommandManager:
-    def __init__(self, telescope):
+    def __init__(self, name, telescope):
+        self.name = name
         self.telescope = telescope
         self.queue = []
         self.current = None
@@ -19,11 +20,11 @@ class CommandManager:
     def add_command(self, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
         state = self.telescope.state
         decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
-        log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}")
+        log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}", prefix=self.name)
 
 
         if decision == CommandDecision.EXECUTE:        
-            log(f"[CMD] {cmd.type.name} accepted ({decision.name})")
+            log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
             
             if self.current:
                 self.current.abort() #기존 Command 중단
@@ -31,7 +32,7 @@ class CommandManager:
             
             self.queue.clear() #queue 무효화
             self.current = cmd
-            cmd.execute(self.telescope)
+            cmd.execute(self.telescope, prefix=self.name)
             
         elif decision == CommandDecision.PENDING:
             self.queue.append(cmd)
@@ -49,7 +50,7 @@ class CommandManager:
         self.queue.clear()
         print("[SYSTEM] Pending commmands cancelled.")
 
-    def update(self, telescope, dt):
+    def update(self, dt):
         self.time += dt
         # 1. 실행 중인 Command가 없으면 다음 Command 실행
         if self.current is None and self.queue:
@@ -57,15 +58,15 @@ class CommandManager:
             
             if self.time >= next_cmd.scheduled_at:
                 self.current = self.queue.pop(0)
-                self.current.execute(telescope)
+                self.current.execute(self.telescope)
 
         if self.current:
-            self.current.update(telescope, dt)
+            self.current.update(self.telescope, dt)
 
             # 2. Command 종료 처리
             if self.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
                 # 3. Telescope가 STOPPED면 시스템 레벨 중단
-                if telescope.is_stopped():
+                if self.telescope.is_stopped():
                     log("[SYSTEM] Telescope STOPPED. Command queue halted.")
                     self.current = None
                     self.queue.clear()   # ← 핵심: 더 이상 진행하지 않음

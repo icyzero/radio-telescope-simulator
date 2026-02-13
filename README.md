@@ -68,6 +68,9 @@ This day focused on stabilizing architectural boundaries, reinforcing safety-cri
 
 Day 36: locks down architectural boundaries before adding further system complexity.
 
+Day 40: Added a thin SystemController to support multi-telescope coordination without breaking flow ownership.
+Preserved execution isolation per device and intentionally avoided global state coupling.
+
 ---------------------------------------------------------
 ## How to Run
 

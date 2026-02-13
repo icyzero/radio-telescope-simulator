@@ -1,0 +1,94 @@
+2026-02-13T20:56:23 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T20:56:23 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T20:56:23 [CMD] MoveCommand START
+2026-02-13T20:56:23 [CMD] MoveCommand RUNNING
+2026-02-13T20:56:23 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T20:56:23 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T20:56:23 [CMD] MoveCommand START
+2026-02-13T20:56:23 [CMD] MoveCommand RUNNING
+2026-02-13T20:56:23 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T21:06:26 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T21:06:26 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T21:06:26 [CMD] MoveCommand START
+2026-02-13T21:06:26 [CMD] MoveCommand RUNNING
+2026-02-13T21:06:26 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T21:06:26 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T21:06:26 [CMD] MoveCommand START
+2026-02-13T21:06:26 [CMD] MoveCommand RUNNING
+2026-02-13T21:06:26 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T21:06:56 [CMD] MoveCommand FAILED (TIMEOUT)
+2026-02-13T21:06:56 [CMD] MoveCommand FAILED (TIMEOUT)
+2026-02-13T22:02:56 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:02:56 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:02:56 [CMD] MoveCommand START
+2026-02-13T22:02:56 [CMD] MoveCommand RUNNING
+2026-02-13T22:02:56 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:02:56 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:02:56 [CMD] MoveCommand START
+2026-02-13T22:02:56 [CMD] MoveCommand RUNNING
+2026-02-13T22:02:56 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:12:43 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:12:43 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:12:43 [CMD] MoveCommand START
+2026-02-13T22:12:43 [CMD] MoveCommand RUNNING
+2026-02-13T22:12:43 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:12:43 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:12:43 [CMD] MoveCommand START
+2026-02-13T22:12:43 [CMD] MoveCommand RUNNING
+2026-02-13T22:12:43 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:12:55 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:12:55 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:12:55 [CMD] MoveCommand START
+2026-02-13T22:12:55 [CMD] MoveCommand RUNNING
+2026-02-13T22:12:55 [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:12:55 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:12:55 [CMD] MoveCommand START
+2026-02-13T22:12:55 [CMD] MoveCommand RUNNING
+2026-02-13T22:12:55 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:14:15 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:14:15 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:14:15 [CMD] MoveCommand START
+2026-02-13T22:14:15 [CMD] MoveCommand RUNNING
+2026-02-13T22:14:15 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:14:15 [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:14:15 [CMD] MoveCommand START
+2026-02-13T22:14:15 [CMD] MoveCommand RUNNING
+2026-02-13T22:14:15 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:14:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:14:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:14:35 [CMD] MoveCommand START
+2026-02-13T22:14:35 [CMD] MoveCommand RUNNING
+2026-02-13T22:14:35 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:14:35 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:14:35 [CMD] MoveCommand START
+2026-02-13T22:14:35 [CMD] MoveCommand RUNNING
+2026-02-13T22:14:35 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:20:54 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:20:54 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:24:12 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:24:12 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:24:12 [CMD] MoveCommand START
+2026-02-13T22:24:12 [CMD] MoveCommand RUNNING
+2026-02-13T22:24:12 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:24:12 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:24:12 [CMD] MoveCommand START
+2026-02-13T22:24:12 [CMD] MoveCommand RUNNING
+2026-02-13T22:24:12 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:25:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:25:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:25:35 [A] [CMD] MoveCommand START
+2026-02-13T22:25:35 [A] [CMD] MoveCommand RUNNING
+2026-02-13T22:25:35 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:25:35 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:25:35 [B] [CMD] MoveCommand START
+2026-02-13T22:25:35 [B] [CMD] MoveCommand RUNNING
+2026-02-13T22:25:35 [SYSTEM] Multi-Telescope control system started.
+2026-02-13T22:25:49 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:25:49 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:25:49 [A] [CMD] MoveCommand START
+2026-02-13T22:25:49 [A] [CMD] MoveCommand RUNNING
+2026-02-13T22:25:49 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-13T22:25:49 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-13T22:25:49 [B] [CMD] MoveCommand START
+2026-02-13T22:25:49 [B] [CMD] MoveCommand RUNNING
+2026-02-13T22:25:49 [SYSTEM] Multi-Telescope control system started.

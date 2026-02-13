@@ -48,25 +48,33 @@ import time
 from src.controller.telescope import Telescope
 from src.controller.command_manager import CommandManager
 from src.controller.command import MoveCommand, StopCommand
+from src.scheduler.scheduler import SystemController
 from src.utils.logger import log
 
 def main():
     dt = 0.1
 
-    telescope = Telescope()
-    manager = CommandManager()
+    telescope_a = Telescope()
+    manager_a = CommandManager("A", telescope_a)
+
+    telescope_b = Telescope()
+    manager_b = CommandManager("B", telescope_b)
+
+    system = SystemController()
+    system.register_manager("A", manager_a)
+    system.register_manager("B", manager_b)
 
     # 시나리오 등록
-    manager.add_command(MoveCommand(10, 10))
-    manager.add_command(MoveCommand(20, 20))
-    manager.add_command(StopCommand())
+    manager_a.add_command(MoveCommand(5, 5))
+    manager_b.add_command(MoveCommand(10, 10))
+    #manager_a.add_command(StopCommand())
 
-    log("[SYSTEM] Telescope control system started.")
+    log("[SYSTEM] Multi-Telescope control system started.")
     
     # Main control loop (system stays alive and waits for commands)
     while True:
-        telescope.update(dt)
-        manager.update(telescope, dt)
+        system.update(dt)
+        #manager.update(telescope, dt)
         time.sleep(dt)
 
 if __name__ == "__main__":

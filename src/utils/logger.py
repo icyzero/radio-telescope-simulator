@@ -4,14 +4,18 @@ import os
 LOG_DIR = "log"
 LOG_FILE = os.path.join(LOG_DIR, "telescope.log")
 
-def log(message: str):
+def log(message: str, prefix: str | None = None):
     # log 디렉토리 없으면 생성
     os.makedirs(LOG_DIR, exist_ok=True)
 
     timestamp = datetime.now().isoformat(timespec="seconds")
-    line = f"{timestamp} {message}"
 
-    # 콘솔 출력
+    #콘솔 출력
+    if prefix:
+        line = f"{timestamp} [{prefix}] {message}"
+    else:
+        line = f"{timestamp} {message}"
+
     print(line)
 
     # 파일 기록

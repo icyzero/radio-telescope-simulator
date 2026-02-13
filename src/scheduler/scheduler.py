@@ -1,6 +1,7 @@
 class SystemController:
     def __init__(self):
         self.managers = {}
+        self.mode = "NORMAL" #정책만 분기, 흐름 침범X
 
     def register_manager(self, name, manager):
         self.managers[name] = manager
