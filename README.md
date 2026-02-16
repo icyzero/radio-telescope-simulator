@@ -71,6 +71,11 @@ Day 36: locks down architectural boundaries before adding further system complex
 Day 40: Added a thin SystemController to support multi-telescope coordination without breaking flow ownership.
 Preserved execution isolation per device and intentionally avoided global state coupling.
 
+Day 41: Formalized observability principles across Command, CommandManager, and SystemController layers.
+Redefined logs as operational artifacts rather than debug outputs, ensuring that execution flow, decision points, and system-level policy events can be reconstructed solely from structured log records.
+Established strict logging boundaries per architectural layer to preserve separation of responsibilities while maintaining full traceability.
+
+
 ---------------------------------------------------------
 ## How to Run
 

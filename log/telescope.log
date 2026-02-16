@@ -92,3 +92,51 @@
 2026-02-13T22:25:49 [B] [CMD] MoveCommand START
 2026-02-13T22:25:49 [B] [CMD] MoveCommand RUNNING
 2026-02-13T22:25:49 [SYSTEM] Multi-Telescope control system started.
+2026-02-16T10:26:20 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:26:20 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:26:20 [A] [CMD] MoveCommand START
+2026-02-16T10:26:20 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:26:20 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:26:20 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:26:20 [B] [CMD] MoveCommand START
+2026-02-16T10:26:20 [B] [CMD] MoveCommand RUNNING
+2026-02-16T10:26:20 [SYSTEM] Multi-Telescope control system started.
+2026-02-16T10:28:13 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:28:13 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:28:13 [A] [CMD] MoveCommand START
+2026-02-16T10:28:13 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:28:13 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:28:13 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:28:13 [CMD] MoveCommand ABORTED (by interrupt)
+2026-02-16T10:28:13 [A] [CMD] MoveCommand START
+2026-02-16T10:28:13 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:28:38 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:28:38 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:28:38 [A] [CMD] MoveCommand START
+2026-02-16T10:28:38 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:28:38 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:28:38 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:28:38 [CMD] MoveCommand ABORTED (by interrupt)
+2026-02-16T10:28:38 [A] [CMD] MoveCommand START
+2026-02-16T10:28:38 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:28:59 [CMD] MoveCommand SUCCESS
+2026-02-16T10:29:24 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:29:24 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:29:24 [A] [CMD] MoveCommand START
+2026-02-16T10:29:24 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:29:24 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:29:24 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:29:24 [CMD] MoveCommand ABORTED (by interrupt)
+2026-02-16T10:29:24 [A] [CMD] MoveCommand START
+2026-02-16T10:29:24 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:29:41 [CMD] MoveCommand SUCCESS
+2026-02-16T10:30:01 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:30:01 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:30:01 [A] [CMD] MoveCommand START
+2026-02-16T10:30:01 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:30:01 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T10:30:01 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T10:30:01 [CMD] MoveCommand ABORTED (by interrupt)
+2026-02-16T10:30:01 [A] [CMD] MoveCommand START
+2026-02-16T10:30:01 [A] [CMD] MoveCommand RUNNING
+2026-02-16T10:30:17 [CMD] MoveCommand SUCCESS

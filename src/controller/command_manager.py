@@ -27,7 +27,7 @@ class CommandManager:
             log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
             
             if self.current:
-                self.current.abort() #기존 Command 중단
+                self.current.abort(prefix=self.name) #기존 Command 중단
                 self.current = None
             
             self.queue.clear() #queue 무효화
@@ -37,10 +37,10 @@ class CommandManager:
         elif decision == CommandDecision.PENDING:
             self.queue.append(cmd)
             self.queue.sort(key=lambda c: c.priority)
-            log(f"[CMD] {cmd.type.name} accepted ({decision.name})")
+            log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
 
-        else: #REJECTRM
-            log(f"[CMD] {cmd.type.name} rejected (state={state.name})")
+        else: #REJECT
+            log(f"[CMD] {cmd.type.name} rejected (state={state.name})", prefix=self.name)
 
     def cancel_pending(self):
         """
@@ -48,7 +48,7 @@ class CommandManager:
         Running command is never interrupted.   
         """
         self.queue.clear()
-        print("[SYSTEM] Pending commmands cancelled.")
+        log("[MANAGER] Pending commmands cancelled.", prefix=self.name)
 
     def update(self, dt):
         self.time += dt
@@ -58,16 +58,16 @@ class CommandManager:
             
             if self.time >= next_cmd.scheduled_at:
                 self.current = self.queue.pop(0)
-                self.current.execute(self.telescope)
+                self.current.execute(self.telescope, prefix=self.name)
 
         if self.current:
-            self.current.update(self.telescope, dt)
+            self.current.update(self.telescope, dt, prefix=self.name)
 
             # 2. Command 종료 처리
             if self.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
                 # 3. Telescope가 STOPPED면 시스템 레벨 중단
                 if self.telescope.is_stopped():
-                    log("[SYSTEM] Telescope STOPPED. Command queue halted.")
+                    log("[MANAGER] Telescope STOPPED. Command queue halted.", prefix=self.name)
                     self.current = None
                     self.queue.clear()   # ← 핵심: 더 이상 진행하지 않음
                     return

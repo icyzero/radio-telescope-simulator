@@ -1,3 +1,5 @@
+from src.utils.logger import log
+
 class SystemController:
     def __init__(self):
         self.managers = {}
@@ -5,6 +7,7 @@ class SystemController:
 
     def register_manager(self, name, manager):
         self.managers[name] = manager
+        log(f"[SYSTEM] Manager registered: {name}")
 
     def update(self, dt):
         # 전역 정책 판단 위치
@@ -12,5 +15,7 @@ class SystemController:
             manager.update(dt)
 
     def global_stop(self):
+        log(f"[SYSTEM] GLOBAL STOP triggered.")
+        from src.controller.command import StopCommand
         for manager in self.managers.values():
-            manager.local_stop()
+            manager.add_command(StopCommand())

@@ -1,0 +1,36 @@
+1. 로그는 디버깅용인가, 운영용인가?
+A: 지금의 로그는 운영용
+    상태전이 기록 / 결정 기록 / 정책이벤트 기록 / prefix로 주체 식별
+
+2. 로그 레벨(DEBUG, INFO, SYSTEM 등)은 계층을 반영해야 하는가?
+A: O
+    [CMD]       : 실행 계층 
+    [MANAGER]   : 결정 계층
+    [SYSTEM]    : 정책 계층
+    [DEBUG]     : 내부 관찰
+
+3. “이 로그만 보면 전체 상태를 재구성할 수 있는가?”
+A: 어떤 명령이 들어왔는지, 실행의 시작과 종료 기록, 실패 원인 기록, 중단 원인 기록, 전역 정책 이벤트 기록이 있으므로 재구성 가능
+
+4. 로그원칙: 
+4-1. Command 로그 원칙
+A: 상태 전이만 기록 
+    START
+    RUNNIG
+    SUCCESS
+    FAILED
+    ABORTED
+
+4-2. Manager 로그 원칙
+A: 결정만 기록
+    accepted / rejected
+    EXECUTE / PENDING
+    queue clear
+    STOP에 의한 halt
+
+4-3. System 로그 원칙
+A: 정책 이벤트만 기록  
+    Manger 등록
+    GLOBAL STOP
+    모든 변경 
+    전역 정책 발동
