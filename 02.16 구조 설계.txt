@@ -1,0 +1,35 @@
+Q1. Telescope는 단독 테스트 가능한가?
+A: 가능
+    Telescope는 dt와 target만 작용하면서 무리 상태를 계산함
+
+Q2. Command는 Mock Telescope로 테스트 가능한가?
+A: 가능
+    telescope.is_stopped()나 telescope.is_target_reached() 같은 인터페이스만 호출
+
+Q3. CommandManager는 Fake Command로 테스트 가능한가?
+A: 부분적으로
+    Command의 state와 type에 의존 Command가 추상화 되어있어 Fake Command 넣는 것 가능
+    but, STATE_COMMAND_RULES[state].get(cmd.type)를 호출 할 때 cmd.type이 실제 Enum 값이어야만 작동
+        FakeCommand를 만들 때 self.type = CommandType.MOVE처럼 기존 타입을 빌려야 함
+------------------------------------------------------------
+Q: STOP을 단위 테스트로 완전히 검증할 수 있을까? 아니면 반드시 통합 테스트가 필요한 부분이 있을까?
+A: 단위 테스트 부분
+    Telescope
+    Command
+    CommandManager
+   통합 테스트 부분 
+    Command가 SUCCESS로 끝나는 찰나와 SystemController에서 GlobalStop이 내려온 찰나가 겹칠 때 우선순위
+    SystemController → CommandManager → Command → Telescope로 흐름이 이어질 때 잘 전달되는지 확인하는 과정
+    소프트웨는 정지 했지만 이미 계산된 dt에 의해 위치값이 변하지 않는지
+------------------------------------------------------------
+1. Telescope를 테스트할 때 어떤 상태 조합을 검증해야 할까?
+A: 경계값 테스트: distance < EPSILON 직전과 직후의 속도 제어.
+    상태 래치(Latch): STOPPED 상태에서 move_to 명령이 들어왔을 때 무시되는지(IDLE로 가지 않는지).
+    역방향 이동: 현재 위치보다 낮은 좌표로 이동할 때 속도 벡터(v_alt, v_az)가 음수로 정확히 계산되는지.
+
+2.Command를 테스트할 때 무엇을 Mock 해야 할까?
+A: Mock이 뭔지 몰라
+
+3.STOP을 테스트할 때 어디까지 단위 테스트로 가능하고, 어디부터 통합 테스트가 필요할까?
+A: 단위 테스트: "STOP 명령을 받으면 큐가 비워진다."
+    통합 테스트: "시스템 전체에 Global STOP을 걸었을 때, 모든 Manager 산하의 Telescope들이 동시에 정지 상태로 전이된다."
