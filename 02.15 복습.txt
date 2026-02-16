@@ -1,0 +1,65 @@
+STOP 흐름
+1. Local STOP은 어디까지?
+A: 단일 Manager, 해당 Telescope까지
+    CommandManager A
+    └── Telescope A
+
+특정 Manager가 STOP 명령을 받음 → Manager가 STOP Command를 수락 → STOP Command가 실행됨 → Telescope가 STOPPED 상태로 전이 → 해당 Manager의 queue 정지 / clear
+
+2. Global STOP은 어디까지?
+A: SystemController 아래의 전체 Manager
+    SystemController
+    └── Scheduler
+            ├── Manager A
+            ├── Manager B
+            └── Manager C
+
+SystemController가 GLOBAL STOP 발동 → Scheduler가 모든 Manager에 STOP 주입 → 각 Manager가 STOP Command를 수락 → 각 Telescope가 STOPPED 상태로 전이 → 각 Manager queue 정지            
+
+3. 누가 결정하고 누가 실행하는가?
+A: Local  : 결정은 CommandManager, 실행은 StopCommand → Telescope
+   Global : 정책 결정은 SystemController, 전파는 Scheduler, 실행 결정은 각 CommandManager, 물리실행은 sStopCommand → Telescope 
+
+-----------------------------------
+로그 보고 시나리오 재구성
+2026-02-16T17:30:08 [SYSTEM] Manager registered: A
+2026-02-16T17:30:08 [SYSTEM] Manager registered: B
+2026-02-16T17:30:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T17:30:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T17:30:08 [A] [CMD] MoveCommand START
+2026-02-16T17:30:08 [A] [CMD] MoveCommand RUNNING
+2026-02-16T17:30:08 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T17:30:08 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T17:30:08 [B] [CMD] MoveCommand START
+2026-02-16T17:30:08 [B] [CMD] MoveCommand RUNNING
+2026-02-16T17:30:08 [SYSTEM] Multi-Telescope control system started.
+
+1. Manager a,b move 명령 1개씩
+2. 같은 시간에 시작 됨
+3. success, failed, aborted, stop 없음으로 멈추지 않음
+
+--------------------------------------
+각 단계가 모르는 것
+
+SystemController
+1. Telescope 물리 좌표값
+2. 현재 실행 중인 command 내부상태/진행률
+3. Queue 내부 상세 상태
+
+CommandManager
+1. command 내부구현
+2. Telescope 내부 물리 계산
+3. 다른 Manager 내부 상태
+4. 전역 정책의 의도
+
+command
+1. 시스템 전체 정책
+2. 다른 Command 존재
+3. Queue 존재 여부
+4. Manager 존재 여부
+
+Telescope
+1. Command 개념
+2. CommandManager 개념
+3. Manager 존재
+4. SystemController 존재

@@ -52,6 +52,7 @@ class CommandManager:
 
     def update(self, dt):
         self.time += dt
+        
         # 1. 실행 중인 Command가 없으면 다음 Command 실행
         if self.current is None and self.queue:
             next_cmd = self.queue[0]

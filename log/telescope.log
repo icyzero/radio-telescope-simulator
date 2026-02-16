@@ -140,3 +140,38 @@
 2026-02-16T10:30:01 [A] [CMD] MoveCommand START
 2026-02-16T10:30:01 [A] [CMD] MoveCommand RUNNING
 2026-02-16T10:30:17 [CMD] MoveCommand SUCCESS
+2026-02-16T15:53:10 [SYSTEM] Manager registered: A
+2026-02-16T15:53:10 [SYSTEM] Manager registered: B
+2026-02-16T15:53:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T15:53:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T15:53:10 [A] [CMD] MoveCommand START
+2026-02-16T15:53:10 [A] [CMD] MoveCommand RUNNING
+2026-02-16T15:53:10 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T15:53:10 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T15:53:10 [B] [CMD] MoveCommand START
+2026-02-16T15:53:10 [B] [CMD] MoveCommand RUNNING
+2026-02-16T15:53:10 [SYSTEM] Multi-Telescope control system started.
+2026-02-16T15:55:06 [SYSTEM] Manager registered: A
+2026-02-16T15:55:06 [SYSTEM] Manager registered: B
+2026-02-16T15:55:06 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T15:55:06 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T15:55:06 [A] [CMD] MoveCommand START
+2026-02-16T15:55:06 [A] [CMD] MoveCommand RUNNING
+2026-02-16T15:55:06 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T15:55:06 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T15:55:06 [B] [CMD] MoveCommand START
+2026-02-16T15:55:06 [B] [CMD] MoveCommand RUNNING
+2026-02-16T15:55:06 [SYSTEM] Multi-Telescope control system started.
+2026-02-16T15:55:22 [A] [CMD] MoveCommand SUCCESS
+2026-02-16T15:55:26 [B] [CMD] MoveCommand SUCCESS
+2026-02-16T17:30:08 [SYSTEM] Manager registered: A
+2026-02-16T17:30:08 [SYSTEM] Manager registered: B
+2026-02-16T17:30:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T17:30:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T17:30:08 [A] [CMD] MoveCommand START
+2026-02-16T17:30:08 [A] [CMD] MoveCommand RUNNING
+2026-02-16T17:30:08 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-16T17:30:08 [B] [CMD] MOVE accepted (EXECUTE)
+2026-02-16T17:30:08 [B] [CMD] MoveCommand START
+2026-02-16T17:30:08 [B] [CMD] MoveCommand RUNNING
+2026-02-16T17:30:08 [SYSTEM] Multi-Telescope control system started.
