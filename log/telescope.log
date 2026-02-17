@@ -175,3 +175,27 @@
 2026-02-16T17:30:08 [B] [CMD] MoveCommand START
 2026-02-16T17:30:08 [B] [CMD] MoveCommand RUNNING
 2026-02-16T17:30:08 [SYSTEM] Multi-Telescope control system started.
+2026-02-17T20:02:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-17T20:02:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-17T20:02:35 [A] [CMD] MoveCommand START
+2026-02-17T20:02:35 [A] [CMD] MoveCommand RUNNING
+2026-02-17T20:02:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-17T20:02:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-17T20:02:35 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-17T20:02:35 [A] [CMD] MoveCommand START
+2026-02-17T20:02:35 [A] [CMD] MoveCommand RUNNING
+2026-02-17T20:02:36 [A] [MANAGER] Pending commmands cancelled.
+2026-02-17T20:06:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-17T20:06:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-17T20:06:30 [A] [CMD] MoveCommand START
+2026-02-17T20:06:30 [A] [CMD] MoveCommand RUNNING
+2026-02-17T20:06:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-17T20:06:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-17T20:06:30 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-17T20:06:30 [A] [CMD] MoveCommand START
+2026-02-17T20:06:30 [A] [CMD] MoveCommand RUNNING
+2026-02-17T20:06:31 [A] [MANAGER] Pending commmands cancelled.
+2026-02-17T20:06:47 [A] [CMD] MoveCommand SUCCESS
+2026-02-17T20:06:47 [CMD] MoveCommand START
+2026-02-17T20:06:47 [CMD] MoveCommand RUNNING
+2026-02-17T20:07:12 [CMD] MoveCommand SUCCESS

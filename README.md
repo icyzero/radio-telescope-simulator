@@ -80,6 +80,10 @@ Confirmed that Telescope, Command, and CommandManager components can be unit-tes
 Identified the boundary between unit and integration testing, particularly for STOP race conditions and global policy propagation scenarios.
 Established a clear verification strategy to ensure architectural integrity under edge and interrupt-driven conditions.
 
+Day 44: Implemented the first concrete unit tests targeting the Telescope layer.
+Validated state transitions, motion convergence, and STOP latch behavior under controlled update cycles.
+Confirmed that the physical layer is fully isolated and independently testable without dependencies on higher architectural layers.
+
 ---------------------------------------------------------
 ## How to Run
 
