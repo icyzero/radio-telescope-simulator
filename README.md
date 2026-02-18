@@ -84,6 +84,11 @@ Day 44: Implemented the first concrete unit tests targeting the Telescope layer.
 Validated state transitions, motion convergence, and STOP latch behavior under controlled update cycles.
 Confirmed that the physical layer is fully isolated and independently testable without dependencies on higher architectural layers.
 
+Day 45: Implemented unit tests for the Command layer using a controlled FakeTelescope.
+Verified command delegation, state transitions to SUCCESS and ABORTED, and confirmed strict interface-based interaction with the physical layer.
+Established Command as an isolated state machine independent from Manager and System layers.
+
+
 ---------------------------------------------------------
 ## How to Run
 
