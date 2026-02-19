@@ -236,3 +236,371 @@
 2026-02-18T20:34:48 [CMD] MoveCommand START
 2026-02-18T20:34:48 [CMD] MoveCommand RUNNING
 2026-02-18T20:34:48 [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-02-19T20:43:24 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:43:24 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:43:24 [A] [CMD] MoveCommand START
+2026-02-19T20:43:24 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:43:24 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:43:24 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:43:24 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T20:43:24 [A] [CMD] MoveCommand START
+2026-02-19T20:43:24 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:43:25 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T20:43:41 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T20:43:41 [CMD] MoveCommand START
+2026-02-19T20:43:41 [CMD] MoveCommand RUNNING
+2026-02-19T20:44:06 [CMD] MoveCommand SUCCESS
+2026-02-19T20:55:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:55:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:55:08 [A] [CMD] MoveCommand START
+2026-02-19T20:55:08 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:55:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:55:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:55:08 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T20:55:08 [A] [CMD] MoveCommand START
+2026-02-19T20:55:08 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:55:09 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T20:55:25 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T20:55:25 [CMD] MoveCommand START
+2026-02-19T20:55:25 [CMD] MoveCommand RUNNING
+2026-02-19T20:55:50 [CMD] MoveCommand SUCCESS
+2026-02-19T20:56:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:08 [A] [CMD] MoveCommand START
+2026-02-19T20:56:08 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:56:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:08 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T20:56:08 [A] [CMD] MoveCommand START
+2026-02-19T20:56:08 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:56:09 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T20:56:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:56:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:56:25 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T20:56:25 [CMD] MoveCommand START
+2026-02-19T20:56:25 [CMD] MoveCommand RUNNING
+2026-02-19T20:56:50 [CMD] MoveCommand SUCCESS
+2026-02-19T20:57:55 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:55 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:55 [A] [CMD] MoveCommand START
+2026-02-19T20:57:55 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:57:55 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:55 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:55 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T20:57:55 [A] [CMD] MoveCommand START
+2026-02-19T20:57:55 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:57:56 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:57:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:57:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:58:12 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T20:58:12 [CMD] MoveCommand START
+2026-02-19T20:58:12 [CMD] MoveCommand RUNNING
+2026-02-19T20:58:37 [CMD] MoveCommand SUCCESS
+2026-02-19T20:59:18 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:59:18 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:59:18 [A] [CMD] MoveCommand START
+2026-02-19T20:59:18 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:59:18 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T20:59:18 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T20:59:18 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T20:59:18 [A] [CMD] MoveCommand START
+2026-02-19T20:59:18 [A] [CMD] MoveCommand RUNNING
+2026-02-19T20:59:19 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T20:59:34 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T20:59:34 [CMD] MoveCommand START
+2026-02-19T20:59:34 [CMD] MoveCommand RUNNING
+2026-02-19T20:59:59 [CMD] MoveCommand SUCCESS
+2026-02-19T21:00:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:10 [A] [CMD] MoveCommand START
+2026-02-19T21:00:10 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:00:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:10 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:00:10 [A] [CMD] MoveCommand START
+2026-02-19T21:00:10 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:00:11 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:00:27 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:00:27 [CMD] MoveCommand START
+2026-02-19T21:00:27 [CMD] MoveCommand RUNNING
+2026-02-19T21:00:28 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:28 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:28 [A] [CMD] MoveCommand START
+2026-02-19T21:00:28 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:00:28 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:28 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:28 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:00:28 [A] [CMD] MoveCommand START
+2026-02-19T21:00:28 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:00:29 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:00:30 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:00:30 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:00:45 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:00:45 [CMD] MoveCommand START
+2026-02-19T21:00:45 [CMD] MoveCommand RUNNING
+2026-02-19T21:00:52 [CMD] MoveCommand SUCCESS
+2026-02-19T21:01:09 [CMD] MoveCommand SUCCESS
+2026-02-19T21:02:07 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:07 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:07 [A] [CMD] MoveCommand START
+2026-02-19T21:02:07 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:07 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:07 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:07 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:02:07 [A] [CMD] MoveCommand START
+2026-02-19T21:02:07 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:08 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:12 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:12 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:12 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:12 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:12 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:20 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:20 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:20 [A] [CMD] MoveCommand START
+2026-02-19T21:02:20 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:20 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:20 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:20 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:02:20 [A] [CMD] MoveCommand START
+2026-02-19T21:02:20 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:21 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:22 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:22 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:24 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:02:24 [CMD] MoveCommand START
+2026-02-19T21:02:24 [CMD] MoveCommand RUNNING
+2026-02-19T21:02:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:35 [A] [CMD] MoveCommand START
+2026-02-19T21:02:35 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:35 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:02:35 [A] [CMD] MoveCommand START
+2026-02-19T21:02:35 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:02:36 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:02:37 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:02:37 [CMD] MoveCommand START
+2026-02-19T21:02:37 [CMD] MoveCommand RUNNING
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:37 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:37 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:37 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:02:37 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:02:37 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:02:49 [CMD] MoveCommand SUCCESS
+2026-02-19T21:02:52 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:02:52 [CMD] MoveCommand START
+2026-02-19T21:02:52 [CMD] MoveCommand RUNNING
+2026-02-19T21:03:02 [CMD] MoveCommand SUCCESS
+2026-02-19T21:03:17 [CMD] MoveCommand SUCCESS
+2026-02-19T21:04:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:00 [A] [CMD] MoveCommand START
+2026-02-19T21:04:00 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:04:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:00 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:04:00 [A] [CMD] MoveCommand START
+2026-02-19T21:04:00 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:04:01 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:04:17 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:04:17 [CMD] MoveCommand START
+2026-02-19T21:04:17 [CMD] MoveCommand RUNNING
+2026-02-19T21:04:42 [CMD] MoveCommand SUCCESS
+2026-02-19T21:04:45 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:45 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:45 [A] [CMD] MoveCommand START
+2026-02-19T21:04:45 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:04:45 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:45 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:45 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:04:45 [A] [CMD] MoveCommand START
+2026-02-19T21:04:45 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:04:46 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:04:47 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:04:47 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:04:47 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-02-19T21:05:02 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:05:02 [CMD] MoveCommand START
+2026-02-19T21:05:02 [CMD] MoveCommand RUNNING
+2026-02-19T21:05:27 [CMD] MoveCommand SUCCESS
+2026-02-19T21:07:19 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:19 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:19 [A] [CMD] MoveCommand START
+2026-02-19T21:07:19 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:07:19 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:19 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:19 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:07:19 [A] [CMD] MoveCommand START
+2026-02-19T21:07:19 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:07:20 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:07:21 [A] [MANAGER] Telescope STOPPED. Command queue halted.
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:07:21 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:07:21 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:07:21 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-02-19T21:07:35 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:07:35 [CMD] MoveCommand START
+2026-02-19T21:07:35 [CMD] MoveCommand RUNNING
+2026-02-19T21:08:00 [CMD] MoveCommand SUCCESS
+2026-02-19T21:08:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:21 [A] [CMD] MoveCommand START
+2026-02-19T21:08:21 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:08:21 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:21 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:21 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:08:21 [A] [CMD] MoveCommand START
+2026-02-19T21:08:21 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:08:22 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:08:25 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:08:25 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:08:25 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-02-19T21:08:38 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:08:38 [CMD] MoveCommand START
+2026-02-19T21:08:38 [CMD] MoveCommand RUNNING
+2026-02-19T21:09:03 [CMD] MoveCommand SUCCESS
+2026-02-19T21:09:46 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:09:46 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:09:46 [A] [CMD] MoveCommand START
+2026-02-19T21:09:46 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:09:46 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:09:46 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:09:46 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:09:46 [A] [CMD] MoveCommand START
+2026-02-19T21:09:46 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:09:47 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:10:03 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:10:03 [CMD] MoveCommand START
+2026-02-19T21:10:03 [CMD] MoveCommand RUNNING
+2026-02-19T21:10:09 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:09 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:09 [A] [CMD] MoveCommand START
+2026-02-19T21:10:09 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:10:09 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:09 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:09 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:10:09 [A] [CMD] MoveCommand START
+2026-02-19T21:10:09 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:10:10 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:10:10 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-02-19T21:10:10 [A] [CMD] MOVE accepted (PENDING)
+2026-02-19T21:10:10 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-02-19T21:10:26 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:10:26 [CMD] MoveCommand START
+2026-02-19T21:10:26 [CMD] MoveCommand RUNNING
+2026-02-19T21:10:28 [CMD] MoveCommand SUCCESS
+2026-02-19T21:10:51 [CMD] MoveCommand SUCCESS
+2026-02-19T21:17:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:17:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:17:59 [A] [CMD] MoveCommand START
+2026-02-19T21:17:59 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:17:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-02-19T21:17:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-02-19T21:17:59 [A] [CMD] MoveCommand ABORTED ({reason}))
+2026-02-19T21:17:59 [A] [CMD] MoveCommand START
+2026-02-19T21:17:59 [A] [CMD] MoveCommand RUNNING
+2026-02-19T21:18:00 [A] [MANAGER] Pending commmands cancelled.
+2026-02-19T21:18:16 [A] [CMD] MoveCommand SUCCESS
+2026-02-19T21:18:16 [CMD] MoveCommand START
+2026-02-19T21:18:16 [CMD] MoveCommand RUNNING
+2026-02-19T21:18:41 [CMD] MoveCommand SUCCESS

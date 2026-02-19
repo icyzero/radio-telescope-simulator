@@ -50,6 +50,15 @@ class CommandManager:
         self.queue.clear()
         log("[MANAGER] Pending commmands cancelled.", prefix=self.name)
 
+    def stop(self): # 긴급 정지를 위한 메서드
+        #시스템 전체를 즉시 중단하고 큐를 비움
+        if self.current:
+            self.current.abort(prefix=self.name)
+            self.current = None
+        self.queue.clear()
+        self.telescope.stop()
+        log("[MANAGER] Emergency STOP executed. All cleared.", prefix=self.name)
+
     def update(self, dt):
         self.time += dt
         
