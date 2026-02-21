@@ -53,7 +53,7 @@ class CommandManager:
     def stop(self): # 긴급 정지를 위한 메서드
         #시스템 전체를 즉시 중단하고 큐를 비움
         if self.current:
-            self.current.abort(prefix=self.name)
+            self.current.abort(prefix=self.name) # 현재 진행 중인 MOVE를 ABORTED로!
             self.current = None
         self.queue.clear()
         self.telescope.stop()

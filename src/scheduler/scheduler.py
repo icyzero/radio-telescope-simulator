@@ -16,6 +16,5 @@ class SystemController:
 
     def global_stop(self):
         log(f"[SYSTEM] GLOBAL STOP triggered.")
-        from src.controller.command import StopCommand
         for manager in self.managers.values():
-            manager.add_command(StopCommand())
+            manager.stop()
