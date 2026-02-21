@@ -38,9 +38,9 @@ class FakeTelescope:
     def is_stopped(self): return self._stopped
 
 # ✅ Test 1: IDLE 상태에서 MOVE 수락 후 즉시 실행
-def test_manager_accept_and_execute():
-    telescope = FakeTelescope()
-    manager = CommandManager("A", telescope)
+def test_should_execute_command_immediately_when_manager_is_idle(manager):
+    #telescope = FakeTelescope()
+    #manager = CommandManager("A", telescope) conftest.py 덕분에 더이상 사용 안 해도 됨
     cmd = FakeCommand(CommandType.MOVE)
 
     manager.add_command(cmd)
@@ -50,22 +50,20 @@ def test_manager_accept_and_execute():
     assert cmd.state == "RUNNING"
 
 # ✅ Test 2: RUNNING 중 새 MOVE는 PENDING 되는가?
-def test_manager_queueing():
-    manager = CommandManager("A", FakeTelescope())
+def test_should_queue_new_command_when_another_is_already_running(manager):
     cmd1 = FakeCommand(CommandType.MOVE)
     cmd2 = FakeCommand(CommandType.MOVE)
 
-    manager.add_command(cmd1) # cmd1 실행 시작
-    manager.add_command(cmd2) # cmd2는 큐로
+    manager.add_command(cmd1) 
+    manager.add_command(cmd2) 
 
     assert manager.current == cmd1
     assert len(manager.queue) == 1
     assert manager.queue[0] == cmd2
-    assert cmd2.executed is False # 아직 실행 전이어야 함
+    assert cmd2.executed is False
 
 # ✅ Test 3: RUNNING Command SUCCESS 시 다음 명령 실행
-def test_manager_sequencing():
-    manager = CommandManager("A", FakeTelescope())
+def test_should_dispatch_next_queued_command_after_current_one_finishes(manager):
     cmd1 = FakeCommand(CommandType.MOVE)
     cmd2 = FakeCommand(CommandType.MOVE)
 
@@ -87,8 +85,7 @@ def test_manager_sequencing():
     assert len(manager.queue) == 0
 
 # ✅ Test 4: STOP 개입 시 queue clear + 현재 흐름 중단
-def test_manager_stop_behavior():
-    manager = CommandManager("A", FakeTelescope())
+def test_should_clear_queue_and_abort_current_command_on_stop_signal(manager):
     cmd1 = FakeCommand(CommandType.MOVE)
     manager.add_command(cmd1)
     manager.add_command(FakeCommand(CommandType.MOVE)) # 큐에 하나 추가

@@ -3,7 +3,7 @@ from src.controller.enums import TelescopeState
 import pytest
 
 # ✅ Test 1: 목표 도달 테스트 (이미 도달한 경우)
-def test_already_at_target():
+def test_telescope_should_remain_idle_when_move_is_requested_at_current_position():
     t = Telescope()
     t.alt, t.az = 5.0, 5.0  # 현재 위치
     
@@ -16,7 +16,7 @@ def test_already_at_target():
     assert t.az == 5.0
 
 # ✅ Test 2: 이동 후 도달 테스트 (정상 궤적)
-def test_move_and_reach():
+def test_telescope_should_reach_target_position_and_stop_within_epsilon():
     t = Telescope(slew_rate=2.0)
     t.alt, t.az = 0.0, 0.0
     
@@ -34,7 +34,7 @@ def test_move_and_reach():
     assert t.v_alt == 0.0 # 정지 시 속도는 0이어야 함
 
 # ✅ Test 3: STOP 래치 테스트 (정지 후 요지부동)
-def test_stop_latch():
+def test_telescope_should_maintain_stopped_state_and_freeze_position_after_stop():
     t = Telescope()
     t.enqueue_move(10.0, 10.0)
     

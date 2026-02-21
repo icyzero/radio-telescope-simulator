@@ -27,7 +27,7 @@ class FakeTelescope:
 # 2️⃣ 오늘 달성할 테스트 3개
 
 # ✅ Test 1: execute() 호출 시 망원경에게 이동을 명령하는가?
-def test_command_delegation():
+def test_command_should_delegate_movement_to_telescope_on_execute():
     fake = FakeTelescope()
     cmd = MoveCommand(alt=10, az=10)
     
@@ -37,7 +37,7 @@ def test_command_delegation():
     assert cmd.type == CommandType.MOVE
 
 # ✅ Test 2: 망원경이 목표에 도달하면 Command가 SUCCESS가 되는가?
-def test_command_success_on_target():
+def test_command_should_transition_to_success_when_telescope_reaches_target():
     fake = FakeTelescope()
     cmd = MoveCommand(alt=10, az=10)
     cmd.execute(fake)
@@ -53,7 +53,7 @@ def test_command_success_on_target():
     assert cmd.state == CMD_SUCCESS
 
 # ✅ Test 3: 실행 중 망원경이 멈추면 Command가 ABORTED가 되는가?
-def test_command_abort_on_stop():
+def test_command_should_transition_to_aborted_when_telescope_is_stopped():
     fake = FakeTelescope()
     cmd = MoveCommand(alt=10, az=10)
     cmd.execute(fake)
