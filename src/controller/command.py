@@ -1,3 +1,4 @@
+# src/controller/command.py
 from src.utils.logger import log
 from src.controller.enums import CommandType, TelescopeState
 
