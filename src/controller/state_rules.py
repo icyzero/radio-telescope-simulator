@@ -1,3 +1,4 @@
+#src/controller/state_rules.py
 from src.controller.enums import TelescopeState, CommandType
 from enum import Enum
 
@@ -18,4 +19,7 @@ STATE_COMMAND_RULES = {
         #CommandType.PARK: CommandDecision.PENDING,
         CommandType.STOP: CommandDecision.EXECUTE,
     },
+    TelescopeState.STOPPED: {
+        CommandType.MOVE: CommandDecision.REJECT, #STOPPED일 땐 거절
+    }
 }

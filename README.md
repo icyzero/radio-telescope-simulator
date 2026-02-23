@@ -100,6 +100,15 @@ Confirmed architectural integrity across physical, command, orchestration, and p
 Day 48: Refactored the test suite structure to clearly separate unit and integration layers.
 Introduced reusable fixtures and improved naming consistency for long-term maintainability.
 Transitioned the project from feature validation to structural stabilization.
+
+Day 50: Introduced defensive and failure-path tests.
+Validated system behavior under STOPPED state, FAILED commands, zero and large dt values, and post-STOP command attempts.
+Transitioned the architecture toward fail-safe guarantees.
+Refactored and updated the telescope's update method.
+  - Unified movement logic
+  - Removed duplicated position update
+  - Added vector-based clamping
+  - Stabilized state transitions
 ---------------------------------------------------------
 ## How to Run
 
@@ -227,3 +236,5 @@ CommandManager는 전체 실행 흐름과 안전을 통제한다.
 -----------------------------------------------------------
 Logs are treated as runtime artifacts and stored separately
 from source code to reflect operational usage.
+
+----------------------------------------------------------

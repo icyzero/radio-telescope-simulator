@@ -1,3 +1,4 @@
+# src/controller/command_manager.py
 #여러 command의 실행 순서와 상태를 관리하는 중앙 제어자
 
 from src.controller.state_rules import STATE_COMMAND_RULES, CommandDecision
@@ -75,11 +76,13 @@ class CommandManager:
 
             # 2. Command 종료 처리
             if self.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
-                # 3. Telescope가 STOPPED면 시스템 레벨 중단
-                if self.telescope.is_stopped():
-                    log("[MANAGER] Telescope STOPPED. Command queue halted.", prefix=self.name)
+                # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우, 큐를 폭파하고 정지한다.
+                if self.current.state == CMD_FAILED or self.telescope.is_stopped():
+                    reason = "FAILED" if self.current.state == CMD_FAILED else "STOPPED"
+                    log(f"[MANAGER] {reason} detected. All subsequent commands cleared.", prefix=self.name)
+                    
                     self.current = None
-                    self.queue.clear()   # ← 핵심: 더 이상 진행하지 않음
+                    self.queue.clear()
                     return
 
                 # 4. 정상적인 Command 종료 → 다음 Command로

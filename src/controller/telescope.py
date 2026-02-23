@@ -2,6 +2,8 @@
 import math
 from src.controller.enums import TelescopeState
 
+from src.utils.logger import log
+
 EPSILON = 0.1 #목표 도달로 판단하는 최소 각도 오차(도)
 STATE_IDLE = "IDLE"
 STATE_MOVING = "MOVING"
@@ -19,8 +21,8 @@ class Telescope:
         self.alt = 0.0 #현재 고도
         self.az = 0.0 #현제 방위각
 
-        #self.target_alt = None#목표 고도
-        #self.target_az = None#목표 방위각
+        self.target_alt = 0.0#목표 고도
+        self.target_az = 0.0#목표 방위각
 
         self.alt_error = 0.0 #01.06 고도 오류 제어
         self.az_error = 0.0 #01.06 방위각 오류 제어
@@ -70,34 +72,38 @@ class Telescope:
         }
     
     def enqueue_move(self, alt, az): #command.py 창구 메서드 이동 좌표만 저장
-        self.command_queue.append((alt, az))
+        """Manager/Command로부터 새로운 단일 목표를 수신"""
+        self.target_alt = alt # 💡 여기서 저장해줘야 update가 알 수 있습니다.
+        self.target_az = az
+        self.state = TelescopeState.MOVING
+        
+        # 물리 계산을 위해 current_command 형식도 유지 (기존 로직 호환성)
+        self.current_command = (alt, az)
+        
+        log(f"[STATE] IDLE → MOVING (Target: {alt}, {az})")
 
     def update(self, dt):
         """dt : 초마다 시간 경과"""
 
         if self.state == TelescopeState.STOPPED: # 01.10 STOPPED상태를 적용함 / 정지 상태면 아무 것도 안함
             return
-
-        if self.state != TelescopeState.MOVING: # 01.08 현재 이동 중이면 update, 아니라면 큐에서 다음 명령 꺼내기 #01.10 로그 정리
-            if self.current_command is None and self.command_queue:
-                self.current_command = self.command_queue.pop(0)
-                self.state = TelescopeState.MOVING
-                target_alt, target_az = self.current_command#어디로 가기 시작했는지
-                print(f"[STATE] {STATE_IDLE} → {STATE_MOVING} "
-                  f"(Alt={target_alt}, Az={target_az})")#01.10 로그 정리
+        
+        if self.state != TelescopeState.MOVING or self.current_command is None:
+            # 큐에서 다음 명령을 꺼내는 기존 로직 (Manager 없이 직접 쓸 때를 대비)
+            if self.command_queue:
+                self.current_command = self.command_queue.pop(0) # 가장 오래 기다린 명령 현재 작업으로 설정
+                self.target_alt, self.target_az = self.current_command # 좌표 묶음을 alt, az 각각 분리 저장
+                self.state = TelescopeState.MOVING #MOVIG으로 상태 변경
             else:
                 return
-
-        if self.state in(TelescopeState.IDLE,TelescopeState.STOPPED): #01.12 멈춰있으면 속도는 0 / Day 8: position is updated via velocity, not directly controlled
-            self.v_alt = 0.0
-            self.v_az = 0.0
-        
+            
+        # 1. 물리 계산 준비
         target_alt, target_az = self.current_command #지금 어디를 향해 움직이는지
-        
         d_alt = target_alt - self.alt #목표 고도까지 남은 거리
         d_az = target_az - self.az    #목표 방위각까지 남은 거리
         distance = math.sqrt(d_alt**2 + d_az**2)#목표까지 남은 거리 계산 피타고라스정리 활용
 
+        #2. 도착 판정(도착 시 위치 고정 및 정지)
         if distance < EPSILON: #01.07 멈추는 조건을 EPSILON과 맞추기 / 거리가 EPSILON보다 작으면 상태 IDLE로 변환
             self.alt = target_alt
             self.az = target_az
@@ -105,47 +111,43 @@ class Telescope:
             self.v_az = 0.0 #도착시 속도 0으로
             self.current_command = None
             self.state = TelescopeState.IDLE
-            print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (target reached)")#01.10 로그 정리
+            print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (Target Reached)")#01.10 로그 정리
             return
         
-        #방향 백처 계산
+        #3. 속도 및 방향 개선
         dir_alt = d_alt / distance #이동방향 정규화 / 01.12 위치 수정 방향 백터 계산 전에 도착 여부 먼저 판단(이유 distance==0이면 오류 발생방지)
         dir_az = d_az / distance #이동방향 정규화 / 01.12 위치 수정 방향 백터 계산 전에 도착 여부 먼저 판단
 
-        #속도 크기 계산
+        # 1️⃣속도 크기 계산(거리에 비례하되 MAX/MIN 제한)
         raw_speed = self.slew_rate * (distance/10)
-        speed = min(max(raw_speed,self.MIN_SPEED),self.MAX_SPEED) #01.14 모터가 움직일 수 있는 최대 속도보다 빠르지 않게, 목표에 가까워질 때 0이아닌 최소 속도로 목표에 도달하게끔
+        speed = min(max(raw_speed, self.MIN_SPEED), self.MAX_SPEED) #01.14 모터가 움직일 수 있는 최대 속도보다 빠르지 않게, 목표에 가까워질 때 0이아닌 최소 속도로 목표에 도달하게끔
 
-        #velocity 계산
-        self.v_alt = dir_alt * speed #고도 속도 설정
-        self.v_az = dir_az * speed #방위각 속도 설정
+        # 4. 💡 방어 설계: 이번 프레임의 이동량이 남은 거리보다 크면 바로 도착 처리 (Clamping)
+        # 2️⃣ 이번 틱에 사용할 속도 업데이트
+        self.v_alt = dir_alt * speed
+        self.v_az = dir_az * speed
 
-        #위치 갱신
-        self.alt += self.v_alt * dt #속도로 고도 위치 갱신
-        self.az += self.v_az * dt #속도로 방위각 위치 갱신
+        # 3️⃣ 💡 방어 설계: 계산된 v_alt를 사용하여 이동량 확인
+        move_alt = self.v_alt * dt
+        move_az = self.v_az * dt
         
-        '''step = self.slew_rate * dt * (distance/10)#01.07 목표까지 남은 거리만큼 속도 줄이기 (100은 너무 큼) / 이번 dt동안 움직일 최대 거리 / 기본 이동량 = slew_rate * dt & 남은 거리에 비례해서 가감속 = (distance / 10)
-        ratio = min(step / distance, 1.0)#남은 거리 중 얼만큼 이동할지 비율 / 전체 거리 대비 이동량 비율 = step / distance & 과하게 튀어나가지 않도록 제한 = min(..., 1.0)
-        #print(f"dist={distance:.2f}")#01.07 거리가 줄어드는 것 확인 (코드 삭제해도 상관없음)
-            
-        self.alt += d_alt * ratio #목표 고도로 ratio만큼 이동
-        self.az += d_az * ratio   #목표 방위각으로 ratio만큼 이동'''
+        move_dist = math.sqrt(move_alt**2 + move_az**2)# 실제 이동 시뮬레이션 거리
+        
+        if move_dist >= distance:
+            self.alt = target_alt
+            self.az = target_az
+            self.v_alt = 0.0
+            self.v_az = 0.0
+            self.current_command = None
+            self.state = TelescopeState.IDLE
+            print(f"[STATE] MOVING → IDLE (Clamped to Target)")
+        else:
+            self.alt += move_alt
+            self.az += move_az
 
-        print(f"[UPDATE] state={self.state} "
-                f"Alt={self.alt:.2f}, Az={self.az:.2f}")#01.10 로그 정리
-
-        #01.06 지금 위치가 목표에서 얼마나 벗어나 있는지
+        #01.06 지금 위치가 목표에서 얼마나 벗어나 있는지 (에러 업데이트)
         self.alt_error = target_alt - self.alt #목표 고도 - 현재 고도
         self.az_error = target_az - self.az #목표 방위각 - 현재 방위각
-
-        #01.07 오차로도 도달 판단 + 보정 + 정지
-        '''if abs(self.alt_error) < EPSILON and abs(self.az_error) < EPSILON:
-            self.alt = self.target_alt
-            self.az = self.target_az
-            self.state = "IDLE"
-            print("[STATE] Target reached (epsilon)")
-            return'''     
-        #print(f"[UPDATE] Alt={self.alt:.2f},Az={self.az:.2f}")
 
     def can_resume(self): #01.15일단 설계만
         return self.state == TelescopeState.STOPPED and self.stop_reason != STOP_OVERSHOOT
