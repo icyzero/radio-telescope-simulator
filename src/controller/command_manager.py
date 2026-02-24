@@ -18,11 +18,14 @@ class CommandManager:
         self.current = None
         self.time = 0.0
 
-    def add_command(self, cmd): #movig중에 새로운 목표 추가시 큐에만 추가
+    def add_command(self, cmd, system_mode="NORMAL"): #movig중에 새로운 목표 추가시 큐에만 추가
         state = self.telescope.state
-        decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
         log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}", prefix=self.name)
 
+        if system_mode == "PAUSED":
+            decision = CommandDecision.PENDING
+        else:
+            decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
 
         if decision == CommandDecision.EXECUTE:        
             log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
@@ -61,6 +64,9 @@ class CommandManager:
         log("[MANAGER] Emergency STOP executed. All cleared.", prefix=self.name)
 
     def update(self, dt):
+        if dt <= 0:
+            return
+        
         self.time += dt
         
         # 1. 실행 중인 Command가 없으면 다음 Command 실행

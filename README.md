@@ -109,6 +109,10 @@ Refactored and updated the telescope's update method.
   - Removed duplicated position update
   - Added vector-based clamping
   - Stabilized state transitions
+
+Day 51: Introduced PAUSE/RESUME operational mode.
+Distinguished between fail-safe STOP and state-preserving PAUSE.
+Enabled safe runtime suspension without destroying execution context.
 ---------------------------------------------------------
 ## How to Run
 
