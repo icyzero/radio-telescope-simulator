@@ -9,6 +9,7 @@ from src.controller.command import (
     CMD_ABORTED,
 )
 from src.utils.logger import log
+from src.sim.event import EventType
 
 class CommandManager:
     def __init__(self, name, telescope):
@@ -17,6 +18,11 @@ class CommandManager:
         self.queue = []
         self.current = None
         self.time = 0.0
+        self.emit = lambda type, source, payload=None: None
+
+    def set_event_emitter(self, emit_func):
+        """SystemController로부터 이벤트 발행 함수를 주입받음"""
+        self.emit = emit_func
 
     def add_command(self, cmd, system_mode="NORMAL"): #movig중에 새로운 목표 추가시 큐에만 추가
         state = self.telescope.state
@@ -36,6 +42,11 @@ class CommandManager:
             
             self.queue.clear() #queue 무효화
             self.current = cmd
+            # 📢 💡 여기에 추가: 즉시 실행 시에도 시작 이벤트 발행
+            self.emit(EventType.COMMAND_STARTED, self.name, {
+                "cmd_type": type(self.current).__name__,
+                "scheduled_at": self.time # 즉시 실행이므로 현재 시간
+            })
             cmd.execute(self.telescope, prefix=self.name)
             
         elif decision == CommandDecision.PENDING:
@@ -75,6 +86,10 @@ class CommandManager:
             
             if self.time >= next_cmd.scheduled_at:
                 self.current = self.queue.pop(0)
+                # 📢 EVENT: COMMAND_STARTED
+                self.emit(EventType.COMMAND_STARTED, self.name, {
+                    "cmd_type": type(self.current).__name__,
+                })
                 self.current.execute(self.telescope, prefix=self.name)
 
         if self.current:
@@ -82,10 +97,18 @@ class CommandManager:
 
             # 2. Command 종료 처리
             if self.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
-                # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우, 큐를 폭파하고 정지한다.
-                if self.current.state == CMD_FAILED or self.telescope.is_stopped():
-                    reason = "FAILED" if self.current.state == CMD_FAILED else "STOPPED"
-                    log(f"[MANAGER] {reason} detected. All subsequent commands cleared.", prefix=self.name)
+                final_state = self.current.state
+
+                # 📢 EVENT: 결과에 따른 이벤트 발행
+                event_type = EventType.COMMAND_SUCCESS if final_state == CMD_SUCCESS else EventType.COMMAND_FAILED
+                self.emit(event_type, self.name, {"cmd_type": type(self.current).__name__})
+
+                # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우 처리
+                if final_state == CMD_FAILED or self.telescope.is_stopped():
+                    reason = "FAILED" if final_state == CMD_FAILED else "STOPPED"
+                    
+                    # 📢 EVENT: 시스템 중단 유발 이벤트
+                    self.emit(EventType.MANAGER_CRITICAL_STOP, self.name, {"reason": reason})
                     
                     self.current = None
                     self.queue.clear()
