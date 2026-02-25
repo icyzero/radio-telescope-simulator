@@ -14,6 +14,7 @@ class SystemController:
         self.managers[name] = manager
         # 💡 매니저가 시스템의 이벤트를 발행할 수 있도록 주입
         manager.set_event_emitter(self.emit)
+        manager.get_system_mode = lambda: self.mode # add_command 호출 시 모드를 전달해야 합니다.
         log(f"[SYSTEM] Manager registered: {name}")
 
     def update(self, dt):

@@ -28,6 +28,8 @@ class CommandManager:
         state = self.telescope.state
         log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}", prefix=self.name)
 
+        system_mode = self.get_system_mode() # 💡 시스템이 PAUSED 상태라면 무조건 PENDING으로 돌립니다.
+
         if system_mode == "PAUSED":
             decision = CommandDecision.PENDING
         else:
@@ -110,7 +112,7 @@ class CommandManager:
                     # 📢 EVENT: 시스템 중단 유발 이벤트
                     self.emit(EventType.MANAGER_CRITICAL_STOP, self.name, {"reason": reason})
                     
-                    self.current = None
+                    self.current = None # 이 위치가 중복 방지의 핵심
                     self.queue.clear()
                     return
 
