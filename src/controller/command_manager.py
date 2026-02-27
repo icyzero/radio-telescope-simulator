@@ -19,12 +19,24 @@ class CommandManager:
         self.current = None
         self.time = 0.0
         self.emit = lambda type, source, payload=None: None
+        self._is_critical = False
 
     def set_event_emitter(self, emit_func):
         """SystemController로부터 이벤트 발행 함수를 주입받음"""
         self.emit = emit_func
+    
+    def reset_criticla(self):
+        """명시적인 복구 절차"""
+        self._is_critical = False
+        log("[MANAGER] Critical state reset. Ready for new commands.", prefix=self.name)
 
     def add_command(self, cmd, system_mode="NORMAL"): #movig중에 새로운 목표 추가시 큐에만 추가
+        
+        if self._is_critical: # 최우선 순위: 크리티컬 상태 확인
+            log(f"[REJECT] Manager in CRITICAL state. Reset required.", prefix=self.name)
+            self.emit(EventType.INVALID_COMMAND, self.name, {"reason": "MANAGER_LOCKED"})
+            return
+
         state = self.telescope.state
         log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}", prefix=self.name)
 
@@ -77,7 +89,7 @@ class CommandManager:
         log("[MANAGER] Emergency STOP executed. All cleared.", prefix=self.name)
 
     def update(self, dt):
-        if dt <= 0:
+        if dt <= 0 or self._is_critical: # 🔒 이미 락이 걸렸다면 업데이트 중단
             return
         
         self.time += dt
@@ -109,6 +121,7 @@ class CommandManager:
                 if final_state == CMD_FAILED or self.telescope.is_stopped():
                     reason = "FAILED" if final_state == CMD_FAILED else "STOPPED"
                     
+                    self._is_critical = True # 🔒 락 활성화
                     # 📢 EVENT: 시스템 중단 유발 이벤트
                     self.emit(EventType.MANAGER_CRITICAL_STOP, self.name, {"reason": reason})
                     
