@@ -86,3 +86,12 @@ class StopCommand(Command):
         telescope.stop()
         self.state = CMD_SUCCESS
         log("[CMD] StopCommand SUCCESS",prefix=prefix)
+
+class ResetCommand(Command): #비정상 상태를 초기화하고 대기상태로 가기 위한 조치
+    def __init__(self):
+        super().__init__(CommandType.RESET)
+
+    def execute(self, telescope, prefix=""):
+        telescope.state = TelescopeState.IDLE # 여기서 상태 변경!
+        self.state = CMD_SUCCESS
+        log(f"[{prefix}] [CMD] Hardware Reset Success.", prefix=prefix)

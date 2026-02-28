@@ -12,3 +12,4 @@ class CommandType(Enum):
     MOVE = "MOVE"
     PARK = "PARK"
     STOP = "STOP"
+    RESET = "RESET"

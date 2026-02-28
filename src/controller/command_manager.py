@@ -7,6 +7,7 @@ from src.controller.command import (
     CMD_SUCCESS,
     CMD_FAILED,
     CMD_ABORTED,
+    ResetCommand,
 )
 from src.utils.logger import log
 from src.sim.event import EventType
@@ -131,3 +132,23 @@ class CommandManager:
 
                 # 4. 정상적인 Command 종료 → 다음 Command로
                 self.current = None
+
+    def reset_critical(self):
+        """
+        LOCKED(Critical) 상태를 명시적으로 해제하고 IDLE 상태로 복귀합니다.
+        반드시 외부(Operator/Controller)에서 호출되어야 합니다.
+        """
+        if not self._is_critical:
+            # ❌ 원칙: LOCKED 상태가 아닐 때 리셋 시도는 무시하거나 로깅
+            log(f"[WARN] Reset ignored: Manager {self.name} is not in LOCKED state.", prefix=self.name)
+            return
+
+        # ✅ 책임: 안전장치 해제 및 상태 정규화
+        self._is_critical = False
+        reset_cmd = ResetCommand()
+        reset_cmd.execute(self.telescope, prefix=self.name)
+        self.queue.clear() # 잔여 명령 청소 (안전을 위해 비우는 것이 관례)
+        
+        # 📢 EVENT: 리셋 성공 알림 (시스템이 다시 준비되었음을 알림)
+        self.emit(EventType.SYSTEM_RESUMED, self.name, {"reason": "OPERATOR_RESET"})
+        log(f"[MANAGER] Safety lock released. State set to IDLE.", prefix=self.name)
