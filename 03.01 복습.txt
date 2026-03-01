@@ -1,0 +1,50 @@
+Day 56 복습 추천 구조
+1️⃣ 상태 다이어그램 다시 그려보기
+IDLE → RUNNING → CRITICAL_STOP → LOCKED → RESET → IDLE
+
+IDLE → RUNNING: add_command (Immediate) 또는 update (Scheduled)에 의해 발생.
+
+RUNNING → CRITICAL_STOP: 하드웨어 정지(Telescope.stop) 또는 명령 실패(CMD_FAILED) 감지 시 발생.
+
+CRITICAL_STOP → LOCKED: update 루프에서 즉시 _is_critical = True로 전환되며 봉인.
+
+LOCKED → IDLE: 오직 reset_critical() 호출을 통해서만 가능하며, 이때 ResetCommand가 하드웨어를 깨움.
+
+2️⃣ 책임 분리 점검
+
+Telescope 책임
+-물리적 상태 유지 및 구동
+
+Command 책임
+-하드웨어 조작 로직
+
+CommandManager 책임
+-명령 스케줄링 및 정책 제어
+
+Event 책임
+-과거의 사실 기록
+
+3️⃣ 테스트 커버리지 점검
+
+정상 경로
+test_system_event.py : 명령 추가 -> 실행 -> 성공 -> 이벤트 확인 
+
+실패 경로
+test_system_stability.py : 실행 중 정지 -> CRITICAL_STOP 발생 확인
+
+reset 경로
+test_system_recovery.py : reset_critical 후 새 명령 재개 확인
+
+봉인 경로
+test_system_safety.py : LOCKED 상태에서 새 명령 거절 확인
+
+4️⃣ 코드 리팩토링 기회 찾기
+
+if-else가 과도한 곳 있는가?
+-과도하게 사용한 곳은 없는 것 같음
+
+상태 플래그가 늘어나고 있는가?
+-늘어나고 있진 않음
+
+"암묵적 상태 전이"가 존재하는가?
+-암묵적인 상태 전이를 이르키지 않으려고 설계부터 많은 관심을 기울이고 있음
