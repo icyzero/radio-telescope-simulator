@@ -1,76 +1,26 @@
 # src/controller/command_manager.py
 #여러 command의 실행 순서와 상태를 관리하는 중앙 제어자
 
-from src.controller.state_rules import STATE_COMMAND_RULES, CommandDecision
-
-from src.controller.command import (
-    CMD_SUCCESS,
-    CMD_FAILED,
-    CMD_ABORTED,
-    ResetCommand,
-)
+from src.controller.state import IdleState, LockedState
 from src.utils.logger import log
-from src.sim.event import EventType
+
 
 class CommandManager:
     def __init__(self, name, telescope):
         self.name = name
         self.telescope = telescope
+        self.state = IdleState()
         self.queue = []
         self.current = None
         self.time = 0.0
         self.emit = lambda type, source, payload=None: None
-        self._is_critical = False
 
     def set_event_emitter(self, emit_func):
         """SystemController로부터 이벤트 발행 함수를 주입받음"""
         self.emit = emit_func
-    
-    def reset_criticla(self):
-        """명시적인 복구 절차"""
-        self._is_critical = False
-        log("[MANAGER] Critical state reset. Ready for new commands.", prefix=self.name)
 
     def add_command(self, cmd, system_mode="NORMAL"): #movig중에 새로운 목표 추가시 큐에만 추가
-        
-        if self._is_critical: # 최우선 순위: 크리티컬 상태 확인
-            log(f"[REJECT] Manager in CRITICAL state. Reset required.", prefix=self.name)
-            self.emit(EventType.INVALID_COMMAND, self.name, {"reason": "MANAGER_LOCKED"})
-            return
-
-        state = self.telescope.state
-        log(f"[DEBUG] add_command: state={state.name}, cmd={cmd.type.name}", prefix=self.name)
-
-        system_mode = self.get_system_mode() # 💡 시스템이 PAUSED 상태라면 무조건 PENDING으로 돌립니다.
-
-        if system_mode == "PAUSED":
-            decision = CommandDecision.PENDING
-        else:
-            decision = STATE_COMMAND_RULES[state].get(cmd.type, CommandDecision.REJECT)
-
-        if decision == CommandDecision.EXECUTE:        
-            log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
-            
-            if self.current:
-                self.current.abort(prefix=self.name) #기존 Command 중단
-                self.current = None
-            
-            self.queue.clear() #queue 무효화
-            self.current = cmd
-            # 📢 💡 여기에 추가: 즉시 실행 시에도 시작 이벤트 발행
-            self.emit(EventType.COMMAND_STARTED, self.name, {
-                "cmd_type": type(self.current).__name__,
-                "scheduled_at": self.time # 즉시 실행이므로 현재 시간
-            })
-            cmd.execute(self.telescope, prefix=self.name)
-            
-        elif decision == CommandDecision.PENDING:
-            self.queue.append(cmd)
-            self.queue.sort(key=lambda c: c.priority)
-            log(f"[CMD] {cmd.type.name} accepted ({decision.name})", prefix=self.name)
-
-        else: #REJECT
-            log(f"[CMD] {cmd.type.name} rejected (state={state.name})", prefix=self.name)
+        return self.state.handle_add_command(self, cmd, system_mode)
 
     def cancel_pending(self):
         """
@@ -90,65 +40,12 @@ class CommandManager:
         log("[MANAGER] Emergency STOP executed. All cleared.", prefix=self.name)
 
     def update(self, dt):
-        if dt <= 0 or self._is_critical: # 🔒 이미 락이 걸렸다면 업데이트 중단
-            return
-        
-        self.time += dt
-        
-        # 1. 실행 중인 Command가 없으면 다음 Command 실행
-        if self.current is None and self.queue:
-            next_cmd = self.queue[0]
-            
-            if self.time >= next_cmd.scheduled_at:
-                self.current = self.queue.pop(0)
-                # 📢 EVENT: COMMAND_STARTED
-                self.emit(EventType.COMMAND_STARTED, self.name, {
-                    "cmd_type": type(self.current).__name__,
-                })
-                self.current.execute(self.telescope, prefix=self.name)
+        return self.state.handle_update(self, dt)
 
-        if self.current:
-            self.current.update(self.telescope, dt, prefix=self.name)
-
-            # 2. Command 종료 처리
-            if self.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
-                final_state = self.current.state
-
-                # 📢 EVENT: 결과에 따른 이벤트 발행
-                event_type = EventType.COMMAND_SUCCESS if final_state == CMD_SUCCESS else EventType.COMMAND_FAILED
-                self.emit(event_type, self.name, {"cmd_type": type(self.current).__name__})
-
-                # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우 처리
-                if final_state == CMD_FAILED or self.telescope.is_stopped():
-                    reason = "FAILED" if final_state == CMD_FAILED else "STOPPED"
-                    
-                    self._is_critical = True # 🔒 락 활성화
-                    # 📢 EVENT: 시스템 중단 유발 이벤트
-                    self.emit(EventType.MANAGER_CRITICAL_STOP, self.name, {"reason": reason})
-                    
-                    self.current = None # 이 위치가 중복 방지의 핵심
-                    self.queue.clear()
-                    return
-
-                # 4. 정상적인 Command 종료 → 다음 Command로
-                self.current = None
+    @property #하위호환성 유지
+    def _is_critical(self):
+        """상태 객체가 LockedState인지 여부를 반환하여 하위 호환성 유지"""
+        return isinstance(self.state, LockedState)
 
     def reset_critical(self):
-        """
-        LOCKED(Critical) 상태를 명시적으로 해제하고 IDLE 상태로 복귀합니다.
-        반드시 외부(Operator/Controller)에서 호출되어야 합니다.
-        """
-        if not self._is_critical:
-            # ❌ 원칙: LOCKED 상태가 아닐 때 리셋 시도는 무시하거나 로깅
-            log(f"[WARN] Reset ignored: Manager {self.name} is not in LOCKED state.", prefix=self.name)
-            return
-
-        # ✅ 책임: 안전장치 해제 및 상태 정규화
-        self._is_critical = False
-        reset_cmd = ResetCommand()
-        reset_cmd.execute(self.telescope, prefix=self.name)
-        self.queue.clear() # 잔여 명령 청소 (안전을 위해 비우는 것이 관례)
-        
-        # 📢 EVENT: 리셋 성공 알림 (시스템이 다시 준비되었음을 알림)
-        self.emit(EventType.SYSTEM_RESUMED, self.name, {"reason": "OPERATOR_RESET"})
-        log(f"[MANAGER] Safety lock released. State set to IDLE.", prefix=self.name)
+        return self.state.handle_reset(self)
