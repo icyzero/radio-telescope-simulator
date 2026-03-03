@@ -66,6 +66,12 @@ class IdleState(ManagerState):
         
         manager.time += dt
         
+        # 🔄 추가: 모드 변경 감지 시 즉시 상태 전이
+        if manager.get_system_mode() == "PAUSED":
+            log(f"[{manager.name}] Mode changed: IDLE -> PAUSED", prefix=manager.name)
+            manager.state = PausedState()
+            return  # 상태가 바뀌었으므로 이번 루프 종료
+
         # 1. 실행 중인 Command가 없으면 다음 Command 실행
         if manager.current is None and manager.queue:
             next_cmd = manager.queue[0]
@@ -131,3 +137,27 @@ class LockedState(ManagerState):
         manager.state = IdleState() # 🚀 상태 복구!
         manager.emit(EventType.SYSTEM_RESUMED, manager.name, {"reason": "OPERATOR_RESET"})
         log(f"[{manager.name}] Manager unlocked and returned to IDLE.", prefix=manager.name)
+
+class PausedState(ManagerState):
+    def handle_add_command(self, manager, cmd, system_mode):
+        # ⏸️ 일시정지 중에는 명령을 실행하지 않고 큐에 '보관(PENDING)'만 합니다.
+        manager.queue.append(cmd)
+        manager.queue.sort(key=lambda c: c.priority)
+        log(f"[{manager.name}] PAUSED: Command queued as PENDING.", prefix=manager.name)
+
+    def handle_update(self, manager, dt):
+        # ⏸️ 시간은 흐르지만, 새로운 명령을 꺼내거나 실행하지는 않습니다.
+        manager.time += dt
+        # manager.current가 있다면 그것만 업데이트 (하던 건 마저 함)
+        if manager.current:
+            manager.current.update(manager.telescope, dt, prefix=manager.name)
+        
+        # 🔄 상태 전이 체크: 다시 NORMAL이 되면 IdleState로 복구!
+        if manager.get_system_mode() == "NORMAL":
+            log(f"[{manager.name}] Mode changed: PAUSED -> IDLE", prefix=manager.name)
+            manager.state = IdleState()
+            
+    def handle_reset(self, manager):
+        # 일시정지 중 리셋은 무시하거나 IDLE로 복귀시킬 수 있습니다.
+        log(f"[{manager.name}] Reset in PAUSED: Returning to IDLE.", prefix=manager.name)
+        manager.state = IdleState()
