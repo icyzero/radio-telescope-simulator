@@ -2,6 +2,7 @@
 from src.utils.logger import log
 from src.sim.event import Event, EventBus, EventType
 from typing import Optional
+from src.sim.bus import EventBus
 
 class SystemController:
     def __init__(self):
