@@ -145,6 +145,10 @@ Day 59: Evolved EventBus into an observer-based dispatcher.
 Introduced subscription mechanism for reactive event handling.
 Decoupled event emission from event consumption.
 Enabled scalable monitoring and extension architecture.
+
+Day 60: Introduced publish–subscribe EventBus for system-wide event propagation.
+Enabled targeted event routing with type-based subscriptions.
+Added in-memory event history to support observability and debugging.
 ---------------------------------------------------------
 ## How to Run
 

@@ -4,22 +4,28 @@ from src.utils.logger import log
 class EventBus:
     def __init__(self):
         self._history = []
-        self._subscribers = []
+        self._subscribers = {}
 
-    def subscribe(self, callback):
-        """이벤트를 구독할 콜백 등록"""
-        if callback not in self._subscribers:
-            self._subscribers.append(callback)
+    def subscribe(self, event_type, handler):
+        """특정 이벤트 타입에 대해서만 구독 신청"""
+        if event_type not in self._subscribers:
+            self._subscribers[event_type] = []
+
+        if handler not in self._subscribers[event_type]:
+            self._subscribers[event_type].append(handler)
 
     def publish(self, event):
-        """이벤트를 발행하고 모든 구독자에게 알림"""
-        # 1. 기록 (기존 기능 유지)
+        """이벤트를 기록하고, 해당 타입을 구독 중인 객체들에게만 전파"""
+        # 1. 기록
         self._history.append(event)
+
+        # 해당 이벤트 타입을 기다리는 핸들러들만 추출
+        handlers = self._subscribers.get(event.type, [])
         
         # 2. 전파 (Dispatcher 기능)
-        for subscriber in self._subscribers:
+        for handlers in handlers:
             try:
-                subscriber(event)
+                handlers(event)
             except Exception as e:
                 # [원칙 1, 2 준수] 구독자의 실수가 시스템 전체를 무너뜨리지 않도록 방어
                 log(f"[ERROR] EventBus: Subscriber failed with error: {e}")
