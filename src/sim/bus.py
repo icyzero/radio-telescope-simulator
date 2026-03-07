@@ -23,9 +23,9 @@ class EventBus:
         handlers = self._subscribers.get(event.type, [])
         
         # 2. 전파 (Dispatcher 기능)
-        for handlers in handlers:
+        for handler in handlers:
             try:
-                handlers(event)
+                handler(event)
             except Exception as e:
                 # [원칙 1, 2 준수] 구독자의 실수가 시스템 전체를 무너뜨리지 않도록 방어
                 log(f"[ERROR] EventBus: Subscriber failed with error: {e}")
@@ -35,6 +35,12 @@ class EventBus:
         if event_type:
             return [e for e in self._history if e.type == event_type]
         return self._history
+    
+    def get_history(self, event_type=None):
+        """특정 타입 혹은 전체 이벤트 기록을 안전하게 복사해서 반환"""
+        if event_type is None:
+            return list(self._history)
+        return [e for e in self._history if e.type == event_type]
     
     def unsubscribe(self, callback):
         """구독 해지 기능 (옵션)"""

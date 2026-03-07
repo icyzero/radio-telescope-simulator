@@ -149,6 +149,10 @@ Enabled scalable monitoring and extension architecture.
 Day 60: Introduced publish–subscribe EventBus for system-wide event propagation.
 Enabled targeted event routing with type-based subscriptions.
 Added in-memory event history to support observability and debugging.
+
+Day 61: Stabilized event structure using enum-based event types and dict payloads.
+Payload dictionaries allow flexible extension and easy JSON serialization for future monitoring integrations.
+Event history tracking confirmed through tests.
 ---------------------------------------------------------
 ## How to Run
 

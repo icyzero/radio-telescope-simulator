@@ -4,6 +4,7 @@ from enum import Enum, auto
 from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
+import time
 
 class EventType(Enum):
     # 시스템 제어 관련
