@@ -153,6 +153,10 @@ Added in-memory event history to support observability and debugging.
 Day 61: Stabilized event structure using enum-based event types and dict payloads.
 Payload dictionaries allow flexible extension and easy JSON serialization for future monitoring integrations.
 Event history tracking confirmed through tests.
+
+Day 62: Improved event observability by adding readable event formatting
+and a logging subscriber. Events now include simulation time and wall time,
+making system behavior easier to trace and debug.
 ---------------------------------------------------------
 ## How to Run
 

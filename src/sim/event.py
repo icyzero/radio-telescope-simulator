@@ -28,8 +28,21 @@ class Event:
     source: str         # 예: "SystemController", "Manager_A"
     payload: dict = field(default_factory=dict)
     sim_time: float = 0.0  # 시뮬레이션 내부 경과 시간
-    wall_time: datetime = field(default_factory=datetime.now) # 실제 기록 시간
+    timestamp: datetime = field(default_factory=datetime.now) # 실제 기록 시간
 
+    def __str__(self):
+        return (
+        f"[sim:{self.sim_time:.3f}] "
+        f"[{self.timestamp.strftime('%H:%M:%S')}] "
+        f"{self.source} -> {self.type.name} "
+        f"{self.payload}"
+        )
+    
+# 관측을 위한 전담 로거 함수
+def event_pretty_logger(event: Event):
+    # 콘솔에 사람이 읽기 좋은 형태로 출력
+    print(event)
+    
 class EventBus:
     def __init__(self):
         self._events: List[Event] = []

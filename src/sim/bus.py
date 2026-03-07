@@ -42,6 +42,10 @@ class EventBus:
             return list(self._history)
         return [e for e in self._history if e.type == event_type]
     
+    def clear(self):
+        """테스트 간 간섭 방지를 위한 초기화"""
+        self._history.clear()
+    
     def unsubscribe(self, callback):
         """구독 해지 기능 (옵션)"""
         if callback in self._subscribers:

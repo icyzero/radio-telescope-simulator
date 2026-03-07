@@ -1,6 +1,6 @@
 #src/scheduler/scheduler.py
 from src.utils.logger import log
-from src.sim.event import Event, EventBus, EventType
+from src.sim.event import Event, EventType
 from typing import Optional
 from src.sim.bus import EventBus
 
@@ -10,6 +10,24 @@ class SystemController:
         self.mode = "NORMAL" #정책만 분기, 흐름 침범X
         self.bus = EventBus()
         self.sim_time = 0.0        
+        self._setup_monitoring()
+
+    def _setup_monitoring(self):
+        """중요 이벤트가 터질 때마다 콘솔에 자동으로 출력되도록 설정"""
+        from src.sim.event import event_pretty_logger, EventType
+        
+        monitored_types = [
+            EventType.SYSTEM_PAUSED, 
+            EventType.SYSTEM_RESUMED,
+            EventType.SYSTEM_STOPPED,
+            EventType.COMMAND_STARTED,
+            EventType.COMMAND_SUCCESS,
+            EventType.COMMAND_FAILED,
+            EventType.MANAGER_CRITICAL_STOP
+        ]
+        
+        for etype in monitored_types:
+            self.bus.subscribe(etype, event_pretty_logger)
 
     def register_manager(self, name, manager):
         self.managers[name] = manager
