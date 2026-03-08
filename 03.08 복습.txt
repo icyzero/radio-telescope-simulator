@@ -1,0 +1,32 @@
+1️⃣ 이벤트 데이터 흐름도 (Event Flow)문서의 "명령 흐름" 섹션 아래에 이 내용을 추가하면 시스템의 반응형 구조가 명확해집니다.
+Event Propagation Path:Trigger: 
+    1. CommandManager 내 상태 변화 또는 Scheduler의 틱 발생
+    2. Dispatcher: EventBus.publish(event) 호출Fan-out: 등록된 모든 
+    3. Subscribers에게 이벤트 전달 (예: event_pretty_logger)
+    4. Persistence: EventBus._history에 불변(Immutable) 상태로 저장
+    5. Audit: get_history()를 통해 사후 검증 및 통계 산출
+
+2️⃣ 디렉토리 구조 및 역할 정의 (Project Structure)
+현재 프로젝트의 물리적 배치가 설계 철학을 잘 따르고 있는지 명시합니다.
+src/
+ ├── sim/           # 시뮬레이션 핵심 인프라
+ │    ├── bus.py    # 이벤트 전송 및 기록 (EventBus)
+ │    └── event.py  # 이벤트 규격 및 타입 정의 (Event, EventType)
+ ├── scheduler/     # 시간 및 실행 흐름 제어
+ │    └── scheduler.py # 시스템 전체 틱(Tick) 및 매니저 조율
+ ├── manager/       # 명령 실행 로직
+ │    ├── manager.py # CommandManager 본체
+ │    └── state.py   # 상태 패턴(IDLE, RUNNING 등) 구현
+ └── utils/         # 공통 도구 (Logger 등)
+
+리뷰 포인트: "이벤트 정의(event.py)와 전송(bus.py)이 잘 분리되어 있는가?" -> YES, 덕분에 순환 참조 없이 깔끔하게 유지 중입니다.
+
+3️⃣ 이벤트 카탈로그 (Event Taxonomy)시스템에서 발생하는 모든 사건의 명세입니다. 
+이를 정리해두면 나중에 GUI나 분석 도구를 만들 때 '구독할 목록'이 됩니다.
+
+이벤트 타입      | 발생 시점                    | 포함 데이터 (Payload)
+SYSTEM_PAUSED   |시스템이 일시 정지될 때        |reason (정지 사유)
+SYSTEM_RESUMED  |일시 정지 후 재개될 때         |-
+COMMAND_STARTED |명령이 실제 실행에 들어갈 때   |cmd_id, cmd_type
+COMMAND_SUCCESS |명령이 정상적으로 완료됐을 때  |cmd_id, duration
+COMMAND_FAILED  |실행 중 에러가 발생했을 때     |cmd_id, error_msg
