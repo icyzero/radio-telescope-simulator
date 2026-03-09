@@ -13,6 +13,7 @@ class EventType(Enum):
     SYSTEM_STOPPED = auto()
     
     # 명령 라이프사이클 관련
+    COMMAND_ADDED = auto()
     COMMAND_STARTED = auto()
     COMMAND_SUCCESS = auto()
     COMMAND_FAILED = auto()

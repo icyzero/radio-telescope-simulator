@@ -32,3 +32,8 @@ CommandManager가 명령을 어떻게 처리하는지 논리 구조를 적습니
     ● Pub/Sub 모델: 발행자와 구독자가 서로를 몰라도 소통 가능 (Decoupling)
     ● 이벤트 구조: EventType, Source, Payload, Timestamp 포함
     ● 관측 가능성: 모든 이벤트는 _history에 기록되어 사후 분석 가능
+
+5. Command Lifecycle Visibility:
+
+    ● 모든 명령은 STARTED로 시작하여 SUCCESS 또는 FAILED로 끝남을 보장함.
+    ● 예외 발생 시 시스템은 중단되지 않으며, FAILED 이벤트의 payload.error에 상세 사유를 기록함.

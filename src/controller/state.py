@@ -50,7 +50,18 @@ class IdleState(ManagerState):
                 "cmd_type": type(manager.current).__name__,
                 "scheduled_at": manager.time
             })
-            cmd.execute(manager.telescope, prefix=manager.name)
+            # [Day 64 핵심 수정] 즉시 실행 시 발생하는 에러를 여기서 잡아야 함!
+            try:
+                cmd.execute(manager.telescope, prefix=manager.name)
+            except Exception as e:
+                # 📢 EVENT: COMMAND_FAILED 발행
+                manager.emit(EventType.COMMAND_FAILED, manager.name, {
+                    "cmd_type": type(cmd).__name__,
+                    "error": str(e)
+                })
+                manager.current = None # 에러 났으니 점유 해제
+                # 에러를 잡았으므로 여기서 조용히 리턴합니다.
+                return
             
         elif decision == CommandDecision.PENDING:
             manager.queue.append(cmd)
@@ -82,18 +93,42 @@ class IdleState(ManagerState):
                 manager.emit(EventType.COMMAND_STARTED, manager.name, {
                     "cmd_type": type(manager.current).__name__,
                 })
-                manager.current.execute(manager.telescope, prefix=manager.name)
+                # [Day 64 추가] 명령 시작 시 발생할 수 있는 즉각적 에러 방어
+                try:
+                    manager.current.execute(manager.telescope, prefix=manager.name)
+                except Exception as e:
+                    manager.emit(EventType.COMMAND_FAILED, manager.name, {
+                        "cmo_type": type(manager.current).__name__,
+                        "error": str(e)
+                    })
+                    manager.current = None # 에러 시 점유 해제
+                    return
 
         if manager.current:
-            manager.current.update(manager.telescope, dt, prefix=manager.name)
+            # [Day 64 추가] 매 틱 업데이트 중 발생하는 에러 방어
+            try:
+                manager.current.update(manager.telescope, dt, prefix=manager.name)
+            except Exception as e:
+                manager.emit(EventType.COMMAND_FAILED, manager.name, {
+                    "cmd_type": type(manager.current).__name__,
+                    "error": str(e)
+                })
+                manager.current = None
+                return
 
-            # 2. Command 종료 처리
+            # 2. Command 종료 처리 (Day 64 기존 로직 보완)
             if manager.current.state in (CMD_SUCCESS, CMD_FAILED, CMD_ABORTED):
                 final_state = manager.current.state
-
-                # 📢 EVENT: 결과에 따른 이벤트 발행
-                event_type = EventType.COMMAND_SUCCESS if final_state == CMD_SUCCESS else EventType.COMMAND_FAILED
-                manager.emit(event_type, manager.name, {"cmd_type": type(manager.current).__name__})
+                
+                # SUCCESS/FAILED/ABORTED에 따른 정확한 이벤트 발행
+                if final_state == CMD_SUCCESS:
+                    manager.emit(EventType.COMMAND_SUCCESS, manager.name, {"cmd_type": type(manager.current).__name__})
+                else:
+                    # FAILED나 ABORTED는 모두 광의의 실패(FAILED)로 기록
+                    manager.emit(EventType.COMMAND_FAILED, manager.name, {
+                        "cmd_type": type(manager.current).__name__,
+                        "reason": final_state # ABORTED인지 FAILED인지 페이로드에 남김
+                    })
 
                 # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우 처리
                 if final_state == CMD_FAILED or manager.telescope.is_stopped():

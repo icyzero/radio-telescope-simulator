@@ -157,6 +157,10 @@ Event history tracking confirmed through tests.
 Day 62: Improved event observability by adding readable event formatting
 and a logging subscriber. Events now include simulation time and wall time,
 making system behavior easier to trace and debug.
+
+Day 64: Introduced command lifecycle events.
+Scheduler now publishes events when commands start and finish,
+allowing the system to track command execution through EventBus.
 ---------------------------------------------------------
 ## How to Run
 
