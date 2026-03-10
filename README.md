@@ -161,6 +161,9 @@ making system behavior easier to trace and debug.
 Day 64: Introduced command lifecycle events.
 Scheduler now publishes events when commands start and finish,
 allowing the system to track command execution through EventBus.
+
+Day 65: Introduced an EventLogger subscriber that listens to
+EventBus events and records them for observability and debugging.
 ---------------------------------------------------------
 ## How to Run
 
