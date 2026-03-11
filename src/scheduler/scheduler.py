@@ -4,6 +4,7 @@ from src.sim.event import Event, EventType, event_pretty_logger
 from typing import Optional
 from src.sim.bus import EventBus
 from src.sim.event_logger import EventLogger
+from src.sim.event_metrics import EventMetrics
 
 class SystemController:
     def __init__(self):
@@ -11,6 +12,7 @@ class SystemController:
         self.mode = "NORMAL" #정책만 분기, 흐름 침범X
         self.bus = EventBus()
         self.event_logger = EventLogger()
+        self.metrics = EventMetrics() # 분석가 생성
         self.sim_time = 0.0        
         self._setup_monitoring()
 
@@ -33,6 +35,15 @@ class SystemController:
         # 2. 데이터 기록용 (신규 추가) - 모든 이벤트를 수집
         for etype in EventType:
             self.bus.subscribe(etype, self.event_logger.handle)
+
+        # 분석가가 관심 있는 이벤트들만 구독하게 설정
+        relevant_types = [
+            EventType.COMMAND_STARTED,
+            EventType.COMMAND_SUCCESS,
+            EventType.COMMAND_FAILED
+        ]
+        for etype in relevant_types:
+            self.bus.subscribe(etype, self.metrics.handle)
 
     def register_manager(self, name, manager):
         self.managers[name] = manager

@@ -164,6 +164,9 @@ allowing the system to track command execution through EventBus.
 
 Day 65: Introduced an EventLogger subscriber that listens to
 EventBus events and records them for observability and debugging.
+
+Day 66: Introduced EventMetrics subscriber that listens to command lifecycle
+events and collects execution statistics such as started and successful commands.
 ---------------------------------------------------------
 ## How to Run
 
