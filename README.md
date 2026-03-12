@@ -167,6 +167,9 @@ EventBus events and records them for observability and debugging.
 
 Day 66: Introduced EventMetrics subscriber that listens to command lifecycle
 events and collects execution statistics such as started and successful commands.
+
+Day 67: Added EventTimeline utility to analyze event history
+and compute execution durations between command lifecycle events.
 ---------------------------------------------------------
 ## How to Run
 
