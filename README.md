@@ -170,6 +170,9 @@ events and collects execution statistics such as started and successful commands
 
 Day 67: Added EventTimeline utility to analyze event history
 and compute execution durations between command lifecycle events.
+
+Day 68: Introduced event query capability in EventBus,
+allowing filtering of events by type, source, and simulation time.
 ---------------------------------------------------------
 ## How to Run
 
