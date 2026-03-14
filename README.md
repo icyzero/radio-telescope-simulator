@@ -173,6 +173,10 @@ and compute execution durations between command lifecycle events.
 
 Day 68: Introduced event query capability in EventBus,
 allowing filtering of events by type, source, and simulation time.
+
+Day 69: Implemented EventReplay utility to replay
+recorded event history while preserving event order
+and command lifecycle events.
 ---------------------------------------------------------
 ## How to Run
 
