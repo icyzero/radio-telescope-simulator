@@ -181,6 +181,10 @@ and command lifecycle events.
 Day 70: System architecture review.
 Consolidated understanding of command lifecycle,
 manager state machine, and event observability layer.
+
+Day 71: Added event persistence layer to export
+event history to JSON files for external analysis
+and long-term storage.
 ---------------------------------------------------------
 ## How to Run
 
