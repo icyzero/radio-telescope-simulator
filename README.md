@@ -185,6 +185,10 @@ manager state machine, and event observability layer.
 Day 71: Added event persistence layer to export
 event history to JSON files for external analysis
 and long-term storage.
+
+Day 72: Added event loading capability to restore
+event history from JSON files, enabling replay
+and external simulation reconstruction.
 ---------------------------------------------------------
 ## How to Run
 
