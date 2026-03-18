@@ -52,6 +52,22 @@ class SystemController:
         manager.get_system_mode = lambda: self.mode # add_command 호출 시 모드를 전달해야 합니다.
         log(f"[SYSTEM] Manager registered: {name}")
 
+    def pause(self):
+        """global_pause의 별칭"""
+        self.global_pause()
+
+    def resume(self):
+        """global_resume의 별칭"""
+        self.global_resume()
+
+    def stop(self):
+        """global_stop의 별칭"""
+        self.global_stop()
+
+    def is_paused(self) -> bool:
+        """현재 시스템이 일시정지 상태인지 확인"""
+        return self.mode == "PAUSED"
+
     def update(self, dt):
         # STOPPED 상태면 시스템이 죽은 상태이므로 아무것도 안 함
         if self.mode == "STOPPED":
