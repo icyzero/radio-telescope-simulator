@@ -196,6 +196,9 @@ to reconstruct system state from event history.
 Day 74: Introduced event validation layer to ensure
 data integrity and prevent invalid events from
 affecting system replay.
+
+Day 75: Enforced strict event validation in EventBus
+to prevent invalid events from being published and ensure event log integrity for reliable replay.
 ---------------------------------------------------------
 ## How to Run
 

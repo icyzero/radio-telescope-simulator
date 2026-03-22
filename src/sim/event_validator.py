@@ -1,5 +1,5 @@
 # src/sim/event_validator.py
-from src.sim.event import EventType
+from src.sim.event_types import EventType
 
 class EventValidator:
     # 각 이벤트 타입별로 반드시 존재해야 하는 payload 키 정의
@@ -13,15 +13,26 @@ class EventValidator:
 
     @staticmethod
     def validate(event):
-        """이벤트가 시스템에 적용 가능한 유효한 규격인지 검증"""
-        # 1. 타입 검증: EventType 열거형 객체인지 확인
+        """이벤트의 유효성을 검증하며, 실패 시 즉시 예외 발생"""
+        
+        # 1. 타입 검증: Enum 객체인지 확인
         if not isinstance(event.type, EventType):
-            return False
+            raise ValueError(f"Invalid event type: {event.type}")
 
-        # 2. Payload 검증: 필수 키(Key)가 누락되었는지 확인
+        # 2. Payload 타입 검증
+        if not isinstance(event.payload, dict):
+            raise ValueError(f"Payload must be dict, but got {type(event.payload)}")
+
+        # 3. 필수 키 검증 (스키마 v1.0 준수)
         required_keys = EventValidator.REQUIRED_PAYLOAD.get(event.type, [])
         for key in required_keys:
             if key not in event.payload:
-                return False
+                raise ValueError(
+                    f"Missing required payload key '{key}' for {event.type}"
+                )
+
+        # 4. sim_time 검증 (물리적 시간의 가역성 방지)
+        if event.sim_time < 0:
+            raise ValueError(f"sim_time must be >= 0 (current: {event.sim_time})")
 
         return True
