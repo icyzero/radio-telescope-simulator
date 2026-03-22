@@ -1,13 +1,13 @@
 # src/sim/event_replayer.py
+from src.sim.event_validator import EventValidator
 
 class EventReplayer:
     @staticmethod
-    def replay(system, events):
-        """이벤트 리스트를 순회하며 시스템 상태를 복원"""
-        # 시간 순 정렬 보장
-        sorted_events = sorted(events, key=lambda e: e.sim_time)
-        for e in sorted_events:
-            EventReplayer.apply_event(system, e)
+    def apply_event(system, event):
+        # [Day 74 신규 로직] 유효하지 않은 이벤트는 무시
+        if not EventValidator.validate(event):
+            # 실무에서는 여기서 경고 로그를 남기는 것이 좋습니다.
+            return
 
     @staticmethod
     def apply_event(system, event):
