@@ -35,4 +35,11 @@ class EventValidator:
         if event.sim_time < 0:
             raise ValueError(f"sim_time must be >= 0 (current: {event.sim_time})")
 
+        # 5. [Day 76] Version 검증
+        if not isinstance(event.version, int):
+            raise ValueError(f"Event version must be int, but got {type(event.version)}")
+
+        if event.version <= 0:
+            raise ValueError(f"Event version must be >= 1 (current: {event.version})")
+
         return True

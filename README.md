@@ -199,6 +199,9 @@ affecting system replay.
 
 Day 75: Enforced strict event validation in EventBus
 to prevent invalid events from being published and ensure event log integrity for reliable replay.
+
+Day 76: Introduced event versioning to support schema evolution
+and ensure backward compatibility for future replay.
 ---------------------------------------------------------
 ## How to Run
 

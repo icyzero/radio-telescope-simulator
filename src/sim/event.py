@@ -13,6 +13,7 @@ class Event:
     payload: dict = field(default_factory=dict)
     sim_time: float = 0.0  # 시뮬레이션 내부 경과 시간
     timestamp: datetime = field(default_factory=datetime.now) # 실제 기록 시간
+    version: int = 1 # [Day 76] 데이터 규격 버전 관리 (기본값 1)
 
     def __str__(self):
         return (
