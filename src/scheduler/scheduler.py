@@ -116,3 +116,12 @@ class SystemController:
         self.bus.publish(event)
         # 로그에도 남겨서 실시간 모니터링 가능하게 함
         log(f" {event_type} | Source: {source} | SimTime: {self.sim_time:.2f}s")
+
+    def get_full_state_snapshot(self):
+        return {
+            "mode": self.mode,
+            "sim_time": self.sim_time,
+            "manager_states": {
+                name: mgr.get_state() for name, mgr in self.managers.items()
+            }
+        }

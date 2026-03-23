@@ -202,6 +202,9 @@ to prevent invalid events from being published and ensure event log integrity fo
 
 Day 76: Introduced event versioning to support schema evolution
 and ensure backward compatibility for future replay.
+
+Day 78: Implemented replay determinism test
+and verified consistent state reconstruction for basic simulation scenarios.
 ---------------------------------------------------------
 ## How to Run
 
