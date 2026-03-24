@@ -205,6 +205,9 @@ and ensure backward compatibility for future replay.
 
 Day 78: Implemented replay determinism test
 and verified consistent state reconstruction for basic simulation scenarios.
+
+Day 79: Enforced required state information in event payload
+to ensure accurate and complete state reconstruction during replay.
 ---------------------------------------------------------
 ## How to Run
 

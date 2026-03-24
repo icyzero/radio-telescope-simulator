@@ -27,12 +27,19 @@ class EventReplayer:
         elif t == EventType.SYSTEM_RESUMED:
             system.mode = "NORMAL"
         
-        # 2. 매니저 및 명령 결과 복원 (핵심)
+        # 2. 매니저 및 명령 결과 복원 (성공/실패 통합 처리)
         elif t in [EventType.COMMAND_SUCCESS, EventType.COMMAND_FAILED]:
             if event.source in system.managers:
                 manager = system.managers[event.source]
-                # 명령이 끝났으므로 매니저를 IDLE 상태로 강제 전환
-                manager.state = "IDLE" 
-                # 만약 payload에 결과 좌표가 있다면 여기서 복원
-                # if "final_pos" in payload:
-                #     manager.telescope.set_position(payload["final_pos"])
+                
+                # [Day 79.5] 이제 실패(FAILED) 이벤트도 result_state를 반드시 가집니다.
+                res = event.payload.get("result_state", {})
+                
+                # 🎯 기록된 '진실'을 주입 (더 이상 추측하지 않음)
+                manager.state = res.get("manager_state", "IDLE")
+                
+                # 세부 상태(망원경 등)도 기록되어 있다면 복원
+                if "telescope" in res:
+                    tel_data = res["telescope"]
+                    # if hasattr(manager.telescope, 'set_state'):
+                    #     manager.telescope.set_state(tel_data)
