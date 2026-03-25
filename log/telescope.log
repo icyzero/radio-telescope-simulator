@@ -5627,3 +5627,29 @@
 2026-03-24T21:47:52 [STATE] IDLE → MOVING (Target: 10, 20)
 2026-03-24T21:48:16 [CMD] MoveCommand SUCCESS
 2026-03-24T21:48:26  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:26:27 [CMD] MoveCommand START
+2026-03-25T20:26:27 [CMD] MoveCommand RUNNING
+2026-03-25T20:26:27 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-03-25T20:26:52 [CMD] MoveCommand SUCCESS
+2026-03-25T20:27:40  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:27:40  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:29:08 [CMD] MoveCommand START
+2026-03-25T20:29:08 [CMD] MoveCommand RUNNING
+2026-03-25T20:29:08 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-03-25T20:29:33 [CMD] MoveCommand SUCCESS
+2026-03-25T20:29:42 [CMD] MoveCommand START
+2026-03-25T20:29:42 [CMD] MoveCommand RUNNING
+2026-03-25T20:29:42 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-03-25T20:29:44  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:29:44  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:29:44  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:29:44  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:30:07 [CMD] MoveCommand SUCCESS
+2026-03-25T20:31:00 [CMD] MoveCommand START
+2026-03-25T20:31:00 [CMD] MoveCommand RUNNING
+2026-03-25T20:31:00 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-03-25T20:31:01  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:31:01  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:31:01  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:31:01  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-03-25T20:31:25 [CMD] MoveCommand SUCCESS
