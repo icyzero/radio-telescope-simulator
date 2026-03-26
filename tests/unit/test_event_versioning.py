@@ -23,3 +23,16 @@ def test_validator_should_reject_zero_or_negative_version():
     with pytest.raises(ValueError) as excinfo:
         EventValidator.validate(event)
     assert "Event version must be >= 1" in str(excinfo.value)
+
+def test_replayer_should_fail_for_unknown_future_version():
+    """테스트 4: 리플레이 엔진이 듣도 보도 못한 버전(예: 99)을 만나면 에러를 내야 함"""
+    from src.sim.event_replayer import EventReplayer
+    from src.scheduler.scheduler import SystemController
+
+    sys = SystemController()
+    # Validator는 통과하지만(정수 1 이상이므로), Replayer는 처리법을 모르는 상황
+    future_event = Event(type=EventType.SYSTEM_PAUSED, source="System", version=99)
+    
+    with pytest.raises(ValueError) as excinfo:
+        EventReplayer.apply_event(sys, future_event)
+    assert "지원하지 않는 이벤트 버전" in str(excinfo.value)

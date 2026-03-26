@@ -211,6 +211,9 @@ to ensure accurate and complete state reconstruction during replay.
 
 Day 80: Implemented replay coverage tests for multi-event scenarios
 to verify system consistency and correctness across complex event sequences.
+
+Day 81: Strengthened event versioning by enforcing replay failure
+for unsupported future versions to ensure system safety and compatibility.
 ---------------------------------------------------------
 ## How to Run
 
