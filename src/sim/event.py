@@ -14,9 +14,11 @@ class Event:
     sim_time: float = 0.0  # 시뮬레이션 내부 경과 시간
     timestamp: datetime = field(default_factory=datetime.now) # 실제 기록 시간
     version: int = 1 # [Day 76] 데이터 규격 버전 관리 (기본값 1)
+    id: int = 0
 
     def __str__(self):
         return (
+        f"[{self.id:04d}] " # ID 출력 추가
         f"[sim:{self.sim_time:.3f}] "
         f"[{self.timestamp.strftime('%H:%M:%S')}] "
         f"{self.source} -> {self.type.name} "

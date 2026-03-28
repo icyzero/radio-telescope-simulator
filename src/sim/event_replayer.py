@@ -26,6 +26,7 @@ class EventReplayer:
             pass
         else:
             raise ValueError(f"지원하지 않는 이벤트 버전입니다: {event.version}")
+        system.last_processed_id = event.id
 
     @staticmethod
     def _handle_v1(system, event):

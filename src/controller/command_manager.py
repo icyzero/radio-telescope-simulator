@@ -41,6 +41,19 @@ class CommandManager:
 
     def update(self, dt):
         return self.state.handle_update(self, dt)
+    
+    def get_state(self) -> dict:
+        """현재 매니저와 조종 중인 망원경의 모든 상태를 반환"""
+        return {
+            "manager_state": self.state,
+            # 망원경이 연결되어 있다면 망원경의 get_state()를 호출
+            "telescope": self.telescope.get_state() if hasattr(self, 'telescope') else None
+        }
+        
+    def set_state(self, state: dict):
+        self.state = state.get("manager_state", "IDLE")
+        if "telescope" in state and hasattr(self, 'telescope'):
+            self.telescope.set_state(state["telescope"])
 
     @property #하위호환성 유지
     def _is_critical(self):

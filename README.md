@@ -217,6 +217,9 @@ for unsupported future versions to ensure system safety and compatibility.
 
 Day 82: Implemented event versioning and multi-version validation
 to ensure backward compatibility for v1 logs while enforcing strict schemas for v2 data.
+
+Day 83: Implemented Snapshot system and Hybrid Recovery mechanism
+to enable rapid state reconstruction by combining point-in-time snapshots with delta events.
 ---------------------------------------------------------
 ## How to Run
 

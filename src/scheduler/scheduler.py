@@ -125,3 +125,25 @@ class SystemController:
                 name: mgr.get_state() for name, mgr in self.managers.items()
             }
         }
+    #Day 83
+    def get_full_state(self):
+        # SnapshotManager를 이용해 현재 전체 상태를 가져오는 래퍼
+        from src.sim.snapshot_manager import SnapshotManager
+        # 여기서 last_event_id는 현재 시스템이 마지막으로 처리한 이벤트 ID여야 합니다.
+        # 일단 테스트를 위해 임시로 0을 넣거나, 마지막 이벤트를 추적하는 변수를 쓰세요.
+        return SnapshotManager.capture(self, last_event_id=getattr(self, 'last_processed_id', 0))
+    
+    def set_full_state(self, snapshot: dict):
+        """스냅샷 데이터를 받아 시스템 상태를 강제 주입(복구)"""
+        # 1. 시스템 모드 복구
+        self.mode = snapshot.get("system_mode", "NORMAL")
+        
+        # 2. 마지막 처리 ID 기록 (있다면)
+        self.last_processed_id = snapshot.get("last_event_id", 0)
+        
+        # 3. 각 매니저 상태 복구
+        snapshot_managers = snapshot.get("managers", {})
+        for name, state in snapshot_managers.items():
+            if name in self.managers:
+                # 매니저에게 자신의 상태를 스스로 복구하라고 명령
+                self.managers[name].set_state(state)

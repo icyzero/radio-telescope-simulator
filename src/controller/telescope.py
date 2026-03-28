@@ -161,3 +161,45 @@ class Telescope:
             abs(self.alt_error) < EPSILON and
             abs(self.az_error) < EPSILON
         )
+    
+    # [Day 83] Snapshot 저장을 위한 메서드
+    def get_state(self) -> dict:
+        """시스템 복구를 위한 모든 내부 상태값 추출"""
+        return {
+            "alt": self.alt,
+            "az": self.az,
+            "target_alt": self.target_alt,
+            "target_az": self.target_az,
+            # Enum 객체는 JSON 저장이 안 되므로 value(문자열/숫자)로 변환
+            "state": self.state.value if hasattr(self.state, 'value') else self.state,
+            "v_alt": self.v_alt,
+            "v_az": self.v_az,
+            "current_command": self.current_command, # (alt, az) 튜플 형태
+            "command_queue": list(self.command_queue), # 큐 복사
+            "stop_reason": self.stop_reason
+        }
+
+    # [Day 83] Snapshot 로드를 위한 메서드
+    def set_state(self, state_data: dict):
+        """저장된 데이터를 바탕으로 망원경 상태 강제 복구"""
+        self.alt = state_data["alt"]
+        self.az = state_data["az"]
+        self.target_alt = state_data["target_alt"]
+        self.target_az = state_data["target_az"]
+        
+        # 다시 Enum 객체로 복원 (문자열 -> Enum)
+        if isinstance(state_data["state"], str):
+             # TelescopeState가 Enum이라면 값을 찾아 매핑
+             self.state = TelescopeState(state_data["state"])
+        else:
+             self.state = state_data["state"]
+
+        self.v_alt = state_data["v_alt"]
+        self.v_az = state_data["v_az"]
+        self.current_command = state_data["current_command"]
+        self.command_queue = state_data["command_queue"]
+        self.stop_reason = state_data["stop_reason"]
+        
+        # 물리 오차 다시 계산
+        self.alt_error = self.target_alt - self.alt
+        self.az_error = self.target_az - self.az
