@@ -4,6 +4,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from typing import List, Optional
 from src.sim.event_types import EventType
+from src.sim.archive_manager import ArchiveManager
 import time
 
 @dataclass(frozen=True)
@@ -44,6 +45,9 @@ class EventBus:
 
         self._events.append(event)
         # 나중에 여기에 실시간 로그 출력이나 파일 저장을 붙일 수 있습니다.
+        if self.archive_manager:
+            # 이벤트를 딕셔너리로 변환하여 저장
+            self.archive_manager.log_event(self._event_to_dict(event))
 
     def get_events(self, event_type: Optional[EventType] = None) -> List[Event]:
         if event_type:

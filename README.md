@@ -220,6 +220,9 @@ to ensure backward compatibility for v1 logs while enforcing strict schemas for 
 
 Day 83: Implemented Snapshot system and Hybrid Recovery mechanism
 to enable rapid state reconstruction by combining point-in-time snapshots with delta events.
+
+Day 85: Implemented ArchiveManager for session-based data management
+to isolate simulation datasets and preserve session metadata for long-term observability.
 ---------------------------------------------------------
 ## How to Run
 
