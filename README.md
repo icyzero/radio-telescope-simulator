@@ -226,6 +226,9 @@ to isolate simulation datasets and preserve session metadata for long-term obser
 
 Day 86: Implemented SessionReporter for global simulation analytics
 to aggregate multi-session results and provide high-level statistics such as success rates.
+
+Day 87: Implemented SessionInspector for automated error tracing
+to extract precise failure reasons and timestamps from session logs, enhancing debuggability.
 ---------------------------------------------------------
 ## How to Run
 
