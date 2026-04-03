@@ -5,6 +5,7 @@ from typing import Optional
 from src.sim.bus import EventBus
 from src.sim.event_logger import EventLogger
 from src.sim.event_metrics import EventMetrics
+from src.sim.time_controller import TimeController
 
 class SystemController:
     def __init__(self):
@@ -13,8 +14,10 @@ class SystemController:
         self.bus = EventBus()
         self.event_logger = EventLogger()
         self.metrics = EventMetrics() # 분석가 생성
-        self.sim_time = 0.0        
+        self.sim_time = 0.0      
+        self.time_ctrl = TimeController(scale=1.0)  # [Day 89]]: 시간 제어 엔진 추가
         self._setup_monitoring()
+        
 
     def _setup_monitoring(self):
         """중요 이벤트가 터질 때마다 콘솔에 자동으로 출력되도록 설정"""
@@ -67,8 +70,13 @@ class SystemController:
     def is_paused(self) -> bool:
         """현재 시스템이 일시정지 상태인지 확인"""
         return self.mode == "PAUSED"
+    
+    def set_time_scale(self, scale: float):
+        """외부(대시보드 등)에서 배속을 조절할 때 사용"""
+        self.time_ctrl.set_scale(scale)
+        log(f"[SYSTEM] Time Scale adjusted to x{scale}")
 
-    def update(self, dt):
+    def update(self, wall_dt):
         # STOPPED 상태면 시스템이 죽은 상태이므로 아무것도 안 함
         if self.mode == "STOPPED":
             return
@@ -78,11 +86,14 @@ class SystemController:
         # 일시정지 중에도 명령 예약은 가능해집니다.
         if self.mode == "PAUSED":
             return
+        
+        # [Day 89] 핵심: 현실의 dt를 시뮬레이션 배속이 적용된 dt로 변환
+        sim_dt = wall_dt * self.time_ctrl.scale
 
-        self.sim_time += dt # 💡 시뮬레이션 시간 누적 추가
+        self.sim_time += sim_dt # 💡 시뮬레이션 시간 누적 추가
         # 3. NORMAL 상태일 때만 시간을 흐르게 함
         for manager in self.managers.values():
-            manager.update(dt)
+            manager.update(sim_dt) # 매니저와 그 하위 망원경들은 이제 가속된 시간(sim_dt)을 기준으로 움직임
 
     def global_stop(self):
         self.mode = "STOPPED"  # 모드 변경
