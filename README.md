@@ -235,6 +235,9 @@ by combining SessionReporter and SessionInspector to provide a centralized view 
 
 Day 89: Implemented a high-precision TimeController with dynamic scaling
 to support accelerated simulation and maintain temporal continuity during real-time scale transitions.
+
+Day 90: Integrated RemoteCommandGate for external JSON command injection
+to decouple the simulation engine from direct method calls and enable remote orchestration.
 ---------------------------------------------------------
 ## How to Run
 
