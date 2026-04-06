@@ -158,3 +158,24 @@ class SystemController:
             if name in self.managers:
                 # 매니저에게 자신의 상태를 스스로 복구하라고 명령
                 self.managers[name].set_state(state)
+
+    def get_telemetry(self) -> dict:
+        """외부 모니터링을 위한 경량 상태 스냅샷 생성"""
+        telemetry = {
+            "sim_time": round(self.sim_time, 2),
+            "system_mode": self.mode,
+            "time_scale": getattr(self.time_ctrl, 'scale', 1.0),
+            "managers": {}
+        }
+        
+        for name, mgr in self.managers.items():
+            # 매니저로부터 필요한 핵심 물리량만 추출
+            tel = mgr.telescope
+            telemetry["managers"][name] = {
+                "state": mgr.state.__class__.__name__.replace("State", "").upper(),
+                "az": round(tel.az, 4),
+                "alt": round(tel.alt, 4),
+                "target": {"az": tel.target_az, "alt": tel.target_alt},
+                "is_moving": tel.state.value == "MOVING"
+            }
+        return telemetry

@@ -10,13 +10,20 @@ class RemoteCommandGate:
     def process_json_command(self, raw_json: str):
         try:
             data = json.loads(raw_json)
-            mgr_name = data.get("manager")
             action = data.get("action")
             params = data.get("params", {})
 
-            # 1. SystemController에 등록된 CommandManager 찾기
-            if mgr_name not in self.controller.managers:
-                return {"status": "ERROR", "msg": f"Manager '{mgr_name}' not found"}
+            # [1단계] 전역 액션 처리 (매니저 이름이 필요 없는 경우)
+            if action == "GET_STATUS":
+                return {
+                    "status": "SUCCESS", 
+                    "data": self.controller.get_telemetry()
+                }
+
+            # [2단계] 특정 매니저가 필요한 액션 처리
+            mgr_name = data.get("manager")
+            if not mgr_name or mgr_name not in self.controller.managers:
+                return {"status": "ERROR", "msg": f"Manager '{mgr_name}' not found or required"}
 
             cmd_mgr = self.controller.managers[mgr_name]
 

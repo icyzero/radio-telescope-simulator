@@ -88,20 +88,32 @@ class Telescope:
         if self.state == TelescopeState.STOPPED: # 01.10 STOPPED상태를 적용함 / 정지 상태면 아무 것도 안함
             return
         
-        if self.state != TelescopeState.MOVING or self.current_command is None:
-            # 큐에서 다음 명령을 꺼내는 기존 로직 (Manager 없이 직접 쓸 때를 대비)
+        # 1️⃣. [명령 공급] 현재 명령이 없으면 큐에서 새로 가져옴
+        if self.current_command is None:
             if self.command_queue:
-                self.current_command = self.command_queue.pop(0) # 가장 오래 기다린 명령 현재 작업으로 설정
-                self.target_alt, self.target_az = self.current_command # 좌표 묶음을 alt, az 각각 분리 저장
-                self.state = TelescopeState.MOVING #MOVIG으로 상태 변경
+                self.current_command = self.command_queue.pop(0)
+                # 좌표 추출 로직 (객체/튜플 대응)
+                if hasattr(self.current_command, 'target_alt'):
+                    self.target_alt = self.current_command.target_alt
+                    self.target_az = self.current_command.target_az
+                else:
+                    self.target_alt, self.target_az = self.current_command
+                self.state = TelescopeState.MOVING
             else:
+                # 🚨 큐도 없고 현재 명령도 없으면 진짜 할 일 없음
+                if self.state == TelescopeState.MOVING:
+                    self.state = TelescopeState.IDLE
                 return
-            
-        # 1. 물리 계산 준비
-        target_alt, target_az = self.current_command #지금 어디를 향해 움직이는지
-        d_alt = target_alt - self.alt #목표 고도까지 남은 거리
-        d_az = target_az - self.az    #목표 방위각까지 남은 거리
-        distance = math.sqrt(d_alt**2 + d_az**2)#목표까지 남은 거리 계산 피타고라스정리 활용
+
+        # 2️⃣. [물리 계산]
+        target_alt = self.target_alt
+        target_az = self.target_az
+
+        print(f"DEBUG IN UPDATE: current_pos=({self.alt}, {self.az}) -> Target({target_alt}, {target_az})")
+
+        d_alt = target_alt - self.alt 
+        d_az = target_az - self.az    
+        distance = math.sqrt(d_alt**2 + d_az**2)
 
         #2. 도착 판정(도착 시 위치 고정 및 정지)
         if distance < EPSILON: #01.07 멈추는 조건을 EPSILON과 맞추기 / 거리가 EPSILON보다 작으면 상태 IDLE로 변환
@@ -120,7 +132,11 @@ class Telescope:
 
         # 1️⃣속도 크기 계산(거리에 비례하되 MAX/MIN 제한)
         raw_speed = self.slew_rate * (distance/10)
-        speed = min(max(raw_speed, self.MIN_SPEED), self.MAX_SPEED) #01.14 모터가 움직일 수 있는 최대 속도보다 빠르지 않게, 목표에 가까워질 때 0이아닌 최소 속도로 목표에 도달하게끔
+        #speed = min(max(raw_speed, self.MIN_SPEED), self.MAX_SPEED) #01.14 모터가 움직일 수 있는 최대 속도보다 빠르지 않게, 목표에 가까워질 때 0이아닌 최소 속도로 목표에 도달하게끔
+        # [Day 92]MIN_SPEED가 설정되어 있지 않을 경우를 대비해 1.0 강제 적용
+        min_s = getattr(self, 'MIN_SPEED', 1.0) 
+        max_s = getattr(self, 'MAX_SPEED', 100.0)
+        speed = min(max(raw_speed, min_s), max_s)
 
         # 4. 💡 방어 설계: 이번 프레임의 이동량이 남은 거리보다 크면 바로 도착 처리 (Clamping)
         # 2️⃣ 이번 틱에 사용할 속도 업데이트

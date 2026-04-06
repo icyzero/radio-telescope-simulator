@@ -40,6 +40,12 @@ class CommandManager:
         log("[MANAGER] Emergency STOP executed. All cleared.", prefix=self.name)
 
     def update(self, dt):
+        # 1. 🚨 [추가] 망원경의 물리 엔진을 먼저 돌려줍니다.
+        # 이렇게 해야 매니저가 어떤 상태(IDLE, MOVING 등)이든 망원경은 제 갈 길을 갑니다.
+        if self.telescope:
+            self.telescope.update(dt)
+            
+        #2. [기존] 매니저 자신의 상태(명령 완료 판단 등)를 업데이트합니다.
         return self.state.handle_update(self, dt)
     
     def get_state(self) -> dict:
