@@ -6,6 +6,7 @@ from src.sim.bus import EventBus
 from src.sim.event_logger import EventLogger
 from src.sim.event_metrics import EventMetrics
 from src.sim.time_controller import TimeController
+from src.sim.telemetry_streamer import TelemetryStreamer
 
 class SystemController:
     def __init__(self):
@@ -17,6 +18,7 @@ class SystemController:
         self.sim_time = 0.0      
         self.time_ctrl = TimeController(scale=1.0)  # [Day 89]]: 시간 제어 엔진 추가
         self._setup_monitoring()
+        self.streamer = TelemetryStreamer(self, interval=0.1) # 0.1초 주기
         
 
     def _setup_monitoring(self):
@@ -94,6 +96,9 @@ class SystemController:
         # 3. NORMAL 상태일 때만 시간을 흐르게 함
         for manager in self.managers.values():
             manager.update(sim_dt) # 매니저와 그 하위 망원경들은 이제 가속된 시간(sim_dt)을 기준으로 움직임
+
+        # [Day 93 추가] 매 프레임마다 스트리머 체크
+        self.streamer.tick(self.sim_time)
 
     def global_stop(self):
         self.mode = "STOPPED"  # 모드 변경
