@@ -18,7 +18,8 @@ class SystemController:
         self.sim_time = 0.0      
         self.time_ctrl = TimeController(scale=1.0)  # [Day 89]]: 시간 제어 엔진 추가
         self._setup_monitoring()
-        self.streamer = TelemetryStreamer(self, interval=0.1) # 0.1초 주기
+        self.streamer = TelemetryStreamer(self, idle_interval=1.0, active_interval=0.1)
+        self.streamer.setup_event_listeners()
         
 
     def _setup_monitoring(self):

@@ -246,6 +246,11 @@ that telescope state (Az/Alt) can be precisely tracked during simulation updates
 Day 93: Implemented TelemetryStreamer with fixed-interval broadcasting.
 Validated that simulation state packets are generated at precise intervals (0.1s)
 independent of the underlying update() cycle, ensuring consistent real-time observability.
+
+Day 94: Implemented Adaptive Telemetry Streaming.
+Engine now dynamically switches between Heartbeat mode (1.0s) and Burst mode (0.1s) 
+based on telescope activity. Added immediate event-driven push for critical failures, 
+ensuring zero-latency reporting for system errors.
 ---------------------------------------------------------
 ## How to Run
 
