@@ -251,6 +251,11 @@ Day 94: Implemented Adaptive Telemetry Streaming.
 Engine now dynamically switches between Heartbeat mode (1.0s) and Burst mode (0.1s) 
 based on telescope activity. Added immediate event-driven push for critical failures, 
 ensuring zero-latency reporting for system errors.
+
+Day 95: Implemented SafetyGuard layer within RemoteCommandGate.
+Added strict range validation for coordinates (Alt/Az) and system-state awareness 
+to reject incoming commands during STOPPED or invalid operational modes. 
+Enhanced system robustness by filtering malformed or unsafe requests at the entry point.
 ---------------------------------------------------------
 ## How to Run
 

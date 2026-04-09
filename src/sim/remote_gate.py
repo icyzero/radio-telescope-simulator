@@ -1,7 +1,7 @@
-# src/sim/remote_gate.py
-
 import json
-from src.controller.command import MoveCommand # 실제 프로젝트 경로에 맞춰 임포트
+from src.controller.command import MoveCommand
+from src.controller.safety import SafetyGuard # 추가
+from src.sim.event import EventType
 
 class RemoteCommandGate:
     def __init__(self, controller):
@@ -10,37 +10,37 @@ class RemoteCommandGate:
     def process_json_command(self, raw_json: str):
         try:
             data = json.loads(raw_json)
-            action = data.get("action")
+            # action 또는 type 중 설계자님이 정의하신 키 사용 (여기선 action으로 통일)
+            action = data.get("action") or data.get("type") 
             params = data.get("params", {})
-
-            # [1단계] 전역 액션 처리 (매니저 이름이 필요 없는 경우)
-            if action == "GET_STATUS":
-                return {
-                    "status": "SUCCESS", 
-                    "data": self.controller.get_telemetry()
-                }
-
-            # [2단계] 특정 매니저가 필요한 액션 처리
             mgr_name = data.get("manager")
+
+            # [1단계] SafetyGuard를 통한 사전 검증
+            if action == "MOVE":
+                is_safe, msg = SafetyGuard.validate_move(params, self.controller.mode)
+                if not is_safe:
+                    # 이벤트 버스에 실패 기록
+                    self.controller.emit(EventType.COMMAND_FAILED, "SafetyGuard", {"reason": msg})
+                    return {"status": "REJECTED", "reason": msg}
+
+            # [2단계] 전역 액션 처리 (GET_STATUS 등)
+            if action == "GET_STATUS":
+                return {"status": "SUCCESS", "data": self.controller.get_telemetry()}
+
+            # [3단계] 매니저 확인 및 명령 실행
             if not mgr_name or mgr_name not in self.controller.managers:
-                return {"status": "ERROR", "msg": f"Manager '{mgr_name}' not found or required"}
+                return {"status": "ERROR", "msg": f"Manager '{mgr_name}' not found"}
 
             cmd_mgr = self.controller.managers[mgr_name]
 
-            # 2. 액션 해석 및 실행
             if action == "MOVE":
-                alt = params.get("alt")
-                az = params.get("az")
-                
-                # Command 객체 생성
+                alt, az = params.get("alt"), params.get("az")
                 new_cmd = MoveCommand(alt, az)
                 
-                # CommandManager의 add_command 호출 (설계자님의 원칙 준수)
-                # 현재 시스템 모드를 전달 (기본값 NORMAL)
-                mode = getattr(self.controller, 'mode', 'NORMAL')
-                cmd_mgr.add_command(new_cmd, system_mode=mode)
+                # 시스템 모드에 따른 명령 주입 (NORMAL/PAUSED 등)
+                cmd_mgr.add_command(new_cmd, system_mode=self.controller.mode)
                 
-                return {"status": "SUCCESS", "msg": f"MoveCommand({alt}, {az}) queued via {mgr_name}"}
+                return {"status": "SUCCESS", "msg": f"MoveCommand({alt}, {az}) queued"}
 
             return {"status": "ERROR", "msg": f"Unsupported action: {action}"}
 
