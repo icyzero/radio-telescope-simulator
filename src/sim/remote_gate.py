@@ -1,3 +1,5 @@
+# src/sim/remote_gate.py
+
 import json
 from src.controller.command import MoveCommand
 from src.controller.safety import SafetyGuard # 추가
@@ -22,6 +24,17 @@ class RemoteCommandGate:
                     # 이벤트 버스에 실패 기록
                     self.controller.emit(EventType.COMMAND_FAILED, "SafetyGuard", {"reason": msg})
                     return {"status": "REJECTED", "reason": msg}
+                
+            # [day 96]] CONFIG_UPDATE 처리 (매니저 체크 전 전역 처리)
+            if action == "CONFIG_UPDATE":
+                # 1. 설정값 유효성 검사 (SafetyGuard 활용)
+                is_valid, msg = SafetyGuard.validate_config(params)
+                if not is_valid:
+                    return {"status": "REJECTED", "reason": msg}
+                
+                # 2. 시스템에 설정 반영
+                self.controller.apply_config(params)
+                return {"status": "SUCCESS", "updated_params": list(params.keys())}
 
             # [2단계] 전역 액션 처리 (GET_STATUS 등)
             if action == "GET_STATUS":

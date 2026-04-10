@@ -185,3 +185,19 @@ class SystemController:
                 "is_moving": tel.state.value == "MOVING"
             }
         return telemetry
+    
+    def apply_config(self, params: dict):
+        """실시간 설정 반영 및 이벤트 발행"""
+        for key, value in params.items():
+            if key == "slew_rate":
+                # 모든 망원경 매니저에 속도 설정 반영
+                for mgr in self.managers.values():
+                    mgr.telescope.slew_rate = value # mgr.telescope가 slew_rate 속성을 가지고 있는지 확인
+            
+            # 🚨 변경 이력 기록 (Audit Log)
+            self.emit(
+                EventType.CONFIG_CHANGED, 
+                "SystemController", 
+                {"parameter": key, "new_value": value}
+            )
+        return True

@@ -17,3 +17,6 @@ class EventType(Enum):
     # 예외 상황
     INVALID_COMMAND = auto()
     MANAGER_CRITICAL_STOP = auto()
+    
+    #[day 96추가]
+    CONFIG_CHANGED = auto() 
