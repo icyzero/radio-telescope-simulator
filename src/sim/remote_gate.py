@@ -39,6 +39,11 @@ class RemoteCommandGate:
             # [2단계] 전역 액션 처리 (GET_STATUS 등)
             if action == "GET_STATUS":
                 return {"status": "SUCCESS", "data": self.controller.get_telemetry()}
+            
+            # [Day 97] 진단 리포트 액션 추가
+            if action == "DIAGNOSTICS":
+                report = self.controller.get_diagnostics()
+                return {"status": "SUCCESS", "diagnostics": report}
 
             # [3단계] 매니저 확인 및 명령 실행
             if not mgr_name or mgr_name not in self.controller.managers:
@@ -58,4 +63,5 @@ class RemoteCommandGate:
             return {"status": "ERROR", "msg": f"Unsupported action: {action}"}
 
         except Exception as e:
+            print(f"[GATEWAY ERROR] {e}")
             return {"status": "EXCEPTION", "msg": str(e)}

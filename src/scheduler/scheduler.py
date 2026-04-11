@@ -201,3 +201,41 @@ class SystemController:
                 {"parameter": key, "new_value": value}
             )
         return True
+    
+    def get_diagnostics(self):
+        """시스템의 전체적인 건강 상태 리포트 생성 (안전 강화 버전)"""
+        # Metrics 안전하게 가져오기
+        metrics = getattr(self, 'metrics', None)
+        total = getattr(metrics, 'total_commands', 0) if metrics else 0
+        failed = getattr(metrics, 'failed_count', 0) if metrics else 0
+        success_rate = ((total - failed) / total * 100) if total > 0 else 100.0
+
+        report = {
+            "system": {
+                "mode": getattr(self, 'mode', 'UNKNOWN'),
+                "sim_time": round(getattr(self, 'sim_time', 0.0), 2),
+                "managers_count": len(self.managers)
+            },
+            "performance": {
+                "total_commands": total,
+                "failed_count": failed,
+                "success_rate": f"{round(success_rate, 1)}%"
+            },
+            "hardware_configs": {}
+        }
+
+        for name, mgr in self.managers.items():
+            tel = mgr.telescope
+            # state가 Enum인지 확인하고 안전하게 이름 가져오기
+            state_display = tel.state.name if hasattr(tel.state, 'name') else str(tel.state)
+            
+            report["hardware_configs"][name] = {
+                "slew_rate": getattr(tel, 'slew_rate', 'N/A'),
+                "current_pos": {
+                    "az": round(getattr(tel, 'az', 0.0), 3),
+                    "alt": round(getattr(tel, 'alt', 0.0), 3)
+                },
+                "state": state_display
+            }
+        
+        return report
