@@ -19,6 +19,7 @@ class RemoteCommandGate:
 
             # [1단계] SafetyGuard를 통한 사전 검증
             if action == "MOVE":
+                self.controller.emit(EventType.COMMAND_STARTED, "RemoteCommandGate", {"action": "MOVE"})
                 is_safe, msg = SafetyGuard.validate_move(params, self.controller.mode)
                 if not is_safe:
                     # 이벤트 버스에 실패 기록

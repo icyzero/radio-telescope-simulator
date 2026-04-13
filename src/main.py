@@ -45,11 +45,13 @@ This structure allows the same control loop to be reused for:
 #메인으로 실행할 프로그램
 
 import time
+import json
 from src.controller.telescope import Telescope
 from src.controller.command_manager import CommandManager
 from src.controller.command import MoveCommand, StopCommand
 from src.scheduler.scheduler import SystemController
 from src.utils.logger import log
+from src.sim.remote_gate import RemoteCommandGate
 
 def main():
     dt = 0.1
@@ -78,4 +80,26 @@ def main():
         time.sleep(dt)
 
 if __name__ == "__main__":
-    main()
+    # 1. 시스템 초기화
+    ctrl = SystemController()
+    tel = Telescope()
+    mgr = CommandManager("Main", tel)
+    ctrl.register_manager("Main", mgr)
+    gate = RemoteCommandGate(ctrl)
+
+    print("=== Day 100 Demo System Ready ===")
+    
+    # 2. 시나리오 실행: 설정 변경 -> 이동 -> 에러 발생 -> 진단
+    commands = [
+        '{"action": "CONFIG_UPDATE", "params": {"slew_rate": 30.0}}',
+        '{"action": "MOVE", "manager": "Main", "params": {"alt": 45.0, "az": 180.0}}',
+        '{"action": "MOVE", "manager": "Main", "params": {"alt": -99, "az": 0}}', # 의도적 에러
+        '{"action": "DIAGNOSTICS"}'
+    ]
+
+    for cmd in commands:
+        result = gate.process_json_command(cmd)
+        print(f"INPUT: {cmd[:50]}... -> RESULT: {result['status']}")
+
+    print("=== Final Health Check ===")
+    print(json.dumps(ctrl.get_diagnostics(), indent=2))

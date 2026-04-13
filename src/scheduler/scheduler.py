@@ -188,6 +188,8 @@ class SystemController:
     
     def apply_config(self, params: dict):
         """실시간 설정 반영 및 이벤트 발행"""
+        self.emit(EventType.COMMAND_STARTED, "SystemController", {"action": "CONFIG_UPDATE"}) #명령이 접수되었음을 알림 (Total 카운트 상승용)
+
         for key, value in params.items():
             if key == "slew_rate":
                 # 모든 망원경 매니저에 속도 설정 반영
@@ -200,6 +202,7 @@ class SystemController:
                 "SystemController", 
                 {"parameter": key, "new_value": value}
             )
+        self.emit(EventType.COMMAND_SUCCESS, "SystemController", {"action": "CONFIG_UPDATE"}) #성공적으로 끝났음을 알림
         return True
     
     def get_diagnostics(self):
