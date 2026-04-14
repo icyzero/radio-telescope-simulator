@@ -7123,3 +7123,29 @@
 2026-04-13T20:31:53 [CMD] MoveCommand SUCCESS
 2026-04-13T20:31:56 [CMD] MoveCommand SUCCESS
 2026-04-13T20:32:03 [CMD] MoveCommand SUCCESS
+2026-04-14T20:22:02 [SYSTEM] Manager registered: Main
+2026-04-14T20:22:02  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:02  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:02  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:02  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-04-14T20:22:02 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-04-14T20:22:02 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-04-14T20:22:02  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-04-14T20:22:02 [Main] [CMD] MoveCommand START
+2026-04-14T20:22:02 [Main] [CMD] MoveCommand RUNNING
+2026-04-14T20:22:02 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-04-14T20:22:02  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-04-14T20:22:02  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-04-14T20:22:14 [SYSTEM] Manager registered: Main
+2026-04-14T20:22:14  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:14  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:14  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-04-14T20:22:14  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-04-14T20:22:14 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-04-14T20:22:14 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-04-14T20:22:14  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-04-14T20:22:14 [Main] [CMD] MoveCommand START
+2026-04-14T20:22:14 [Main] [CMD] MoveCommand RUNNING
+2026-04-14T20:22:14 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-04-14T20:22:14  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-04-14T20:22:14  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
