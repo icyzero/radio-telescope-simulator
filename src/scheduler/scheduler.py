@@ -7,6 +7,9 @@ from src.sim.event_logger import EventLogger
 from src.sim.event_metrics import EventMetrics
 from src.sim.time_controller import TimeController
 from src.sim.telemetry_streamer import TelemetryStreamer
+from src.signal.sdr_interface import VirtualSDR
+from src.signal.processor import SignalProcessor
+import numpy as np
 
 class SystemController:
     def __init__(self):
@@ -20,6 +23,8 @@ class SystemController:
         self._setup_monitoring()
         self.streamer = TelemetryStreamer(self, idle_interval=1.0, active_interval=0.1)
         self.streamer.setup_event_listeners()
+        self.managers = {}
+        self.obs_manager = ObservationManager(self) # 관측 매니저 연결
         
 
     def _setup_monitoring(self):
@@ -242,3 +247,38 @@ class SystemController:
             }
         
         return report
+    
+    def capture_observation(self, manager_name="Main"):
+        """외부 게이트웨이나 시스템에서 호출하는 인터페이스"""
+        mgr = self.managers.get(manager_name)
+        if not mgr:
+            return None
+
+        # 실제 데이터 수집은 obs_manager에게 위임
+        spectrum = self.obs_manager.take_data(manager_name)
+        
+        if spectrum is not None:
+            # 성공 시 이벤트 발행
+            self.emit(EventType.COMMAND_SUCCESS, "SignalProcessor", 
+                      {"peak": float(np.max(spectrum))})
+            return spectrum
+        return None
+    
+"""sdr장비 연동"""
+class ObservationManager:
+    """SDR 장비 연동 및 데이터 처리 전담"""
+    def __init__(self, controller):
+        self.controller = controller
+        self.sdr = VirtualSDR()
+        self.proc = SignalProcessor()
+
+    def take_data(self, manager_name):
+        mgr = self.controller.managers.get(manager_name)
+        
+        # 망원경이 정지 상태(IDLE)일 때만 샘플링
+        if mgr and mgr.telescope.state.name == "IDLE":
+            samples = self.sdr.read_samples(2048)
+            return self.proc.get_power_spectrum(samples)
+        
+        print(f"[SIGNAL] Capture failed: Telescope is {mgr.telescope.state.name if mgr else 'NONE'}")
+        return None
