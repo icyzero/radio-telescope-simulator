@@ -284,6 +284,12 @@ Implemented VirtualSDR for generating synthetic IQ (In-phase/Quadrature) data.
 Developed SignalProcessor with FFT (Fast Fourier Transform) and windowing 
 (Blackman window) to analyze power spectrum. 
 Established the foundation for SDR integration during the hardware delivery period.
+
+Day 102: Implemented Real-time Spectrum Visualizer.
+- Integrated Matplotlib's FuncAnimation for live signal monitoring.
+- Visualized 500kHz synthetic signal at 60dB PSD in a dynamic environment.
+- Verified FFT-shift and Decibel(dB) scale conversion logic.
+- Observed real-time noise floor and signal-to-noise ratio (SNR) visually.
 ---------------------------------------------------------
 ## How to Run
 
