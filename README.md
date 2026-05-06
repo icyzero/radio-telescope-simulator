@@ -290,6 +290,12 @@ Day 102: Implemented Real-time Spectrum Visualizer.
 - Visualized 500kHz synthetic signal at 60dB PSD in a dynamic environment.
 - Verified FFT-shift and Decibel(dB) scale conversion logic.
 - Observed real-time noise floor and signal-to-noise ratio (SNR) visually.
+
+Day 103: Advanced Signal Visualization - Waterfall Display.
+- Implemented 2-tier UI: Live Spectrum (Top) and Waterfall Chart (Bottom).
+- Simulated frequency-modulated(FM) signals with a time-varying dynamic frequency.
+- Successfully captured the 'S-curve' trajectory of a shifting signal source.
+- Validated time-frequency domain correlation for celestial tracking simulation.
 ---------------------------------------------------------
 ## How to Run
 
