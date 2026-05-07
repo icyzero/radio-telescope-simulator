@@ -3,6 +3,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+from src.data.recorder import FitsRecorder
 
 class SpectrumVisualizer:
     def __init__(self, sdr, processor, interval=50): # 갱신 속도를 50ms로 높여 더 부드럽게 설정
@@ -60,6 +61,9 @@ class WaterfallVisualizer:
         plt.style.use('dark_background')
         # 1. 2단 레이아웃 설정
         self.fig, (self.ax_spec, self.ax_water) = plt.subplots(2, 1, figsize=(9, 7), sharex=True)
+
+        self.recorder = FitsRecorder()
+        self.fig.canvas.mpl_connect('key_press_event', self.on_key)
         
         # 2. 상단: Spectrum Line
         self.line, = self.ax_spec.plot([], [], lw=1, color='#00ff00')
@@ -79,6 +83,18 @@ class WaterfallVisualizer:
         )
         self.ax_water.set_xlabel("Frequency Offset (MHz)")
         self.ax_water.set_ylabel("Time History (Frames)")
+
+    def on_key(self, event):
+        if event.key == 's' or event.key == 'S':
+            # 현재 망원경 상태 메타데이터 (예시)
+            meta = {
+                'az': 120.0, 
+                'el': 45.0, 
+                'center_freq': 1420.4,
+                'sample_rate': self.fs
+            }
+            # 현재까지 쌓인 Waterfall 버퍼 저장
+            self.recorder.save_observation(self.waterfall_buffer, meta)
 
     def update(self, frame):
         samples = self.sdr.read_samples(2048)

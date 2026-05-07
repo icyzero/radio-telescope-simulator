@@ -296,6 +296,12 @@ Day 103: Advanced Signal Visualization - Waterfall Display.
 - Simulated frequency-modulated(FM) signals with a time-varying dynamic frequency.
 - Successfully captured the 'S-curve' trajectory of a shifting signal source.
 - Validated time-frequency domain correlation for celestial tracking simulation.
+
+Day 104: Data Persistence & Standardization.
+- Integrated 'astropy.io.fits' for astronomical data standardization.
+- Implemented a dual-recording system: High-fidelity FITS for analysis and PNG for snapshots.
+- Added interactive keyboard triggers ('S' key) for on-demand data archiving.
+- Established a structured naming convention based on observation timestamps.
 ---------------------------------------------------------
 ## How to Run
 
