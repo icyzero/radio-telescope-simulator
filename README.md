@@ -302,6 +302,12 @@ Day 104: Data Persistence & Standardization.
 - Implemented a dual-recording system: High-fidelity FITS for analysis and PNG for snapshots.
 - Added interactive keyboard triggers ('S' key) for on-demand data archiving.
 - Established a structured naming convention based on observation timestamps.
+
+Day 105: Quantitative Signal Analysis & Verification.
+- Processed archived FITS data to extract signal-to-noise ratio (SNR) and drift metrics.
+- Verified signal tracking consistency by overlaying 'Tracked Path' on Waterfall data.
+- Achieved Peak SNR of 27.48 dB, confirming high-fidelity simulation and recovery.
+- Established a basic scientific reporting pipeline for future real-world SDR data.
 ---------------------------------------------------------
 ## How to Run
 
