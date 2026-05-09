@@ -308,6 +308,12 @@ Day 105: Quantitative Signal Analysis & Verification.
 - Verified signal tracking consistency by overlaying 'Tracked Path' on Waterfall data.
 - Achieved Peak SNR of 27.48 dB, confirming high-fidelity simulation and recovery.
 - Established a basic scientific reporting pipeline for future real-world SDR data.
+
+Day 106: Doppler De-drifting & Signal Integration.
+- Successfully implemented a 'SignalStraightener' using numpy.roll to correct frequency drift.
+- Transformed a dispersed 'U-shaped' spectrum (Raw) into a sharp, focused peak (De-drifted).
+- Achieved a significant boost in Signal-to-Noise Ratio (SNR) by concentrating energy from 300+ bins into a single spectral channel.
+- Validated the signal recovery pipeline, a critical requirement for SETI and Pulsar research.
 ---------------------------------------------------------
 ## How to Run
 
