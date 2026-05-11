@@ -1,9 +1,9 @@
-from src.signal.sdr_interface import VirtualSDR, SignalProcessor
+from src.signal.sdr_interface import VirtualSDR, SignalProcessor, SDRFactory
 from src.signal.visualizer import SpectrumVisualizer, WaterfallVisualizer
 
 if __name__ == "__main__":
     # 2.4MHz 샘플링 레이트 (RTL-SDR 표준)
-    sdr = VirtualSDR(sample_rate=2.4e6) 
+    sdr = SDRFactory.get_sdr(mode="auto", center_freq=1420.4e6)
     proc = SignalProcessor()
     
     """viz = SpectrumVisualizer(sdr, proc)

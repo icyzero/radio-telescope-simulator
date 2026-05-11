@@ -314,6 +314,12 @@ Day 106: Doppler De-drifting & Signal Integration.
 - Transformed a dispersed 'U-shaped' spectrum (Raw) into a sharp, focused peak (De-drifted).
 - Achieved a significant boost in Signal-to-Noise Ratio (SNR) by concentrating energy from 300+ bins into a single spectral channel.
 - Validated the signal recovery pipeline, a critical requirement for SETI and Pulsar research.
+
+Day 108: Interactive Hardware Control & Gain Management.
+- Implemented SDRFactory for seamless switching between Real/Virtual SDR modes.
+- Integrated real-time Gain control (UP/DOWN keys) into the visualization pipeline.
+- Verified dynamic signal response: Observed proportional increase in PSD/Waterfall intensity relative to gain levels.
+- Prepared error-handling for hardware disconnection (Fallback to VirtualSDR).
 ---------------------------------------------------------
 ## How to Run
 

@@ -86,15 +86,21 @@ class WaterfallVisualizer:
 
     def on_key(self, event):
         if event.key == 's' or event.key == 'S':
-            # 현재 망원경 상태 메타데이터 (예시)
-            meta = {
-                'az': 120.0, 
-                'el': 45.0, 
-                'center_freq': 1420.4,
-                'sample_rate': self.fs
-            }
-            # 현재까지 쌓인 Waterfall 버퍼 저장
-            self.recorder.save_observation(self.waterfall_buffer, meta)
+            self.recorder.save_observation(self.waterfall_buffer, {"az":0, "el":0})
+        
+        # Gain 조절 기능 추가
+        elif event.key == 'up':
+            new_gain = getattr(self.sdr, 'gain', 10) + 2
+            if hasattr(self.sdr, 'set_gain'): self.sdr.set_gain(new_gain)
+            else: self.sdr.gain = new_gain # 실제 SDR용
+            print(f"🔊 Gain Up: {new_gain}")
+            
+        elif event.key == 'down':
+            current_gain = getattr(self.sdr, 'gain', 10)
+            new_gain = max(1, current_gain - 2)
+            if hasattr(self.sdr, 'set_gain'): self.sdr.set_gain(new_gain)
+            else: self.sdr.gain = new_gain # 실제 SDR용
+            print(f"🔉 Gain Down: {new_gain}")
 
     def update(self, frame):
         samples = self.sdr.read_samples(2048)

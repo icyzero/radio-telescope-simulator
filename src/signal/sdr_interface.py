@@ -3,24 +3,48 @@
 import numpy as np
 import time
 
-class VirtualSDR:
-    """SDR 장비를 대신하여 가상의 IQ 데이터를 생성하는 클래스"""
-    def __init__(self, sample_rate=2.4e6): # 2.4 MHz
-        self.fs = sample_rate
+try:
+    from rtlsdr import RtlSdr
+    HAS_REAL_SDR = True
+except ImportError:
+    HAS_REAL_SDR = False
 
-    def read_samples(self, num_samples=1024):
-        # 1. 시간 축 생성
+class VirtualSDR:
+    def __init__(self, sample_rate=2.4e6):
+        self.fs = sample_rate
+        self.gain = 10.0  # 가상 게인(Gain) 설정
+        print(f"DEBUG: VirtualSDR initialized at {self.fs/1e6} MHz")
+
+    def read_samples(self, num_samples=2048):
         t = np.arange(num_samples) / self.fs
-        
-        # 2. 가상의 신호 (주파수 이동된 신호 모사)
-        """target_freq = 500000 # 500kHz 지점에서 신호 발생
-        iq_signal = np.exp(1j * 2 * np.pi * target_freq * t)"""
-        dynamic_freq = 500000 + 200000 * np.sin(time.time() * 2)# 시간에 따라 주파수가 왔다갔다하게 만듦 (지그재그 신호)
-        iq_signal = np.exp(1j * 2 * np.pi * dynamic_freq * t)
-        
-        # 3. 우주 배경 복사 노이즈 추가
-        noise = (np.random.randn(num_samples) + 1j * np.random.randn(num_samples)) * 0.5
-        return iq_signal + noise
+        # Gain 값을 반영하여 신호 강도 조절 (기존 1j -> self.gain * 1j)
+        freq = 500000 + 200000 * np.sin(time.time() * 2)
+        signal = self.gain * np.exp(1j * 2 * np.pi * freq * t)
+        noise = (np.random.randn(num_samples) + 1j * np.random.randn(num_samples))
+        return signal + noise
+
+    def set_gain(self, gain_val):
+        self.gain = max(1.0, gain_val) # 최소값 1 유지
+        print(f"📡 [Virtual] Gain set to: {self.gain}")
+
+class SDRFactory:
+    @staticmethod
+    def get_sdr(mode="auto", sample_rate=2.4e6, center_freq=1420.4e6):
+        # 1. 실제 장비 모드 시도
+        if mode in ["real", "auto"] and HAS_REAL_SDR:
+            try:
+                sdr = RtlSdr()
+                sdr.sample_rate = sample_rate
+                sdr.center_freq = center_freq
+                sdr.gain = 'auto'
+                print(f"📡 [REAL] SDR Connected: {center_freq/1e6} MHz")
+                return sdr
+            except Exception as e:
+                if mode == "real": raise e
+                print(f"⚠️ 장비 연결 실패 ({e}). 가상 모드로 전환합니다.")
+
+        # 2. 가상 모드 반환
+        return VirtualSDR(sample_rate)
 
 class SignalProcessor:
     """받은 데이터를 분석하여 스펙트럼을 계산하는 클래스"""
