@@ -320,6 +320,12 @@ Day 108: Interactive Hardware Control & Gain Management.
 - Integrated real-time Gain control (UP/DOWN keys) into the visualization pipeline.
 - Verified dynamic signal response: Observed proportional increase in PSD/Waterfall intensity relative to gain levels.
 - Prepared error-handling for hardware disconnection (Fallback to VirtualSDR).
+
+Day 109: Observation Automation & Sequential Scheduling.
+- Developed an Automated Scheduler to execute multi-session observation plans.
+- Implemented ON-OFF source switching logic for background noise subtraction.
+- Integrated thread-safe logging system for observation history tracking.
+- Successfully automated the full pipeline: Frequency tuning -> Data capture -> FITS Archiving.
 ---------------------------------------------------------
 ## How to Run
 

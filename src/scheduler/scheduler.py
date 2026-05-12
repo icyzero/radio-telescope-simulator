@@ -8,8 +8,11 @@ from src.sim.event_metrics import EventMetrics
 from src.sim.time_controller import TimeController
 from src.sim.telemetry_streamer import TelemetryStreamer
 from src.signal.sdr_interface import VirtualSDR
-from src.signal.processor import SignalProcessor
+from src.analysis.processor import SignalStraightener
 import numpy as np
+import time
+import threading
+import logging
 
 class SystemController:
     def __init__(self):
@@ -265,12 +268,19 @@ class SystemController:
         return None
     
 """sdr장비 연동"""
+logging.basicConfig(
+    filename='observation_log.txt',
+    level=logging.INFO,
+    format='%(asctime)s - %(message)s',
+    encoding='utf-8'
+)
+
 class ObservationManager:
     """SDR 장비 연동 및 데이터 처리 전담"""
     def __init__(self, controller):
         self.controller = controller
         self.sdr = VirtualSDR()
-        self.proc = SignalProcessor()
+        self.proc = SignalStraightener()
 
     def take_data(self, manager_name):
         mgr = self.controller.managers.get(manager_name)
@@ -282,3 +292,64 @@ class ObservationManager:
         
         print(f"[SIGNAL] Capture failed: Telescope is {mgr.telescope.state.name if mgr else 'NONE'}")
         return None
+    
+"""Day 109 추가"""
+class ObservationScheduler:
+    def __init__(self, sdr, visualizer):
+        self.sdr = sdr
+        self.visualizer = visualizer # 현재 waterfall_buffer에 접근하기 위해 필요
+        self.is_running = False
+
+    def start_auto_scan(self, plan):
+        """별도의 스레드에서 스케줄을 실행하여 UI가 멈추지 않게 합니다."""
+        thread = threading.Thread(target=self.run_sequence, args=(plan,))
+        thread.start()
+
+    def run_sequence(self, plan):
+        self.is_running = True
+        msg = f"📅 관측 스케줄 시작: 총 {len(plan)}개 세션"
+        print(msg)
+        logging.info(msg)
+
+        for i, session in enumerate(plan):
+            if not self.is_running: break
+            
+            # 1. 상태 전환: SWITCHING
+            target_mhz = session['freq'] / 1e6
+            print(f"\n[Session {i+1}] 🔄 주파수 이동: {target_mhz} MHz")
+            
+            # 실제 SDR 주파수 변경 (Virtual/Real 모두 대응)
+            self.sdr.center_freq = session['freq']
+            time.sleep(1.5) # 하드웨어 안정화 및 버퍼 갱신 대기
+
+            # 2. 상태 전환: OBSERVING
+            print(f"📡 관측 중 ({session['label']}): {session['duration']}초간...")
+            time.sleep(session['duration'])
+
+            # 3. 상태 전환: SAVING
+            # Visualizer의 현재 버퍼를 가져와서 저장
+            meta = {
+                'label': session['label'],
+                'center_freq': session['freq'],
+                'duration': session['duration'],
+                'az': 180.0, # 예시 좌표
+                'el': 45.0
+            }
+            
+            try:
+                # Visualizer의 recorder를 활용해 저장
+                self.visualizer.recorder.save_observation(
+                    self.visualizer.waterfall_buffer, 
+                    meta
+                )
+                log_msg = f"✅ 저장 완료: {session['label']} ({target_mhz} MHz)"
+                print(log_msg)
+                logging.info(log_msg)
+            except Exception as e:
+                err_msg = f"❌ 저장 실패: {e}"
+                print(err_msg)
+                logging.error(err_msg)
+
+        self.is_running = False
+        print("\n🏁 모든 관측 스케줄이 완료되었습니다.")
+        logging.info("🏁 All scheduled observations completed.")

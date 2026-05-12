@@ -2,8 +2,14 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+import threading
 from matplotlib.animation import FuncAnimation
 from src.data.recorder import FitsRecorder
+
+OBS_PLAN = [
+    {"freq": 1420.4e6, "duration": 5, "label": "ON_Target_H1"},
+    {"freq": 1425.0e6, "duration": 5, "label": "OFF_Background"}
+]
 
 class SpectrumVisualizer:
     def __init__(self, sdr, processor, interval=50): # 갱신 속도를 50ms로 높여 더 부드럽게 설정
@@ -101,6 +107,15 @@ class WaterfallVisualizer:
             if hasattr(self.sdr, 'set_gain'): self.sdr.set_gain(new_gain)
             else: self.sdr.gain = new_gain # 실제 SDR용
             print(f"🔉 Gain Down: {new_gain}")
+
+        # on_key 메서드 내부에 추가
+        elif event.key == 'a' or event.key == 'A':
+            if not hasattr(self, 'scheduler'):
+                from src.scheduler.scheduler import ObservationScheduler
+                self.scheduler = ObservationScheduler(self.sdr, self)
+            
+            print("\n🚀 [AUTO MODE] 관측 시퀀스를 실행합니다...")
+            self.scheduler.start_auto_scan(OBS_PLAN)    
 
     def update(self, frame):
         samples = self.sdr.read_samples(2048)
