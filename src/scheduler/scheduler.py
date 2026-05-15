@@ -280,7 +280,8 @@ class ObservationManager:
     def __init__(self, controller):
         self.controller = controller
         self.sdr = VirtualSDR()
-        self.proc = SignalStraightener()
+        from src.signal.sdr_interface import SignalProcessor
+        self.proc = SignalProcessor()
 
     def take_data(self, manager_name):
         mgr = self.controller.managers.get(manager_name)

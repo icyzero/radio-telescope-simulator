@@ -1,4 +1,4 @@
-#src/signal/sdr_interface.py
+# src/signal/sdr_interface.py
 
 import numpy as np
 import time
@@ -12,6 +12,7 @@ except ImportError:
 class VirtualSDR:
     def __init__(self, sample_rate=2.4e6):
         self.fs = sample_rate
+        self.sample_rate = sample_rate # 💡 수정: 외부 헬스 체크 컴포넌트와의 속성 이름 호환성 확보
         self.gain = 10.0  # 가상 게인(Gain) 설정
         print(f"DEBUG: VirtualSDR initialized at {self.fs/1e6} MHz")
 

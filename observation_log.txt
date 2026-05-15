@@ -2,3 +2,7 @@
 2026-05-12 21:11:09,117 - ✅ 저장 완료: ON_Target_H1 (1420.4 MHz)
 2026-05-12 21:11:15,627 - ✅ 저장 완료: OFF_Background (1425.0 MHz)
 2026-05-12 21:11:15,628 - 🏁 All scheduled observations completed.
+2026-05-15 20:39:17,228 - 📅 관측 스케줄 시작: 총 2개 세션
+2026-05-15 20:39:23,735 - ✅ 저장 완료: ON_Target_H1 (1420.4 MHz)
+2026-05-15 20:39:30,275 - ✅ 저장 완료: OFF_Background (1425.0 MHz)
+2026-05-15 20:39:30,275 - 🏁 All scheduled observations completed.

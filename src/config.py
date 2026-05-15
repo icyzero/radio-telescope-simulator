@@ -1,3 +1,5 @@
+#src.config.py
+
 # 관측 파라미터 설정
 CONFIG = {
     "SAMPLE_RATE": 2.4e6,
@@ -5,5 +7,5 @@ CONFIG = {
     "GAIN_DEFAULT": 20.0,
     "HISTORY_SIZE": 150,
     "OBS_PATH": "./observations/",
-    "SDR_MODE": "auto"          # "real", "virtual", "auto" 중 선택
+    "SDR_MODE": "real"          # "real", "virtual", "auto" 중 선택
 }

@@ -56,7 +56,8 @@ class SpectrumVisualizer:
         plt.show()
 
 class WaterfallVisualizer:
-    def __init__(self, sdr, processor, interval=50, history_size=100):
+    # 💡 수정: 메인 엔진에서 주입하는 FitsRecorder 인스턴스를 직접 받도록 파라미터(recorder) 추가
+    def __init__(self, sdr, processor, interval=50, history_size=100, recorder=None):
         self.sdr = sdr
         self.processor = processor
         self.interval = interval
@@ -68,7 +69,8 @@ class WaterfallVisualizer:
         # 1. 2단 레이아웃 설정
         self.fig, (self.ax_spec, self.ax_water) = plt.subplots(2, 1, figsize=(9, 7), sharex=True)
 
-        self.recorder = FitsRecorder()
+        # 💡 수정: 외부 주입 리코더가 있으면 할당하고 없으면 내부에서 기본 생성하도록 안전장치 마련
+        self.recorder = recorder if recorder is not None else FitsRecorder()
         self.fig.canvas.mpl_connect('key_press_event', self.on_key)
         
         # 2. 상단: Spectrum Line
@@ -139,6 +141,7 @@ class WaterfallVisualizer:
         return self.line, self.img
 
     def show(self):
-        self.ani = FuncAnimation(self.fig, self.update, interval=self.interval, blit=True)
+        # 💡 수정: cache_frame_data=False를 명시하여 무한 캐싱으로 인한 사용자 경고 제거
+        self.ani = FuncAnimation(self.fig, self.update, interval=self.interval, blit=True, cache_frame_data=False)
         plt.tight_layout()
         plt.show()
