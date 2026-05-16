@@ -24,7 +24,7 @@ class SpectrumVisualizer:
         self.line, = self.ax.plot([], [], lw=1.5, color='#33ff33') # 네온 그린
         
         # 2. 물리적 축 설정 (SDR 사양 반영)
-        self.fs = sdr.fs
+        self.fs = getattr(sdr, 'sample_rate', getattr(sdr, 'fs', 2.4e6))# 변경 코드: 실제 SDR(sample_rate)과 가상 SDR(fs) 모두 지원하도록 수정
         self.ax.set_xlim(-self.fs/2 / 1e6, self.fs/2 / 1e6) 
         self.ax.set_ylim(-50, 70) # 로그 스케일이므로 음수 대역까지 표현
         self.ax.set_xlabel("Frequency Offset (MHz)", fontsize=12)
@@ -62,7 +62,7 @@ class WaterfallVisualizer:
         self.processor = processor
         self.interval = interval
         self.history_size = history_size
-        self.fs = sdr.fs
+        self.fs = getattr(sdr, 'sample_rate', getattr(sdr, 'fs', 2.4e6))# 변경 코드: 실제 SDR(sample_rate)과 가상 SDR(fs) 모두 지원하도록 수정
         num_samples = 2048
         
         plt.style.use('dark_background')

@@ -21,6 +21,9 @@ Note:
 #메인으로 실행할 프로그램
 # # src/main.py
 
+import os
+os.add_dll_directory(r"D:\radio-telescope-simulator")#파이썬이 RTL-SDR Blog V4 드라이버(.dll)를 무조건 찾을 수 있도록 경로 주입
+import sys
 import time
 import json
 from src.config import CONFIG
