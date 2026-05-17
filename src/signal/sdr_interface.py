@@ -54,28 +54,46 @@ class SignalProcessor:
 
     @staticmethod
     def get_power_spectrum(samples):
-        # 1. Windowing (누설 현상 방지)
-        windowed = samples * np.blackman(len(samples))
-        # 2. FFT 수행
+        if samples is None or len(samples) == 0:
+            return np.zeros(2048)
+
+        # ----------------------------------------------------
+        # [Day 114: 하드웨어 고유 DC 오프셋(정중앙 기둥 노이즈) 제거 필터]
+        # ----------------------------------------------------
+        # IQ 샘플 복소수 배열에서 실수부(I)와 허수부(Q)의 평균값(직류 성분)을 도출합니다.
+        dc_i = np.mean(samples.real)
+        dc_q = np.mean(samples.imag)
+        
+        # 원본 신호에서 직류 편향 성분을 차감하여 정중앙의 가짜 유령 세로줄을 제거합니다.
+        clean_samples = (samples.real - dc_i) + 1j * (samples.imag - dc_q)
+        # ----------------------------------------------------
+
+        # 1. Windowing (누설 현상 및 사이드 로브 억제를 위해 깨끗해진 샘플에 블랙맨 창 적용)
+        windowed = clean_samples * np.blackman(len(clean_samples))
+        
+        # 2. FFT 수행 (주파수 도메인 변환)
         fft_data = np.fft.fftshift(np.fft.fft(windowed))
-        # 3. Power (절대값의 제곱) 계산
+        
+        # 3. Power Density (절대값의 제곱) 계산
         power = np.abs(fft_data) ** 2
         return power
     
     def smooth_spectrum(self, new_psd, alpha=0.2):
-        """지수 이동 평균을 이용한 신호 평활화"""
+        """지수 이동 평균(EMA)을 이용한 실시간 신호 평활화"""
         if self.history is None or self.history.shape != new_psd.shape:
             self.history = new_psd.copy()
         else:
-            # alpha가 작을수록 더 부드럽지만 반응 속도는 느려짐
+            # alpha가 작을수록 파형이 부드러워지며, 우주 배경 잡음 속에서 미약한 신호를 판별하기 좋아집니다.
             self.history = (alpha * new_psd) + (1 - alpha) * self.history
         return self.history
 
-# [Day 101 Test]
-sdr = VirtualSDR()
-proc = SignalProcessor()
+# 💡 안전조치: 다른 파일에서 import할 때 아래 일회성 테스트 코드가 실행되지 않도록 가둠
+if __name__ == "__main__":
+    # [Day 101 Test]
+    sdr = VirtualSDR()
+    proc = SignalProcessor()
 
-samples = sdr.read_samples(2048)
-spectrum = proc.get_power_spectrum(samples)
+    samples = sdr.read_samples(2048)
+    spectrum = proc.get_power_spectrum(samples)
 
-print(f"Captured {len(samples)} samples. Peak power detected!")
+    print(f"Captured {len(samples)} samples. Peak power detected!")
