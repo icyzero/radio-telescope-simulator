@@ -340,6 +340,12 @@ Day 113: Pure Global Environment Integration & First Light.
 - Fixed Windows DLL search restrictions by incorporating `os.add_dll_directory` targeting the root `rtlsdr.dll`.
 - Verified 100% stable global pipeline execution: Successfully captured 1,024 real RF samples.
 - Permanently optimized project directory size by removing local `venv` dependencies, making it portfolio-ready.
+
+Day 114: Hardware Calibration & Digital Signal Processing (DSP)
+- **Problem Diagnosed**: Identified a critical Zero-IF architecture limitation—**DC Offset (LO Leakage)**—causing a severe artificial peak and vertical artifact at the center frequency ($0.0 \text{ MHz}$) during live hardware streaming.
+- **DSP Solution Implemented**: Integrated an **IQ Mean Subtraction** algorithm into the real-time data acquisition pipeline. By calculating and mitigating the empirical DC bias ($\mu_I, \mu_Q$) from raw complex samples, the center hardware noise floor was successfully flattened.
+- **System Outcome**: Cleared the central observation band, drastically improving the Signal-to-Noise Ratio (SNR) and enabling artifact-free data logging for the target 21cm Neutral Hydrogen Line ($1420.4 \text{ MHz}$) profile.
+- **Architecture Integrity**: Maintained modular encapsulation without breaking the legacy motor simulation or the Day 100 `SignalStraightener` analytical sub-routines.
 ---------------------------------------------------------
 ## How to Run
 
