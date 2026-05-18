@@ -346,6 +346,11 @@ Day 114: Hardware Calibration & Digital Signal Processing (DSP)
 - **DSP Solution Implemented**: Integrated an **IQ Mean Subtraction** algorithm into the real-time data acquisition pipeline. By calculating and mitigating the empirical DC bias ($\mu_I, \mu_Q$) from raw complex samples, the center hardware noise floor was successfully flattened.
 - **System Outcome**: Cleared the central observation band, drastically improving the Signal-to-Noise Ratio (SNR) and enabling artifact-free data logging for the target 21cm Neutral Hydrogen Line ($1420.4 \text{ MHz}$) profile.
 - **Architecture Integrity**: Maintained modular encapsulation without breaking the legacy motor simulation or the Day 100 `SignalStraightener` analytical sub-routines.
+
+Day 115: Automated Gain Optimization & RFI Site Survey (Completed)
+- **SDR Artifact Isolation**: Detected and bypassed the `0.0 dB` hardware initialization anomaly (driver-level clipping mimicry at `-9.01 dB`).
+- **Dynamic Range Mapping**: Swept operational gains from $3.7 \text{ dB}$ to $49.6 \text{ dB}$. Documented a clean local electromagnetic environment with an ambient noise floor scaling safely from $-44.05 \text{ dB}$ to $-38.44 \text{ dB}$.
+- **Optimal Gain Lock**: Officially locked the system's baseline acquisition profile at **$49.6 \text{ dB}$**—maximizing the Low-Noise Amplifier (LNA) sensitivity without front-end saturation, tailored for 21cm Hydrogen line captures.
 ---------------------------------------------------------
 ## How to Run
 
