@@ -91,11 +91,19 @@ def main():
     sdr_mode = CONFIG["SDR_MODE"]
     sample_rate = CONFIG["SAMPLE_RATE"]
     center_freq = CONFIG["CENTER_FREQ"]
+    gain_default = CONFIG["GAIN_DEFAULT"]
     save_path = CONFIG["OBS_PATH"]
     history_size = CONFIG["HISTORY_SIZE"]
 
     # 2. 하드웨어 연결 (Real or Virtual) via Factory Engine
     sdr = SDRFactory.get_sdr(mode=sdr_mode, sample_rate=sample_rate, center_freq=center_freq)
+
+    # 💡 추가: 하드웨어 객체에 우리가 스캔한 골디락스 게인(49.6 dB) 강제 주입
+    try:
+        sdr.gain = gain_default
+        print(f"📡 [System] Hardware Gain successfully locked at: {gain_default} dB")
+    except Exception as e:
+        print(f"⚠️ [System] Failed to set Hardware Gain: {e}")
     
     # 하드웨어 최종 점검 (Real SDR Readiness) 가동
     if not health_check(sdr):
