@@ -351,6 +351,12 @@ Day 115: Automated Gain Optimization & RFI Site Survey (Completed)
 - **SDR Artifact Isolation**: Detected and bypassed the `0.0 dB` hardware initialization anomaly (driver-level clipping mimicry at `-9.01 dB`).
 - **Dynamic Range Mapping**: Swept operational gains from $3.7 \text{ dB}$ to $49.6 \text{ dB}$. Documented a clean local electromagnetic environment with an ambient noise floor scaling safely from $-44.05 \text{ dB}$ to $-38.44 \text{ dB}$.
 - **Optimal Gain Lock**: Officially locked the system's baseline acquisition profile at **$49.6 \text{ dB}$**—maximizing the Low-Noise Amplifier (LNA) sensitivity without front-end saturation, tailored for 21cm Hydrogen line captures.
+
+Day 116: Doppler Astro-Engine Integration (Completed)
+- **Doppler Shift Velocity Mapping**: Developed a specialized `DopplerAstroEngine` translating raw radio frequency spectrum arrays directly into Galactic line-of-sight velocity parameters ($\text{km/s}$).
+- **Astrophysical Standardization**: Synced the $1420.40575 \text{ MHz}$ neutral hydrogen rest-frame ($f_{\text{rest}}$) with real-world target profiles captured via the RTL-SDR Blog V4 hardware.
+- **Dynamic Bandwidth Profiling**: Verified a calibrated velocity resolution band sweeping from **$-251.8 \text{ km/s}$ (Approaching/Blueshift)** to **$+254.5 \text{ km/s}$ (Receding/Redshift)** across the $2.4 \text{ MHz}$ instantaneous bandwidth.
+- **Data Product Evolution**: Transformed the simulator pipeline output from standard RF signal power into scientific line profiles, clearing paths for observational verification of galactic spiral arm rotation dynamics.
 ---------------------------------------------------------
 ## How to Run
 
