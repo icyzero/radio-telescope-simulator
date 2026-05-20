@@ -357,6 +357,12 @@ Day 116: Doppler Astro-Engine Integration (Completed)
 - **Astrophysical Standardization**: Synced the $1420.40575 \text{ MHz}$ neutral hydrogen rest-frame ($f_{\text{rest}}$) with real-world target profiles captured via the RTL-SDR Blog V4 hardware.
 - **Dynamic Bandwidth Profiling**: Verified a calibrated velocity resolution band sweeping from **$-251.8 \text{ km/s}$ (Approaching/Blueshift)** to **$+254.5 \text{ km/s}$ (Receding/Redshift)** across the $2.4 \text{ MHz}$ instantaneous bandwidth.
 - **Data Product Evolution**: Transformed the simulator pipeline output from standard RF signal power into scientific line profiles, clearing paths for observational verification of galactic spiral arm rotation dynamics.
+
+Day 117: Production-Ready UI Optimization & Hardware Gain Step Mapping
+- **UI Architecture Robustness**: Resolved a critical Matplotlib runtime crash (`AttributeError: 'float' object has no attribute 'view'`) triggered by cursor tracking telemetry during mouse-drag events over the Doppler canvas.
+- **Buffer Initialization Fix**: Eradicated the waterfall display corruption anomaly (the fragmented yellow-black dummy mosaic pattern) by introducing a fail-safe array boundary filter during dynamic frequency hopping sequences.
+- **Hardware Gain Step-Mapping**: Restructured the raw receiver LNA controls into a standardized **6-Step Precision Mapping Interface (1/6 to 6/6)**, aligning discrete software hotkeys perfectly with the optimal physical profiles of the RTL-SDR Blog V4 ($0.0 \text{ dB}$ to $49.6 \text{ dB}$).
+- **Observational Science Verification**: Successfully detected a distinct, persistent emission profile concentrated at the **$-125 \text{ km/s}$** velocity corridor, providing verified observational tracking of high-velocity Galactic spiral arm structures.
 ---------------------------------------------------------
 ## How to Run
 

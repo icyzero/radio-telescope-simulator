@@ -7896,3 +7896,327 @@
 2026-05-19T20:59:25 [CMD] MoveCommand RUNNING
 2026-05-19T20:59:25 [STATE] IDLE → MOVING (Target: 10, 20)
 2026-05-19T20:59:50 [CMD] MoveCommand SUCCESS
+2026-05-20T21:13:41 [CMD] MoveCommand START
+2026-05-20T21:13:41 [CMD] MoveCommand RUNNING
+2026-05-20T21:13:41 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:14:05 [CMD] MoveCommand SUCCESS
+2026-05-20T21:15:22 [CMD] MoveCommand START
+2026-05-20T21:15:22 [CMD] MoveCommand RUNNING
+2026-05-20T21:15:22 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:15:47 [CMD] MoveCommand SUCCESS
+2026-05-20T21:15:47 [CMD] MoveCommand START
+2026-05-20T21:15:47 [CMD] MoveCommand RUNNING
+2026-05-20T21:15:47 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:16:12 [CMD] MoveCommand SUCCESS
+2026-05-20T21:21:14 [CMD] MoveCommand START
+2026-05-20T21:21:14 [CMD] MoveCommand RUNNING
+2026-05-20T21:21:14 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:21:39 [CMD] MoveCommand SUCCESS
+2026-05-20T21:25:32 [CMD] MoveCommand START
+2026-05-20T21:25:32 [CMD] MoveCommand RUNNING
+2026-05-20T21:25:32 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:25:45 [SYSTEM] Manager registered: Main
+2026-05-20T21:25:45  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:25:45  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:25:45  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:25:45  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:25:45 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:25:45 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:25:45  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:25:45 [Main] [CMD] MoveCommand START
+2026-05-20T21:25:45 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:25:45 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:25:45  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:25:45  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:25:47 [SYSTEM] Manager registered: A
+2026-05-20T21:25:47 [SYSTEM] Manager registered: B
+2026-05-20T21:25:47 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:25:47 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:25:47  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:25:47 [A] [CMD] MoveCommand START
+2026-05-20T21:25:47 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:25:47 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:25:47 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:25:47 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:25:47  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:25:47 [B] [CMD] MoveCommand START
+2026-05-20T21:25:47 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:25:47 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:25:47 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:25:57 [CMD] MoveCommand SUCCESS
+2026-05-20T21:29:24 [SYSTEM] Manager registered: Main
+2026-05-20T21:29:24  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:29:24  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:29:24  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:29:24  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:29:24 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:29:24 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:29:24  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:29:24 [Main] [CMD] MoveCommand START
+2026-05-20T21:29:24 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:29:24 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:29:24  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:29:24  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:29:26 [SYSTEM] Manager registered: A
+2026-05-20T21:29:26 [SYSTEM] Manager registered: B
+2026-05-20T21:29:26 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:29:26 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:29:26  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:29:26 [A] [CMD] MoveCommand START
+2026-05-20T21:29:26 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:29:26 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:29:26 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:29:26 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:29:26  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:29:26 [B] [CMD] MoveCommand START
+2026-05-20T21:29:26 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:29:26 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:29:26 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:30:55 [SYSTEM] Manager registered: Main
+2026-05-20T21:30:55  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:30:55  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:30:55  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:30:55  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:30:55 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:30:55 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:30:55  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:30:55 [Main] [CMD] MoveCommand START
+2026-05-20T21:30:55 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:30:55 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:30:55  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:30:55  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:30:56 [SYSTEM] Manager registered: A
+2026-05-20T21:30:56 [SYSTEM] Manager registered: B
+2026-05-20T21:30:56 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:30:56 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:30:56  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:30:56 [A] [CMD] MoveCommand START
+2026-05-20T21:30:56 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:30:56 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:30:56 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:30:56 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:30:56  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:30:56 [B] [CMD] MoveCommand START
+2026-05-20T21:30:56 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:30:56 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:30:56 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:34:06 [SYSTEM] Manager registered: Main
+2026-05-20T21:34:06  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:34:06  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:34:06  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:34:06  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:34:06 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:34:06 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:34:06  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:34:06 [Main] [CMD] MoveCommand START
+2026-05-20T21:34:06 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:34:06 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:34:06  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:34:06  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:34:08 [SYSTEM] Manager registered: A
+2026-05-20T21:34:08 [SYSTEM] Manager registered: B
+2026-05-20T21:34:08 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:34:08 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:34:08  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:34:08 [A] [CMD] MoveCommand START
+2026-05-20T21:34:08 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:34:08 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:34:08 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:34:08 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:34:08  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:34:08 [B] [CMD] MoveCommand START
+2026-05-20T21:34:08 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:34:08 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:34:08 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:37:08 [CMD] MoveCommand START
+2026-05-20T21:37:08 [CMD] MoveCommand RUNNING
+2026-05-20T21:37:08 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:37:24 [CMD] MoveCommand START
+2026-05-20T21:37:24 [CMD] MoveCommand RUNNING
+2026-05-20T21:37:24 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:37:33 [CMD] MoveCommand SUCCESS
+2026-05-20T21:37:44 [SYSTEM] Manager registered: Main
+2026-05-20T21:37:44  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:37:44  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:37:44  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:37:44  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:37:44 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:37:44 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:37:44  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:37:44 [Main] [CMD] MoveCommand START
+2026-05-20T21:37:44 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:37:44 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:37:44  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:37:44  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:37:45 [SYSTEM] Manager registered: A
+2026-05-20T21:37:45 [SYSTEM] Manager registered: B
+2026-05-20T21:37:45 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:37:45 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:37:45  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:37:45 [A] [CMD] MoveCommand START
+2026-05-20T21:37:45 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:37:45 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:37:45 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:37:45 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:37:45  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:37:45 [B] [CMD] MoveCommand START
+2026-05-20T21:37:45 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:37:45 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:37:45 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:37:49 [CMD] MoveCommand SUCCESS
+2026-05-20T21:43:38 [CMD] MoveCommand START
+2026-05-20T21:43:38 [CMD] MoveCommand RUNNING
+2026-05-20T21:43:38 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:43:46 [SYSTEM] Manager registered: Main
+2026-05-20T21:43:46  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:43:46  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:43:46  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:43:46  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:43:46 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:43:46 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:43:46  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:43:46 [Main] [CMD] MoveCommand START
+2026-05-20T21:43:46 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:43:46 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:43:46  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:43:46  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:43:48 [SYSTEM] Manager registered: A
+2026-05-20T21:43:48 [SYSTEM] Manager registered: B
+2026-05-20T21:43:48 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:43:48 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:43:48  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:43:48 [A] [CMD] MoveCommand START
+2026-05-20T21:43:48 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:43:48 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:43:48 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:43:48 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:43:48  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:43:48 [B] [CMD] MoveCommand START
+2026-05-20T21:43:48 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:43:48 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:43:48 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:44:03 [CMD] MoveCommand SUCCESS
+2026-05-20T21:44:18 [SYSTEM] Manager registered: Main
+2026-05-20T21:44:18  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:44:18  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:44:18  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:44:18  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:44:18 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:44:18 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:44:18  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:44:18 [Main] [CMD] MoveCommand START
+2026-05-20T21:44:18 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:44:18 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:44:18  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:44:18  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:44:20 [SYSTEM] Manager registered: A
+2026-05-20T21:44:20 [SYSTEM] Manager registered: B
+2026-05-20T21:44:20 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:44:20 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:44:20  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:44:20 [A] [CMD] MoveCommand START
+2026-05-20T21:44:20 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:44:20 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:44:20 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:44:20 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:44:20  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:44:20 [B] [CMD] MoveCommand START
+2026-05-20T21:44:20 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:44:20 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:44:20 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:46:40 [CMD] MoveCommand START
+2026-05-20T21:46:40 [CMD] MoveCommand RUNNING
+2026-05-20T21:46:40 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:46:42 [SYSTEM] Manager registered: Main
+2026-05-20T21:46:42  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:46:42  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:46:42  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:46:42  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:46:42 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:46:42 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:46:42  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:46:42 [Main] [CMD] MoveCommand START
+2026-05-20T21:46:42 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:46:42 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:46:42  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:46:42  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:46:43 [SYSTEM] Manager registered: A
+2026-05-20T21:46:43 [SYSTEM] Manager registered: B
+2026-05-20T21:46:43 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:46:43 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:46:43  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:46:43 [A] [CMD] MoveCommand START
+2026-05-20T21:46:43 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:46:43 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:46:43 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:46:43 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:46:43  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:46:43 [B] [CMD] MoveCommand START
+2026-05-20T21:46:43 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:46:43 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:46:43 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:47:05 [CMD] MoveCommand SUCCESS
+2026-05-20T21:48:15 [CMD] MoveCommand START
+2026-05-20T21:48:15 [CMD] MoveCommand RUNNING
+2026-05-20T21:48:15 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:48:16 [SYSTEM] Manager registered: Main
+2026-05-20T21:48:16  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:48:16  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:48:16  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:48:16  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:48:16 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:48:16 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:48:16  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:48:16 [Main] [CMD] MoveCommand START
+2026-05-20T21:48:16 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:48:16 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:48:16  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:48:16  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:48:18 [SYSTEM] Manager registered: A
+2026-05-20T21:48:18 [SYSTEM] Manager registered: B
+2026-05-20T21:48:18 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:48:18 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:48:18  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:48:18 [A] [CMD] MoveCommand START
+2026-05-20T21:48:18 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:48:18 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:48:18 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:48:18 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:48:18  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:48:18 [B] [CMD] MoveCommand START
+2026-05-20T21:48:18 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:48:18 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:48:18 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:48:40 [CMD] MoveCommand SUCCESS
+2026-05-20T21:49:30 [CMD] MoveCommand START
+2026-05-20T21:49:30 [CMD] MoveCommand RUNNING
+2026-05-20T21:49:30 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-05-20T21:49:35 [SYSTEM] Manager registered: Main
+2026-05-20T21:49:35  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:49:35  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:49:35  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-05-20T21:49:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:49:35 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:49:35 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:49:35  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-05-20T21:49:35 [Main] [CMD] MoveCommand START
+2026-05-20T21:49:35 [Main] [CMD] MoveCommand RUNNING
+2026-05-20T21:49:35 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-05-20T21:49:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-05-20T21:49:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-05-20T21:49:36 [SYSTEM] Manager registered: A
+2026-05-20T21:49:36 [SYSTEM] Manager registered: B
+2026-05-20T21:49:36 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:49:36 [A] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:49:36  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-05-20T21:49:36 [A] [CMD] MoveCommand START
+2026-05-20T21:49:36 [A] [CMD] MoveCommand RUNNING
+2026-05-20T21:49:36 [STATE] IDLE → MOVING (Target: 5, 5)
+2026-05-20T21:49:36 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-05-20T21:49:36 [B] [CMD] MOVE accepted (EXECUTE)
+2026-05-20T21:49:36  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-05-20T21:49:36 [B] [CMD] MoveCommand START
+2026-05-20T21:49:36 [B] [CMD] MoveCommand RUNNING
+2026-05-20T21:49:36 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-05-20T21:49:36 [SYSTEM] Multi-Telescope control system started.
+2026-05-20T21:49:55 [CMD] MoveCommand SUCCESS
