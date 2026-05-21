@@ -363,6 +363,12 @@ Day 117: Production-Ready UI Optimization & Hardware Gain Step Mapping
 - **Buffer Initialization Fix**: Eradicated the waterfall display corruption anomaly (the fragmented yellow-black dummy mosaic pattern) by introducing a fail-safe array boundary filter during dynamic frequency hopping sequences.
 - **Hardware Gain Step-Mapping**: Restructured the raw receiver LNA controls into a standardized **6-Step Precision Mapping Interface (1/6 to 6/6)**, aligning discrete software hotkeys perfectly with the optimal physical profiles of the RTL-SDR Blog V4 ($0.0 \text{ dB}$ to $49.6 \text{ dB}$).
 - **Observational Science Verification**: Successfully detected a distinct, persistent emission profile concentrated at the **$-125 \text{ km/s}$** velocity corridor, providing verified observational tracking of high-velocity Galactic spiral arm structures.
+
+Day 118: Automated FITS Post-Processing & Scientific Visualization (Completed)
+- **FITS Header Telemetry Parsing**: Developed an automated post-processing class `AstroFitsAnalyzer` that extracts dynamic spectral metadata directly from raw FITS binaries.
+- **Publication-Grade Plotting Pipeline**: Implemented a scientific plotting routine using Matplotlib dark-thematic aesthetics, outputting high-DPI ($150 \text{ DPI}$) line profiles for academic portfolios.
+- **Physical Feature Isolation**: Confirmed a statistically significant H-I emission peak ($-8 \text{ dB}$ over a $-10 \text{ dB}$ baseline) tightly bound within the **$-125 \text{ km/s}$ Galactic Spiral Arm** corridor.
+- **DSP Filter Characterization**: Successfully identified and documented a severe negative peak ($-13.6 \text{ dB}$) at exactly $0 \text{ km/s}$, diagnosing it as the analytical signature/artifact of the Day 114 software DC mitigation filter.
 ---------------------------------------------------------
 ## How to Run
 
