@@ -130,7 +130,36 @@ class WaterfallVisualizer:
     def on_key(self, event):
         # 1. [S] 키: 수동 파일 저장
         if event.key == 's' or event.key == 'S':
-            self.recorder.save_observation(self.waterfall_buffer, {"az": 0, "el": 0})
+            # 🪐 [Day 124 패치] 비주얼라이저 상태 기반 다이내믹 메타데이터 빌드
+            # 비주얼라이저나 SDR 객체에 튜닝된 현재 주파수와 샘플 레이트를 실시간으로 가로챕니다.
+            current_freq = getattr(self.sdr, 'center_freq', 1420.4e6)
+            current_rate = getattr(self.sdr, 'sample_rate', 2.4e6)
+            current_gain = getattr(self.sdr, 'gain', 49.6)
+            
+            # 💡 주파수 대역을 기반으로 현재 타겟을 역추적하여 레코더에 힌트를 줍니다.
+            if abs(current_freq - 245.0e6) < 10e6:
+                target_key = "SOLAR_BURST"
+                target_name = "Solar Radio Burst (Type III/IV)"
+            elif abs(current_freq - 22.2e6) < 5e6:
+                target_key = "JUPITER_DAM"
+                target_name = "Jupiter Decametric Emission (DAM)"
+            else:
+                target_key = "MILKY_WAY_H1"
+                target_name = "Milky Way Neutral Hydrogen (H-I)"
+
+            # 레코더가 요구하는 포맷(metadata 딕셔너리)에 맞춰 데이터 패킹
+            meta_packet = {
+                "target_key": target_key,
+                "target_name": target_name,
+                "center_freq": current_freq,
+                "sample_rate": current_rate,
+                "gain": current_gain,
+                "az": 0,  # 향후 모터 구동 연동용
+                "el": 0
+            }
+            
+            # 💾 새로 고도화한 레코더 호출 (인터페이스 원형 유지)
+            self.recorder.save_observation(self.waterfall_buffer, meta_packet)
             print("💾 관측 데이터가 FITS 파일로 기록되었습니다.")
         
         # 2. [UP / DOWN] 방향키: 하드웨어 유효 게인 스텝 제어 (v1.1 최종 직결 패치)

@@ -385,6 +385,11 @@ Day 123: Real-time Target Switching & Hotkey Core Integration (Completed)
 - **Hotkey Interface Deployment**: Integrated the dynamic target rotation loop inside the core `src/main.py` architecture, mapping it to the user interactive **`[T]` (Target Switching)** hotkey event.
 - **On-the-Fly Canvas Re-Calibration**: Extended the live Matplotlib visualization block with fluid metadata updating routines, dynamically refreshing window bounds, frequency scales, and canvas headers upon target modification.
 - **End-to-End Hardware Synchronizer**: Verified simultaneous register-remapping across live RTL-SDR Blog V4 hardware, establishing true Software-Defined Radio Telescope capabilities across $1.42 \text{ GHz}$ (H-I), $245 \text{ MHz}$ (Solar @ $1.000000 \text{ MHz}$ exact sample rate), and $22.2 \text{ MHz}$ (Jupiter @ $250000.000 \text{ Hz}$ exact sample rate) bands.
+
+Day 124: Multi-Target FITS Partitioning & Dynamic Header Injection (Completed)
+- **Observational Data Partitioning**: Re-engineered `src/data/recorder.py` to establish separated storage sandboxes (`/milkyway/`, `/solar/`, `/jupiter/`), eliminating data cross-contamination.
+- **Dynamic FITS Header Injection**: Programmed a context-dependent FITS metadata injector, successfully verifying `CTYPE1: FREQ-DYNAMIC` for Solar bursts and `CTYPE1: TIME-SERIES` for Jupiter DAM files.
+- **Academic Metadata Standardization**: Automated full observational telemetry encoding—embedding precise Target Objects, Dynamic Calibration Modes, and exact hardware sample rates directly into science-ready binaries.
 ---------------------------------------------------------
 ## How to Run
 
