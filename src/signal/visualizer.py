@@ -106,7 +106,7 @@ class WaterfallVisualizer:
         self.ax_spec.set_ylim(-50, 70)
         self.ax_spec.set_xlim(v_min, v_max) # 💡 추가: 상단 차트 가로축 범위를 우주 속도로 락(Lock)
         self.ax_spec.set_ylabel("Power (dB)")
-        self.ax_spec.set_title("🌌 Real-time Radio Analysis (Milky Way Velocity Profile)")
+        self.ax_spec.set_title("Real-time Radio Analysis (Milky Way Velocity Profile)")
 
         # 3. 하단: Waterfall Image
         # 2D 버퍼 초기화 (시간 x 주파수)

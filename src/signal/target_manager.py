@@ -75,8 +75,13 @@ class AstroTargetManager:
                 
                 # 💡 [SDR Blog V4 안전 패치]: 주파수 도약 후 버퍼에 잔류하는 가짜 데이터(Ghost Frame) 강제 플러시
                 if hasattr(sdr, 'read_samples'):
-                    for _ in range(3):  # 이전 주파수의 찌꺼기 버퍼 프레임 3개 소거
-                        sdr.read_samples(1024)
+                    try:
+                        # 주파수 도약 직후 드라이버가 완전히 안정화될 수 있도록 아주 미세한 딜레이 주입
+                        time.sleep(0.1) 
+                        # 비동기적으로 잔류 버퍼를 가볍게 날려 가해지는 물리적 부하 최소화
+                        sdr.read_samples(512) 
+                    except Exception:
+                        pass
                 
                 print(f"✅ [하드웨어 락인 성공] 중심 주파수: {target.center_freq/1e6:.3f} MHz | 대역폭: {target.sample_rate/1e6:.3f} MHz")
                 print(f"⚙️ [DSP 엔진 동기화] 활성화된 신호 처리 아키텍처: {target.dsp_mode}")

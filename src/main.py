@@ -30,6 +30,7 @@ from src.config import CONFIG
 from src.signal.sdr_interface import SDRFactory, SignalProcessor
 from src.signal.visualizer import WaterfallVisualizer
 from src.data.recorder import FitsRecorder
+from src.signal.target_manager import AstroTargetManager
 
 # 기존 Day 100 제어 엔진 모듈 보존
 from src.controller.telescope import Telescope
@@ -135,7 +136,7 @@ def main():
     
     # 5. UI/시각화 실행 (Main Loop)
     print("\n🚀 All Systems Ready. Launching Visualizer...")
-    print("Hotkeys: [A] Auto-Scan, [S] Manual Save, [UP/DOWN] Gain Control\n")
+    print("Hotkeys: [A] Auto-Scan, [S] Manual Save, [UP/DOWN] Gain Control, [T} Target Manager\n")
     
     # WaterfallVisualizer에 수정된 파라미터 구조대로 완벽하게 매핑
     viz = WaterfallVisualizer(
@@ -145,7 +146,67 @@ def main():
         history_size=history_size, 
         recorder=recorder
     )
+    # ------------------------------------------------------------------
+    # 🪐 [Day 123 핵심 주입]: [T] 관측 타겟 다이내믹 인프라 핫키 바인딩
+    # ------------------------------------------------------------------
+    target_manager = AstroTargetManager()
+    target_list = ["MILKY_WAY_H1", "SOLAR_BURST", "JUPITER_DAM"]
+    # 현재 기본 타겟 설정에 맞춰 인덱스 초기화
+    current_idx = [0] # 가변형 클로저 참조를 위해 리스트로 선언
     
+    # 기존 viz 내부의 키보드 이벤트 핸들러(on_key_press 등)가 있다면 확장하기 위한 랩퍼 함수 정의
+    def dynamic_key_handler(event):
+        if event.key is None:
+            return
+            
+        key = event.key.lower()
+        
+        # [T] 키가 눌렸을 때 차원 도약 로테이션 시퀀스 가동
+        if key == 't':
+            current_idx[0] = (current_idx[0] + 1) % len(target_list)
+            next_target = target_list[current_idx[0]]
+            
+            # 실제 하드웨어 레지스터 튜닝 및 버퍼 플러시 트리거
+            # 주입된 viz.sdr 인스턴스를 추적하여 직접 제어합니다.
+            success = target_manager.switch_target(viz.sdr, next_target)
+            
+            if success:
+                current_profile = target_manager.targets[next_target]
+                
+                # 💡 [RF 그래픽스 패치]: 주파수 대역 폭등 시 이전 잔상 지우기
+                if hasattr(viz, 'clear_data_buffer'):
+                    viz.clear_data_buffer()
+                elif hasattr(viz, 'data_buffer'):
+                    viz.data_buffer.fill(0) # 폴백 방어 코드
+                
+                # 비주얼라이저의 타이틀 및 눈금 메타데이터 동적 업데이트
+                if hasattr(viz, 'update_canvas_metadata'):
+                    viz.update_canvas_metadata(
+                        title=f"📊 Real-time Radio Analysis ({current_profile.name})",
+                        center_freq=current_profile.center_freq,
+                        sample_rate=current_profile.sample_rate,
+                        dsp_mode=current_profile.dsp_mode
+                    )
+                else:
+                    # 메인 캔버스 윈도우 타이틀 직접 강제 갱신 트리거 (Matplotlib 폴백)
+                    try:
+                        viz.fig.canvas.set_window_title(f"Radio Observatory - {current_profile.name}")
+                    except Exception:
+                        pass
+                
+                print(f"📡 [System Tower] 전파 파이프라인 락인 최종 완수: -> {next_target}")
+                print("=" * 75)
+        
+        # 기존 비주얼라이저에 원래 연결되어 있던 키 바인딩 기능이 있다면 실행을 위임
+        # (예: viz.on_key, viz._on_key 등 하드웨어 게인용 화살표 제어 기능 보존용)
+        if hasattr(viz, 'on_key_press'):
+            viz.on_key_press(event)
+        elif hasattr(viz, 'on_key'):
+            viz.on_key(event)
+
+    # Matplotlib 캔버스에 새로 정의한 다이내믹 통합 핸들러 연결
+    viz.fig.canvas.mpl_connect('key_press_event', dynamic_key_handler)
+
     # 시각화 대시보드 루프 기동
     viz.show()
 

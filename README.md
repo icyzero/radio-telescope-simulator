@@ -376,10 +376,15 @@ Day 119: Galactic Kinematics & Dark Matter Mass Derivation (Completed)
 - **Mass Enclosure Mapping**: Derived the total enclosed Galactic core mass within $4.25 \text{ kpc}$ to be **$5.46 \times 10^{10} M_\odot$** (approx. $54.6$ billion Solar Masses).
 - **Cosmological Analysis**: Validated the flat rotation curve phenomenon ($V_{\text{rot}} > V_\odot$), providing automated computational evidence supporting the Galactic Dark Matter halo distribution model for advanced data portfolios.
 
-### 📡 Day 122: Dynamic Multi-Target Observation Infrastructure (Completed)
+Day 122: Dynamic Multi-Target Observation Infrastructure (Completed)
 - **Astrophysical Target Modularization**: Engineered the `AstroTargetManager` framework enabling on-the-fly execution profiles for diverse astronomical targets.
 - **Adaptive DSP Pipeline Binding**: Programmed context-aware digital signal processing branches, successfully mounting the `DYNAMIC_WATERFALL` logic for Solar bursts ($245 \text{ MHz}$) and the `FAST_TIME_SERIES` analyzer for Jupiter DAM ($22.2 \text{ MHz}$).
 - **Dynamic Hardware Retuning**: Validated seamless register-switching hooks modifying central frequencies and analog sampling rates dynamically across both physical RTL-SDR front-ends and emulator blocks.
+
+Day 123: Real-time Target Switching & Hotkey Core Integration (Completed)
+- **Hotkey Interface Deployment**: Integrated the dynamic target rotation loop inside the core `src/main.py` architecture, mapping it to the user interactive **`[T]` (Target Switching)** hotkey event.
+- **On-the-Fly Canvas Re-Calibration**: Extended the live Matplotlib visualization block with fluid metadata updating routines, dynamically refreshing window bounds, frequency scales, and canvas headers upon target modification.
+- **End-to-End Hardware Synchronizer**: Verified simultaneous register-remapping across live RTL-SDR Blog V4 hardware, establishing true Software-Defined Radio Telescope capabilities across $1.42 \text{ GHz}$ (H-I), $245 \text{ MHz}$ (Solar @ $1.000000 \text{ MHz}$ exact sample rate), and $22.2 \text{ MHz}$ (Jupiter @ $250000.000 \text{ Hz}$ exact sample rate) bands.
 ---------------------------------------------------------
 ## How to Run
 
