@@ -390,6 +390,11 @@ Day 124: Multi-Target FITS Partitioning & Dynamic Header Injection (Completed)
 - **Observational Data Partitioning**: Re-engineered `src/data/recorder.py` to establish separated storage sandboxes (`/milkyway/`, `/solar/`, `/jupiter/`), eliminating data cross-contamination.
 - **Dynamic FITS Header Injection**: Programmed a context-dependent FITS metadata injector, successfully verifying `CTYPE1: FREQ-DYNAMIC` for Solar bursts and `CTYPE1: TIME-SERIES` for Jupiter DAM files.
 - **Academic Metadata Standardization**: Automated full observational telemetry encoding—embedding precise Target Objects, Dynamic Calibration Modes, and exact hardware sample rates directly into science-ready binaries.
+
+Day 125: Real-time Data Validation & Astro-Statistical Grading (Completed)
+- **Target-Aware Quality Telemetry**: Developed an automated stream validator `AstroDataValidator` that analyzes the statistical profiles (Mean, Max, STD, and SNR) of real-time baseband signals.
+- **Pre-Serialization Guardrail Integration**: Embedded the validation gateway directly inside `src/signal/visualizer.py`, ensuring a fail-safe write-block trigger (`return`) if severe RFI saturation is diagnosed.
+- **Science-Ready Pipeline Sieve**: Verified real-time telemetry extraction outputting live indicators (`Peak`, `Std`, `Real-SNR`), successfully mapping a stable `Grade: C (Raw Noise)` for regular astronomical baselines.
 ---------------------------------------------------------
 ## How to Run
 

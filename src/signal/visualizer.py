@@ -99,7 +99,7 @@ class WaterfallVisualizer:
 
         # 외부 주입 리코더 안전장치
         self.recorder = recorder if recorder is not None else FitsRecorder()
-        self.fig.canvas.mpl_connect('key_press_event', self.on_key)
+        #self.fig.canvas.mpl_connect('key_press_event', self.on_key) /day 125중복으로 나오던 것 제거
         
         # 2. 상단: Spectrum Line
         self.line, = self.ax_spec.plot([], [], lw=1, color='#00ff00')
@@ -146,6 +146,19 @@ class WaterfallVisualizer:
             else:
                 target_key = "MILKY_WAY_H1"
                 target_name = "Milky Way Neutral Hydrogen (H-I)"
+
+            # 🪐 [Day 125 핵심] 디스크 저장 전 통계적 품질 검사기 작동
+            from src.analysis.validator import AstroDataValidator
+            validator = AstroDataValidator()
+            
+            # 현재 수집된 2차원 워터폴 버퍼 데이터를 검사기에 통과시킵니다.
+            is_valid, grade, reason = validator.validate_data(target_key, self.waterfall_buffer)
+            
+            if not is_valid:
+                print(f"🚨 [Save Blocked] 데이터 등급이 {grade}로 판명되어 쓰기가 차단되었습니다.")
+                print(f"   💡 사유: {reason}")
+                print("-" * 75)
+                return # 🛑 디스크 쓰기 전면 중단 및 탈출!
 
             # 레코더가 요구하는 포맷(metadata 딕셔너리)에 맞춰 데이터 패킹
             meta_packet = {
