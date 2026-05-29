@@ -21,6 +21,8 @@ class FitsRecorder:
         """
         data: 2D Waterfall Array (Time x Frequency)
         metadata: 망원경 상태 정보 및 현재 활성화된 천체 프로필 정보 통합 딕셔너리
+        [Day 126 고도화] metadata 내부에 래핑된 품질 검사 결과(quality_info)를 수신하여
+        FITS 헤더에 영구 과학 메타데이터로 박제하고 아카이빙합니다.
         """
         print(f"\n💾 [FitsRecorder] FITS 데이터 세분화 아카이빙 시퀀스 개시")
         
@@ -73,6 +75,20 @@ class FitsRecorder:
         elif target_key == "JUPITER_DAM":
             hdr['CTYPE1'] = ('TIME-SERIES', 'High-Speed Amplitude Power Scale')
             hdr['DSP_MODE'] = ('FAST_TIME_SERIES', 'Io-Interacted S-Burst Capture')
+
+        # ----------------------------------------------------
+        # 📌 [Day 126 핵심: 품질 검사 결과 헤더 영구 문신 박제]
+        # ----------------------------------------------------
+        quality_info = metadata.get('quality_info', None)
+        if quality_info:
+            grade = quality_info.get('grade', 'N/A')
+            snr = quality_info.get('snr', 0.0)
+            reason = quality_info.get('reason', 'No inspection reason provided.')
+            
+            # FITS 헤더 표준 주입 (키네임은 최대 8자 제한 규격 준수)
+            hdr['QUAL_GRD'] = (grade, 'Scientific Quality Grade by Validator')
+            hdr['QUAL_SNR'] = (float(snr), 'Measured Signal-to-Noise Ratio (dB)')
+            hdr['QUAL_MSG'] = (reason[:47], 'Validator Decision Summary Brief') # 47글자
 
         # 5. 물리적 디스크 저장 완료
         hdu.writeto(filename, overwrite=True)

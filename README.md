@@ -395,6 +395,11 @@ Day 125: Real-time Data Validation & Astro-Statistical Grading (Completed)
 - **Target-Aware Quality Telemetry**: Developed an automated stream validator `AstroDataValidator` that analyzes the statistical profiles (Mean, Max, STD, and SNR) of real-time baseband signals.
 - **Pre-Serialization Guardrail Integration**: Embedded the validation gateway directly inside `src/signal/visualizer.py`, ensuring a fail-safe write-block trigger (`return`) if severe RFI saturation is diagnosed.
 - **Science-Ready Pipeline Sieve**: Verified real-time telemetry extraction outputting live indicators (`Peak`, `Std`, `Real-SNR`), successfully mapping a stable `Grade: C (Raw Noise)` for regular astronomical baselines.
+
+Day 126: FITS Quality Metadata Permanent Injection (Completed)
+- **Quality Telemetry Pipeline**: Connected the data validation layer output straight into the FITS archiving core, passing automated evaluation parameters without thread blocking.
+- **Permanent Header Branding**: Programmed high-order FITS extension keys (`QUAL_GRD`, `QUAL_SNR`, `QUAL_MSG`) to store real-time data integrity scores directly into binary file headers.
+- **Data Veracity Logged**: Successfully archived a `MILKY_WAY_H1` observation at `observations\milkyway\`, embedding `QUAL_GRD: C (Raw Noise)` and a precise `Real-SNR: 0.95` for automated post-processing downstream filtering.
 ---------------------------------------------------------
 ## How to Run
 

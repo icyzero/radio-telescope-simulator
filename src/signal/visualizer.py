@@ -153,6 +153,12 @@ class WaterfallVisualizer:
             
             # 현재 수집된 2차원 워터폴 버퍼 데이터를 검사기에 통과시킵니다.
             is_valid, grade, reason = validator.validate_data(target_key, self.waterfall_buffer)
+
+            # 🪐 [Day 126 추가]: 헤더 주입용 SNR 통계량 동기화 정밀 재산출
+            mean_val = np.mean(self.waterfall_buffer)
+            max_val = np.max(self.waterfall_buffer)
+            std_val = np.std(self.waterfall_buffer)
+            snr_val = (max_val - mean_val) / (std_val + 1e-6)
             
             if not is_valid:
                 print(f"🚨 [Save Blocked] 데이터 등급이 {grade}로 판명되어 쓰기가 차단되었습니다.")
