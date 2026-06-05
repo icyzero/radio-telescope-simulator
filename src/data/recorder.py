@@ -23,6 +23,8 @@ class FitsRecorder:
         metadata: 망원경 상태 정보 및 현재 활성화된 천체 프로필 정보 통합 딕셔너리
         [Day 126 고도화] metadata 내부에 래핑된 품질 검사 결과(quality_info)를 수신하여
         FITS 헤더에 영구 과학 메타데이터로 박제하고 아카이빙합니다.
+        [Day 133 고도화] metadata 내부에 래핑된 하드웨어 장애 복구 이력(fault_report)을 수신하여
+        FITS 내부 헤더 및 HISTORY 트랙에 과학 표준 규격으로 인젝션합니다.
         """
         print(f"\n💾 [FitsRecorder] FITS 데이터 세분화 아카이빙 시퀀스 개시")
         
@@ -86,9 +88,28 @@ class FitsRecorder:
             reason = quality_info.get('reason', 'No inspection reason provided.')
             
             # FITS 헤더 표준 주입 (키네임은 최대 8자 제한 규격 준수)
-            hdr['QUAL_GRD'] = (grade, 'Scientific Quality Grade by Validator')
-            hdr['QUAL_SNR'] = (float(snr), 'Measured Signal-to-Noise Ratio (dB)')
-            hdr['QUAL_MSG'] = (reason[:47], 'Validator Decision Summary Brief') # 47글자
+            hdr['QUAL_GRD'] = (grade, 'Scientific Quality Grade')
+            hdr['QUAL_SNR'] = (float(snr), 'Measured SNR in dB')
+            hdr['QUAL_MSG'] = (reason[:30], 'Validator Decision Summary') # 40글자
+
+        # ----------------------------------------------------
+        # 🎯 [Day 133 핵심: 하드웨어 장애 이력 헤더 & HISTORY 주입]
+        # ----------------------------------------------------
+        fault_report = metadata.get('fault_report', None)
+        print(f"💾 [FITS Core Injection] 파일 헤더 내부 장애 분석 리포팅 디코딩 중...")
+        
+        if fault_report and fault_report.get("fail_count", 0) > 0:
+            fail_count = fault_report.get("fail_count", 0)
+            hdr['HW_FAILS'] = (fail_count, 'Total hardware fault count during obs')
+            
+            # FITS 표준 HISTORY 레코드 트랙 순회 주입
+            for event in fault_report.get("events", []):
+                history_line = f"[SDR_FAULT] {event['timestamp']} - {event['msg']}"
+                hdr.add_history(history_line)
+                print(f"  📜 [HISTORY ADDED] {history_line}")
+        else:
+            hdr['HW_FAILS'] = (0, 'No hardware faults encountered')
+            print("  🟢 특이사항: 관측 주기 동안 하드웨어 트립이 발생하지 않은 청정 데이터셋입니다.")
 
         # 5. 물리적 디스크 저장 완료
         hdu.writeto(filename, overwrite=True)
