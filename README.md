@@ -455,6 +455,29 @@ Day 140: Resilient Radio Observatory Pipeline Architecture Synthesis (Completed)
 - **End-to-End Core Finalized**: Sealed the full lifecycle architecture bridging raw IQ radio frequency streams, fault-tolerant hardware backoffs, IAU HISTORY encapsulation, 3-tier data sandboxing, and stereoscopic 3D coordinate mapping.
 - **Data Engineering Whitepaper**: Documented structural telemetry flows and abstraction logic, confirming zero-impurity white-listed stack outputs via automated REST-compliant JSON API generation.
 - **Production-Grade Portfolio Asset**: Established a fully robust, defensive cosmic data ingestion ecosystem certified against high-RFI environments and unbuffered hardware disconnections.
+
+Day 141: Telescope Responsibility Decoupling (Architecture Refactor)
+- **Duplicate Queue Elimination**: Removed `command_queue` and `move_to()` 
+  from `Telescope`, introducing `set_target(alt, az)` as the single entry 
+  point for motion targets. This closed a long-standing gap where both 
+  `Telescope` and `CommandManager` independently tracked pending commands.
+- **Encapsulation Fix**: Removed direct state mutation from 
+  `MoveCommand.execute()` (`telescope.state = MOVING`); Telescope now owns 
+  its own IDLE → MOVING transition internally, restoring the architectural 
+  principle that Telescope is solely responsible for its own state.
+- **Latent Bug Fix**: Eliminated a dead-attribute reference in 
+  `get_status()` (`queue_length`) that no longer matched the object's 
+  actual fields after decoupling.
+- **Demo Update**: Rewrote `run_simulation.py` to drive sequential 
+  waypoint motion through `set_target()` on IDLE detection, replacing 
+  the previous multi-`move_to()` queuing demo.
+- **Verification**: All existing unit tests (`test_telescope.py`, 
+  `test_command.py`) pass unchanged, confirming motion convergence and 
+  command lifecycle behavior were preserved through the refactor.
+- **Follow-up Identified**: `state_helper.py` still references 
+  `mgr.command_queue`, a stale attribute name from before `CommandManager` 
+  adopted `self.queue` — causing `queue_size` to silently report 0. 
+  Flagged for Day 142.
 ---------------------------------------------------------
 ## How to Run
 

@@ -41,9 +41,8 @@ class MoveCommand(Command):
     def execute(self, telescope, prefix=None):
         log("[CMD] MoveCommand START", prefix=prefix)
         self.state = CMD_RUNNING
-        telescope.state = TelescopeState.MOVING
         log("[CMD] MoveCommand RUNNING", prefix=prefix)
-        telescope.enqueue_move(self.alt, self.az)
+        telescope.set_target(self.alt, self.az)
 
     def abort(self, prefix=None, reason="INTERRUPTED"):
         self.abort_reason = reason

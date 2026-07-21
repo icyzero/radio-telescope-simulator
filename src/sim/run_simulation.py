@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from src.controller.enums import TelescopeState
 from src.controller.telescope import Telescope
 
 dt = 0.1  # 0.1초마다 업데이트
@@ -11,15 +12,20 @@ times = []
 alts = []
 azs = []
 
-telescope.move_to(10, 10)
-telescope.move_to(20, 20)
-telescope.move_to(30, 30)
+waypoints = [(10, 10), (20, 20), (30, 30)]
 
 current_time = 0.0
+next_waypoint_idx = 0
+telescope.set_target(*waypoints[next_waypoint_idx])
+next_waypoint_idx += 1
 
 while current_time <= sim_time: #while문으로 움직임 업데이트
     telescope.update(dt)#0.1초마다 업데이트
 
+    if telescope.state == TelescopeState.IDLE and next_waypoint_idx < len(waypoints):
+        telescope.set_target(*waypoints[next_waypoint_idx])
+        next_waypoint_idx += 1
+        
     times.append(current_time) #시간흐름
     alts.append(telescope.alt) #고도변화
     azs.append(telescope.az)   #방위각변화

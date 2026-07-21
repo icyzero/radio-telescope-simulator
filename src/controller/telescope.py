@@ -37,27 +37,16 @@ class Telescope:
         self.MIN_SPEED = 0.1 #01.14 목표 근처에서는 아주 느리게라도 끝까지 이동
 
         self.current_command = None #01.16 실행중인 명령을 객체로 분리
-        self.command_queue = [] #01.08 명령을 여러 개 받아 수행하기 위한 배열
 
         self.stop_reason = STOP_NONE
-
-    def move_to(self, alt, az):
-        '''self.target_alt = alt
-        self.target_az = az
-        self.state = "MOVING"'''#01.08 주석 처리 / 바로 이동이 아닌 큐에 저장하기 위해서
-        self.command_queue.append((alt, az)) #01.08 바로 이동이 아닌 큐에 저장
-        print(f"[COMMAND] Move to Alt={alt}, Az={az}")
 
     def stop(self, reason=STOP_MANUAL):
         self.state = TelescopeState.STOPPED
         self.stop_reason = reason #01.15
         '''self.target_alt = None
         self.target_az = None'''
-        self.command_queue.clear()  # 01.08 큐 비우기
+        self.current_command = None  # 01.08 큐 비우기
         print(f"[STATE] → {STATE_STOPPED} (force stop)")#01.10 로그 정리
-
-    def cancel_all(self): #01.16 큐만 지우는 동작
-        self.command_queue.clear()
 
     def skip_current(self): #01.16 현재 명령만을 포기하고 다음 update()에서 자동으로 다음 큐 명영으로 진입
         self.current_command = None
@@ -67,11 +56,10 @@ class Telescope:
         return {
             "state": self.state,
             "current": self.current_command,
-            "queue_length": len(self.command_queue),
             "stop_reason": self.stop_reason
         }
     
-    def enqueue_move(self, alt, az): #command.py 창구 메서드 이동 좌표만 저장
+    def set_target(self, alt, az): #command.py 창구 메서드 이동 좌표만 저장
         """Manager/Command로부터 새로운 단일 목표를 수신"""
         self.target_alt = alt # 💡 여기서 저장해줘야 update가 알 수 있습니다.
         self.target_az = az
@@ -90,20 +78,9 @@ class Telescope:
         
         # 1️⃣. [명령 공급] 현재 명령이 없으면 큐에서 새로 가져옴
         if self.current_command is None:
-            if self.command_queue:
-                self.current_command = self.command_queue.pop(0)
-                # 좌표 추출 로직 (객체/튜플 대응)
-                if hasattr(self.current_command, 'target_alt'):
-                    self.target_alt = self.current_command.target_alt
-                    self.target_az = self.current_command.target_az
-                else:
-                    self.target_alt, self.target_az = self.current_command
-                self.state = TelescopeState.MOVING
-            else:
-                # 🚨 큐도 없고 현재 명령도 없으면 진짜 할 일 없음
-                if self.state == TelescopeState.MOVING:
-                    self.state = TelescopeState.IDLE
-                return
+            if self.state == TelescopeState.MOVING:
+                self.state = TelescopeState.IDLE
+            return
 
         # 2️⃣. [물리 계산]
         target_alt = self.target_alt
@@ -191,7 +168,6 @@ class Telescope:
             "v_alt": self.v_alt,
             "v_az": self.v_az,
             "current_command": self.current_command, # (alt, az) 튜플 형태
-            "command_queue": list(self.command_queue), # 큐 복사
             "stop_reason": self.stop_reason
         }
 
@@ -213,7 +189,6 @@ class Telescope:
         self.v_alt = state_data["v_alt"]
         self.v_az = state_data["v_az"]
         self.current_command = state_data["current_command"]
-        self.command_queue = state_data["command_queue"]
         self.stop_reason = state_data["stop_reason"]
         
         # 물리 오차 다시 계산
