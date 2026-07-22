@@ -6,7 +6,7 @@ from src.utils.logger import log
 
 
 class CommandManager:
-    def __init__(self, name, telescope):
+    def __init__(self, name, telescope, mode_provider=None):
         self.name = name
         self.telescope = telescope
         self.state = IdleState()
@@ -14,6 +14,10 @@ class CommandManager:
         self.current = None
         self.time = 0.0
         self.emit = lambda type, source, payload=None: None
+        self.mode_provider = mode_provider or (lambda: "NORMAL") # 시스템에 연결 안 된 단독 사용(테스트 등)도 기본값 "NORMAL"로 안전하게 동작
+
+    def get_system_mode(self):
+        return self.mode_provider()
 
     def set_event_emitter(self, emit_func):
         """SystemController로부터 이벤트 발행 함수를 주입받음"""

@@ -10,7 +10,7 @@ class FakeTelescope:
         self.move_called = False
         self.state = TelescopeState.IDLE
 
-    def enqueue_move(self, alt, az): # MoveCommand가 호출하는 메서드
+    def set_target(self, alt, az): # MoveCommand가 호출하는 메서드
         self.move_called = True
         self.state = TelescopeState.MOVING
 

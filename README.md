@@ -478,6 +478,27 @@ Day 141: Telescope Responsibility Decoupling (Architecture Refactor)
   `mgr.command_queue`, a stale attribute name from before `CommandManager` 
   adopted `self.queue` — causing `queue_size` to silently report 0. 
   Flagged for Day 142.
+
+  Day 142: Dependency Injection & State-Ownership Cleanup
+- **Removed Runtime Monkey-Patching**: `CommandManager` previously received 
+  `get_system_mode` via a runtime-attached lambda from `SystemController`, 
+  causing `AttributeError` risk when used standalone. Replaced with a 
+  `mode_provider` constructor argument, making the dependency explicit and 
+  testable in isolation.
+- **Stale Attribute Fix**: `state_helper.py` referenced `mgr.command_queue`, 
+  a name that predated `CommandManager` adopting `self.queue` — silently 
+  reporting `queue_size` as 0. Corrected the reference.
+- **ResetCommand Bugfix**: Fixed a constructor bug where 
+  `CommandType.RESET` (an Enum) was passed into the `scheduled_at` 
+  parameter instead of a float.
+- **Reset Ownership Restored**: Added `Telescope.reset()`, moving IDLE 
+  recovery logic out of `ResetCommand.execute()` and into Telescope itself — 
+  completing the principle established on Day 141 that Telescope alone 
+  owns its state transitions (`set_target()`, `stop()`, now `reset()`).
+- **Logging Fix**: Corrected a non-f-string log call in 
+  `MoveCommand.abort()` that left `{reason}` unsubstituted.
+- **Verification**: Full test suite passes, including 
+  `test_command_manager.py` and `test_command.py`.
 ---------------------------------------------------------
 ## How to Run
 

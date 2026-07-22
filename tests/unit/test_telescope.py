@@ -7,7 +7,7 @@ def test_telescope_should_remain_idle_when_move_is_requested_at_current_position
     t = Telescope()
     t.alt, t.az = 5.0, 5.0  # 현재 위치
     
-    t.enqueue_move(5.0, 5.0) # 현재 위치와 동일한 목표
+    t.set_target(5.0, 5.0) # 현재 위치와 동일한 목표
     t.update(0.1)
     
     # 결과: 움직이지 않고 즉시 IDLE 혹은 짧은 확인 후 IDLE
@@ -21,7 +21,7 @@ def test_telescope_should_reach_target_position_and_stop_within_epsilon():
     t.alt, t.az = 0.0, 0.0
     
     target_alt, target_az = 1.0, 0.0
-    t.enqueue_move(target_alt, target_az)
+    t.set_target(target_alt, target_az)
     
     # 충분한 시간 동안 업데이트 (가감속 로직 포함)
     for _ in range(100):
@@ -36,7 +36,7 @@ def test_telescope_should_reach_target_position_and_stop_within_epsilon():
 # ✅ Test 3: STOP 래치 테스트 (정지 후 요지부동)
 def test_telescope_should_maintain_stopped_state_and_freeze_position_after_stop():
     t = Telescope()
-    t.enqueue_move(10.0, 10.0)
+    t.set_target(10.0, 10.0)
     
     t.update(0.1)
     assert t.state == TelescopeState.MOVING

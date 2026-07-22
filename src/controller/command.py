@@ -47,7 +47,7 @@ class MoveCommand(Command):
     def abort(self, prefix=None, reason="INTERRUPTED"):
         self.abort_reason = reason
         self.state = CMD_ABORTED
-        log("[CMD] MoveCommand ABORTED ({reason}))", prefix=prefix)
+        log(f"[CMD] MoveCommand ABORTED ({reason})", prefix=prefix)
 
     def update(self, telescope, dt, prefix=None):
         if self.state != CMD_RUNNING:
@@ -88,9 +88,10 @@ class StopCommand(Command):
 
 class ResetCommand(Command): #비정상 상태를 초기화하고 대기상태로 가기 위한 조치
     def __init__(self):
-        super().__init__(CommandType.RESET)
+        super().__init__()
+        self.type = CommandType.RESET
 
     def execute(self, telescope, prefix=""):
-        telescope.state = TelescopeState.IDLE # 여기서 상태 변경!
+        telescope.reset()
         self.state = CMD_SUCCESS
         log(f"[{prefix}] [CMD] Hardware Reset Success.", prefix=prefix)

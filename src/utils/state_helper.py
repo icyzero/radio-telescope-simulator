@@ -11,7 +11,7 @@ def capture_system_state(system):
         mgr_state = mgr.state.name if hasattr(mgr.state, 'name') else str(mgr.state)
         state_snapshot["managers"][name] = {
             "state": mgr_state,
-            "queue_size": len(mgr.command_queue) if hasattr(mgr, 'command_queue') else 0
+            "queue_size": len(mgr.queue) if hasattr(mgr, 'queue') else 0
         }
     
     return state_snapshot

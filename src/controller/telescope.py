@@ -52,6 +52,13 @@ class Telescope:
         self.current_command = None
         self.state = TelescopeState.IDLE
 
+    def reset(self):
+        """비정상 상태(STOPPED 등)를 초기화하고 IDLE로 복귀. Command가 아닌 Telescope 스스로 책임진다."""
+        self.state = TelescopeState.IDLE
+        self.current_command = None
+        self.stop_reason = STOP_NONE
+        log(f"[STATE] → IDLE (Hardware Reset)")
+
     def get_status(self):
         return {
             "state": self.state,
