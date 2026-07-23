@@ -6,6 +6,7 @@ class EventSchema:
     # 버전별 필수 필드 정의 (백과사전 역할)
     SCHEMAS = {
         1: {
+            EventType.COMMAND_STARTED: ["cmd_type"],
             EventType.COMMAND_SUCCESS: ["cmd_type", "result_state"],
             EventType.COMMAND_FAILED: ["cmd_type", "reason", "result_state"],
         },

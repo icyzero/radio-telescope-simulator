@@ -15,7 +15,7 @@ def test_event_logger_records_lifecycle(system):
     manager_a.add_command(MoveCommand(alt=10, az=10))
     
     # 3. 시스템 업데이트 (실행 완료까지 충분히)
-    for _ in range(5):
+    for _ in range(10):
         system.update(1.0)
 
     # 4. 검증: 로거에 이벤트가 잘 쌓였는가?

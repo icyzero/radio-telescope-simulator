@@ -26,7 +26,7 @@ def test_replay_contains_command_events(system):
     manager = system.managers["A"]
     manager.add_command(MoveCommand(alt=10, az=10))
 
-    for _ in range(5): 
+    for _ in range(10): 
         system.update(1.0)
 
     replayer = EventReplay(system.bus.get_history())

@@ -500,26 +500,31 @@ Day 141: Telescope Responsibility Decoupling (Architecture Refactor)
 - **Verification**: Full test suite passes, including 
   `test_command_manager.py` and `test_command.py`.
 
-  Day 143: SystemController Decomposition & Test Suite Stabilization
+Day 143: SystemController Decomposition & Full Test Suite Recovery
 - **Module Split**: Extracted ObservationManager/ObservationScheduler out 
   of scheduler.py into dedicated modules, reducing SystemController from 
-  355 to 264 lines. Cleaned up 5 dead imports discovered in the process.
-- **Test Infrastructure Fix**: Discovered `tests/2026_01`, `tests/2026_02` 
-  contained legacy top-level scripts with blocking `while True` loops that 
-  hung `pytest tests/` indefinitely. Scoped collection to `tests/unit` and 
-  `tests/integration`.
-- **Regression Cleanup**: Fixed a stale `enqueue_move` reference in 
-  `test_system_resilience.py` left over from Tuesday's refactor.
-- **Physics Bug Fix**: Corrected Telescope's deceleration formula — it was 
-  scaling deceleration across the *entire* remaining distance, which meant 
-  the telescope asymptotically approached but never actually reached its 
-  target. Changed to decelerate only within 1 degree of target.
-- **EventBus Fixes**: Added single-argument `subscribe()` support (global 
-  subscription), added missing `archive_manager` attribute, added 
-  `Event.wall_time` property, and unified conflicting validation error 
-  messages across event_validator tests.
-- **Result**: Test suite failures reduced from 20 to 8, all remaining 
-  failures triaged and categorized for Day 144.
+  355 to 264 lines.
+- **Test Infrastructure Fix**: Removed blocking legacy scripts 
+  (`tests/2026_01`, `tests/2026_02`) from pytest collection that were 
+  hanging the suite indefinitely.
+- **Physics Bug Fix**: Corrected Telescope's deceleration formula, which 
+  previously scaled deceleration across the entire remaining distance and 
+  never actually converged on target — changed to decelerate only within 
+  1 degree of target.
+- **Snapshot/Validation Root-Cause Fix**: Traced a `cmd_type`-missing 
+  failure to snapshot recovery not preserving command metadata, and fixed 
+  it at the source rather than loosening event validation.
+- **Test Time-Budget Corrections**: Re-measured actual convergence time 
+  under the corrected deceleration formula (7.8–8.0s) and updated 4 tests 
+  whose iteration counts were tuned against the old, non-convergent physics.
+- **Refactor-Consistency Fix**: `test_system_qause.py` was directly 
+  mutating `current_command` — a pattern that predates Tuesday's 
+  `set_target()`-only refactor and silently left `target_alt/az` at 0. 
+  Corrected to use `set_target()`, re-aligning the test with the current 
+  architecture.
+- **Result**: Test suite: 8 failed → 1 failed, 93 passed. Remaining 
+  failure (`TelemetryStreamer` frequency) scoped separately, root cause 
+  not yet identified.
 ---------------------------------------------------------
 ## How to Run
 

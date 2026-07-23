@@ -18,7 +18,7 @@ def test_should_record_pause_resume_sequence(system):
 def test_command_lifecycle_events(system):
     manager = system.managers["A"]
     manager.add_command(MoveCommand(alt=10, az=10))
-    for _ in range(20): system.update(0.1)
+    for _ in range(90): system.update(0.1)
     
     # 💡 버스를 통해 이벤트 획득
     m_events = [e for e in system.bus.get_events() if e.source == "A"]

@@ -9,7 +9,7 @@ def test_command_lifecycle_strict_order(system):
     manager.add_command(MoveCommand(alt=10, az=10))
 
     # 2. 충분한 시간 업데이트 (도착할 때까지)
-    for _ in range(50): system.update(0.1)
+    for _ in range(90): system.update(0.1)
 
     # 3. 해당 매니저의 이벤트만 추출
     m_events = [e for e in system.bus.get_events() if e.source == "A"]

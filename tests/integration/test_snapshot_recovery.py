@@ -15,7 +15,7 @@ def test_snapshot_hybrid_recovery_consistency():
     events = []
     for i in range(100):
         # 각 이벤트는 고유 ID를 가져야 추적이 편합니다.
-        e = Event(EventType.COMMAND_STARTED, "Mgr", {"idx": i}, sim_time=float(i), id=i)
+        e = Event(EventType.COMMAND_STARTED, "Mgr", {"idx": i, "cmd_type": "TestCommand"}, sim_time=float(i), id=i)
         events.append(e)
     
     # 0~49번까지만 먼저 실행

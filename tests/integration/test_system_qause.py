@@ -40,9 +40,9 @@ def test_should_resume_from_exact_paused_point(system):
     tele = manager.telescope
 
     # 1. 망원경 수동 설정 (로직 통과용)
-    tele.state = TelescopeState.MOVING
-    tele.current_command = (90.0, 90.0) 
     tele.slew_rate = 10.0
+    tele.set_target(90.0, 90.0) 
+
 
     # 💡 핵심: 매니저를 통하지 않고 망원경의 물리 로직을 직접 한 번 실행해봅니다.
     tele.update(1.0) 

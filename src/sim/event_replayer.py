@@ -1,6 +1,7 @@
 # src/sim/event_replayer.py
 from src.sim.event_validator import EventValidator
 from src.sim.event_types import EventType
+from src.utils.logger import log
 
 class EventReplayer:
     @staticmethod
@@ -15,7 +16,10 @@ class EventReplayer:
     def apply_event(system, event):
         """단일 이벤트를 분석하여 시스템의 API 호출"""
         # Day 75에서 추가한 검증 로직
-        if not EventValidator.validate(event):
+        try:
+            EventValidator.validate(event)
+        except ValueError as e:
+            log(f"[REPLAY] Skipping invalid event (id={event.id}): {e}")
             return
         
         # 버전별 '통역사' 연결
