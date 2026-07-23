@@ -49,7 +49,7 @@ def test_system_should_not_change_state_when_dt_is_zero(system):
 
 # ✅ 4: 매우 큰 dt에 대한 물리 안정성 테스트
 def test_telescope_should_not_overshoot_massively_on_huge_dt(telescope):
-    telescope.enqueue_move(alt=10, az=10)
+    telescope.set_target(alt=10, az=10)
     
     # 비정상적으로 큰 시간 주입
     telescope.update(100000.0)

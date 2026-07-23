@@ -5,8 +5,14 @@ class EventBus:
     def __init__(self):
         self._history = []
         self._subscribers = {}
+        self._global_subscribers = []
 
-    def subscribe(self, event_type, handler):
+    def subscribe(self, event_type, handler=None):
+        if handler is None:
+            handler = event_type
+            if handler not in self._global_subscribers:
+                self._global_subscribers.append(handler)
+            return
         """특정 이벤트 타입에 대해서만 구독 신청"""
         if event_type not in self._subscribers:
             self._subscribers[event_type] = []
@@ -23,7 +29,7 @@ class EventBus:
         handlers = self._subscribers.get(event.type, [])
         
         # 2. 전파 (Dispatcher 기능)
-        for handler in handlers:
+        for handler in self._global_subscribers + handlers:
             try:
                 handler(event)
             except Exception as e:

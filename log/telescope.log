@@ -9087,3 +9087,1644 @@
 2026-07-22T21:07:27  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
 2026-07-22T21:07:27 [A] [A] Manager unlocked and returned to IDLE.
 2026-07-22T21:07:46 [CMD] MoveCommand SUCCESS
+2026-07-23T17:46:42 [CMD] MoveCommand START
+2026-07-23T17:46:42 [CMD] MoveCommand RUNNING
+2026-07-23T17:46:42 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:47:07 [CMD] MoveCommand SUCCESS
+2026-07-23T17:47:10 [CMD] MoveCommand START
+2026-07-23T17:47:10 [CMD] MoveCommand RUNNING
+2026-07-23T17:47:10 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:47:35 [CMD] MoveCommand SUCCESS
+2026-07-23T17:49:38 [CMD] MoveCommand START
+2026-07-23T17:49:38 [CMD] MoveCommand RUNNING
+2026-07-23T17:49:38 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:50:03 [CMD] MoveCommand SUCCESS
+2026-07-23T17:50:35 [CMD] MoveCommand START
+2026-07-23T17:50:35 [CMD] MoveCommand RUNNING
+2026-07-23T17:50:35 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:51:00 [CMD] MoveCommand SUCCESS
+2026-07-23T17:52:34 [CMD] MoveCommand START
+2026-07-23T17:52:34 [CMD] MoveCommand RUNNING
+2026-07-23T17:52:34 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:52:59 [CMD] MoveCommand SUCCESS
+2026-07-23T17:53:03 [CMD] MoveCommand START
+2026-07-23T17:53:03 [CMD] MoveCommand RUNNING
+2026-07-23T17:53:03 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:53:28 [CMD] MoveCommand SUCCESS
+2026-07-23T17:53:42 [CMD] MoveCommand START
+2026-07-23T17:53:42 [CMD] MoveCommand RUNNING
+2026-07-23T17:53:42 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T17:54:07 [CMD] MoveCommand SUCCESS
+2026-07-23T18:09:54 [CMD] MoveCommand START
+2026-07-23T18:09:54 [CMD] MoveCommand RUNNING
+2026-07-23T18:09:54 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:10:19 [CMD] MoveCommand SUCCESS
+2026-07-23T18:11:51 [CMD] MoveCommand START
+2026-07-23T18:11:51 [CMD] MoveCommand RUNNING
+2026-07-23T18:11:51 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:12:02 [CMD] MoveCommand START
+2026-07-23T18:12:02 [CMD] MoveCommand RUNNING
+2026-07-23T18:12:02 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:12:16 [CMD] MoveCommand SUCCESS
+2026-07-23T18:12:27 [CMD] MoveCommand SUCCESS
+2026-07-23T18:13:13 [CMD] MoveCommand START
+2026-07-23T18:13:13 [CMD] MoveCommand RUNNING
+2026-07-23T18:13:13 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:13:38 [CMD] MoveCommand SUCCESS
+2026-07-23T18:14:01 [CMD] MoveCommand START
+2026-07-23T18:14:01 [CMD] MoveCommand RUNNING
+2026-07-23T18:14:01 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:14:26 [CMD] MoveCommand SUCCESS
+2026-07-23T18:25:57 [CMD] MoveCommand START
+2026-07-23T18:25:57 [CMD] MoveCommand RUNNING
+2026-07-23T18:25:57 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:26:22 [CMD] MoveCommand SUCCESS
+2026-07-23T18:27:59 [CMD] MoveCommand START
+2026-07-23T18:27:59 [CMD] MoveCommand RUNNING
+2026-07-23T18:27:59 [CMD] MoveCommand START
+2026-07-23T18:27:59 [CMD] MoveCommand RUNNING
+2026-07-23T18:27:59 [CMD] MoveCommand SUCCESS
+2026-07-23T18:27:59 [CMD] MoveCommand START
+2026-07-23T18:27:59 [CMD] MoveCommand RUNNING
+2026-07-23T18:27:59 [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:27:59 [SYSTEM] Manager registered: A
+2026-07-23T18:27:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:27:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:27:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:27:59 [A] [CMD] MoveCommand START
+2026-07-23T18:27:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:27:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00  EventType.COMMAND_FAILED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:00 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 0, 0)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:00  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [SYSTEM] Manager registered: A
+2026-07-23T18:28:00 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:00 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:00  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:00 [A] [CMD] MoveCommand START
+2026-07-23T18:28:00 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:00 [A] [A] PAUSED: Command queued as PENDING.
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 5.0, 5.0)
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 1.0, 0.0)
+2026-07-23T18:28:00 [STATE] IDLE → MOVING (Target: 10.0, 10.0)
+2026-07-23T18:28:01 [SYSTEM] Manager registered: Main
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: TestUnit | SimTime: 2.20s
+2026-07-23T18:28:01 [SYSTEM] Manager registered: Main
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01 [SYSTEM] Manager registered: MainTelescope
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01 [MainTelescope] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:01 [MainTelescope] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: MainTelescope | SimTime: 0.00s
+2026-07-23T18:28:01 [MainTelescope] [CMD] MoveCommand START
+2026-07-23T18:28:01 [MainTelescope] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:01 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-07-23T18:28:01  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01 [ERROR] EventBus: Subscriber failed with error: 'types.SimpleNamespace' object has no attribute 'telescope'
+2026-07-23T18:28:01  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:01  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [SYSTEM] Manager registered: B
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [B] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-07-23T18:28:02 [B] [CMD] MoveCommand START
+2026-07-23T18:28:02 [B] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:28:02  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:28:02 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:02 [B] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:28:02 [B] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 0.001, 0.001)
+2026-07-23T18:28:02  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:28:02 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 1.00s
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [A] Reset ignored: Manager is already in IDLE state.
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:28:02 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:28:02 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:28:02 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=STOPPED, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE rejected (state=STOPPED)
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:28:02 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:28:02  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: A
+2026-07-23T18:28:02  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:28:02  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: A | SimTime: 0.10s
+2026-07-23T18:28:02 [A] [CMD] MoveCommand START
+2026-07-23T18:28:02 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 30, 30)
+2026-07-23T18:28:02 [SYSTEM] Manager registered: Main
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:28:02 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:28:02 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:28:02  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-07-23T18:28:02 [Main] [CMD] MoveCommand START
+2026-07-23T18:28:02 [Main] [CMD] MoveCommand RUNNING
+2026-07-23T18:28:02 [STATE] IDLE → MOVING (Target: 0.0, 100.0)
+2026-07-23T18:33:21 [CMD] MoveCommand START
+2026-07-23T18:33:21 [CMD] MoveCommand RUNNING
+2026-07-23T18:33:21 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:33:46 [CMD] MoveCommand SUCCESS
+2026-07-23T18:41:01 [CMD] MoveCommand START
+2026-07-23T18:41:01 [CMD] MoveCommand RUNNING
+2026-07-23T18:41:01 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:41:13 [CMD] MoveCommand SUCCESS
+2026-07-23T18:45:17 [CMD] MoveCommand START
+2026-07-23T18:45:17 [CMD] MoveCommand RUNNING
+2026-07-23T18:45:17 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:45:29 [CMD] MoveCommand SUCCESS
+2026-07-23T18:45:38 [CMD] MoveCommand START
+2026-07-23T18:45:38 [CMD] MoveCommand RUNNING
+2026-07-23T18:45:38 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:45:50 [CMD] MoveCommand SUCCESS
+2026-07-23T18:46:18 [CMD] MoveCommand START
+2026-07-23T18:46:18 [CMD] MoveCommand RUNNING
+2026-07-23T18:46:18 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:46:29 [CMD] MoveCommand SUCCESS
+2026-07-23T18:47:00 [CMD] MoveCommand START
+2026-07-23T18:47:00 [CMD] MoveCommand RUNNING
+2026-07-23T18:47:00 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:47:11 [CMD] MoveCommand SUCCESS
+2026-07-23T18:48:29 [CMD] MoveCommand START
+2026-07-23T18:48:29 [CMD] MoveCommand RUNNING
+2026-07-23T18:48:29 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:48:41 [CMD] MoveCommand SUCCESS
+2026-07-23T18:48:53 [CMD] MoveCommand START
+2026-07-23T18:48:53 [CMD] MoveCommand RUNNING
+2026-07-23T18:48:53 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:49:05 [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57 [CMD] MoveCommand START
+2026-07-23T18:49:57 [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [CMD] MoveCommand START
+2026-07-23T18:49:57 [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57 [CMD] MoveCommand START
+2026-07-23T18:49:57 [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57  EventType.COMMAND_FAILED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:57 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [ERROR] EventBus: Subscriber failed with error: I am a broken subscriber
+2026-07-23T18:49:57  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 0, 0)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:57  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [SYSTEM] Manager registered: A
+2026-07-23T18:49:57 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:57 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:57  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:57 [A] [CMD] MoveCommand START
+2026-07-23T18:49:57 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:57 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:49:57  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:49:57 [A] [A] PAUSED: Command queued as PENDING.
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 5.0, 5.0)
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 1.0, 0.0)
+2026-07-23T18:49:57 [STATE] IDLE → MOVING (Target: 10.0, 10.0)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: Main
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: TestUnit | SimTime: 2.20s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: Main
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: MainTelescope
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59 [MainTelescope] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [MainTelescope] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: MainTelescope | SimTime: 0.00s
+2026-07-23T18:49:59 [MainTelescope] [CMD] MoveCommand START
+2026-07-23T18:49:59 [MainTelescope] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [ERROR] EventBus: Subscriber failed with error: 'types.SimpleNamespace' object has no attribute 'telescope'
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [SYSTEM] Manager registered: B
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [B] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-07-23T18:49:59 [B] [CMD] MoveCommand START
+2026-07-23T18:49:59 [B] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:49:59  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:49:59 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:59 [B] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:49:59 [B] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 0.001, 0.001)
+2026-07-23T18:49:59  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:49:59 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 1.00s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [A] Reset ignored: Manager is already in IDLE state.
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:49:59 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:49:59 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:49:59 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=STOPPED, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE rejected (state=STOPPED)
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:49:59 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:49:59  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: A
+2026-07-23T18:49:59  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:49:59  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: A | SimTime: 0.10s
+2026-07-23T18:49:59 [A] [CMD] MoveCommand START
+2026-07-23T18:49:59 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 30, 30)
+2026-07-23T18:49:59 [SYSTEM] Manager registered: Main
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:49:59 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:49:59 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:49:59  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-07-23T18:49:59 [Main] [CMD] MoveCommand START
+2026-07-23T18:49:59 [Main] [CMD] MoveCommand RUNNING
+2026-07-23T18:49:59 [STATE] IDLE → MOVING (Target: 0.0, 100.0)
+2026-07-23T18:55:25 [CMD] MoveCommand START
+2026-07-23T18:55:25 [CMD] MoveCommand RUNNING
+2026-07-23T18:55:25 [STATE] IDLE → MOVING (Target: 10, 20)
+2026-07-23T18:55:33 [CMD] MoveCommand START
+2026-07-23T18:55:33 [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [CMD] MoveCommand START
+2026-07-23T18:55:33 [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33 [CMD] MoveCommand START
+2026-07-23T18:55:33 [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33  EventType.COMMAND_FAILED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:33 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [ERROR] EventBus: Subscriber failed with error: I am a broken subscriber
+2026-07-23T18:55:33  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 0, 0)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:33  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [SYSTEM] Manager registered: A
+2026-07-23T18:55:33 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:33 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:33  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:33 [A] [CMD] MoveCommand START
+2026-07-23T18:55:33 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:33 [A] [CMD] MoveCommand SUCCESS
+2026-07-23T18:55:33  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-07-23T18:55:33 [A] [A] PAUSED: Command queued as PENDING.
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 5.0, 5.0)
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 1.0, 0.0)
+2026-07-23T18:55:33 [STATE] IDLE → MOVING (Target: 10.0, 10.0)
+2026-07-23T18:55:34 [SYSTEM] Manager registered: Main
+2026-07-23T18:55:34  EventType.COMMAND_FAILED | Source: TestUnit | SimTime: 2.20s
+2026-07-23T18:55:34 [SYSTEM] Manager registered: Main
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:34  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: MainTelescope
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35 [MainTelescope] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [MainTelescope] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: MainTelescope | SimTime: 0.00s
+2026-07-23T18:55:35 [MainTelescope] [CMD] MoveCommand START
+2026-07-23T18:55:35 [MainTelescope] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [ERROR] EventBus: Subscriber failed with error: 'types.SimpleNamespace' object has no attribute 'telescope'
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [SYSTEM] Manager registered: B
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [B] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-07-23T18:55:35 [B] [CMD] MoveCommand START
+2026-07-23T18:55:35 [B] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:55:35  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:55:35 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:35 [B] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:55:35 [B] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 0.001, 0.001)
+2026-07-23T18:55:35  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-07-23T18:55:35 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 1.00s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [A] Reset ignored: Manager is already in IDLE state.
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:55:35 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:55:35 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [STATE] → IDLE (Hardware Reset)
+2026-07-23T18:55:35 [A] [A] [CMD] Hardware Reset Success.
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [A] Manager unlocked and returned to IDLE.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=STOPPED, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE rejected (state=STOPPED)
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [A] [A] REJECT: Manager is LOCKED.
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-07-23T18:55:35 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-07-23T18:55:35  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: A
+2026-07-23T18:55:35  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [A] [CMD] MOVE accepted (PENDING)
+2026-07-23T18:55:35  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: A | SimTime: 0.10s
+2026-07-23T18:55:35 [A] [CMD] MoveCommand START
+2026-07-23T18:55:35 [A] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 30, 30)
+2026-07-23T18:55:35 [SYSTEM] Manager registered: Main
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-07-23T18:55:35 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-07-23T18:55:35 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-07-23T18:55:35  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-07-23T18:55:35 [Main] [CMD] MoveCommand START
+2026-07-23T18:55:35 [Main] [CMD] MoveCommand RUNNING
+2026-07-23T18:55:35 [STATE] IDLE → MOVING (Target: 0.0, 100.0)
+2026-07-23T18:55:37 [CMD] MoveCommand SUCCESS

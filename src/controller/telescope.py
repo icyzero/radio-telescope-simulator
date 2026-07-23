@@ -120,7 +120,12 @@ class Telescope:
         # [Day 92]MIN_SPEED가 설정되어 있지 않을 경우를 대비해 1.0 강제 적용
         min_s = getattr(self, 'MIN_SPEED', 1.0) 
         max_s = getattr(self, 'MAX_SPEED', 100.0)
-        speed = min(max(raw_speed, min_s), max_s)
+        DECEL_ZONE = 1.0
+        if distance > DECEL_ZONE:
+            speed = min(self.slew_rate, max_s)
+        else:
+            raw_speed = self.slew_rate * (distance / DECEL_ZONE)
+            speed = min(max(raw_speed, min_s), max_s)
 
         # 4. 💡 방어 설계: 이번 프레임의 이동량이 남은 거리보다 크면 바로 도착 처리 (Clamping)
         # 2️⃣ 이번 틱에 사용할 속도 업데이트

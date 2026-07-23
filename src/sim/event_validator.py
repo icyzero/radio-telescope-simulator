@@ -17,8 +17,10 @@ class EventValidator:
 
         # 2. [Day 82 핵심] 버전 추출 및 버전 타입 검증
         version = getattr(event, 'version', 1)
-        if not isinstance(version, int) or version <= 0:
-            raise ValueError(f"Event version must be int >= 1")
+        if not isinstance(version, int):
+            raise ValueError(f"Event version must be int, got {type(version).__name__}")
+        if version <= 0:
+            raise ValueError(f"Event version must be >= 1, got {version}")
 
         # 3. [Day 82 핵심] EventSchema를 통한 버전별 필수 필드 검사
         # 이제 REQUIRED_PAYLOAD 딕셔너리 대신 Schema 매니저에게 물어봅니다.
@@ -27,8 +29,8 @@ class EventValidator:
         for field in required_fields:
             if field not in event.payload:
                 raise ValueError(
-                    f"[v{version}] Missing required field '{field}' for {event.type}. "
-                    f"Payload: {event.payload}"
+                    f"Missing required payload key '{field}' "
+                    f"(Missing required field '{field}' for {event.type}, v{version}, payload={event.payload})"
                 )
 
         # 4. 세부 구조 검증 (필요 시 버전별로 분기 가능)

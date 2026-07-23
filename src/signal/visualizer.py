@@ -235,7 +235,7 @@ class WaterfallVisualizer:
         # 3. [A] 키: 자동 관측 시퀀스 가동
         elif event.key == 'a' or event.key == 'A':
             if not hasattr(self, 'scheduler'):
-                from src.scheduler.scheduler import ObservationScheduler
+                from src.scheduler.observation_scheduler import ObservationScheduler
                 self.scheduler = ObservationScheduler(self.sdr, self)
             
             print("\n🚀 [AUTO MODE] 관측 시퀀스를 실행합니다...")

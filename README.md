@@ -499,6 +499,27 @@ Day 141: Telescope Responsibility Decoupling (Architecture Refactor)
   `MoveCommand.abort()` that left `{reason}` unsubstituted.
 - **Verification**: Full test suite passes, including 
   `test_command_manager.py` and `test_command.py`.
+
+  Day 143: SystemController Decomposition & Test Suite Stabilization
+- **Module Split**: Extracted ObservationManager/ObservationScheduler out 
+  of scheduler.py into dedicated modules, reducing SystemController from 
+  355 to 264 lines. Cleaned up 5 dead imports discovered in the process.
+- **Test Infrastructure Fix**: Discovered `tests/2026_01`, `tests/2026_02` 
+  contained legacy top-level scripts with blocking `while True` loops that 
+  hung `pytest tests/` indefinitely. Scoped collection to `tests/unit` and 
+  `tests/integration`.
+- **Regression Cleanup**: Fixed a stale `enqueue_move` reference in 
+  `test_system_resilience.py` left over from Tuesday's refactor.
+- **Physics Bug Fix**: Corrected Telescope's deceleration formula — it was 
+  scaling deceleration across the *entire* remaining distance, which meant 
+  the telescope asymptotically approached but never actually reached its 
+  target. Changed to decelerate only within 1 degree of target.
+- **EventBus Fixes**: Added single-argument `subscribe()` support (global 
+  subscription), added missing `archive_manager` attribute, added 
+  `Event.wall_time` property, and unified conflicting validation error 
+  messages across event_validator tests.
+- **Result**: Test suite failures reduced from 20 to 8, all remaining 
+  failures triaged and categorized for Day 144.
 ---------------------------------------------------------
 ## How to Run
 

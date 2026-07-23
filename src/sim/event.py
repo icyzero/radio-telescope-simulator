@@ -19,12 +19,17 @@ class Event:
 
     def __str__(self):
         return (
-        f"[{self.id:04d}] " # ID 출력 추가
+        f"[{self.id:04d}] "
         f"[sim:{self.sim_time:.3f}] "
         f"[{self.timestamp.strftime('%H:%M:%S')}] "
         f"{self.source} -> {self.type.name} "
         f"{self.payload}"
         )
+
+    @property
+    def wall_time(self):
+        """timestamp의 별칭 (실제 기록 시각)"""
+        return self.timestamp
     
 # 관측을 위한 전담 로거 함수
 def event_pretty_logger(event: Event):
@@ -35,6 +40,7 @@ class EventBus:
     def __init__(self):
         self._events: List[Event] = []
         self._subscribers = {}
+        self.archive_manager = None
 
     def publish(self, event: Event):
         """이벤트를 발행하기 전 반드시 검증을 통과해야 함"""
