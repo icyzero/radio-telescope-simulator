@@ -526,7 +526,7 @@ Day 143: SystemController Decomposition & Full Test Suite Recovery
   failure (`TelemetryStreamer` frequency) scoped separately, root cause 
   not yet identified.
 
-  Day 144: Logging Standardization, Dead Code Cleanup & Legacy Telemetry Bug Fix
+Day 144: Logging Standardization, Dead Code Cleanup & Legacy Telemetry Bug Fix
 - **Unified Logging**: Replaced all remaining `print()` calls with `log()` 
   across `telescope.py` (4), `observation_manager.py` (1, unified to 
   `[SYSTEM]` tag), and `observation_scheduler.py` (6), completing the 
@@ -545,7 +545,12 @@ Day 143: SystemController Decomposition & Full Test Suite Recovery
   empty manager set, permanently locking the streamer into idle mode 
   (1.0s) instead of the active mode (0.1s) introduced the day after the 
   streamer was first built. No bug in `TelemetryStreamer` itself — 
-  fixed
+  fixed by registering a real manager and issuing an actual MOVE command 
+  in the test.
+- **Result**: Full suite now at 94 passed, 0 failed. This closes the 
+  Tue–Fri architectural refactor cycle (Telescope decoupling → dependency 
+  injection → SystemController decomposition → logging/test cleanup) with 
+  a fully green test suite.
 ---------------------------------------------------------
 ## How to Run
 
