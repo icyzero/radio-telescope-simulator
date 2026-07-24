@@ -525,6 +525,27 @@ Day 143: SystemController Decomposition & Full Test Suite Recovery
 - **Result**: Test suite: 8 failed → 1 failed, 93 passed. Remaining 
   failure (`TelemetryStreamer` frequency) scoped separately, root cause 
   not yet identified.
+
+  Day 144: Logging Standardization, Dead Code Cleanup & Legacy Telemetry Bug Fix
+- **Unified Logging**: Replaced all remaining `print()` calls with `log()` 
+  across `telescope.py` (4), `observation_manager.py` (1, unified to 
+  `[SYSTEM]` tag), and `observation_scheduler.py` (6), completing the 
+  README's Logging Policy as an enforced invariant.
+- **Dead Code Removal**: Removed stale commented-out blocks in 
+  `scheduler.py` and a no-op leftover in `event_replayer.py`.
+- **Legacy Script Archival**: Moved `tests/2026_01`, `tests/2026_02` 
+  (blocking, date-based manual scripts) to `archive/legacy_scripts/`, 
+  added `pytest.ini` to scope collection to `tests/unit`/`tests/integration`.
+- **4-Month-Old Telemetry Bug Found & Fixed**: `test_telemetry_streaming_
+  frequency` had been silently broken since April — masked the entire 
+  time because `tests/2026_01`/`2026_02` prevented the full suite from 
+  ever completing a run. Root cause: the test never called 
+  `register_manager()`, so `_determine_interval()`'s activity check 
+  (`any(mgr.telescope.state == MOVING ...)`) always evaluated over an 
+  empty manager set, permanently locking the streamer into idle mode 
+  (1.0s) instead of the active mode (0.1s) introduced the day after the 
+  streamer was first built. No bug in `TelemetryStreamer` itself — 
+  fixed
 ---------------------------------------------------------
 ## How to Run
 

@@ -2,10 +2,22 @@
 
 import pytest
 from src.scheduler.scheduler import SystemController
+from src.controller.telescope import Telescope
+from src.controller.command_manager import CommandManager
+from src.controller.command import MoveCommand
+
 
 def test_telemetry_streaming_frequency():
     ctrl = SystemController()
-    # 0.1초 간격으로 스트리밍 설정 (초기값 확인)
+    # 매니저를 등록하고 실제로 망원경을 움직여야 스트리머가 ACTIVE(0.1초) 모드로 전환됨
+    tel = Telescope(slew_rate=5.0)
+    mgr = CommandManager("A", tel)
+    ctrl.register_manager("A", mgr)
+    mgr.add_command(MoveCommand(alt=30, az=90))
+
+    # 시뮬레이션 시간을 1.0초 동안 흘림 (0.05초씩 20번 업데이트)
+    for _ in range(20):
+        ctrl.update(0.05)
     
     # 시뮬레이션 시간을 1.0초 동안 흘림 (0.05초씩 20번 업데이트)
     for _ in range(20):

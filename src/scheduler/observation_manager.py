@@ -2,6 +2,7 @@
 
 """sdr장비 연동"""
 from src.signal.sdr_interface import VirtualSDR, SignalProcessor
+from src.utils.logger import log
 
 
 class ObservationManager:
@@ -19,5 +20,5 @@ class ObservationManager:
             samples = self.sdr.read_samples(2048)
             return self.proc.get_power_spectrum(samples)
 
-        print(f"[SIGNAL] Capture failed: Telescope is {mgr.telescope.state.name if mgr else 'NONE'}")
+        log(f"[SIGNAL] Capture failed: Telescope is {mgr.telescope.state.name if mgr else 'NONE'}")
         return None

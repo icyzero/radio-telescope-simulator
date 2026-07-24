@@ -108,7 +108,6 @@ class SystemController:
     def global_stop(self):
         self.mode = "STOPPED"  # 모드 변경
         self.emit(EventType.SYSTEM_STOPPED, "SystemController") # 💡 이벤트 발행
-        #log("[SYSTEM] GLOBAL STOP triggered.")
         
         # 💡 일시정지 중이더라도 하드웨어 정지 명령은 즉시 전파되어야 함
         for manager in self.managers.values():
@@ -118,13 +117,11 @@ class SystemController:
         if self.mode == "NORMAL":
             self.mode = "PAUSED"
             self.emit(EventType.SYSTEM_PAUSED, "SystemController") # 💡 이벤트 발행
-            #log("[SYSTEM] GLOBAL PAUSE triggered. State preserved.")
 
     def global_resume(self):
         if self.mode == "PAUSED":
             self.mode = "NORMAL"
             self.emit(EventType.SYSTEM_RESUMED, "SystemController") # 💡 이벤트 발행
-            #log("[SYSTEM] GLOBAL RESUME. Continuing operations.")
 
     def emit(self, event_type: EventType, source: str, payload: Optional[dict] = None):
         """모든 계층의 이벤트를 수집하는 중앙 창구"""

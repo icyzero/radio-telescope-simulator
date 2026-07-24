@@ -51,9 +51,3 @@ class EventReplayer:
                 
                 # 기록된 '진실'을 주입
                 manager.state = res.get("manager_state", "IDLE")
-                
-                # 세부 상태(망원경 등) 복원
-                if "telescope" in res:
-                    tel_data = res["telescope"]
-                    # if hasattr(manager.telescope, 'set_state'):
-                    #     manager.telescope.set_state(tel_data)

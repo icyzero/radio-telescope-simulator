@@ -3,6 +3,7 @@
 import time
 import threading
 import logging
+from src.utils.logger import log
 
 logging.basicConfig(
     filename='observation_log.txt',
@@ -26,19 +27,19 @@ class ObservationScheduler:
     def run_sequence(self, plan):
         self.is_running = True
         msg = f"📅 관측 스케줄 시작: 총 {len(plan)}개 세션"
-        print(msg)
+        log(msg)
         logging.info(msg)
 
         for i, session in enumerate(plan):
             if not self.is_running: break
 
             target_mhz = session['freq'] / 1e6
-            print(f"\n[Session {i+1}] 🔄 주파수 이동: {target_mhz} MHz")
+            log(f"\n[Session {i+1}] 🔄 주파수 이동: {target_mhz} MHz")
 
             self.sdr.center_freq = session['freq']
             time.sleep(1.5)
 
-            print(f"📡 관측 중 ({session['label']}): {session['duration']}초간...")
+            log(f"📡 관측 중 ({session['label']}): {session['duration']}초간...")
             time.sleep(session['duration'])
 
             meta = {
@@ -55,13 +56,13 @@ class ObservationScheduler:
                     meta
                 )
                 log_msg = f"✅ 저장 완료: {session['label']} ({target_mhz} MHz)"
-                print(log_msg)
+                log(log_msg)
                 logging.info(log_msg)
             except Exception as e:
                 err_msg = f"❌ 저장 실패: {e}"
-                print(err_msg)
+                log(err_msg)
                 logging.error(err_msg)
 
         self.is_running = False
-        print("\n🏁 모든 관측 스케줄이 완료되었습니다.")
+        log("\n🏁 모든 관측 스케줄이 완료되었습니다.")
         logging.info("🏁 All scheduled observations completed.")

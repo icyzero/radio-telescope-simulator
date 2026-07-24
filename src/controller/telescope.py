@@ -46,7 +46,7 @@ class Telescope:
         '''self.target_alt = None
         self.target_az = None'''
         self.current_command = None  # 01.08 큐 비우기
-        print(f"[STATE] → {STATE_STOPPED} (force stop)")#01.10 로그 정리
+        log(f"[STATE] → {STATE_STOPPED} (force stop)")
 
     def skip_current(self): #01.16 현재 명령만을 포기하고 다음 update()에서 자동으로 다음 큐 명영으로 진입
         self.current_command = None
@@ -93,8 +93,6 @@ class Telescope:
         target_alt = self.target_alt
         target_az = self.target_az
 
-        print(f"DEBUG IN UPDATE: current_pos=({self.alt}, {self.az}) -> Target({target_alt}, {target_az})")
-
         d_alt = target_alt - self.alt 
         d_az = target_az - self.az    
         distance = math.sqrt(d_alt**2 + d_az**2)
@@ -107,7 +105,7 @@ class Telescope:
             self.v_az = 0.0 #도착시 속도 0으로
             self.current_command = None
             self.state = TelescopeState.IDLE
-            print(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (Target Reached)")#01.10 로그 정리
+            log(f"[STATE] {STATE_MOVING} → {STATE_IDLE} (Target Reached)")#01.10 로그 정리
             return
         
         #3. 속도 및 방향 개선
@@ -145,7 +143,7 @@ class Telescope:
             self.v_az = 0.0
             self.current_command = None
             self.state = TelescopeState.IDLE
-            print(f"[STATE] MOVING → IDLE (Clamped to Target)")
+            log(f"[STATE] MOVING → IDLE (Clamped to Target)")
         else:
             self.alt += move_alt
             self.az += move_az
