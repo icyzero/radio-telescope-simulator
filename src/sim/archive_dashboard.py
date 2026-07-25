@@ -1,6 +1,7 @@
 #src/sim/archive_dashboard.py
 
 import os
+import time
 from pathlib import Path
 from src.sim.session_reporter import SessionReporter
 from src.sim.session_inspector import SessionInspector
@@ -63,7 +64,6 @@ class ArchiveDashboard:
                 break
             else:
                 print("Invalid choice. Try again.")
-                import time
                 time.sleep(1)
 
     def _handle_inspect(self):

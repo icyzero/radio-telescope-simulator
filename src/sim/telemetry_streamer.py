@@ -2,6 +2,7 @@
 
 from src.sim.event import EventType
 from src.controller.enums import TelescopeState
+from src.utils.logger import log
 
 class TelemetryStreamer:
     def __init__(self, controller, idle_interval=1.0, active_interval=0.1):
@@ -32,7 +33,7 @@ class TelemetryStreamer:
         # 3. 💡 [핵심] 모드 전환 감지 (Idle -> Active)
         # 주기가 작아졌다면(더 빨라졌다면) 기다리지 않고 즉시 푸시!
         if self.current_interval < old_interval:
-            print(f"[STREAMER] Mode changed to ACTIVE. Immediate push at {sim_time}")
+            log(f"[STREAMER] Mode changed to ACTIVE. Immediate push at {sim_time}")
             self.push_telemetry(sim_time, reason="MODE_CHANGED")
             return # 이번 틱은 여기서 종료
 
@@ -67,5 +68,5 @@ class TelemetryStreamer:
 
     def on_critical_event(self, event):
         """이벤트 수신 즉시 패킷 생성 (Interval 무시)"""
-        print(f"[STREAMER] Critical Event Detected: {event.type}. Pushing immediate telemetry.")
+        log(f"[STREAMER] Critical Event Detected: {event.type}. Pushing immediate telemetry.")
         self.push_telemetry(self.controller.sim_time, reason=f"EVENT_{event.type.name}")

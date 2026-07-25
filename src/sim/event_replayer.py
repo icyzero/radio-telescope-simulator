@@ -3,14 +3,7 @@ from src.sim.event_validator import EventValidator
 from src.sim.event_types import EventType
 from src.sim.event_replay import sort_by_sim_time
 from src.utils.logger import log
-from src.controller.state import IdleState, PausedState, LockedState
-
-# "manager_state" payload에 저장된 클래스 이름 문자열을 실제 상태 객체로 복원하기 위한 매핑
-_STATE_CLASS_MAP = {
-    "IdleState": IdleState,
-    "PausedState": PausedState,
-    "LockedState": LockedState,
-}
+from src.controller.state import state_from_name
 
 class EventReplayer:
     @staticmethod
@@ -59,6 +52,4 @@ class EventReplayer:
                 res = event.payload.get("result_state", {})
                 
                 # 기록된 '진실'을 주입 (문자열 클래스명을 실제 상태 객체로 복원)
-                state_name = res.get("manager_state", "IdleState")
-                state_cls = _STATE_CLASS_MAP.get(state_name, IdleState)
-                manager.state = state_cls()
+                manager.state = state_from_name(res.get("manager_state", "IdleState"))

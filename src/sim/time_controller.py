@@ -26,5 +26,3 @@ class TimeController:
         self.origin_sim = current_sim
         self.origin_wall = now_wall
         self.scale = new_scale
-        
-        # print(f"[Time] Scale changed to x{new_scale}. Current Sim Time: {current_sim:.2f}s")

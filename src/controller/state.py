@@ -206,3 +206,17 @@ class PausedState(ManagerState):
         # 일시정지 중 리셋은 무시하거나 IDLE로 복귀시킬 수 있습니다.
         log(f"[{manager.name}] Reset in PAUSED: Returning to IDLE.", prefix=manager.name)
         manager.state = IdleState()
+
+# --- 상태 객체 <-> 이름(문자열) 변환 헬퍼 -------------------------------
+# 상태 객체(IdleState 등)는 JSON 직렬화가 안 되므로, 스냅샷/이벤트 payload에는
+# 클래스 이름 문자열로만 저장하고 복원 시 이 헬퍼로 실제 객체를 되살린다.
+# (CommandManager.get_state/set_state, event_replayer.py 공용)
+_STATE_NAME_MAP = {
+    "IdleState": IdleState,
+    "PausedState": PausedState,
+    "LockedState": LockedState,
+}
+
+def state_from_name(name: str) -> "ManagerState":
+    """클래스 이름 문자열로부터 실제 상태 객체를 생성 (알 수 없는 이름이면 IdleState)"""
+    return _STATE_NAME_MAP.get(name, IdleState)()

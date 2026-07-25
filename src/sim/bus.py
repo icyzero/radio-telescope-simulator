@@ -61,8 +61,9 @@ class EventBus:
         }
 
     def get_events(self, type=None, source=None, start_time=None, end_time=None):
-        """조건에 맞는 이벤트만 필터링하여 반환"""
-        events = self._history # 내부 히스토리 리스트 (원본 보존을 위해 참조)
+        """조건에 맞는 이벤트만 필터링하여 반환 (항상 복사본 - 내부 리스트 보호)"""
+        events = list(self._history) # 원본 보호를 위해 항상 복사
+
 
         if type is not None:
             events = [e for e in events if e.type == type]
@@ -79,10 +80,8 @@ class EventBus:
         return events
     
     def get_history(self, event_type=None):
-        """특정 타입 혹은 전체 이벤트 기록을 안전하게 복사해서 반환"""
-        if event_type is None:
-            return list(self._history)
-        return [e for e in self._history if e.type == event_type]
+        """get_events()의 얇은 래퍼 (하위 호환용 이름). 새 코드는 get_events()를 쓰세요."""
+        return self.get_events(type=event_type)
     
     def clear(self):
         """테스트 간 간섭 방지를 위한 초기화"""

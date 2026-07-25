@@ -1,7 +1,7 @@
 # src/controller/command_manager.py
 #여러 command의 실행 순서와 상태를 관리하는 중앙 제어자
 
-from src.controller.state import IdleState, LockedState
+from src.controller.state import IdleState, LockedState, state_from_name
 from src.utils.logger import log
 
 
@@ -55,13 +55,14 @@ class CommandManager:
     def get_state(self) -> dict:
         """현재 매니저와 조종 중인 망원경의 모든 상태를 반환"""
         return {
-            "manager_state": self.state,
+            "manager_state": self.state.__class__.__name__,
             # 망원경이 연결되어 있다면 망원경의 get_state()를 호출
             "telescope": self.telescope.get_state() if hasattr(self, 'telescope') else None
         }
         
     def set_state(self, state: dict):
-        self.state = state.get("manager_state", "IDLE")
+        """저장된 클래스명 문자열로부터 실제 상태 객체를 복원"""
+        self.state = state_from_name(state.get("manager_state", "IdleState"))
         if "telescope" in state and hasattr(self, 'telescope'):
             self.telescope.set_state(state["telescope"])
 
