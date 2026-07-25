@@ -1,7 +1,8 @@
 # src/sim/event_persistence.py
 import json
 from datetime import datetime
-from src.sim.event import Event, EventType
+from src.sim.event import Event
+from src.sim.event_types import EventType
 
 class EventPersistence:
     @staticmethod
@@ -21,8 +22,6 @@ class EventPersistence:
 
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=2, ensure_ascii=False)
-        
-        pass
 
     @staticmethod
     def load(filepath):

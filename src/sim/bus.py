@@ -1,13 +1,17 @@
 # src/sim/bus.py
 from src.utils.logger import log
+from src.sim.event_validator import EventValidator
 
 class EventBus:
-    def __init__(self):
+    def __init__(self, archive_manager=None):
         self._history = []
         self._subscribers = {}
         self._global_subscribers = []
+        self.archive_manager = archive_manager
 
     def subscribe(self, event_type, handler=None):
+        """특정 이벤트 타입만 구독하려면 subscribe(event_type, handler),
+        모든 이벤트를 구독하려면 subscribe(handler)로 호출"""
         if handler is None:
             handler = event_type
             if handler not in self._global_subscribers:
@@ -21,20 +25,40 @@ class EventBus:
             self._subscribers[event_type].append(handler)
 
     def publish(self, event):
-        """이벤트를 기록하고, 해당 타입을 구독 중인 객체들에게만 전파"""
+        """이벤트를 검증하고, 기록하고, 구독 중인 객체들에게 전파하고, 필요하면 아카이빙까지 함"""
+        # 0. 검증 - 스키마 위반 이벤트는 여기서 즉시 예외
+        EventValidator.validate(event)
+
         # 1. 기록
         self._history.append(event)
+
+        # 2. 아카이빙 (archive_manager가 주입된 경우에만)
+        if self.archive_manager:
+            self.archive_manager.log_event(self._event_to_dict(event))
 
         # 해당 이벤트 타입을 기다리는 핸들러들만 추출
         handlers = self._subscribers.get(event.type, [])
         
-        # 2. 전파 (Dispatcher 기능)
+        # 3. 전파 (Dispatcher 기능)
         for handler in self._global_subscribers + handlers:
             try:
                 handler(event)
             except Exception as e:
                 # [원칙 1, 2 준수] 구독자의 실수가 시스템 전체를 무너뜨리지 않도록 방어
                 log(f"[ERROR] EventBus: Subscriber failed with error: {e}")
+
+    @staticmethod
+    def _event_to_dict(event) -> dict:
+        """Event를 JSON 직렬화 가능한 dict로 변환 (ArchiveManager.log_event용)"""
+        return {
+            "id": event.id,
+            "type": event.type.name,
+            "source": event.source,
+            "payload": event.payload,
+            "sim_time": event.sim_time,
+            "timestamp": event.timestamp.isoformat(),
+            "version": event.version,
+        }
 
     def get_events(self, type=None, source=None, start_time=None, end_time=None):
         """조건에 맞는 이벤트만 필터링하여 반환"""

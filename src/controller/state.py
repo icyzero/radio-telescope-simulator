@@ -57,7 +57,9 @@ class IdleState(ManagerState):
                 # 📢 EVENT: COMMAND_FAILED 발행
                 manager.emit(EventType.COMMAND_FAILED, manager.name, {
                     "cmd_type": type(cmd).__name__,
-                    "error": str(e)
+                    "error": str(e),
+                    "reason": "EXECUTION_ERROR",
+                    "result_state": {"manager_state": manager.state.__class__.__name__}
                 })
                 manager.current = None # 에러 났으니 점유 해제
                 # 에러를 잡았으므로 여기서 조용히 리턴합니다.
@@ -98,8 +100,10 @@ class IdleState(ManagerState):
                     manager.current.execute(manager.telescope, prefix=manager.name)
                 except Exception as e:
                     manager.emit(EventType.COMMAND_FAILED, manager.name, {
-                        "cmo_type": type(manager.current).__name__,
-                        "error": str(e)
+                        "cmd_type": type(manager.current).__name__,
+                        "error": str(e),
+                        "reason": "EXECUTION_ERROR",
+                        "result_state": {"manager_state": manager.state.__class__.__name__}
                     })
                     manager.current = None # 에러 시 점유 해제
                     return
@@ -111,7 +115,9 @@ class IdleState(ManagerState):
             except Exception as e:
                 manager.emit(EventType.COMMAND_FAILED, manager.name, {
                     "cmd_type": type(manager.current).__name__,
-                    "error": str(e)
+                    "error": str(e),
+                    "reason": "RUNTIME_ERROR",
+                    "result_state": {"manager_state": manager.state.__class__.__name__}
                 })
                 manager.current = None
                 return
@@ -122,12 +128,16 @@ class IdleState(ManagerState):
                 
                 # SUCCESS/FAILED/ABORTED에 따른 정확한 이벤트 발행
                 if final_state == CMD_SUCCESS:
-                    manager.emit(EventType.COMMAND_SUCCESS, manager.name, {"cmd_type": type(manager.current).__name__})
+                    manager.emit(EventType.COMMAND_SUCCESS, manager.name, {
+                        "cmd_type": type(manager.current).__name__,
+                        "result_state": {"manager_state": manager.state.__class__.__name__}
+                    })
                 else:
                     # FAILED나 ABORTED는 모두 광의의 실패(FAILED)로 기록
                     manager.emit(EventType.COMMAND_FAILED, manager.name, {
                         "cmd_type": type(manager.current).__name__,
-                        "reason": final_state # ABORTED인지 FAILED인지 페이로드에 남김
+                        "reason": final_state, # ABORTED인지 FAILED인지 페이로드에 남김
+                        "result_state": {"manager_state": manager.state.__class__.__name__}
                     })
 
                 # 💡 정책: 실패(FAILED)하거나 하드웨어가 멈춘 경우 처리

@@ -29,4 +29,4 @@ def test_v2_strict_validation():
         EventValidator.validate(v2_event_invalid)
     
     # 🔥 수정: 'required'를 포함하거나, 더 유연하게 핵심 단어만 체크
-    assert "Missing required field 'precision'" in str(excinfo.value)
+    assert "Missing required payload key 'precision'" in str(excinfo.value)

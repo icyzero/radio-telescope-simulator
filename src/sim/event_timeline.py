@@ -1,10 +1,12 @@
 # src/sim/event_timeline.py
+from src.sim.event_replay import sort_by_sim_time
+
 
 class EventTimeline:
     def __init__(self, events):
         # sim_time 기준으로 정렬하여 시간 순서를 보장합니다.
-        self.events = sorted(events, key=lambda e: e.sim_time)
-
+        self.events = sort_by_sim_time(events)
+        
     def get_types(self):
         """이벤트 타입의 흐름을 리스트로 반환"""
         return [e.type for e in self.events]

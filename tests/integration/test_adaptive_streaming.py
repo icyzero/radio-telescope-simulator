@@ -37,7 +37,9 @@ def test_adaptive_streaming_logic():
 
     # 3. 즉시 푸시 테스트
     initial_count = len(ctrl.streamer.stream_buffer)
-    ctrl.emit(EventType.COMMAND_FAILED, "TestUnit") # 에러 강제 발생
+    ctrl.emit(EventType.COMMAND_FAILED, "TestUnit", {
+        "cmd_type": "TestCommand", "reason": "FORCED_TEST_ERROR", "result_state": {"manager_state": "IDLE"}
+    }) # 에러 강제 발생
     
     assert len(ctrl.streamer.stream_buffer) == initial_count + 1
     assert ctrl.streamer.stream_buffer[-1]["stream_reason"] == "EVENT_COMMAND_FAILED"

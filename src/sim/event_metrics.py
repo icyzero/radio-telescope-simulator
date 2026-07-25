@@ -1,5 +1,5 @@
 # src/sim/event_metrics.py
-from src.sim.event import EventType
+from src.sim.event_types import EventType
 
 class EventMetrics:
     def __init__(self):

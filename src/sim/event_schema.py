@@ -1,6 +1,6 @@
 # src/sim/event_schema.py
 
-from src.sim.event import EventType
+from src.sim.event_types import EventType
 
 class EventSchema:
     # 버전별 필수 필드 정의 (백과사전 역할)

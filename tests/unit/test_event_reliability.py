@@ -28,9 +28,9 @@ def test_event_string_representation():
 
 def test_event_timing_analysis(system):
     # 1. 이벤트 두 개 발행 (약간의 시차)
-    system.bus.publish(Event(EventType.COMMAND_STARTED, "Manager_A"))
+    system.bus.publish(Event(EventType.COMMAND_STARTED, "Manager_A", {"cmd_type": "TestCommand"}))
     time.sleep(0.01) # 아주 짧은 실제 시간 지연
-    system.bus.publish(Event(EventType.COMMAND_SUCCESS, "Manager_A"))
+    system.bus.publish(Event(EventType.COMMAND_SUCCESS, "Manager_A", {"cmd_type": "TestCommand", "result_state": {"manager_state": "IDLE"}}))
 
     # 2. 히스토리에서 시간차 계산
     history = system.bus.get_history()

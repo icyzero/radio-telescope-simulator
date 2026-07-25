@@ -19,11 +19,14 @@ class RemoteCommandGate:
 
             # [1단계] SafetyGuard를 통한 사전 검증
             if action == "MOVE":
-                self.controller.emit(EventType.COMMAND_STARTED, "RemoteCommandGate", {"action": "MOVE"})
+                self.controller.emit(EventType.COMMAND_STARTED, "RemoteCommandGate", {"cmd_type": "MoveCommand", "action": "MOVE"})
                 is_safe, msg = SafetyGuard.validate_move(params, self.controller.mode)
                 if not is_safe:
-                    # 이벤트 버스에 실패 기록
-                    self.controller.emit(EventType.COMMAND_FAILED, "SafetyGuard", {"reason": msg})
+                    self.controller.emit(EventType.COMMAND_FAILED, "SafetyGuard", {
+                        "cmd_type": "MoveCommand",
+                        "reason": msg,
+                        "result_state": {"manager_state": "REJECTED"}
+                    })
                     return {"status": "REJECTED", "reason": msg}
                 
             # [day 96]] CONFIG_UPDATE 처리 (매니저 체크 전 전역 처리)

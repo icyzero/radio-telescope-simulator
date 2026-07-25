@@ -1,6 +1,7 @@
 # tests/unit/test_event_validator.py
 import pytest
-from src.sim.event import Event, EventBus
+from src.sim.event import Event
+from src.sim.bus import EventBus
 from src.sim.event_types import EventType # 경로 주의!
 from src.sim.event_validator import EventValidator
 

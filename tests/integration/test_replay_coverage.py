@@ -62,14 +62,14 @@ def test_replay_with_failure():
     # [추가] 원본 시스템에 매니저 등록 (현실적인 환경 구축)
     # 실제 매니저 클래스가 없다면 딕셔너리에 직접 주입하거나 Mock을 사용합니다.
     from types import SimpleNamespace
-    sys.managers["Mgr"] = SimpleNamespace(state="IDLE", command_queue=[])
+    sys.managers["Mgr"] = SimpleNamespace(state="IdleState", command_queue=[])
 
     # 시나리오 실행 (동일)
     sys.bus.publish(Event(EventType.COMMAND_STARTED, "Mgr", {"cmd_type": "MOVE"}, 1.0))
     sys.bus.publish(Event(EventType.COMMAND_FAILED, "Mgr", {
         "cmd_type": "MOVE", 
         "reason": "Hardware Error",
-        "result_state": {"manager_state": "IDLE", "queue_size": 0}
+        "result_state": {"manager_state": "IdleState", "queue_size": 0}
     }, 2.0))
 
     events = sys.bus.get_events()
@@ -81,8 +81,9 @@ def test_replay_with_failure():
 
     EventReplayer.replay(new_sys, events)
     
-    # 이제 'Mgr' 키가 존재하므로 KeyError가 나지 않습니다.
-    assert new_sys.managers["Mgr"].state == "IDLE"
+    # manager.state는 문자열이 아니라 실제 IdleState 객체로 복원되어야 함
+    from src.controller.state import IdleState
+    assert isinstance(new_sys.managers["Mgr"].state, IdleState)
 
 def test_replay_with_pause_resume():
     sys = SystemController()

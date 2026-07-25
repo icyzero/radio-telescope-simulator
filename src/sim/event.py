@@ -2,10 +2,8 @@
 
 from dataclasses import dataclass, field
 from datetime import datetime
-from typing import List, Optional
 from src.sim.event_types import EventType
-from src.sim.archive_manager import ArchiveManager
-import time
+from src.utils.logger import log
 
 @dataclass(frozen=True)
 class Event:
@@ -34,31 +32,4 @@ class Event:
 # 관측을 위한 전담 로거 함수
 def event_pretty_logger(event: Event):
     # 콘솔에 사람이 읽기 좋은 형태로 출력
-    print(event)
-    
-class EventBus:
-    def __init__(self):
-        self._events: List[Event] = []
-        self._subscribers = {}
-        self.archive_manager = None
-
-    def publish(self, event: Event):
-        """이벤트를 발행하기 전 반드시 검증을 통과해야 함"""
-        # 🔥 강제 정책 적용: 검증 실패 시 여기서 즉시 프로그램 중단(Exception)
-        # 순환 참조 방지를 위해 함수 내부에서 임포트 (Local Import)
-        from src.sim.event_validator import EventValidator
-        EventValidator.validate(event)
-
-        self._events.append(event)
-        # 나중에 여기에 실시간 로그 출력이나 파일 저장을 붙일 수 있습니다.
-        if self.archive_manager:
-            # 이벤트를 딕셔너리로 변환하여 저장
-            self.archive_manager.log_event(self._event_to_dict(event))
-
-    def get_events(self, event_type: Optional[EventType] = None) -> List[Event]:
-        if event_type:
-            return [e for e in self._events if e.type == event_type]
-        return self._events.copy()
-
-    def clear(self):
-        self._events.clear()
+    log(str(event))

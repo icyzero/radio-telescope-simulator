@@ -11,10 +11,10 @@ from src.scheduler.observation_manager import ObservationManager
 import numpy as np
 
 class SystemController:
-    def __init__(self):
+    def __init__(self, archive_manager=None):
         self.managers = {}
         self.mode = "NORMAL" #정책만 분기, 흐름 침범X
-        self.bus = EventBus()
+        self.bus = EventBus(archive_manager=archive_manager)  # 기본값 None -> 아카이빙 비활성 (테스트 부작용 방지))
         self.event_logger = EventLogger()
         self.metrics = EventMetrics() # 분석가 생성
         self.sim_time = 0.0      
@@ -189,8 +189,7 @@ class SystemController:
     
     def apply_config(self, params: dict):
         """실시간 설정 반영 및 이벤트 발행"""
-        self.emit(EventType.COMMAND_STARTED, "SystemController", {"action": "CONFIG_UPDATE"}) #명령이 접수되었음을 알림 (Total 카운트 상승용)
-
+        self.emit(EventType.COMMAND_STARTED, "SystemController", {"cmd_type": "CONFIG_UPDATE", "action": "CONFIG_UPDATE"}) #명령이 접수되었음을 알림 (Total 카운트 상승용)
         for key, value in params.items():
             if key == "slew_rate":
                 # 모든 망원경 매니저에 속도 설정 반영
@@ -203,7 +202,11 @@ class SystemController:
                 "SystemController", 
                 {"parameter": key, "new_value": value}
             )
-        self.emit(EventType.COMMAND_SUCCESS, "SystemController", {"action": "CONFIG_UPDATE"}) #성공적으로 끝났음을 알림
+        self.emit(EventType.COMMAND_SUCCESS, "SystemController", {
+            "cmd_type": "CONFIG_UPDATE",
+            "action": "CONFIG_UPDATE",
+            "result_state": {"manager_state": "OK"}
+        }) #성공적으로 끝났음을 알림
         return True
     
     def get_diagnostics(self):
@@ -255,7 +258,10 @@ class SystemController:
         
         if spectrum is not None:
             # 성공 시 이벤트 발행
-            self.emit(EventType.COMMAND_SUCCESS, "SignalProcessor", 
-                      {"peak": float(np.max(spectrum))})
+            self.emit(EventType.COMMAND_SUCCESS, "SignalProcessor", {
+                "cmd_type": "CAPTURE_OBSERVATION",
+                "peak": float(np.max(spectrum)),
+                "result_state": {"manager_state": "OK"}
+            })
             return spectrum
         return None

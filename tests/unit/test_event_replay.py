@@ -1,6 +1,6 @@
 # tests/unit/test_event_replay.py
 import pytest
-from src.sim.event_replay import EventReplay
+from src.sim.event_replay import EventOrderedReader
 from src.sim.event import EventType
 from src.controller.command import MoveCommand
 
@@ -13,7 +13,7 @@ def test_replay_preserves_event_order(system):
         system.update(1.0)
 
     history = system.bus.get_history()
-    replayer = EventReplay(history)
+    replayer = EventOrderedReader(history)
 
     # 제너레이터로부터 리스트를 생성하여 비교
     replayed_events = list(replayer.replay())
@@ -29,7 +29,7 @@ def test_replay_contains_command_events(system):
     for _ in range(10): 
         system.update(1.0)
 
-    replayer = EventReplay(system.bus.get_history())
+    replayer = EventOrderedReader(system.bus.get_history())
     event_types = [e.type for e in replayer.replay()]
 
     assert EventType.COMMAND_STARTED in event_types

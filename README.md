@@ -551,6 +551,40 @@ Day 144: Logging Standardization, Dead Code Cleanup & Legacy Telemetry Bug Fix
   Tue–Fri architectural refactor cycle (Telescope decoupling → dependency 
   injection → SystemController decomposition → logging/test cleanup) with 
   a fully green test suite.
+
+  Day 145: Event Subsystem Refactor & Latent Replay Bug Fix
+- **Critical Replay Bug Fixed**: `event_replayer.py` was restoring 
+  `manager.state` as a raw string (e.g. "IdleState") instead of the actual 
+  state object, causing an immediate `AttributeError` on the next 
+  `update()` call after any replay. Introduced a `_STATE_CLASS_MAP` to 
+  correctly reconstruct state objects. This had gone undetected because 
+  `test_replay_with_failure` was itself written against the broken 
+  behavior; corrected the test to verify real state-object restoration.
+- **Orphaned EventBus Removed**: `event.py` contained an unused, 
+  incomplete `EventBus` implementation with broken archiving hooks 
+  (calling a non-existent `_event_to_dict` method) — dead code that would 
+  crash if ever invoked. Removed it; migrated its intended archiving 
+  functionality into the actual production `EventBus` (`bus.py`) via 
+  constructor injection (`archive_manager=None`, zero side effects when 
+  unset).
+- **9 Silent Schema Violations Surfaced**: Wiring validation into the 
+  production bus for the first time revealed 9 previously-undetected 
+  schema-violating `emit()` calls across `state.py` (5, including a typo 
+  `cmo_type`→`cmd_type`), `scheduler.py` (3), and `remote_gate.py` (2 — 
+  discovered outside today's planned scope via validation, not code 
+  review). All fixed.
+- **Import Cycle Cleanup**: `event_schema.py`, `event_metrics.py`, 
+  `event_persistence.py` were importing `EventType` indirectly through 
+  `event.py` instead of the canonical `event_types.py`; corrected, which 
+  also eliminated the need for a local circular-import workaround inside 
+  `bus.py`'s `publish()`.
+- **Naming & Duplication Cleanup**: Renamed `EventReplay` → 
+  `EventOrderedReader` to disambiguate from `EventReplayer`; consolidated 
+  three duplicate `sorted(..., key=lambda e: e.sim_time)` implementations 
+  into a single `sort_by_sim_time()` utility.
+- **Verification**: Full suite dipped to 88 passed mid-refactor while 
+  validation was being wired in (surfacing the 9 violations + replay bug 
+  fallout), fully recovered to 94 passed once root causes were addressed.
 ---------------------------------------------------------
 ## How to Run
 
