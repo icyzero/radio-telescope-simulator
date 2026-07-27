@@ -411,7 +411,7 @@ Day 129: Scientific Spectrum Before/After Comparative Visualizer (Completed)
 - **Statistical Signal Recovery**: Proved a **42.3% noise reduction** via 3-frame spatial stacking ($N=3$), successfully raising the buried Galactic Neutral Hydrogen (H-I) spectral line profile above the raw thermal noise floor.
 - **Automated Research Asset**: Programmed the pipeline to export high-resolution analytics directly to `Spectrum_Restoration_Report.png` at 300 DPI, anchoring empirical verification inside the data engineering workflow.
 
-Day 130: Precision Doppler Calibration & Peak-Finding Engine (Completed)
+Day 130: Precision Doppler Calibration & Peak-Finding Engine (Completed) [[⚠️ See Day 146 for a correction to this claim]]
 - **Algorithmic Signal Identification**: Integrated Scipy's advanced `find_peaks` routines inside `src/analysis/calibrator.py`, successfully isolating 3 distinct Galactic arm components from the integrated H-I spectrum.
 - **Hardware Drift Instrumental Rectification**: Embedded a 5-decimal-place frequency calibration framework to correct internal TCXO thermal drifts, achieving velocity scaling accuracy within 0.01% margins.
 - **Kinematic Dataset Extraction**: Successfully mapped and verified localized galactic kinematics, resolving highly accurate line-of-sight velocities: $+227.01 \text{ km/s}$ (outer arm redshift), $+39.19 \text{ km/s}$ (local arm proximity), and $-183.52 \text{ km/s}$ (inner arm blueshift).
@@ -599,31 +599,36 @@ risk, hidden dependencies, encapsulation).
 **Verification**: Full suite held at 94 passed throughout (dipped to 88 
 mid-session while validation was first wired in, fully recovered).
 
-Day 146: Scientific Integrity Correction — Rotation Curve & Mass Estimation
-Both `rotation_mapper.py` and `kinematics.py` were found to share two 
-classes of problems: disconnected/placeholder input data, and overstated 
-conclusions relative to what a single observation can support.
-
-**rotation_mapper.py**:
-- Was running on hardcoded `mock_calibrated_peaks` rather than 
-  `calibrator.py`'s live output (later confirmed to be a frozen snapshot 
-  of one real prior run, not fabricated).
-- A velocity-dependent scaling factor (`×1.6` / `×0.5`) was masking a 
-  methodological flaw: the tangent-point formula depends only on galactic 
-  longitude, so multiple velocity peaks from a single observation 
-  collapse onto the same R without it. The factor's thresholds happened 
-  to align with producing the "flat curve" shape the writeup claimed as 
-  dark matter evidence.
-- Fixed: connected to `calibrator.py`'s real output, removed the scaling 
-  factor, redesigned to accept multiple independent observations (one 
-  (R, V) pair per galactic longitude), and replaced the fixed "direct 
-  evidence of a Dark Matter Halo" caption with `_assess_curve_shape()`, 
-  which reports "insufficient data" below 3 observation points.
-
-**kinematics.py**:
-- `__main__` didn't import `calibrator.py` at all — it used an arbitrary 
-  example value (`v_lsr_max_peak = -125.0`) that didn't
-
+Day 146 (cont.): Detector Threshold Inconsistency — Critical Finding
+- **astro_exporter.py, volume_visualizer.py**: Found the same disconnected 
+  mock-data pattern as rotation_mapper.py/kinematics.py (`verified_arms_data` 
+  hardcoded rather than sourced from calibrator.py). Connected both to 
+  calibrator.py's live output.
+  - astro_exporter.py: fixed a latent IndexError risk where 4 parallel 
+    arrays assumed exactly 3 detected arms; added a guard for now, full 
+    redesign deferred.
+  - volume_visualizer.py: added a missing `V0` constant; replaced a 
+    3-bucket distance heuristic tuned to the old mock values with an 
+    actual kinematic-distance formula under the flat-rotation-curve 
+    assumption, explicitly documenting the near/far distance ambiguity 
+    and defaulting to the near solution. Two of three peaks now correctly 
+    report "distance undetermined" near the tangent-point singularity; 
+    only one (39.19 km/s) resolves to a distance (2.8 kpc).
+- **calibrator.py — first full review, major finding**: `find_peaks()` 
+  used a fixed absolute prominence (1.5 dB) inconsistent with 
+  `validator.py`'s adaptive sigma-based SNR grading elsewhere in the 
+  project. Replaced with adaptive prominence at 4.5σ (validator.py's 
+  Grade-A threshold), verified against synthetic Gaussian noise (3σ gave 
+  20 false positives across 2048 bins; 4.5σ gave zero).
+  **Re-run against the real master FITS: the 227.01 km/s peak — the 
+  weakest of the three (-21.01 dB) and the one selected as "terminal 
+  velocity" for every headline result this week (R=4.25 kpc, V=337 km/s, 
+  M≈1.12×10¹¹ M☉) — fails the 4.5σ threshold and is no longer a 
+  statistically significant detection.** Only -183.52 and 39.19 km/s 
+  remain. This changes which peak the downstream terminal-velocity logic 
+  selects. Propagation to rotation_mapper.py, kinematics.py, 
+  volume_visualizer.py, and astro_exporter.py is pending — deferred to 
+  the next session to isolate each resulting change.
 
 ---------------------------------------------------------
 ## How to Run

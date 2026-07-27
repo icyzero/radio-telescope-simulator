@@ -57,6 +57,14 @@ class AstroJsonExporter:
         x_vectors = [1.05, 2.25, 6.25]
         y_vectors = [6.68, 4.60, -2.33]
 
+        # 💡 [방어 코드] 위 4개 배열은 "정확히 3개 나선팔"을 전제로 인덱스로 매핑된 값이라
+        # 실제 관측에서 피크가 3개보다 많이 잡히면 인덱스 초과로 죽습니다. 우선 크래시만 막고,
+        # 이 인덱스 기반 하드코딩 자체(나선팔 이름/거리/좌표)는 근본적으로 다시 설계해야 합니다.
+        if len(calibrated_arms) > len(arm_names):
+            print(f"⚠️ [경고] 피크가 {len(calibrated_arms)}개 검출됐지만, 좌표 매핑 정보는 {len(arm_names)}개만 있습니다.")
+            print(f"   앞의 {len(arm_names)}개만 처리하고 나머지는 건너뜁니다 (좌표 매핑 재설계 필요).")
+            calibrated_arms = calibrated_arms[:len(arm_names)]
+
         for i, arm in enumerate(calibrated_arms):
             arm_node = {
                 "arm_id": i + 1,
@@ -95,13 +103,15 @@ class AstroJsonExporter:
         return self.output_api_path
 
 if __name__ == "__main__":
+    from src.analysis.calibrator import AstroDopplerCalibrator
+
     exporter = AstroJsonExporter()
-    
-    # 어제 3D 투영을 완료한 순도 100% 무결점 은하 데이터셋 덤프 바인딩
-    verified_arms_data = [
-        {"velocity_kms": 227.01, "power_db": 21.01},  # 외곽 나선팔 (Far Outer)
-        {"velocity_kms": 39.19,  "power_db": 15.65},  # 중간 나선팔 (Local)
-        {"velocity_kms": -183.52, "power_db": 14.86}  # 안쪽 나선팔 (Inner)
-    ]
-    
-    exporter.export_telemetry_json(verified_arms_data)
+    calibrator = AstroDopplerCalibrator()
+
+    master_fits_path = "observations/milkyway/stacked/Master_Stacked_Science_Data.fits"
+    real_arms_data = calibrator.calibrate_master_spectrum(master_fits_path)
+
+    if real_arms_data:
+        exporter.export_telemetry_json(real_arms_data)
+    else:
+        print("[Exporter] 캘리브레이션된 피크가 없어 텔레메트리를 내보낼 수 없습니다.")

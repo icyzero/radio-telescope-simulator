@@ -42,9 +42,19 @@ class AstroDopplerCalibrator:
         freq_axis = np.linspace(center_freq - sample_rate/2, center_freq + sample_rate/2, bins)
 
         # 2. Scipy 기반 Peak Finding 알고리즘 가동
-        # prominence=1.5(주변 노이즈 바닥 대비 솟구친 높이), width=3(신호 폭 최소 픽셀 수)
-        # 이 필터를 통해 무작위 백색 잡음의 잔가시들을 완벽하게 패스합니다.
-        peaks, properties = find_peaks(spectrum, prominence=1.5, width=3)
+        # 💡 [수정] 고정된 절대 dB 임계값 대신, 이 스펙트럼 자체의 노이즈 통계(표준편차) 기반
+        # 적응형 임계값을 씁니다. validator.py가 MILKY_WAY_H1에 대해 쓰는 SNR 정의
+        # (=(max-mean)/std)와 같은 방식이며, "A (Excellent Science Data)" 등급 기준인
+        # 4.5시그마를 그대로 채택했습니다. (3시그마는 합성 노이즈로 직접 검증해보니 2048 bin
+        # 전체에서 다중비교 문제로 오탐이 다수 발생함을 확인 - 4.5시그마는 오탐 없이 통과)
+        # width=3(신호 폭 최소 픽셀 수)은 그대로 유지 - 순간적인 노이즈 스파이크가 아니라
+        # 실제 스펙트럼 선폭을 가진 신호인지 확인하는 별도 필터입니다.
+        noise_std = np.std(spectrum)
+        PROMINENCE_SIGMA = 4.5  # validator.py의 MILKY_WAY_H1 "A등급" SNR 기준과 일치
+        adaptive_prominence = max(noise_std * PROMINENCE_SIGMA, 1e-6)  # std가 0에 가까운 예외 상황 방어
+
+        print(f"📏 [적응형 임계값] 노이즈 표준편차={noise_std:.3f} dB -> prominence={adaptive_prominence:.3f} dB ({PROMINENCE_SIGMA}시그마 기준)")
+        peaks, properties = find_peaks(spectrum, prominence=adaptive_prominence, width=3)
 
         if len(peaks) == 0:
             print("⚠️ [경고] 스펙트럼 내에서 우주 과학적으로 유의미한 은하 신호 피크를 검출하지 못했습니다.")
