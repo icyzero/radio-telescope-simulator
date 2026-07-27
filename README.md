@@ -599,40 +599,30 @@ risk, hidden dependencies, encapsulation).
 **Verification**: Full suite held at 94 passed throughout (dipped to 88 
 mid-session while validation was first wired in, fully recovered).
 
-Day 146: Scientific Integrity Correction — Rotation Curve Methodology
-- **Root Cause**: `rotation_mapper.py` was running on hardcoded 
-  `mock_calibrated_peaks` rather than `calibrator.py`'s live output — a 
-  frozen snapshot of one real prior run, silently disconnected from the 
-  pipeline afterward.
-- **Methodological Flaw Uncovered**: The tangent-point formula 
-  (`R = R0·sin(l)`) depends only on galactic longitude, so applying it to 
-  multiple velocity peaks from a *single* observation (fixed l) collapses 
-  them onto the same R. A velocity-dependent scaling factor 
-  (`×1.6` above 150 km/s, `×0.5` below -100 km/s) had been added to 
-  artificially spread the points — and its thresholds happened to align 
-  with producing the "flat rotation curve" shape asserted in the 
-  Day 131 write-up.
-- **Fix**: Removed the scaling factor. Re-implemented 
-  `generate_rotation_curve()` to accept multiple independent observations 
-  (one (R, V) pair per galactic longitude) as the tangent-point method 
-  actually requires. Replaced the previously-fixed "direct evidence of a 
-  Dark Matter Halo" caption with `_assess_curve_shape()`, which evaluates 
-  actual data and reports "insufficient data" below 3 points rather than 
-  asserting a conclusion.
-- **Current Honest State**: With only one real observation (l=30°) 
-  on hand, the plot correctly shows a single point and reports "insufficient 
-  data to assess curve shape" — not a flat-curve claim. Multiple 
-  observations at different galactic longitudes are needed before any 
-  rotation-curve conclusion can be drawn.
-- **Correction Note**: This supersedes the Dark Matter claims made in 
-  Day 119 and Day 131. Those entries are left in place below as a record 
-  of the project's history, but should be read alongside this correction.
-- **Verification**: End-to-end run against real FITS data confirmed 
-  correct peak detection (3 peaks), correct (R, V) calculation matching 
-  the original mock values (explaining why they matched — it was a frozen 
-  real run, not fabricated data), and correct "insufficient data" 
-  reporting. No impact on the 94-test `controller/`/`sim/` suite 
-  (rotation_mapper.py has no existing test coverage).
+Day 146: Scientific Integrity Correction — Rotation Curve & Mass Estimation
+Both `rotation_mapper.py` and `kinematics.py` were found to share two 
+classes of problems: disconnected/placeholder input data, and overstated 
+conclusions relative to what a single observation can support.
+
+**rotation_mapper.py**:
+- Was running on hardcoded `mock_calibrated_peaks` rather than 
+  `calibrator.py`'s live output (later confirmed to be a frozen snapshot 
+  of one real prior run, not fabricated).
+- A velocity-dependent scaling factor (`×1.6` / `×0.5`) was masking a 
+  methodological flaw: the tangent-point formula depends only on galactic 
+  longitude, so multiple velocity peaks from a single observation 
+  collapse onto the same R without it. The factor's thresholds happened 
+  to align with producing the "flat curve" shape the writeup claimed as 
+  dark matter evidence.
+- Fixed: connected to `calibrator.py`'s real output, removed the scaling 
+  factor, redesigned to accept multiple independent observations (one 
+  (R, V) pair per galactic longitude), and replaced the fixed "direct 
+  evidence of a Dark Matter Halo" caption with `_assess_curve_shape()`, 
+  which reports "insufficient data" below 3 observation points.
+
+**kinematics.py**:
+- `__main__` didn't import `calibrator.py` at all — it used an arbitrary 
+  example value (`v_lsr_max_peak = -125.0`) that didn't
 
 
 ---------------------------------------------------------

@@ -22,10 +22,14 @@ class GalacticMassEstimator:
         print(f"📍 관측 은하 경도: {galactic_longitude_deg}° | 측정된 최대 시선속도(v_LSR): {v_lsr_max_peak} km/s")
         print("-" * 70)
         
-        # 💡 [물리 법칙 방어 코드] 접선 지점 공법이 성립하지 않는 기하학적 대역 차단
+        # 💡 [물리 법칙 방어 코드] Tangent Point 방법론은 1사분면(0°<l<90°)과
+        # 4사분면(270°<l<360°)에서만 성립합니다. 그 외 구간(외곽 은하 방향, 90°~270°)은
+        # 시선 방향에 '접선 지점' 자체가 존재하지 않아 최대 시선속도가 원운동 속도를
+        # 대변하지 못하므로 계산을 차단합니다.
         normalized_l = galactic_longitude_deg % 360
-        if normalized_l == 0 or normalized_l == 180 or normalized_l == 90 or normalized_l == 270:
-            print("⚠️ [계산 중단] 은하 중심, 반대 중심 및 직교 방향은 접선 지점 공법을 적용할 수 없습니다.")
+        if normalized_l == 0 or (90 <= normalized_l <= 270):
+            print("⚠️ [계산 중단] 접선 지점 공법은 1사분면(0°<l<90°) 또는 4사분면(270°<l<360°)에서만 유효합니다.")
+            print(f"   입력된 은경 {galactic_longitude_deg}°는 이 범위를 벗어나 물리적으로 의미 있는 결과를 만들 수 없습니다.")
             return None
             
         # 1. 터미널 속도(Terminal Velocity) 도출
@@ -63,9 +67,9 @@ class GalacticMassEstimator:
         # 뉴턴 역학에 따르면 외곽 가스의 속도는 중심에서 멀어질수록 떨어져야 하지만(케플러 하강),
         # 실제로는 태양계 속도(220km/s) 수준을 유지하거나 오히려 상회합니다.
         if V_rot >= self.V_0 * 0.9:
-            print("💡 [천문학 인사이트] 관측된 회전 속도가 외곽에서도 전혀 줄어들지 않는 '평탄한 회전 곡선'을 보입니다.")
-            print("   이는 전자기파로 관측되지 않는 거대한 광륜 형태의 '암흑 물질(Dark Matter Halo)'이")
-            print("   은하 전체를 무겁게 결속하고 있음을 증명하는 결정적 실증 데이터입니다! 🌌✨")
+            print(f"💡 [천문학 인사이트] 이 지점(R={R_tangent:.2f} kpc)의 회전 속도가 태양계 수준(220km/s)을 유지하거나 상회합니다.")
+            print("   뉴턴 역학의 케플러 하강 예측과는 다른 값으로, 암흑 물질 가설과 일치하는 관측입니다.")
+            print("   (단일 지점 관측이므로 이것만으로 은하 전체 회전 곡선의 형태를 단정할 수는 없습니다.)")
             print("-" * 70)
             
         return {
@@ -75,7 +79,20 @@ class GalacticMassEstimator:
         }
 
 if __name__ == "__main__":
-    # 어제 FITS 분석기에서 도출한 실전 데이터를 매핑합니다.
-    # 은하 경도 30도 방향을 정조준했고, 최대 피크 시선속도가 -125.0 km/s로 잡힌 시나리오 검증
+    from src.analysis.calibrator import AstroDopplerCalibrator
+
     estimator = GalacticMassEstimator()
-    estimator.estimate_mass_from_peak(galactic_longitude_deg=30.0, v_lsr_max_peak=-125.0)
+    calibrator = AstroDopplerCalibrator()
+
+    master_fits_path = "observations/milkyway/stacked/Master_Stacked_Science_Data.fits"
+    real_peaks = calibrator.calibrate_master_spectrum(master_fits_path)
+
+    if real_peaks:
+        # Tangent point 방법론: 이 시선 방향(l)에서 terminal velocity(|v|가 최대인 성분)를 사용
+        terminal_peak = max(real_peaks, key=lambda p: abs(p["velocity_kms"]))
+        estimator.estimate_mass_from_peak(
+            galactic_longitude_deg=30.0,
+            v_lsr_max_peak=terminal_peak["velocity_kms"]
+        )
+    else:
+        print("[Kinematics] 캘리브레이션된 피크가 없어 질량을 추정할 수 없습니다.")
