@@ -370,7 +370,7 @@ Day 118: Automated FITS Post-Processing & Scientific Visualization (Completed)
 - **Physical Feature Isolation**: Confirmed a statistically significant H-I emission peak ($-8 \text{ dB}$ over a $-10 \text{ dB}$ baseline) tightly bound within the **$-125 \text{ km/s}$ Galactic Spiral Arm** corridor.
 - **DSP Filter Characterization**: Successfully identified and documented a severe negative peak ($-13.6 \text{ dB}$) at exactly $0 \text{ km/s}$, diagnosing it as the analytical signature/artifact of the Day 114 software DC mitigation filter.
 
-Day 119: Galactic Kinematics & Dark Matter Mass Derivation (Completed)
+Day 119: Galactic Kinematics & Dark Matter Mass Derivation (Completed) [[⚠️ See Day 146 for a correction to this claim]]
 - **Tangent Point Method Core Implementation**: Implemented a mathematical dynamic engine (`GalacticMassEstimator`) converting raw line-of-sight terminal velocities into true Galactocentric orbital radii ($R$) and rotation speeds ($V(R)$).
 - **Astrophysical Mass Quantification**: Processed the real hardware data profile ($\ell = 30^\circ, v_{\text{LSR}} = -125.0 \text{ km/s}$), successfully calculating a Galactocentric radius of **$4.25 \text{ kpc}$ (approx. $13,862$ light-years)** and a true orbital velocity of **$235.00 \text{ km/s}$**.
 - **Mass Enclosure Mapping**: Derived the total enclosed Galactic core mass within $4.25 \text{ kpc}$ to be **$5.46 \times 10^{10} M_\odot$** (approx. $54.6$ billion Solar Masses).
@@ -416,7 +416,7 @@ Day 130: Precision Doppler Calibration & Peak-Finding Engine (Completed)
 - **Hardware Drift Instrumental Rectification**: Embedded a 5-decimal-place frequency calibration framework to correct internal TCXO thermal drifts, achieving velocity scaling accuracy within 0.01% margins.
 - **Kinematic Dataset Extraction**: Successfully mapped and verified localized galactic kinematics, resolving highly accurate line-of-sight velocities: $+227.01 \text{ km/s}$ (outer arm redshift), $+39.19 \text{ km/s}$ (local arm proximity), and $-183.52 \text{ km/s}$ (inner arm blueshift).
 
-Day 131: Galactic Rotation Curve 2D Mapping & Dark Matter Verification (Completed)
+Day 131: Galactic Rotation Curve 2D Mapping & Dark Matter Verification (Completed) [[⚠️ See Day 146 for a correction to this claim]]
 - **Galactocentric Coordinate Kinematics**: Successfully deployed `src/analysis/rotation_mapper.py` utilizing IAU standard constants to transform relative line-of-sight velocities into absolute orbital velocities $V(R)$.
 - **Empirical Dark Matter Verification**: Rendered a high-contrast analytical canvas directly contrasting the anomalous observed flat/rising curve against the expected Newtonian Keplerian decay.
 - **Scientific Breakthrough Asset**: Automated the generation of `Galactic_Rotation_Curve.png` (300 DPI) mapping real-time outer arm velocity data at $6.8\text{ kpc}$ spinning at $338\text{ km/s}$, successfully visualizing empirical proof of the Galactic Dark Matter Halo.
@@ -598,6 +598,41 @@ risk, hidden dependencies, encapsulation).
 
 **Verification**: Full suite held at 94 passed throughout (dipped to 88 
 mid-session while validation was first wired in, fully recovered).
+
+Day 146: Scientific Integrity Correction — Rotation Curve Methodology
+- **Root Cause**: `rotation_mapper.py` was running on hardcoded 
+  `mock_calibrated_peaks` rather than `calibrator.py`'s live output — a 
+  frozen snapshot of one real prior run, silently disconnected from the 
+  pipeline afterward.
+- **Methodological Flaw Uncovered**: The tangent-point formula 
+  (`R = R0·sin(l)`) depends only on galactic longitude, so applying it to 
+  multiple velocity peaks from a *single* observation (fixed l) collapses 
+  them onto the same R. A velocity-dependent scaling factor 
+  (`×1.6` above 150 km/s, `×0.5` below -100 km/s) had been added to 
+  artificially spread the points — and its thresholds happened to align 
+  with producing the "flat rotation curve" shape asserted in the 
+  Day 131 write-up.
+- **Fix**: Removed the scaling factor. Re-implemented 
+  `generate_rotation_curve()` to accept multiple independent observations 
+  (one (R, V) pair per galactic longitude) as the tangent-point method 
+  actually requires. Replaced the previously-fixed "direct evidence of a 
+  Dark Matter Halo" caption with `_assess_curve_shape()`, which evaluates 
+  actual data and reports "insufficient data" below 3 points rather than 
+  asserting a conclusion.
+- **Current Honest State**: With only one real observation (l=30°) 
+  on hand, the plot correctly shows a single point and reports "insufficient 
+  data to assess curve shape" — not a flat-curve claim. Multiple 
+  observations at different galactic longitudes are needed before any 
+  rotation-curve conclusion can be drawn.
+- **Correction Note**: This supersedes the Dark Matter claims made in 
+  Day 119 and Day 131. Those entries are left in place below as a record 
+  of the project's history, but should be read alongside this correction.
+- **Verification**: End-to-end run against real FITS data confirmed 
+  correct peak detection (3 peaks), correct (R, V) calculation matching 
+  the original mock values (explaining why they matched — it was a frozen 
+  real run, not fabricated data), and correct "insufficient data" 
+  reporting. No impact on the 94-test `controller/`/`sim/` suite 
+  (rotation_mapper.py has no existing test coverage).
 
 
 ---------------------------------------------------------
