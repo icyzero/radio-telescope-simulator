@@ -630,6 +630,38 @@ Day 146 (cont.): Detector Threshold Inconsistency — Critical Finding
   volume_visualizer.py, and astro_exporter.py is pending — deferred to 
   the next session to isolate each resulting change.
 
+Day 148: Hardware Verification Audit — Real vs Virtual SDR Data Provenance
+Following the Day 146-147 discovery that the project's master FITS 
+data originated from VirtualSDR (a synthetic test-tone generator) 
+rather than real hardware, conducted a direct physical verification 
+using the actual RTL-SDR Blog V4 device.
+
+- **Tooling**: Built `hardware_capture_test.py`, which distrusts 
+  exception-based hardware detection (confirmed SDRFactory silently 
+  falls back to VirtualSDR when the `pyrtlsdr` package itself is 
+  missing, without raising) and instead verifies via `isinstance()` 
+  on the returned SDR object.
+- **Driver troubleshooting**: Resolved a silent DLL load failure by 
+  parsing the PE header's machine field directly (offset 0x3C), 
+  identifying a 32-bit `librtlsdr.dll` loaded into a 64-bit Python 
+  process. Replaced with the correct 64-bit build.
+- **Real hardware confirmed connected**: `RtlSdrAio`, RTL-SDR Blog V4 
+  detected and streaming.
+- **Results**: FM band (98 MHz) showed a strong, clearly-received 
+  signal (avg 16.86 dB, peak 58.52 dB), confirming the hardware chain 
+  works end-to-end. The 21cm line frequency (1420.4 MHz) showed 
+  negligible difference between antenna-connected and antenna-
+  disconnected states (-7.36 dB vs -7.49 dB, Δ=0.13 dB) — indistinguishable 
+  from receiver noise floor.
+- **Interpretation**: Given FM reception succeeds but 1420.4 MHz does 
+  not, hardware failure is unlikely. The leading hypothesis is line-of-
+  sight obstruction: the observation setup (near a window, partially 
+  obstructed by a ceiling/structure) may sufficiently attenuate the 
+  already extremely weak 21cm signal, while FM's longer wavelength 
+  penetrates the same obstruction more readily.
+- **Next step**: Extend the antenna via USB cable to an unobstructed 
+  outdoor location and re-run the same test script to determine whether 
+  line-of-sight resolves the issue.
 ---------------------------------------------------------
 ## How to Run
 
