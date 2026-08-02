@@ -630,38 +630,34 @@ Day 146 (cont.): Detector Threshold Inconsistency — Critical Finding
   volume_visualizer.py, and astro_exporter.py is pending — deferred to 
   the next session to isolate each resulting change.
 
-Day 148: Hardware Verification Audit — Real vs Virtual SDR Data Provenance
-Following the Day 146-147 discovery that the project's master FITS 
-data originated from VirtualSDR (a synthetic test-tone generator) 
-rather than real hardware, conducted a direct physical verification 
-using the actual RTL-SDR Blog V4 device.
+Day 148-149: Hardware Verification — Root Cause Isolated to Missing LNA
+Continued the Day 148 field investigation after indoor line-of-sight 
+tests showed no signal (Δ=0.13dB antenna connected/disconnected). 
+Moved outdoors with an extended antenna cable; still no difference 
+(+0.01dB), ruling out indoor obstruction. Systematically eliminated 
+remaining variables:
 
-- **Tooling**: Built `hardware_capture_test.py`, which distrusts 
-  exception-based hardware detection (confirmed SDRFactory silently 
-  falls back to VirtualSDR when the `pyrtlsdr` package itself is 
-  missing, without raising) and instead verifies via `isinstance()` 
-  on the returned SDR object.
-- **Driver troubleshooting**: Resolved a silent DLL load failure by 
-  parsing the PE header's machine field directly (offset 0x3C), 
-  identifying a 32-bit `librtlsdr.dll` loaded into a 64-bit Python 
-  process. Replaced with the correct 64-bit build.
-- **Real hardware confirmed connected**: `RtlSdrAio`, RTL-SDR Blog V4 
-  detected and streaming.
-- **Results**: FM band (98 MHz) showed a strong, clearly-received 
-  signal (avg 16.86 dB, peak 58.52 dB), confirming the hardware chain 
-  works end-to-end. The 21cm line frequency (1420.4 MHz) showed 
-  negligible difference between antenna-connected and antenna-
-  disconnected states (-7.36 dB vs -7.49 dB, Δ=0.13 dB) — indistinguishable 
-  from receiver noise floor.
-- **Interpretation**: Given FM reception succeeds but 1420.4 MHz does 
-  not, hardware failure is unlikely. The leading hypothesis is line-of-
-  sight obstruction: the observation setup (near a window, partially 
-  obstructed by a ceiling/structure) may sufficiently attenuate the 
-  already extremely weak 21cm signal, while FM's longer wavelength 
-  penetrates the same obstruction more readily.
-- **Next step**: Extend the antenna via USB cable to an unobstructed 
-  outdoor location and re-run the same test script to determine whether 
-  line-of-sight resolves the issue.
+- **Antenna geometry**: Calculated the correct 21cm quarter-wave length 
+  (5.28 cm) and found the stock antenna (23cm–1m) was never resonant at 
+  this frequency — explaining why FM (which needs ~76cm) worked while 
+  21cm never could. Replaced with a properly-sized dipole and corrected 
+  orientation (dipole null was pointed at the sky). No change (+0.01dB): 
+  antenna geometry ruled out.
+- **Gain**: Switched from AGC (which can suppress weak narrow-line 
+  signals) to the project's own previously-validated fixed gain 
+  (49.6 dB, Day 115).
+- **Averaging**: Increased 21cm captures from 20 to 400 samples to 
+  properly integrate the inherently weak line signal.
+- **Final result**: Noise floor variance improved (std 1.8→1.3 dB, 
+  confirming measurement precision), but antenna connected/disconnected 
+  difference remained negligible (0.06 dB) with near-identical, smooth 
+  (filter-response-like) spectra. Conclusion: the RTL-SDR V4's own 
+  receiver noise dominates over anything the antenna delivers — an LNA 
+  is required to detect the 21cm line with this hardware, consistent 
+  with standard amateur radio astronomy practice (e.g. Nooelec SAWbird+ 
+  H1). Purchase currently pending funding; deferred.
+- **Tooling**: `hardware_capture_test.py` finalized with fixed-gain, 
+  high-averaging capture logic; ready for reuse once an LNA is acquired.
 ---------------------------------------------------------
 ## How to Run
 
