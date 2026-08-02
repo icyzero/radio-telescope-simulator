@@ -31,6 +31,7 @@ if _PROJECT_ROOT not in sys.path:
     sys.path.insert(0, _PROJECT_ROOT)
 
 from src.signal.sdr_interface import SDRFactory, SignalProcessor, VirtualSDR, HAS_REAL_SDR
+from src.config import CONFIG
 
 
 def confirm_real_hardware(sample_rate, center_freq):
@@ -117,24 +118,30 @@ def main():
 
     sdr = confirm_real_hardware(sample_rate=SAMPLE_RATE, center_freq=HI_FREQ)
 
-    # 명시적 게인 고정 (프로젝트 관례값)
+    # 💡 AGC(자동 게인)는 미약한 21cm선을 오히려 죽일 수 있어서 안 씀.
+    # config.py의 GAIN_DEFAULT(49.6dB) - 이 프로젝트가 Day 115에 실측으로 찾아둔 고정값.
+    gain_value = CONFIG.get("GAIN_DEFAULT", 49.6)
     try:
-        sdr.gain = "auto"
-    except Exception:
-        pass
+        sdr.gain = gain_value
+        print(f"📡 [Gain] 고정 게인 {gain_value}dB 설정 완료 (AGC 미사용)")
+    except Exception as e:
+        print(f"⚠️ [Gain] 게인 설정 실패: {e}")
 
     results = {}
 
+    HI_AVG_COUNT = 400   # 21cm선은 미약해서 훨씬 오래 누적 평균해야 노이즈 위로 드러남
+    FM_AVG_COUNT = 20    # FM은 신호가 강해서 짧은 평균으로도 충분 (빠른 동작 확인용)
+
     input("\n👉 [1/3] 안테나를 연결한 상태로 준비하고 Enter를 누르세요...")
-    spec1, stats1 = capture_and_analyze(sdr, "1_ANTENNA_CONNECTED", HI_FREQ)
+    spec1, stats1 = capture_and_analyze(sdr, "1_ANTENNA_CONNECTED", HI_FREQ, avg_count=HI_AVG_COUNT)
     results["1_ANTENNA_CONNECTED"] = (spec1, stats1)
 
     input("\n👉 [2/3] 안테나를 뽑거나 터미네이터로 막고 Enter를 누르세요...")
-    spec2, stats2 = capture_and_analyze(sdr, "2_ANTENNA_DISCONNECTED", HI_FREQ)
+    spec2, stats2 = capture_and_analyze(sdr, "2_ANTENNA_DISCONNECTED", HI_FREQ, avg_count=HI_AVG_COUNT)
     results["2_ANTENNA_DISCONNECTED"] = (spec2, stats2)
 
     input("\n👉 [3/3] FM 대역(88-108MHz) 테스트입니다. 안테나 연결 상태에서 Enter를 누르세요...")
-    spec3, stats3 = capture_and_analyze(sdr, "3_FM_BAND", FM_FREQ)
+    spec3, stats3 = capture_and_analyze(sdr, "3_FM_BAND", FM_FREQ, avg_count=FM_AVG_COUNT)    
     results["3_FM_BAND"] = (spec3, stats3)
 
     # 1. 원본 데이터 저장
