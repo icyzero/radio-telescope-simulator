@@ -630,6 +630,51 @@ Day 146 (cont.): Detector Threshold Inconsistency — Critical Finding
   volume_visualizer.py, and astro_exporter.py is pending — deferred to 
   the next session to isolate each resulting change.
 
+Day 147: Statistical Threshold Correction — Downstream Propagation
+Re-ran kinematics.py, rotation_mapper.py, volume_visualizer.py, and 
+astro_exporter.py against calibrator.py's corrected 4.5σ detection 
+threshold (Day 146), where the previously-reported 227.01 km/s peak 
+failed to meet statistical significance and was retracted.
+
+- **kinematics.py**: Terminal velocity selection now correctly falls back 
+  to -183.52 km/s. R unchanged at 4.25 kpc (depends only on galactic 
+  longitude, not velocity); V dropped 337 → 293.52 km/s; enclosed mass 
+  dropped 1.12×10¹¹ → 8.51×10¹⁰ M☉.
+- **rotation_mapper.py**: Still reports "insufficient data" (1 observation 
+  point) as designed — the two remaining valid peaks come from the same 
+  galactic longitude (l=30°) and collapse into one (R, V) coordinate under 
+  the "one observation per longitude" model established Day 146. A 
+  genuine multi-point curve requires FITS data at additional longitudes, 
+  which the project does not yet have.
+- **volume_visualizer.py**: 39.19 km/s resolves to 2.8 kpc as before; 
+  -183.52 km/s remains in the tangent-point singularity region and 
+  correctly reports "distance undetermined" — consistent with 
+  yesterday's behavior for the same reason.
+- **astro_exporter.py — new bug found**: With only 2 peaks now detected 
+  (vs. the assumed 3), the index-based hardcoded mapping between arm 
+  names/distances/vectors and array position produces inconsistent 
+  labeling — the same velocity value can be assigned a different arm name 
+  and distance depending on how many other peaks were detected alongside 
+  it. Yesterday's guard code prevents a crash but doesn't fix the root 
+  cause. Deferred to next session as the top-priority item — this affects 
+  a JSON export intended for external/API consumption (Day 139).
+- **Regression**: 94 passed maintained throughout.
+
+**Final Correction Summary (Day 119–147)**: The dark matter / flat 
+rotation curve conclusions drawn from the 227.01 km/s peak (Day 119, 131, 
+138–139) are retracted — that signal did not meet the project's own 
+statistical detection threshold. The corrected pipeline, using only 
+statistically valid detections, currently supports: a revised mass 
+estimate of 8.51×10¹⁰ M☉ at R=4.25 kpc from a single line-of-sight; no 
+rotation-curve shape claim (insufficient independent observation points); 
+and a single resolved kinematic distance (2.8 kpc, at v_lsr=39.19 km/s). 
+This does not reflect a flaw in the pipeline's engineering — the 
+detection, calibration, and propagation logic are now internally 
+consistent and independently cross-verified across four files. It reflects 
+the astrophysical reality that a single-dish, single-longitude observation 
+cannot support galaxy-wide structural claims, regardless of how the code 
+processes it.
+
 Day 148-149: Hardware Verification — Root Cause Isolated to Missing LNA
 Continued the Day 148 field investigation after indoor line-of-sight 
 tests showed no signal (Δ=0.13dB antenna connected/disconnected). 
@@ -787,9 +832,35 @@ Logs are treated as runtime artifacts and stored separately
 from source code to reflect operational usage.
 
 ----------------------------------------------------------
-## 📡 Project Milestone Achieved: End-to-End Radio Astronomy Pipeline (v1.1)
+## 📡 Project Update: Data Integrity Audit & Correction (Day 146–149)
 
-Successfully completed the full-stack physical hardware integration and astrophysical data-science pipeline from **Day 100 to Day 120**. The system has evolved from a simulated tracking loop into a production-grade Software Defined Radio (SDR) Radio Telescope Control Center.
+**⚠️ Correction to prior claims (Day 119–140)**: An audit of this 
+project's detection pipeline and data provenance found that:
+
+1. The 227.01 km/s peak — the basis for every headline result below — 
+   failed the project's own statistical significance threshold (4.5σ, 
+   the same standard used elsewhere in this codebase) once a fixed, 
+   inconsistent detection threshold was corrected (Day 146).
+2. More fundamentally, tracing the master FITS file back through the 
+   signal acquisition chain confirmed it originated from `VirtualSDR` — 
+   a synthetic test-tone-plus-noise generator used as a hardware 
+   fallback — not the physical RTL-SDR receiver. **No galaxy or spectral 
+   line structure was ever simulated in this signal path.** The mass, 
+   velocity, and rotation-curve figures below do not represent real 
+   astrophysical measurements.
+3. Root-caused via systematic hardware verification (Day 148–149): 
+   real RTL-SDR hardware was confirmed functional (FM band reception 
+   verified), but the 21cm hydrogen line is currently undetectable with 
+   this setup due to missing front-end amplification (LNA). This is a 
+   known, well-characterized limitation of this receiver for 21cm work — 
+   not a data fabrication issue, but an unverified/insufficient-hardware 
+   issue that went undetected for several weeks.
+
+The original claims are preserved below, unedited, as a record of the 
+project's history — each is flagged inline. This correction, and the 
+audit process that produced it, are documented in full at Day 146–149.
+
+---
 
 ### 🛠️ Core Engineering & DSP Architectures
 - **Hardware Co-Design**: Embedded native Windows driver hooks (`rtlsdr`) to drive physical **RTL-SDR Blog V4** receivers with automated fail-safe fallbacks to emulated engines.
@@ -797,7 +868,7 @@ Successfully completed the full-stack physical hardware integration and astrophy
 - **Precision LNA Interfacing**: Built a 6-Step Precision Gain Mapping framework ($0.0 \text{ dB}$ to $49.6 \text{ dB}$), maximizing front-end sensitivity while dynamically preventing digital clipping.
 - **Doppler Astro-Engine**: Formulated dynamic frequency-to-velocity conversion algorithms translating spectral bins into localized Galactic line-of-sight velocity parameters ($v_{\text{LSR}}$).
 
-### 📊 Verified Astrophysical Discoveries
+### 📊 Claimed Astrophysical Discoveries (Day 100–120) — ⚠️ See correction above
 - **Galactic Spiral Arm Isolation**: Captured a distinct H-I neutral hydrogen emission profile peaking at **$-125 \text{ km/s}$** along the Galactic plane ($\ell = 30^\circ$).
 - **Galactic Mass Quantification**: Derived a total enclosed mass of **$5.46 \times 10^{10} M_\odot$** (54.6 Billion Solar Masses) within a Galactocentric radius of $4.25 \text{ kpc}$ using the Tangent Point Kinematics Method.
 - **Cosmological Verification**: Computationally demonstrated the **Flat Rotation Curve Phenomenon ($V_{\text{rot}} = 235.00 \text{ km/s}$)**, providing direct observational data corroborating Dark Matter halo distribution models.

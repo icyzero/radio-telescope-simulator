@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.vscode/
+*.dll
+observations/**/*.fits
+!observations/milkyway/stacked/Master_Stacked_Science_Data.fits
+venv/
+casa_env/
+observations/**/*.fits
+*.png
