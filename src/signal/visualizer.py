@@ -5,6 +5,9 @@ import matplotlib.pyplot as plt
 import threading
 from matplotlib.animation import FuncAnimation
 from src.data.recorder import FitsRecorder
+from src.signal.sdr_interface import VirtualSDR
+from src.analysis.validator import AstroDataValidator
+from src.scheduler.observation_scheduler import ObservationScheduler
 
 OBS_PLAN = [
     {"freq": 1420.4e6, "duration": 5, "label": "ON_Target_H1"},
@@ -99,7 +102,6 @@ class WaterfallVisualizer:
 
         # 외부 주입 리코더 안전장치
         self.recorder = recorder if recorder is not None else FitsRecorder()
-        #self.fig.canvas.mpl_connect('key_press_event', self.on_key) /day 125중복으로 나오던 것 제거
         
         # 2. 상단: Spectrum Line
         self.line, = self.ax_spec.plot([], [], lw=1, color='#00ff00')
@@ -148,17 +150,10 @@ class WaterfallVisualizer:
                 target_name = "Milky Way Neutral Hydrogen (H-I)"
 
             # 🪐 [Day 125 핵심] 디스크 저장 전 통계적 품질 검사기 작동
-            from src.analysis.validator import AstroDataValidator
             validator = AstroDataValidator()
             
             # 현재 수집된 2차원 워터폴 버퍼 데이터를 검사기에 통과시킵니다.
             is_valid, grade, reason = validator.validate_data(target_key, self.waterfall_buffer)
-
-            # 🪐 [Day 126 추가]: 헤더 주입용 SNR 통계량 동기화 정밀 재산출
-            mean_val = np.mean(self.waterfall_buffer)
-            max_val = np.max(self.waterfall_buffer)
-            std_val = np.std(self.waterfall_buffer)
-            snr_val = (max_val - mean_val) / (std_val + 1e-6)
             
             if not is_valid:
                 print(f"🚨 [Save Blocked] 데이터 등급이 {grade}로 판명되어 쓰기가 차단되었습니다.")
@@ -167,13 +162,17 @@ class WaterfallVisualizer:
                 return # 🛑 디스크 쓰기 전면 중단 및 탈출!
 
             # 레코더가 요구하는 포맷(metadata 딕셔너리)에 맞춰 데이터 패킹
+            is_virtual = isinstance(self.sdr, VirtualSDR)
+            instrument_name = "VirtualSDR (simulated, not real hardware)" if is_virtual else "RTL-SDR Blog V4"
+
             meta_packet = {
                 "target_key": target_key,
                 "target_name": target_name,
                 "center_freq": current_freq,
                 "sample_rate": current_rate,
                 "gain": current_gain,
-                "az": 0,  # 향후 모터 구동 연동용
+                "instrument": instrument_name,
+                "az": 0,  # 향후 모터 구동 연동용 - 아직 실제 망원경 포인팅 상태와 연결 안 됨
                 "el": 0
             }
             
@@ -235,7 +234,6 @@ class WaterfallVisualizer:
         # 3. [A] 키: 자동 관측 시퀀스 가동
         elif event.key == 'a' or event.key == 'A':
             if not hasattr(self, 'scheduler'):
-                from src.scheduler.observation_scheduler import ObservationScheduler
                 self.scheduler = ObservationScheduler(self.sdr, self)
             
             print("\n🚀 [AUTO MODE] 관측 시퀀스를 실행합니다...")

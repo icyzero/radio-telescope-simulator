@@ -4,21 +4,27 @@ import os
 import glob
 import shutil
 from astropy.io import fits
+from src.analysis.validator import AstroDataValidator
+
 
 class AstroDataNavigator:
     def __init__(self, base_dir="observations"):
         self.base_dir = base_dir
         self.sandbox_dir = os.path.join(base_dir, "sandbox")
+        self.validator = AstroDataValidator()  # 헤더 자체 신고를 맹신하지 않고 실측 데이터로 독립 재검증하기 위함
         
         # 📂 샌드박스 내부 등급별 격리 폴더 자동 생성 (안전장치)
         os.makedirs(os.path.join(self.sandbox_dir, "tier1_clean"), exist_ok=True)
         os.makedirs(os.path.join(self.sandbox_dir, "tier2_warning"), exist_ok=True)
         os.makedirs(os.path.join(self.sandbox_dir, "tier3_rejected"), exist_ok=True)
 
-    def navigate_and_route(self, target_subdir="milkyway"):
+    def navigate_and_route(self, target_subdir="milkyway", target_key="MILKY_WAY_H1"):
         """
-        [Day 134 핵심] FITS 파일의 장애 이력(HW_FAILS)과 등급을 심층 분석하여
-        데이터의 신뢰도 등급별로 안전하게 샌드박스 라우팅(격리 이동)을 수행합니다.
+        [Day 134 핵심, 이번 정정에서 수정] FITS 파일의 장애 이력(HW_FAILS)과 헤더 등급을
+        1차로 보되, 그 등급을 그대로 믿지 않고 실제 데이터로 validator.py를 다시 돌려
+        독립 재검증합니다. 헤더 자체 신고와 실측 결과가 다르면(예: pipeline.py처럼
+        헤더에 QUAL_GRD='A'를 하드코딩해놓고 실제 데이터는 np.random.rand()인 경우)
+        Tier-1로 보내지 않고 불일치로 표시합니다.
         """
         search_path = os.path.join(self.base_dir, target_subdir, "*.fits")
         file_list = glob.glob(search_path)
@@ -40,12 +46,17 @@ class AstroDataNavigator:
             try:
                 with fits.open(file_path) as hdul:
                     header = hdul[0].header
+                    data = hdul[0].data
                     
                     # 🔍 메타데이터 정밀 추출 (Day 126 품질 & Day 133 장애 이력)
                     grade = str(header.get('QUAL_GRD', 'C')).upper()
                     snr = header.get('QUAL_SNR', 0.0)
                     hw_fails = header.get('HW_FAILS', 0)
-                    
+
+                actual_is_valid, actual_grade, actual_reason = self.validator.validate_data(target_key, data)
+                header_letter = grade[0] if grade else 'C'
+                actual_letter = actual_grade[0] if actual_is_valid and actual_grade else 'F'
+                metadata_mismatch = (header_letter != actual_letter)
                 # ----------------------------------------------------
                 # 🤖 [지능형 라우팅 트리거 정책 다중 조건 스코어링]
                 # ----------------------------------------------------
@@ -68,6 +79,7 @@ class AstroDataNavigator:
                 
                 print(f" 📦 [{filename}] 실시간 전수진단 리포트")
                 print(f"  🔹 [품질] 과학 등급: {grade} | 신호 대 잡음비(SNR): {snr:.2f} dB")
+                print(f"  🔹 [실측 재검증]   과학 등급: {actual_grade} ({actual_reason})")
                 print(f"  🔹 [이력] 관측 중 HW 단선 트리거 횟수: {hw_fails}회")
                 print(f"  ➡️  디시전 라우팅: {tier_label}")
                 print("-" * 80)

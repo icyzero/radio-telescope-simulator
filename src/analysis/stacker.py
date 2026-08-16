@@ -91,13 +91,13 @@ class AstroDataStacker:
         master_hdr['STACK_N'] = (len(valid_datasets), 'Number of stacked observation frames')
         master_hdr['AVG_SNR'] = (float(total_snr / len(valid_datasets)), 'Average input SNR in dB')
         master_hdr['PREPROC'] = ('MATHEMATICAL_MEAN_STACKING', 'Noise reduction algorithm applied')
-        master_hdr['COMMENT'] = "This file is a high-purity master stacked science dataset."
+        master_hdr['COMMENT'] = "Mean-stacked dataset from frames passing header-level quality filter (astrophysical origin not independently verified)."
 
         # 물리 디스크 쓰기
         master_hdu.writeto(output_file, overwrite=True)
         
         print("-" * 75)
-        print(f"🎯 [마스터 데이터 생성 완료] 우주의 미세 신호가 복원된 파일이 보관되었습니다.")
+        print(f"🎯 [마스터 데이터 생성 완료] 프레임 평균 스택 파일이 저장되었습니다 (출처 검증은 별도 필요).")
         print(f" 📸 저장 경로: {output_file}")
         print(f" 📊 스택 결과: 프레임 {master_hdr['STACK_N']}장 통합 | 평균 기저 SNR: {master_hdr['AVG_SNR']:.2f} dB")
         print("=" * 75)

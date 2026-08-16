@@ -2,6 +2,7 @@
 
 import os
 import time
+from src.signal.sdr_interface import VirtualSDR
 
 class ObservationTarget:
     def __init__(self, name, center_freq, sample_rate, dsp_mode, description):
@@ -53,7 +54,12 @@ class AstroTargetManager:
         print("-" * 75)
         
         # 실제 하드웨어 제어 인스턴스가 주입되었을 때 레지스터 주입 시작
-        if sdr and (hasattr(sdr, 'center_freq') or hasattr(sdr, 'set_center_freq')):
+        # 💡 [수정] 예전엔 hasattr(sdr, 'center_freq')로 실물/가상을 구분했는데, VirtualSDR도
+        # 다른 코드(예: observation_scheduler.py)가 sdr.center_freq를 직접 대입해두면 이 속성이
+        # 생겨버려서 가상인데 "하드웨어 락인 성공"으로 오판되는 버그가 있었음(실제 재현 확인).
+        # VirtualSDR 여부를 직접 타입으로 판별하는 게 유일하게 안전한 방법.
+        is_real_hardware = (sdr is not None) and (not isinstance(sdr, VirtualSDR))
+        if is_real_hardware :
             try:
                 # 💡 [RF 엔지니어링 패치]: 내부 필터 붕괴를 막기 위해 Sample Rate 및 Bandwidth 선제 변경
                 if hasattr(sdr, 'set_sample_rate'):

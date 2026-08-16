@@ -35,7 +35,7 @@ class AstroDataValidator:
             # 수소선 도플러 피크가 통계적 요동 바닥 위로 유의미하게 솟구쳤는지 검사
             if snr > 4.5:
                 grade = "A (Excellent Science Data)"
-                reason = "도플러 시선 속도 축 상에 명확한 중성 수소선(H-Line) 피크가 검출되었습니다!"
+                reason = "SNR 4.5시그마 이상의 통계적으로 유의미한 초과 신호가 관측되었습니다 (수소선 여부는 추가 검증 필요)."
             elif snr > 2.5:
                 grade = "B (Good Baseline)"
                 reason = "은하수 신호 오프셋이 존재하나 배경 감쇄 보정 처리가 필요합니다."
@@ -45,7 +45,7 @@ class AstroDataValidator:
             # 정상적인 태양 버스트는 기저선 대비 순간 SNR이 6배 이상 튀어야 함
             if max_val > -10.0 and snr > 6.0:
                 grade = "A (Solar Burst Detected)"
-                reason = "태양 플레어 또는 CME 활동으로 추정되는 초고에너지 전파 폭발 신호가 포착되었습니다!"
+                reason = "SNR 6시그마 이상의 초고에너지 통계적 초과가 관측되었습니다 (태양 플레어/CME 여부는 추가 검증 필요)."
             # 지나치게 높은 비정상 전력(앰프가 찢어지는 현상)은 주변 가전제품이나 5G 무선 RFI일 확률이 높음
             elif max_val > 15.0 or snr > 15.0: 
                 grade = "F (RFI / Saturation)"
@@ -58,7 +58,7 @@ class AstroDataValidator:
             if 0.3 < std_val < 3.0:
                 if snr > 5.0:
                     grade = "A (Jupiter DAM Candidate)"
-                    reason = "목성 이오(Io) 위성 자기장 상호작용 특유의 비열적 싱크로트론 단파 버스트 포착!"
+                    reason = "노이즈 변동성과 SNR 5시그마 조건을 만족하는 통계적 후보입니다 (이오 상호작용 여부는 추가 검증 필요)."
                 else:
                     grade = "B (Mild Radio Storm)"
                     reason = "목성 전파 폭풍 기저 신호 감지, 단파대 대역 통과 필터링 권장."

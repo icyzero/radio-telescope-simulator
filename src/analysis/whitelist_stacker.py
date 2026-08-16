@@ -15,8 +15,8 @@ class WhitelistDataStacker:
 
     def execute_whitelist_stacking(self):
         """
-        [Day 137 핵심] 네비게이터에 의해 검증된 Tier-1 초청정 화이트리스트 
-        FITS 파일만 선별 적분하여 불순물 0%의 마스터 과학 데이터를 생성합니다.
+        [Day 137 핵심] 네비게이터에 의해 Tier-1로 분류된(헤더 등급과 실측 재검증이 일치하는) 
+        FITS 파일만 선별 적분하여 마스터 과학 데이터를 생성합니다.
         """
         search_path = os.path.join(self.tier1_dir, "*.fits")
         tier1_files = glob.glob(search_path)
@@ -50,7 +50,7 @@ class WhitelistDataStacker:
                 print(f" ❌ [{os.path.basename(file_path)}] 로드 중 손상 감지 패스: {e}")
 
         print("-" * 80)
-        print(f"🧮 총 {len(stacked_matrices)}개의 무결점 매트릭스 배열 적분 및 평균 계산 중...")
+        print(f"🧮 총 {len(stacked_matrices)}개의 Tier-1 매트릭스 배열 적분 및 평균 계산 중...")
         
         # 고차원 행렬 텐서 스택 연산 수행
         master_matrix = np.mean(stacked_matrices, axis=0)
@@ -70,9 +70,9 @@ class WhitelistDataStacker:
         output_file_path = os.path.join(self.output_dir, "Verified_Ultra_Clean_Master_Data.fits")
         hdu.writeto(output_file_path, overwrite=True)
         
-        print(f"🎯 [마스터 데이터 발행 성공] 오염 물질이 100% 제거된 최종 과학 자산 보관 완료.")
+        print(f"🎯 [마스터 데이터 발행 성공] Tier-1 분류 자산 스택 파일이 저장되었습니다.")
         print(f" 📸 저장 경로: {output_file_path}")
-        print(f" 📊 최종 스펙트럼 스택 요약: 프레임 {len(tier1_files)}장 통합 | 순수 평균 SNR: {avg_snr:.2f} dB")
+        print(f" 📊 최종 스펙트럼 스택 요약: 프레임 {len(tier1_files)}장 통합 | 평균 SNR(헤더 신고값 기준): {avg_snr:.2f} dB")
         print("=" * 80)
         
         return output_file_path

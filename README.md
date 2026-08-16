@@ -703,6 +703,29 @@ remaining variables:
   H1). Purchase currently pending funding; deferred.
 - **Tooling**: `hardware_capture_test.py` finalized with fixed-gain, 
   high-averaging capture logic; ready for reuse once an LNA is acquired.
+
+Day 150: signal/ & data/ Subsystem Scan — Final Cycle Closure
+
+Scanned all 5 remaining files (pipeline.py, sdr_interface.py, 
+target_manager.py, visualizer.py, recorder.py) against the established 
+checklist (logging, dead code, mock data, overstated conclusions), 
+extended post-Day 149 with a new criterion: does this file's output/log/
+caption assert "real observation" as fact?
+
+**pipeline.py — most severe finding**: Confirmed `ResilientSignalPipeline` 
+(the Day 132 "hot-plug recovery" demo) is completely disconnected from 
+the rest of the project — `self.sdr_manager` is received but never used; 
+all IQ/waterfall data is `np.random`; the "hardware disconnect at cycle 
+42" narrative and the "Grade A, outstanding signal" quality report are 
+entirely scripted, bypassing `validator.py` altogether. Its output path 
+overlapped with the real observation directory 
+(`observations/milkyway/`), risking contamination. Fixed: isolated 
+output to `observations/_simulated_demo/`, replaced the fabricated 
+grade with `"SIMULATED_DEMO (NOT VALIDATED)"`, added a top-of-file 
+disclaimer. Verified end-to-end across the full 100-cycle loop.
+
+**target_manager.py — reproduced a real bug**: Hardware-vs-virtual SDR 
+detectio
 ---------------------------------------------------------
 ## How to Run
 

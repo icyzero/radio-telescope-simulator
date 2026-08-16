@@ -1,4 +1,15 @@
 # src/signal/pipeline.py
+"""
+⚠️ 이 파일은 시뮬레이션/데모 전용입니다 (실제 하드웨어 미연결).
+
+`sdr_manager`를 생성자에서 받긴 하지만 아래 로직 어디에서도 실제로 호출하지
+않습니다. IQ 샘플/워터폴 데이터는 전부 np.random으로 생성되고, "42번째 주기
+하드웨어 단선"도 실제 장애 감지가 아니라 코드에 하드코딩된 시나리오입니다.
+"핫플러그 복구" 흐름을 시각적으로 시연하기 위한 데모 스크립트로만 쓰세요.
+
+이 프로젝트 어디에서도 이 클래스를 실제로 import해서 쓰지 않습니다
+(자기 __main__ 블록으로만 실행되는 독립 파일).
+"""
 
 import time
 import random
@@ -15,8 +26,8 @@ class MockTargetProfile:
 
 class ResilientSignalPipeline:
     def __init__(self, sdr_manager=None):
-        self.sdr_manager = sdr_manager
-        self.recorder = FitsRecorder()  # 레코더 엔진 인스턴스 인터페이스 바인딩
+        self.sdr_manager = sdr_manager # 💡 현재 미사용 (진짜 하드웨어 연동 안 함, 위 disclaimer 참고)
+        self.recorder = FitsRecorder(output_dir="observations/_simulated_demo")  # 실제 관측 파일(observations/milkyway/...)과 절대 안 섞이도록 별도 경로에 저장
         self.is_running = True
         self.max_retries = 5  # 최대 핫플러그 재연결 시도 횟수
 
@@ -119,10 +130,11 @@ class ResilientSignalPipeline:
         final_waterfall_matrix = np.random.rand(100, 256)
         
         # Day 126 요구사항 반영 가상 품질 보고서
+        # ⚠️ 시뮬레이션 데이터 - 실제 품질 검사(validator.py)를 거치지 않음. 절대 A등급/실관측으로 취급 금지.
         mock_quality_info = {
-            "grade": "A",
-            "snr": 23.8,
-            "reason": "Empirical Galactic Curve Signal is outstanding."
+            "grade": "SIMULATED_DEMO (NOT VALIDATED)",
+            "snr": 0.0,  # recorder.py가 float(snr)로 변환하므로 None 대신 0.0
+            "reason": "np.random으로 생성된 데모 데이터입니다. 실제 신호 판단에 쓰지 마세요."
         }
         
         # 메타데이터 구조체 하나로 통합 포장

@@ -52,7 +52,8 @@ class FitsRecorder:
 
         # 4. [Day 124 핵심] 기존 헤더 보존 + 천문 표준 가변 메타데이터 인젝션
         hdr['DATE-OBS'] = (time.strftime("%Y-%m-%dT%H:%M:%S"), 'Observation start time (UTC)')
-        hdr['INSTRUME'] = ('RTL-SDR Blog V4', 'Receiver Hardware Model')
+        instrument_name = metadata.get('instrument', 'Unverified SDR (caller did not report type)')
+        hdr['INSTRUME'] = (instrument_name, 'Receiver Hardware Model')
         hdr['OBJECT'] = (target_name, 'Target Astronomical Object')
         
         # 기존 레거시 키와 정밀 물리 키 크로스 매핑
@@ -109,7 +110,7 @@ class FitsRecorder:
                 print(f"  📜 [HISTORY ADDED] {history_line}")
         else:
             hdr['HW_FAILS'] = (0, 'No hardware faults encountered')
-            print("  🟢 특이사항: 관측 주기 동안 하드웨어 트립이 발생하지 않은 청정 데이터셋입니다.")
+            print("  🟢 특이사항: 관측 주기 동안 하드웨어 트립이 발생하지 않았습니다 (데이터 품질 자체는 별도 검증 필요).")
 
         # 5. 물리적 디스크 저장 완료
         hdu.writeto(filename, overwrite=True)
