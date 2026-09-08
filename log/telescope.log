@@ -24679,3 +24679,886 @@
 2026-07-25T21:04:06 [Main] [CMD] MoveCommand RUNNING
 2026-07-25T21:04:06 [STATE] IDLE → MOVING (Target: 0.0, 100.0)
 2026-07-25T21:04:06 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.5
+2026-09-08T20:00:03 [SYSTEM] Manager registered: Main
+2026-09-08T20:00:03 [0000] [sim:2.200] [20:00:03] TestUnit -> COMMAND_FAILED {'cmd_type': 'TestCommand', 'reason': 'FORCED_TEST_ERROR', 'result_state': {'manager_state': 'IDLE'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: TestUnit | SimTime: 2.20s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: Main
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_STARTED {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_SUCCESS {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE', 'result_state': {'manager_state': 'OK'}}
+2026-09-08T20:00:03  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -5.0', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -7.337734100542494', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -8.070427401402911', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -3.801823689059842', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -2.066265429042484', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -6.80057479106773', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -7.6990154337754895', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -3.0795278205021903', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -2.0569448972029116', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -2.2824873085780055', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -2.7186383824126104', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -8.951322920486229', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -9.398384101596744', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -6.128489025658185', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -3.9864527348035246', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -8.75804625458392', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -2.6198239878065515', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -4.457724878091106', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -9.15568922673214', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -7.87909879949933', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_STARTED {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_SUCCESS {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE', 'result_state': {'manager_state': 'OK'}}
+2026-09-08T20:00:03  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_STARTED {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_SUCCESS {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE', 'result_state': {'manager_state': 'OK'}}
+2026-09-08T20:00:03  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_STARTED {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03  EventType.CONFIG_CHANGED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> COMMAND_SUCCESS {'cmd_type': 'CONFIG_UPDATE', 'action': 'CONFIG_UPDATE', 'result_state': {'manager_state': 'OK'}}
+2026-09-08T20:00:03  EventType.COMMAND_SUCCESS | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: MainTelescope
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [MainTelescope] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [MainTelescope] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] MainTelescope -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: MainTelescope | SimTime: 0.00s
+2026-09-08T20:00:03 [MainTelescope] [CMD] MoveCommand START
+2026-09-08T20:00:03 [MainTelescope] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 45.0, 180.0)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:03  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:1.000] [20:00:03] Mgr -> COMMAND_STARTED {'cmd_type': 'MOVE'}
+2026-09-08T20:00:03 [0000] [sim:2.000] [20:00:03] Mgr -> COMMAND_SUCCESS {'cmd_type': 'MOVE', 'result_state': {'manager_state': 'IDLE', 'queue_size': 0}}
+2026-09-08T20:00:03 [0000] [sim:3.000] [20:00:03] Mgr -> COMMAND_STARTED {'cmd_type': 'TRACK'}
+2026-09-08T20:00:03 [0000] [sim:4.000] [20:00:03] Mgr -> COMMAND_SUCCESS {'cmd_type': 'TRACK', 'result_state': {'manager_state': 'IDLE', 'queue_size': 0}}
+2026-09-08T20:00:03 [0000] [sim:1.000] [20:00:03] Mgr -> COMMAND_STARTED {'cmd_type': 'MOVE'}
+2026-09-08T20:00:03 [0000] [sim:2.000] [20:00:03] Mgr -> COMMAND_FAILED {'cmd_type': 'MOVE', 'reason': 'Hardware Error', 'result_state': {'manager_state': 'IdleState', 'queue_size': 0}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03 [ERROR] EventBus: Subscriber failed with error: 'types.SimpleNamespace' object has no attribute 'telescope'
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:03  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'Altitude out of range (0.0~90.0): -10.0', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_STOPPED {}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.SYSTEM_STOPPED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SafetyGuard -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'System is in STOPPED mode. Commands ignored.', 'result_state': {'manager_state': 'REJECTED'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: SafetyGuard | SimTime: 0.00s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 30, 90)
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.05
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [SYSTEM] Manager registered: B
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:03 [B] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [B] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] B -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: B | SimTime: 0.00s
+2026-09-08T20:00:03 [B] [CMD] MoveCommand START
+2026-09-08T20:00:03 [B] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:03 [0000] [sim:0.100] [20:00:03] SystemController -> SYSTEM_STOPPED {}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.SYSTEM_STOPPED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-09-08T20:00:03 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:03 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:03 [B] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-09-08T20:00:03 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:03 [B] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 0.001, 0.001)
+2026-09-08T20:00:03 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:03 [0000] [sim:0.100] [20:00:03] SystemController -> SYSTEM_STOPPED {}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.SYSTEM_STOPPED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.10s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand ABORTED (INTERRUPTED)
+2026-09-08T20:00:03 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:03 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:03  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:03 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:03 [0000] [sim:7.500] [20:00:03] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:03  EventType.COMMAND_SUCCESS | Source: A | SimTime: 7.50s
+2026-09-08T20:00:03 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:03 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:03 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:03 [0000] [sim:0.200] [20:00:03] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:03 [0000] [sim:0.200] [20:00:03] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:03 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:03  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:03  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:03  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [CMD] MoveCommand START
+2026-09-08T20:00:03 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:03 [0000] [sim:1.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 1.00s
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:03 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:03 [SYSTEM] Manager registered: A
+2026-09-08T20:00:03 [STATE] IDLE → MOVING (Target: 90.0, 90.0)
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:03  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [0000] [sim:0.000] [20:00:03] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:03  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:03 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_STOPPED {}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.SYSTEM_STOPPED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [A] Reset ignored: Manager is already in IDLE state.
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [STATE] → IDLE (Hardware Reset)
+2026-09-08T20:00:04 [A] [A] [CMD] Hardware Reset Success.
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> SYSTEM_RESUMED {'reason': 'OPERATOR_RESET'}
+2026-09-08T20:00:04  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [A] Manager unlocked and returned to IDLE.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [STATE] → IDLE (Hardware Reset)
+2026-09-08T20:00:04 [A] [A] [CMD] Hardware Reset Success.
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> SYSTEM_RESUMED {'reason': 'OPERATOR_RESET'}
+2026-09-08T20:00:04  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [A] Manager unlocked and returned to IDLE.
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.2}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 20, 20)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.30000000000000004
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [STATE] → IDLE (Hardware Reset)
+2026-09-08T20:00:04 [A] [A] [CMD] Hardware Reset Success.
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> SYSTEM_RESUMED {'reason': 'OPERATOR_RESET'}
+2026-09-08T20:00:04  EventType.SYSTEM_RESUMED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [A] Manager unlocked and returned to IDLE.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_STOPPED {}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.SYSTEM_STOPPED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.SYSTEM_STOPPED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=STOPPED, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE rejected (state=STOPPED)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.0
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [A] REJECT: Manager is LOCKED.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04  EventType.INVALID_COMMAND | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [A] [A] REJECT: Manager is LOCKED.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 45, 45)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'MoveCommand', 'reason': 'ABORTED', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [0000] [sim:0.200] [20:00:04] A -> MANAGER_CRITICAL_STOP {'reason': 'STOPPED'}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.MANAGER_CRITICAL_STOP. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.MANAGER_CRITICAL_STOP | Source: A | SimTime: 0.20s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:7.500] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 7.50s
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:04  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [0000] [sim:0.100] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand'}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.10s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 30, 30)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [SYSTEM] Manager registered: Main
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] RemoteCommandGate -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'action': 'MOVE'}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: RemoteCommandGate | SimTime: 0.00s
+2026-09-08T20:00:04 [Main] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [Main] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] Main -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: Main | SimTime: 0.00s
+2026-09-08T20:00:04 [Main] [CMD] MoveCommand START
+2026-09-08T20:00:04 [Main] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 0.0, 100.0)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.5
+2026-09-08T20:00:04 [CMD] MoveCommand START
+2026-09-08T20:00:04 [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [CMD] MoveCommand START
+2026-09-08T20:00:04 [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [CMD] MoveCommand START
+2026-09-08T20:00:04 [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [CMD] MoveCommand ABORTED (TELESCOPE_STOPPED)
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'FailingCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_FAILED {'cmd_type': 'FailingCommand', 'error': '하드웨어 통신 오류 시뮬레이션', 'reason': 'EXECUTION_ERROR', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04 [STREAMER] Critical Event Detected: EventType.COMMAND_FAILED. Pushing immediate telemetry.
+2026-09-08T20:00:04  EventType.COMMAND_FAILED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=MOVING, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (PENDING)
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
+2026-09-08T20:00:04 [A] [MANAGER] Emergency STOP executed. All cleared.
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [ERROR] EventBus: Subscriber failed with error: I am a broken subscriber
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 0, 0)
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 0.1
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SYSTEM -> SYSTEM_PAUSED {'reason': 'test'}
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] Manager_A -> COMMAND_STARTED {'cmd_type': 'TestCommand'}
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] Manager_A -> COMMAND_SUCCESS {'cmd_type': 'TestCommand', 'result_state': {'manager_state': 'IDLE'}}
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SYSTEM -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_PAUSED {}
+2026-09-08T20:00:04  EventType.SYSTEM_PAUSED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] SystemController -> SYSTEM_RESUMED {}
+2026-09-08T20:00:04  EventType.SYSTEM_RESUMED | Source: SystemController | SimTime: 0.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [SYSTEM] Manager registered: A
+2026-09-08T20:00:04 [A] [DEBUG] add_command: state=IDLE, cmd=MOVE
+2026-09-08T20:00:04 [A] [CMD] MOVE accepted (EXECUTE)
+2026-09-08T20:00:04 [0000] [sim:0.000] [20:00:04] A -> COMMAND_STARTED {'cmd_type': 'MoveCommand', 'scheduled_at': 0.0}
+2026-09-08T20:00:04  EventType.COMMAND_STARTED | Source: A | SimTime: 0.00s
+2026-09-08T20:00:04 [A] [CMD] MoveCommand START
+2026-09-08T20:00:04 [A] [CMD] MoveCommand RUNNING
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10, 10)
+2026-09-08T20:00:04 [STREAMER] Mode changed to ACTIVE. Immediate push at 1.0
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Clamped to Target)
+2026-09-08T20:00:04 [A] [CMD] MoveCommand SUCCESS
+2026-09-08T20:00:04 [0000] [sim:8.000] [20:00:04] A -> COMMAND_SUCCESS {'cmd_type': 'MoveCommand', 'result_state': {'manager_state': 'IdleState'}}
+2026-09-08T20:00:04  EventType.COMMAND_SUCCESS | Source: A | SimTime: 8.00s
+2026-09-08T20:00:04 [A] [A] PAUSED: Command queued as PENDING.
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 5.0, 5.0)
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 1.0, 0.0)
+2026-09-08T20:00:04 [STATE] MOVING → IDLE (Target Reached)
+2026-09-08T20:00:04 [STATE] IDLE → MOVING (Target: 10.0, 10.0)
+2026-09-08T20:00:04 [STATE] → STOPPED (force stop)
